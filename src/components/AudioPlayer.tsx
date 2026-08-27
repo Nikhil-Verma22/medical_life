@@ -9,9 +9,18 @@ import {
   ListMusic,
   Disc3,
   Radio,
+  Music,
+  Search,
 } from "lucide-react";
 import { MEDICAL_SONGS, MedicalSong } from "../data/medMedia";
 import { Scene } from "../data/scenes";
+
+declare global {
+  interface Window {
+    onYouTubeIframeAPIReady?: () => void;
+    YT?: any;
+  }
+}
 
 interface AudioPlayerProps {
   currentScene: Scene;
@@ -37,38 +46,103 @@ export function AudioPlayer({
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(0.75);
+  const [volume, setVolume] = useState(0.8);
   const [isMuted, setIsMuted] = useState(false);
   const [showPlaylist, setShowPlaylist] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const ytPlayerRef = useRef<any>(null);
+  const timerRef = useRef<any>(null);
   const track = MEDICAL_SONGS[trackIndex] ?? MEDICAL_SONGS[0];
 
-  // Initialize or update audio when track changes
+  // Initialize YouTube Iframe API
   useEffect(() => {
-    if (!audioRef.current) return;
-    audioRef.current.src = track.audioUrl;
-    audioRef.current.volume = isMuted ? 0 : volume;
+    if (!window.YT) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag?.parentNode?.insertBefore(tag, firstScriptTag);
 
-    if (isPlaying) {
-      audioRef.current.play().catch(() => {
-        setIsPlaying(false);
-      });
+      window.onYouTubeIframeAPIReady = () => {
+        initYTPlayer();
+      };
+    } else {
+      initYTPlayer();
     }
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, []);
+
+  const initYTPlayer = () => {
+    if (ytPlayerRef.current || !window.YT?.Player) return;
+
+    ytPlayerRef.current = new window.YT.Player("yt-audio-engine", {
+      height: "1",
+      width: "1",
+      videoId: track.youtubeId,
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        disablekb: 1,
+        fs: 0,
+        rel: 0,
+        modestbranding: 1,
+        iv_load_policy: 3,
+        enablejsapi: 1,
+        origin: window.location.origin,
+      },
+      events: {
+        onReady: (event: any) => {
+          event.target.setVolume(volume * 100);
+        },
+        onStateChange: (event: any) => {
+          // YT.PlayerState.PLAYING = 1, ENDED = 0
+          if (event.data === 1) {
+            setIsPlaying(true);
+            startTimer();
+          } else if (event.data === 0) {
+            setIsPlaying(false);
+            handleNext();
+          } else if (event.data === 2) {
+            setIsPlaying(false);
+          }
+        },
+      },
+    });
+  };
+
+  const startTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      if (ytPlayerRef.current && typeof ytPlayerRef.current.getCurrentTime === "function") {
+        const curr = ytPlayerRef.current.getCurrentTime() || 0;
+        const dur = ytPlayerRef.current.getDuration() || 0;
+        setCurrentTime(curr);
+        if (dur > 0) setDuration(dur);
+      }
+    }, 500);
+  };
+
+  // Load new track when index changes
+  useEffect(() => {
+    if (ytPlayerRef.current && typeof ytPlayerRef.current.loadVideoById === "function") {
+      ytPlayerRef.current.loadVideoById(track.youtubeId);
+      setIsPlaying(true);
+    }
+    setCurrentTime(0);
+    setDuration(0);
   }, [trackIndex]);
 
   const togglePlay = () => {
-    if (!audioRef.current) return;
+    if (!ytPlayerRef.current) return;
     if (isPlaying) {
-      audioRef.current.pause();
+      ytPlayerRef.current.pauseVideo();
       setIsPlaying(false);
     } else {
-      audioRef.current
-        .play()
-        .then(() => setIsPlaying(true))
-        .catch(() => {
-          setIsPlaying(false);
-        });
+      ytPlayerRef.current.playVideo();
+      setIsPlaying(true);
     }
   };
 
@@ -80,105 +154,126 @@ export function AudioPlayer({
     setTrackIndex((prev) => (prev - 1 + MEDICAL_SONGS.length) % MEDICAL_SONGS.length);
   };
 
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-      if (!isNaN(audioRef.current.duration)) {
-        setDuration(audioRef.current.duration);
-      }
-    }
-  };
-
+  // Seek Handler for 10%, 50%, 70%, 90%
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const time = Number(e.target.value);
     setCurrentTime(time);
-    if (audioRef.current) {
-      audioRef.current.currentTime = time;
+    if (ytPlayerRef.current && typeof ytPlayerRef.current.seekTo === "function") {
+      ytPlayerRef.current.seekTo(time, true);
     }
   };
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = Number(e.target.value);
     setVolume(val);
-    if (audioRef.current) {
-      audioRef.current.volume = val;
+    if (ytPlayerRef.current && typeof ytPlayerRef.current.setVolume === "function") {
+      ytPlayerRef.current.setVolume(val * 100);
       if (val > 0) setIsMuted(false);
     }
   };
 
   const toggleMute = () => {
-    if (!audioRef.current) return;
+    if (!ytPlayerRef.current) return;
     if (isMuted) {
-      audioRef.current.volume = volume;
+      ytPlayerRef.current.setVolume(volume * 100);
       setIsMuted(false);
     } else {
-      audioRef.current.volume = 0;
+      ytPlayerRef.current.setVolume(0);
       setIsMuted(true);
     }
   };
 
   const formatTime = (secs: number) => {
-    if (isNaN(secs)) return "0:00";
+    if (isNaN(secs) || secs < 0) return "0:00";
     const m = Math.floor(secs / 60);
     const s = Math.floor(secs % 60);
     return `${m}:${s < 10 ? "0" : ""}${s}`;
   };
 
+  const filteredSongs = searchQuery.trim()
+    ? MEDICAL_SONGS.filter(
+        (s) =>
+          s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          s.artist.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : MEDICAL_SONGS;
+
   return (
     <>
-      <audio
-        ref={audioRef}
-        src={track.audioUrl}
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={handleTimeUpdate}
-        onEnded={handleNext}
-      />
+      {/* Hidden YouTube Iframe Audio Engine */}
+      <div className="absolute top-0 left-0 h-1 w-1 opacity-0 pointer-events-none overflow-hidden">
+        <div id="yt-audio-engine" />
+      </div>
 
-      {/* Playlist Drawer Modal */}
+      {/* Playlist Drawer Modal (Search & 400+ Tracks) */}
       {showPlaylist && (
-        <div className="fixed inset-0 z-40 flex items-end justify-center bg-black/60 backdrop-blur-sm p-4 sm:items-center">
-          <div className="w-full max-w-md rounded-3xl border border-white/20 bg-neutral-950/95 p-4 text-white shadow-2xl backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
+        <div className="fixed inset-0 z-40 flex items-end justify-center bg-black/80 backdrop-blur-md p-4 sm:items-center">
+          <div className="w-full max-w-xl rounded-3xl border border-white/20 bg-neutral-950/95 p-4 text-white shadow-2xl backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <div className="flex items-center gap-2">
                 <Radio className="h-4 w-4 text-amber-400" />
-                <h3 className="font-semibold text-sm">Medical Hub Radio Streams</h3>
+                <h3 className="font-bold text-sm">
+                  Nusrat Fateh Ali Khan Vault ({MEDICAL_SONGS.length} Qawwalis)
+                </h3>
               </div>
               <button
                 onClick={() => setShowPlaylist(false)}
-                className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20 hover:text-white"
+                className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 hover:bg-white/20 hover:text-white"
               >
                 Close
               </button>
             </div>
 
-            <div className="mt-2.5 max-h-64 space-y-1.5 overflow-y-auto custom-scrollbar pr-1">
-              {MEDICAL_SONGS.map((s, idx) => (
-                <button
-                  key={s.id}
-                  onClick={() => {
-                    setTrackIndex(idx);
-                    setIsPlaying(true);
-                    setShowPlaylist(false);
-                  }}
-                  className={`flex w-full items-center justify-between rounded-xl p-2.5 text-left transition-all ${
-                    idx === trackIndex
-                      ? "bg-amber-400/20 border border-amber-400/40 text-white"
-                      : "hover:bg-white/10 text-white/80 border border-transparent"
-                  }`}
-                >
-                  <div className="min-w-0 flex-1 pr-2">
-                    <p className="truncate font-semibold text-xs">{s.title}</p>
-                    <p className="truncate text-[10px] text-white/60">{s.mood}</p>
-                  </div>
-                  <span className="font-mono text-[10px] text-white/50">{s.duration}</span>
-                </button>
-              ))}
+            {/* Search Input */}
+            <div className="mt-3 relative">
+              <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-white/50" />
+              <input
+                type="text"
+                placeholder="Search Qawwali title..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full rounded-xl border border-white/15 bg-white/5 pl-9 pr-3 py-2 text-xs text-white placeholder-white/40 focus:border-amber-400 focus:outline-none"
+              />
+            </div>
+
+            <div className="mt-3 max-h-80 space-y-1.5 overflow-y-auto custom-scrollbar pr-1">
+              {filteredSongs.slice(0, 100).map((s) => {
+                const originalIndex = MEDICAL_SONGS.findIndex((orig) => orig.id === s.id);
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => {
+                      setTrackIndex(originalIndex);
+                      setIsPlaying(true);
+                      setShowPlaylist(false);
+                    }}
+                    className={`flex w-full items-center justify-between rounded-xl p-2.5 text-left transition-all ${
+                      originalIndex === trackIndex
+                        ? "bg-amber-400/25 border border-amber-400/50 text-white shadow-md"
+                        : "hover:bg-white/10 text-white/80 border border-transparent"
+                    }`}
+                  >
+                    <div className="min-w-0 flex-1 pr-2">
+                      <div className="flex items-center gap-2">
+                        <span className="rounded bg-amber-400/20 border border-amber-400/40 px-1.5 py-0.5 font-mono text-[9px] font-bold text-amber-300">
+                          NFAK
+                        </span>
+                        <p className="truncate font-semibold text-xs text-white">{s.title}</p>
+                      </div>
+                      <p className="truncate text-[10px] text-white/60">{s.artist}</p>
+                    </div>
+                    <span className="font-mono text-[10px] text-amber-200/80 font-bold">
+                      {s.duration}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
       )}
 
-      {/* Main Bottom Player Bar (Reduced Size & Width) */}
+      {/* Main Bottom Player Bar (Ad-Free YouTube Audio Engine) */}
       <div
         className={`fixed inset-x-0 bottom-3 z-30 flex justify-center px-3 transition-all duration-500 ${
           zenMode
@@ -186,11 +281,11 @@ export function AudioPlayer({
             : "translate-y-0 opacity-100"
         }`}
       >
-        <div className="flex w-full max-w-lg items-center gap-2.5 rounded-full border border-white/20 bg-black/70 px-3.5 py-2 text-white shadow-2xl backdrop-blur-2xl sm:gap-3 sm:px-4">
-          {/* Rotating Album Icon */}
+        <div className="flex w-full max-w-lg items-center gap-2.5 rounded-full border border-white/20 bg-black/85 px-3.5 py-2.5 text-white shadow-2xl backdrop-blur-2xl sm:gap-3 sm:px-4">
+          {/* Rotating Artwork Icon */}
           <div className="relative flex-none">
             <div
-              className={`h-9 w-9 rounded-full overflow-hidden border border-white/30 bg-neutral-800 shadow-md ${
+              className={`h-10 w-10 rounded-full overflow-hidden border border-white/30 bg-neutral-800 shadow-md ${
                 isPlaying ? "animate-pulse" : ""
               }`}
             >
@@ -210,15 +305,20 @@ export function AudioPlayer({
           {/* Track Info & Scrubber */}
           <div className="min-w-0 flex-1">
             <div className="flex items-center justify-between gap-1.5">
-              <p className="truncate text-xs font-bold text-white tracking-wide">
-                {track.title}
-              </p>
-              <span className="font-mono text-[9px] tabular-nums text-white/60 flex-none">
+              <div className="flex items-center gap-1.5 truncate">
+                <span className="rounded bg-amber-400/20 border border-amber-400/40 px-1 py-0 font-mono text-[8px] font-bold text-amber-300 uppercase">
+                  NFAK
+                </span>
+                <p className="truncate text-xs font-bold text-white tracking-wide">
+                  {track.title}
+                </p>
+              </div>
+              <span className="font-mono text-[10px] tabular-nums text-white/70 font-semibold flex-none">
                 {formatTime(currentTime)} / {formatTime(duration)}
               </span>
             </div>
 
-            {/* Scrubber */}
+            {/* Seek Slider (Clickable anywhere for instant seeking) */}
             <div className="mt-1 flex items-center">
               <input
                 type="range"
@@ -226,8 +326,9 @@ export function AudioPlayer({
                 max={duration || 100}
                 value={currentTime}
                 onChange={handleSeek}
-                aria-label="Track progress"
-                className="h-1 w-full cursor-pointer appearance-none rounded-full bg-white/20 accent-amber-400 hover:bg-white/30"
+                onInput={handleSeek}
+                aria-label="Seek audio track"
+                className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/20 accent-amber-400 hover:bg-white/40 transition-all"
               />
             </div>
           </div>
@@ -237,10 +338,10 @@ export function AudioPlayer({
             {/* Playlist Button */}
             <button
               onClick={() => setShowPlaylist((p) => !p)}
-              title="View Playlists"
-              className="rounded-full p-1.5 text-white/80 hover:bg-white/15 hover:text-white transition-colors"
+              title={`View Playlist (${MEDICAL_SONGS.length} Qawwalis)`}
+              className="rounded-full p-1.5 text-amber-300 hover:bg-white/15 hover:text-white transition-colors"
             >
-              <ListMusic className="h-3.5 w-3.5" />
+              <ListMusic className="h-4 w-4" />
             </button>
 
             {/* Prev Track */}

@@ -19,7 +19,26 @@ import scene18 from "../assets/scene-18.png";
 import scene19 from "../assets/scene-19.jpg";
 import scene20 from "../assets/scene-20.png";
 import scene21 from "../assets/scene-21.png";
+import scene22 from "../assets/scene-22.jpg";
+import scene23 from "../assets/scene-23.jpg";
+import scene24 from "../assets/scene-24.jpg";
+import scene25 from "../assets/scene-25.jpg";
+import scene26 from "../assets/scene-26.jpg";
+import scene27 from "../assets/scene-27.jpg";
 import labCoatMaster from "../assets/scene-labcoat-master.jpg";
+
+import scene28 from "../assets/scene-28.jpg";
+import scene29 from "../assets/scene-29.jpg";
+import scene30 from "../assets/scene-30.jpg";
+import scene31 from "../assets/scene-31.jpg";
+import scene32 from "../assets/scene-32.jpg";
+import scene33 from "../assets/scene-33.jpg";
+import scene34 from "../assets/scene-34.jpg";
+import scene35 from "../assets/scene-35.jpg";
+import scene36 from "../assets/scene-36.jpg";
+import scene37 from "../assets/scene-37.jpg";
+import scene38 from "../assets/scene-38.jpg";
+import scene39 from "../assets/scene-39.jpg";
 
 export interface Shayari {
   hindi: string;
@@ -33,7 +52,7 @@ export interface Scene {
   hindiTitle: string;
   englishTitle: string;
   subtitle: string;
-  category: "ward" | "hostel" | "anatomy" | "casualty" | "library" | "chai" | "convocation" | "study" | "love" | "labcoat";
+  category: "ward" | "hostel" | "anatomy" | "casualty" | "library" | "chai" | "convocation" | "study" | "love" | "labcoat" | "microbiology" | "ayurveda" | "cardiology" | "radiology" | "pediatrics" | "dental" | "nursing";
   mood: string;
   accentHex: string;
   alt: string;
@@ -57,11 +76,6 @@ export const SCENES: Scene[] = [
       { hindi: "जिस्म के ज़ख्म तो दुनिया भी सिल लेती है, ये कोट रूह को तसल्ली बख़्शने का हुनर रखता है।", hinglish: "Jism ke zakhm toh duniya bhi sil leti hai, yeh coat rooh ko tasalli bakhshne ka hunar rakhta hai." },
       { hindi: "हर धागे में बुनी है रातों की बेदारी, ये एप्रन नहीं, मेरी ज़िंदगी की सबसे हसीन ज़िम्मेदारी।", hinglish: "Har dhaage mein buni hai raaton ki bedaari, yeh apron nahi, meri zindagi ki sabse haseen zimmedari." },
       { hindi: "तेरे इश्क़ से भी ज़्यादा वफ़ादार निकला ये कोट, हर दर्द में मेरे साथ सीने से लिपटा रहा।", hinglish: "Tere ishq se bhi zyada wafadaar nikla yeh coat, har dard mein mere saath seene se lipta raha." },
-      { hindi: "ना ताज चाहिए ना सल्तनत की ख़्वाहिश, मुझे मेरे एप्रन की सिलवटों में सुकून मिलता है।", hinglish: "Na taaj chahiye na saltanat ki khwahish, mujhe mere apron ki silwaton mein sukoon milta hai." },
-      { hindi: "हज़ारों अरमान कुर्बान हुए इस लिबास की ख़ातिर, जब पहना तो लगा पूरी कायनात मिल गई।", hinglish: "Hazaron armaan qurbaan hue is libaas ki khaatir, jab pehna toh laga poori qaaynaat mil gayi." },
-      { hindi: "स्टेथोस्कोप की नली जब दिल से छूती है, हर धड़कन में तिब्ब की मोहब्बत गूँजती है।", hinglish: "Stethoscope ki nali jab dil se chooti hai, har dhadkan mein tibb ki mohabbat goonjti hai." },
-      { hindi: "दवा भी हम हैं, दुआ भी हम हैं, इस सफ़ेद कोट में छुपे मसीहा भी हम हैं।", hinglish: "Dawa bhi hum hain, dua bhi hum hain, is safed coat mein chupe masiha bhi hum hain." },
-      { hindi: "वार्ड की ख़ामोशियों में जब ये कोट लहराता है, ज़िंदगी को जीने का एक नया सबब मिल जाता है।", hinglish: "Ward ki khamoshiyon mein jab yeh coat lehrata hai, zindagi ko jeene ka ek naya sabab mil jaata hai." },
     ],
   },
   {
@@ -78,13 +92,6 @@ export const SCENES: Scene[] = [
       { hindi: "दवाख़ाने की चौखट पे जो सुकून मिलता है, वो महलों के तख़्त पे भी कहाँ नसीब होता है।", hinglish: "Dawakhane ki chaukhat pe jo sukoon milta hai, woh mehlon ke takht pe bhi kahan naseeb hota hai." },
       { hindi: "मरीज़ों की मुस्कान में जब अपनी दुआ दिखती है, उस पल मेडिकल की हर थकान मिटती है।", hinglish: "Mareezon ki muskaan mein jab apni dua dikhti hai, us pal medical ki har thakaan mit-ti hai." },
       { hindi: "हमने सीखी है नब्ज़ से दिल की बात समझना, लफ़्ज़ों की ज़रूरत किसे है जब धड़कनें बोलती हैं।", hinglish: "Humne seekhi hai nabz se dil ki baat samajhna, lafzon ki zaroorat kise hai jab dhadkanein bolti hain." },
-      { hindi: "इश्क़ हो या दवा, असर दोनों का दिल पे होता है, जो डॉक्टर समझ गया वो कभी तन्हा नहीं रोता है।", hinglish: "Ishq ho ya dawa, asar dono ka dil pe hota hai, jo doctor samajh gaya woh kabhi tanha nahi rota hai." },
-      { hindi: "पुरानी बिल्डिंग, लाल ईंटें और दवा की महक, यहाँ हर कोने में बसती है हमारी जवानी की चहक।", hinglish: "Purani building, laal eentein aur dawa ki mehek, yahan har kone mein basti hai humari jawani ki chehak." },
-      { hindi: "ज़िंदगी को बहुत करीब से संभलते देखा है, हमने दवाख़ाने में मौत को भी हारते देखा है।", hinglish: "Zindagi ko bahut kareeb se sambhalte dekha hai, humne dawakhane mein maut ko bhi haarte dekha hai." },
-      { hindi: "स्टेथोस्कोप के दोनों सिरे जब कानों में जाते हैं, हम दुनिया का सारा शोर भूल जाते हैं।", hinglish: "Stethoscope ke dono sire jab kaano mein jaate hain, hum duniya ka saara shor bhool jaate hain." },
-      { hindi: "एक पर्ची पे लिख दी हमने अपनी पूरी दास्ताँ, थोड़ी दवा, थोड़ी तसल्ली और बेपनाह मोहब्बत।", hinglish: "Ek parchi pe likh di humne apni poori daastan, thodi dawa, thodi tasalli aur bepanah mohabbat." },
-      { hindi: "दवाख़ाना सिर्फ़ अस्पताल नहीं एक महफ़िल है, जहाँ हर दर्द का इलाज ढूंढना ही हमारी मंज़िल है।", hinglish: "Dawakhana sirf aspatal nahi ek mehfil hai, jahan har dard ka ilaaj dhoondna hi humari manzil hai." },
-      { hindi: "जब कोई हाथ जोड़कर मुस्कुरा के कहता है शुक्रिया, लगता है खुदा ने आज फिर हमें चुन लिया।", hinglish: "Jab koi haath jodkar muskura ke kehta hai shukriya, lagta hai khuda ne aaj phir humein chun liya." },
     ],
   },
   {
@@ -101,13 +108,6 @@ export const SCENES: Scene[] = [
       { hindi: "छत पे खुली है किताब और आँखों में तेरे ख़्वाब, रात के तीन बजे भी है मोहब्बत बेहिसाब।", hinglish: "Chhat pe khuli hai kitaab aur aankhon mein tere khwaab, raat ke teen baje bhi hai mohabbat behisaab." },
       { hindi: "तारे गवाह हैं हमारी इन बे-नींद रातों के, कितने पन्ने पलट गए तेरी मोहब्बत की बातों में।", hinglish: "Taare gawah hain humari in be-neend raaton ke, kitne panne palat gaye teri mohabbat ki baaton mein." },
       { hindi: "एक हाथ में हैरिसन, दूजे में तेरा हाथ हो, काश हर नाइट-स्टडी में तेरा ही साथ हो।", hinglish: "Ek haath mein Harrison, dooje mein tera haath ho, kaash har night-study mein tera hi saath ho." },
-      { hindi: "हॉस्टल की ठंडी हवा और चाय की चुस्की, मेडिकोज के इश्क़ की बातें ही हैं सबसे दिलकश सी।", hinglish: "Hostel ki thandi hawa aur chai ki chuski, medicos ke ishq ki baatein hi hain sabse dilkash si." },
-      { hindi: "रोशनी किताबों से निकलकर दिल तक जाती है, जब तू मुस्कुरा के मुझे कोई डायग्नोसिस सिखाती है।", hinglish: "Roshni kitaabon se nikalkar dil tak jaati hai, jab tu muskura ke mujhe koi diagnosis sikhaati hai." },
-      { hindi: "नींद से कह दो ज़रा ठहर जाए आज की रात, आज आसमान के नीचे है ज़िंदगी से मुलाक़ात।", hinglish: "Neend se keh do zara thehar jaaye aaj ki raat, aaj aasmaan ke neeche hai zindagi se mulaaqaat." },
-      { hindi: "सपनों का बोझ है पर हौसले बुलन्द हैं, इस मेडिकल की दुनिया में हम दोनों मस्त-मलंग हैं।", hinglish: "Sapno ka bojh hai par hausle buland hain, is medical ki duniya mein hum dono mast-malang hain." },
-      { hindi: "चाँद भी झांकता है हमारी इस टेबल की तरफ़, जहाँ जागते हैं दो मसीहा इल्म और मोहब्बत के तरफ़।", hinglish: "Chaand bhi jhaankta hai humari is table ki taraf, jahan jaagte hain do masiha ilm aur mohabbat ke taraf." },
-      { hindi: "तेरे साथ बैठकर वाइवा की तैयारी करना, जैसे समंदर में उतर कर लहरों से नहीं डरना।", hinglish: "Tere saath baithkar viva ki taiyari karna, jaise samandar mein utar kar lehron se nahi darna." },
-      { hindi: "हम डॉक्टर बनने आए थे मगर ये क्या हुआ, तुमसे मिलकर दिल का सारा फिजियोलॉजी बदल गया।", hinglish: "Hum doctor ban-ne aaye the magar yeh kya hua, tumse milkar dil ka saara physiology badal gaya." },
     ],
   },
   {
@@ -123,14 +123,6 @@ export const SCENES: Scene[] = [
     shayaris: [
       { hindi: "आसमान को चीरती है हमारी ख़्वाहिशों की पतंग, जब तक जान है तब तक जारी रहेगी ये जंग।", hinglish: "Aasmaan ko cheerti hai humari khwahishon ki patang, jab tak jaan hai tab tak jaari rahegi yeh jung." },
       { hindi: "शाम का सूरज ढलते ही हम नया सवेरा बुनते हैं, हम वो हैं जो ख़ामोशी में भी ज़िंदगी की धड़कन सुनते हैं।", hinglish: "Shaam ka sooraj dhalte hi hum naya sawera bunte hain, hum woh hain jo khamoshi mein bhi zindagi ki dhadkan sunte hain." },
-      { hindi: "थक कर भी जो मुस्कुरा दे वो मेडिकल का जवान है, इस जुनून-ए-तिब्ब पे तो सारा ज़माना कुर्बान है।", hinglish: "Thak kar bhi jo muskura de woh medical ka jawan hai, is junoon-e-tibb pe toh saara zamana qurbaan hai." },
-      { hindi: "छत पे खड़े होकर जब हम ज़ोर से चिल्लाते हैं, सारे एग्ज़ाम का टेंशन हवा में उड़ाते हैं।", hinglish: "Chhat pe khade hokar jab hum zor se chillate hain, saare exam ka tension hawa mein udate hain." },
-      { hindi: "गिरे भी, संभले भी, पर कभी रुके नहीं कदम, इस मेडिकल लाइफ़ को हम जीते हैं हर दम।", hinglish: "Gire bhi, sambhle bhi, par kabhi ruke nahi kadam, is medical life ko hum jeete hain har dam." },
-      { hindi: "लाल आसमान, ठंडी हवा और हाथ में गर्म प्याली, ये पल ही तो बनाते हैं हमारी ज़िंदगी मतवाली।", hinglish: "Laal aasmaan, thandi hawa aur haath mein garam pyali, yeh pal hi toh banate hain humari zindagi matwali." },
-      { hindi: "मुश्किलें लाख सही, इरादे हमारे चट्टान हैं, हम कल के डॉक्टर हैं, हम वतन की शान हैं।", hinglish: "Mushkilein laakh sahi, iraade humare chattaan hain, hum kal ke doctor hain, hum watan ki shaan hain." },
-      { hindi: "दोस्ती ऐसी जो वार्ड की 36 घंटे की ड्यूटी में भी हँसा दे, जो गिरते हुए हौसले को फिर से जगा दे।", hinglish: "Dosti aisi jo ward ki 36 ghante ki duty mein bhi hansa de, jo girte hue hausle ko phir se jaga de." },
-      { hindi: "हमसे ना पूछो हमारी रातें कैसे गुज़रती हैं, हमारी हर शाम बस एक नए इम्तिहान से डरती है।", hinglish: "Humse na poocho humari raatein kaise guzarti hain, humari har shaam bas ek naye imtihaan se darti hai." },
-      { hindi: "पर डर को भगाना हमने पहली ही क्लास में सीखा था, जब पहली बार हमने उस सफ़ेद कोट को चूमा था।", hinglish: "Par darr ko bhagana humne pehli hi class mein seekha tha, jab pehli baar humne us safed coat ko chooma tha." },
     ],
   },
   {
@@ -146,14 +138,6 @@ export const SCENES: Scene[] = [
     shayaris: [
       { hindi: "न्यूरॉन्स का जाल हो या तेरी यादों का सिलसिला, दोनों में ही दिल को बेइंतहा सुकून मिला।", hinglish: "Neurons ka jaal ho ya teri yaadon ka silsila, dono mein hi dil ko be-intaha sukoon mila." },
       { hindi: "साइनेप्स से साइनेप्स तक बहती है जो रोशनी, वो किताबों का इल्म है या तेरी दीवानगी?", hinglish: "Synapse se synapse tak behti hai jo roshni, woh kitaabon ka ilm hai ya teri deewangi?" },
-      { hindi: "कोड और कार्डियक रिदम जब एक ताल में बजते हैं, मेडिकल की दुनिया के सारे नगमे खिलते हैं।", hinglish: "Code aur cardiac rhythm jab ek taal mein bajte hain, medical ki duniya ke saare nagme khilte hain." },
-      { hindi: "तेरी आँखों में देखा है मैंने भविष्य का वो डॉक्टर, जो बचाएगा लाखों जानें बिना किसी डर के।", hinglish: "Teri aankhon mein dekha hai maine bhavishya ka woh doctor, jo bachayega laakhon jaanein bina kisi darr ke." },
-      { hindi: "हॉस्टल की बालकनी, तारों भरा आसमाँ और हम, काश ये वक़्त यहीं ठहर जाए, ना हो कोई ग़म।", hinglish: "Hostel ki balcony, taaron bhara aasmaan aur hum, kaash yeh waqt yahin thehar jaaye, na ho koi gham." },
-      { hindi: "किताबों से मोहब्बत हमें खुदा ने बख़्शी है, ये मेडिकल लाइफ़ हमारी रूह की तरक्की है।", hinglish: "Kitaabon se mohabbat humein khuda ne bakhshi hai, yeh medical life humari rooh ki taraqqi hai." },
-      { hindi: "जब कोई कॉन्सेप्ट समझ आ जाए तो दिल मुस्कुराता है, जैसे किसी खोए हुए मुसाफ़िर को रास्ता मिल जाता है।", hinglish: "Jab koi concept samajh aa jaaye toh dil muskurata hai, jaise kisi khoye hue musafir ko raasta mil jaata hai." },
-      { hindi: "हर एक नर्व का नाम रटा है तेरी यादों की तरह, तू बसी है मेरे ज़हन में पहली किताब की तरह।", hinglish: "Har ek nerve ka naam rata hai teri yaadon ki tarah, tu basi hai mere zehen mein pehli kitaab ki tarah." },
-      { hindi: "दिमाग़ में एनाटॉमी, दिल में तेरा ख़्याल, बता ऐ ज़िंदगी, कैसा है ये बेमिसाल कमाल।", hinglish: "Dimagh mein anatomy, dil mein tera khayal, bata ae zindagi, kaisa hai yeh bemisaal kamaal." },
-      { hindi: "हम सिर्फ़ दवाइयों के नाम नहीं याद रखते, हम एहसासों के स्पंदन को भी दिल में संजोते हैं।", hinglish: "Hum sirf dawaiyon ke naam nahi yaad rakhte, hum ehsaason ke spandan ko bhi dil mein sanjote hain." },
     ],
   },
   {
@@ -169,9 +153,6 @@ export const SCENES: Scene[] = [
     shayaris: [
       { hindi: "फॉर्मेलिन की वो महक और आंखों में पानी, एनाटॉमी हॉल से शुरू हुई थी हमारी कहानी।", hinglish: "Formalin ki woh mehek aur aankhon mein paani, anatomy hall se shuru hui thi humari kahani." },
       { hindi: "पहला कैडेवर, कांपते हाथ और वो पहला कट, डर था मगर दिल में डॉक्टर बनने की थी हठ।", hinglish: "Pehla cadaver, kaanpte haath aur woh pehla cut, darr tha magar dil mein doctor ban-ne ki thi hath." },
-      { hindi: "उस शांत देह ने हमें ज़िंदगी का सबसे बड़ा सबक दिया, इंसानी जिस्म के हर राज़ को हमारे नाम कर दिया।", hinglish: "Us shaant deh ne humein zindagi ka sabse bada sabak diya, insani jism ke har raaz ko humare naam kar diya." },
-      { hindi: "ग्रे'ज़ एनाटॉमी के पन्नों में उलझी थी मेरी शाम, तूने मुस्कुरा के समझा दिया हर वेसल का नाम।", hinglish: "Gray's Anatomy ke pannon mein uljhi thi meri shaam, tune muskura ke samjha diya har vessel ka naam." },
-      { hindi: "हाथ में फोरसेप्स और जुबां पर तेरा ज़िक्र, खुदा जानता है मुझे थी तेरे वाइवा की कितनी फ़िक्र।", hinglish: "Haath mein forceps aur zubaan par tera zikr, khuda jaanta hai mujhe thi tere viva ki kitni fikr." },
     ],
   },
   {
@@ -187,9 +168,6 @@ export const SCENES: Scene[] = [
     shayaris: [
       { hindi: "रात के तीन बजे जब सारा शहर सोता है, एक मेडिकल का तालिब-ए-इल्म किताबों में खोता है।", hinglish: "Raat ke teen baje jab saara shehar sota hai, ek medical ka talib-e-ilm kitaabon mein khota hai." },
       { hindi: "टेबल पे ठंडा कप और आंखों में भारी नींद, पर सफ़ेद कोट का सपना जगाए रखता है हर दिन।", hinglish: "Table pe thanda cup aur aankhon mein bhaari neend, par safed coat ka sapna jagaye rakhta hai har din." },
-      { hindi: "कंकाल भी देख के हैरान है इस कमरे का हाल, 3 AM पे भी चल रहा है फार्माकोलॉजी का बवाल।", hinglish: "Kankaal bhi dekh ke hairan hai is kamre ka haal, 3 AM pe bhi chal raha hai pharmacology ka bawaal." },
-      { hindi: "ना कोई पार्टी ना कोई वीकेंड का शोर, हमारा तो बस चलता है पढ़ाई का एक ही दौर।", hinglish: "Na koi party na koi weekend ka shor, humara toh bas chalta hai padhai ka ek hi daur." },
-      { hindi: "ये रातों की बेदारी एक दिन रंग लाएगी, जब हमारे नाम के आगे डॉक्टर की मोहर लग जाएगी।", hinglish: "Yeh raaton ki bedaari ek din rang laayegi, jab humare naam ke aage doctor ki mohar lag jaayegi." },
     ],
   },
   {
@@ -205,9 +183,6 @@ export const SCENES: Scene[] = [
     shayaris: [
       { hindi: "कॉरिडोर में गूंजती कदमों की वो आवाज़, हर कदम में दिखता है कल के डॉक्टर का अंदाज़।", hinglish: "Corridor mein goonjti kadmon ki woh aawaaz, har kadam mein dikhta hai kal ke doctor ka andaaz." },
       { hindi: "एप्रन की सरसराहट और स्टेथोस्कोप की खनक, इन बरामदों में बसती है हमारी ज़िंदगी की चमक।", hinglish: "Apron ki sarsarahat aur stethoscope ki khanak, in baramdon mein basti hai humari zindagi ki chamak." },
-      { hindi: "क्लास के लिए दौड़ते हुए जब तूने पीछे मुड़ के देखा, उस पल रुक गई थी मेरी सारी ईसीजी की रेखा।", hinglish: "Class ke liye daudte hue jab tune peeche mud ke dekha, us pal ruk gayi thi meri saari ECG ki rekha." },
-      { hindi: "पुराने पिलर्स और ऊंची छतें गवाह हैं इस बात की, यहाँ से निकली है पीढ़ियां मसीहाओं की जमात की।", hinglish: "Purane pillars aur oonchi chhatein gawah hain is baat ki, yahan se nikli hai peedhiyan masihaaon ki jamaat ki." },
-      { hindi: "सुबह की आठ बजे की क्लीनिकल पोस्टिंग की वो दौड़, कोई नहीं समझ सकता मेडिकोज की ज़िंदगी की होड़।", hinglish: "Subah ki 8 baje ki clinical posting ki woh daud, koi nahi samajh sakta medicos ki zindagi ki hod." },
     ],
   },
   {
@@ -222,10 +197,7 @@ export const SCENES: Scene[] = [
     alt: "Professor taking a ward round with medical students",
     shayaris: [
       { hindi: "बेडसाइड पे खड़े होकर जो सबक सीखा है, वो किसी भी मोटी किताब में कहाँ लिखा है।", hinglish: "Bedside pe khade hokar jo sabak seekha hai, woh kisi bhi moti kitaab mein kahan likha hai." },
-      { hindi: "प्रोफेसर का वो एक सवाल और पूरी बैच में सन्नाटा, दिल की धड़कन बढ़ जाए जैसे कोई तेज तमाचा।", hinglish: "Professor ka woh ek sawaal aur poori batch mein sannaata, dil ki dhadkan badh jaaye jaise koi tez tamacha." },
-      { hindi: "मरीज़ की नब्ज़ छूते ही दिल में एक दुआ उठती है, ऐ खुदा, मेरे हाथों से इस दर्द की दवा हो।", hinglish: "Mareez ki nabz choote hi dil mein ek dua uthti hai, ae khuda, mere haathon se is dard ki dawa ho." },
-      { hindi: "हैंड-मी-डाउन स्टेथोस्कोप से जब मर्मर पहली बार सुनी, ज़िंदगी में सबसे हसीन धुन हमने वही चुनी।", hinglish: "Hand-me-down stethoscope se jab murmur pehli baar suni, zindagi mein sabse haseen dhun humne wahi chuni." },
-      { hindi: "हर एक बेड एक नई ज़िंदगी की कहानी सुनाता है, डॉक्टर को इंसानियत का सच्चा पाठ पढ़ाता है।", hinglish: "Har ek bed ek nayi zindagi ki kahani sunaata hai, doctor ko insaniyat ka sachha paath padhaata hai." },
+      { hindi: "मरीज़ की नब्ज़ छूते ही दिल में एक दुआ उठती है, ऐ खुदा, मेरे हाथों से इस दर्द की दवा हो।", hinglish: "Mareez ki nabz choote hi dil में एक दुआ उठती है, ae khuda, mere haathon se is dard ki dawa ho." },
     ],
   },
   {
@@ -240,10 +212,7 @@ export const SCENES: Scene[] = [
     alt: "Chai stall outside medical college gate with students chatting",
     shayaris: [
       { hindi: "फिजियो और बायोकेम के बीच वो आधे कप चाय, सच कहूं तो वही थी हमारी ज़िंदगी की असली राय।", hinglish: "Physio aur biochem ke beech woh aadhe cup chai, sach kahun toh wahi thi humari zindagi ki asli raay." },
-      { hindi: "टपरी की बेंच पे जब पूरी बैच बैठती थी, बड़े से बड़े प्रोफेसर की भी पोल खुलती थी।", hinglish: "Tapri ki bench pe jab poori batch baithti thi, bade se bade professor ki bhi pol khulti thi." },
-      { hindi: "वाइवा बिगड़ भी जाए तो क्या ग़म है यारों, एक कटिंग चाय में सारा तनाव भूल जाओ।", hinglish: "Viva bigad bhi jaaye toh kya gham hai yaaron, ek cutting chai mein saara tanaav bhool jaao." },
-      { hindi: "समोसे की खुशबू और गर्म चाय का घूंट, मेडिकल कॉलेज की दोस्ती का ये सबसे मीठा फल।", hinglish: "Samose ki khushboo aur garam chai ka ghoont, medical college ki dosti ka yeh sabse meetha phal." },
-      { hindi: "तेरे साथ वो एक ही ग्लास से चाय शेयर करना, मोहब्बत की इससे खूबसूरत कोई मिसाल क्या होगी।", hinglish: "Tere saath woh ek hi glass se chai share karna, mohabbat ki is-se khoobsurat koi misaal kya hogi." },
+      { hindi: "टपरी की बेंच पे जब पूरी बैच बैठती थी, बड़े से बड़े प्रोफेसर की भी पोल खुलती थी।", hinglish: "Tapri ki bench pe jab poori batch baithti थी, bade se bade professor ki bhi pol khulti thi." },
     ],
   },
   {
@@ -258,10 +227,6 @@ export const SCENES: Scene[] = [
     alt: "Lecture theatre with chalkboard heart diagram",
     shayaris: [
       { hindi: "लास्ट बेंच पे बैठकर जो पहली रो के ख़्वाब देखे, लेक्चर हॉल के ब्लैकबोर्ड पे पूरे होते देखे।", hinglish: "Last bench pe baithkar jo pehli row ke khwaab dekhe, lecture hall ke blackboard pe poore hote dekhe." },
-      { hindi: "कार्डियक साइकिल की वो डायग्राम और तेरा मासूम चेहरा, लेक्चरर बोलता रहा, पर मेरा ध्यान तुझपे ठहरा।", hinglish: "Cardiac cycle ki woh diagram aur tera masoom chehra, lecturer bolta raha, par mera dhyaan tujhpe thehra." },
-      { hindi: "पेन घुमाते घुमाते जब अटेंडेंस की बारी आई, प्रॉक्सी लगाने में दोस्तों ने पूरी जान लगाई।", hinglish: "Pen ghumaate ghumaate jab attendance ki baari aayi, proxy lagane mein doston ne poori jaan lagayi." },
-      { hindi: "सैकड़ों एप्रन के बीच वो एक खास जोड़ी आंखें, जो सिर्फ़ मुझे देखकर हौले से मुस्कुराती थीं।", hinglish: "Saikdon apron ke beech woh ek khaas jodi aankhein, jo sirf mujhe dekhkar haule se muskurati theen." },
-      { hindi: "चॉक की वो किरकिरी और पंखों की धीमी आवाज़, लेक्चर हॉल 1 में छुपा है हमारे हर कल का राज़।", hinglish: "Chalk ki woh kirkiri aur pankhon ki dheemi aawaaz, lecture hall 1 mein chupa hai humare har kal ka raaz." },
     ],
   },
   {
@@ -276,10 +241,6 @@ export const SCENES: Scene[] = [
     alt: "Medical college library late at night with glowing lamps",
     shayaris: [
       { hindi: "लाइब्रेरी का रजिस्टर भले बंद हो जाए रात में, मेडिकल स्टूडेंट की रोशनी कभी नहीं बुझती।", hinglish: "Library ka register bhale band ho jaaye raat mein, medical student ki roshni kabhi nahi bujhti." },
-      { hindi: "सन्नाटे की भी अपनी एक खूबसूरत ज़ुबान होती है, जहाँ किताबों से मोहब्बत की सच्ची दास्तान होती है।", hinglish: "Sannaate ki bhi apni ek khoobsurat zubaan hoti hai, jahan kitaabon se mohabbat ki sachhi daastan hoti hai." },
-      { hindi: "हजारों पन्नों के बीच जब तेरी नज़र मेरी नज़र से टकराई, उस खामोश लाइब्रेरी में भी जैसे शहनाई बज आई।", hinglish: "Hazaron pannon ke beech jab teri nazar meri nazar se takrayi, us khamosh library mein bhi jaise shehnai baj aayi." },
-      { hindi: "टेबल लैंप की पीली रोशनी और रोबिन्स का भारी वजन, इसी तपस्या से बनता है कल का सच्चा सर्जन।", hinglish: "Table lamp ki peeli roshni aur Robbins ka bhaari wazan, isi tapasya se banta hai kal ka sachha surgeon." },
-      { hindi: "किताबों की खुशबू में जो नशा है वो मयखाने में कहाँ, एक पढ़ाकू डॉक्टर का दिल बस यहीं आके रुका।", hinglish: "Kitaabon ki khushboo mein jo nasha hai woh maykhane mein kahan, ek padhaaku doctor ka dil bas yahin aake ruka." },
     ],
   },
   {
@@ -294,10 +255,6 @@ export const SCENES: Scene[] = [
     alt: "Medical hostel mess hall at dinner with students talking",
     shayaris: [
       { hindi: "मेस की वो दाल भले पतली हो मगर दोस्ती गाढ़ी थी, हर निवाले के साथ वार्ड की कोई नई कहानी थी।", hinglish: "Mess ki woh daal bhale patli ho magar dosti gaadhi thi, har niwale ke saath ward ki koi nayi kahani thi." },
-      { hindi: "स्टील की थाली में सजाई थी हमने अपनी खुशियां, जब पूरी बैच एक साथ बैठकर हँसती थी।", hinglish: "Steel ki thaali mein sajayi thi humne apni khushiyan, jab poori batch ek saath baithkar hansti thi." },
-      { hindi: "गुलाब जामुन की वो लड़ाई और एक्स्ट्रा रोटी की छीना-झपटी, हॉस्टल की मेस ही तो थी सबसे हसीन बस्ती।", hinglish: "Gulab jamun ki woh ladai aur extra roti ki cheena-jhapti, hostel ki mess hi toh thi sabse haseen basti." },
-      { hindi: "घर से दूर होकर भी कभी घर की कमी नहीं खली, इन दोस्तों की महफ़िल में हर शाम हंसी खिली।", hinglish: "Ghar se door hokar bhi kabhi ghar ki kami nahi khali, in doston ki mehfil mein har shaam hansi khili." },
-      { hindi: "एग्ज़ाम के डिप्रेशन को जो एक पल में उड़ा दे, वो मेस की टेबल पे बैठने वाले यार ही तो हैं।", hinglish: "Exam ke depression ko jo ek pal mein uda de, woh mess ki table pe baithne wale yaar hi toh hain." },
     ],
   },
   {
@@ -312,10 +269,6 @@ export const SCENES: Scene[] = [
     alt: "Histology lab with row of microscopes",
     shayaris: [
       { hindi: "गुलाबी और बैंगनी रंगों की वो माइक्रो दुनिया, जब पहली बार दिखा वो ग्लोमेरुलस का नज़ारा।", hinglish: "Gulaabi aur baingani rangon ki woh micro duniya, jab pehli baar dikha woh glomerulus ka nazaara." },
-      { hindi: "आई-पीस में आंख गड़ाए जो घंटों बिताए हैं, हमने सेल्स की गहराई में कुदरत के करिश्मे पाए हैं।", hinglish: "Eye-piece mein aankh gadaye jo ghanton bitaaye hain, humne cells ki gehraai mein qudrat ke karishme paaye hain." },
-      { hindi: "स्लाइड को फोकस करते हुए जब तेरा हाथ टकराया, दिल का रिदम अचानक सौ के पार निकल आया।", hinglish: "Slide ko focus karte hue jab tera haath takraaya, dil ka rhythm achanak 100 ke paar nikal aaya." },
-      { hindi: "हर एक टिशू में बसी है ज़िंदगी की बारीक कहानी, पैथोलॉजी लैब ने बना दी हमारी जवानी दीवानी।", hinglish: "Har ek tissue mein basi hai zindagi ki baareek kahani, pathology lab ne bana di humari jawani deewani." },
-      { hindi: "धुंधली स्लाइड को जो साफ़ देखने का हुनर सीख लिया, समझो डॉक्टर बनने का आधा रास्ता तय कर लिया।", hinglish: "Dhundhli slide ko jo saaf dekhne ka hunar seekh liya, samjho doctor ban-ne ka aadha raasta tay kar liya." },
     ],
   },
   {
@@ -330,10 +283,6 @@ export const SCENES: Scene[] = [
     alt: "Old red-brick medical college facade at dusk with string lights",
     shayaris: [
       { hindi: "सौ साल पुरानी ये लाल ईंटें और फेयरी लाइट्स की शाम, यहाँ हर दीवार पे लिखा है मसीहाओं का नाम।", hinglish: "Sau saal purani yeh laal eentein aur fairy lights ki shaam, yahan har deewaar pe likha hai masihaaon ka naam." },
-      { hindi: "ये सिर्फ़ कॉलेज नहीं, हमारी रूह का आशियाना है, जहाँ हर बैच ने मोहब्बत का नया अफसाना लिखा है।", hinglish: "Yeh sirf college nahi, humari rooh ka aashiyana hai, jahan har batch ne mohabbat ka naya afsaana likha hai." },
-      { hindi: "शाम ढलते ही जब क्वाडरेंगल में ठंडी हवा चलती है, सारे दिन की थकान हवा के साथ बह निकलती है।", hinglish: "Shaam dhalte hi jab quadrangle mein thandi hawa chalti hai, saare din ki thakaan hawa ke saath beh nikalti hai." },
-      { hindi: "पीढ़ियों का इतिहास इन पत्थरों में गूंजता है, जो यहाँ से गुजरता है वो ज़िंदगी को पूजता है।", hinglish: "Peedhiyon ka itihaas in pattharon mein goonjta hai, jo yahan se guzarta hai woh zindagi ko poojta hai." },
-      { hindi: "तुझसे पहली बार बात इसी लाल इमारत की सीढ़ियों पे हुई थी, वो शाम मेरे दिल में हमेशा के लिए अमर हो गई थी।", hinglish: "Tujhse pehli baar baat isi laal imaarat ki seedhiyon pe hui thi, woh shaam mere dil mein hamesha ke liye amar ho gayi thi." },
     ],
   },
   {
@@ -348,10 +297,6 @@ export const SCENES: Scene[] = [
     alt: "Physiology practical measuring blood pressure",
     shayaris: [
       { hindi: "120 ओवर 80 और दिल की वो तेज धड़कन, जब तूने पहली बार कफ़ बांधा मेरे हाथ पर।", hinglish: "120 over 80 aur dil ki woh tez dhadkan, jab tune pehli baar cuff baandha mere haath par." },
-      { hindi: "मरकरी जब कॉलम में ऊपर-नीचे उछलती है, कोरोट्कॉफ़ साउंड्स में तेरी मोहब्बत बोलती है।", hinglish: "Mercury jab column mein oopar-neeche uchalti hai, Korotkoff sounds mein teri mohabbat bolti hai." },
-      { hindi: "सिस्टोल और डायस्टोल के बीच जो वक़्त ठहर जाता है, वहीं दिल का सच्चा अहसास समझ में आता है।", hinglish: "Systole aur diastole ke beech jo waqt thehar jaata hai, wahin dil ka sachha ehsaas samajh mein aata hai." },
-      { hindi: "नब्ज़ टटोलते ही जब मरीज़ का दर्द समझ आने लगे, समझो दिल का डॉक्टर अब फरिश्ता बनने लगा।", hinglish: "Nabz tatolte hi jab mareez ka dard samajh aane lage, samjho dil ka doctor ab farishta ban-ne laga." },
-      { hindi: "फिजियोलॉजी की वो क्लास और कांपती उंगलियां, स्टेथोस्कोप लगाते ही भूल गए सारी दुनिया।", hinglish: "Physiology ki woh class aur kaanpti ungliyan, stethoscope lagaate hi bhool gaye saari duniya." },
     ],
   },
   {
@@ -366,10 +311,6 @@ export const SCENES: Scene[] = [
     alt: "Hospital casualty entrance at night with an ambulance",
     shayaris: [
       { hindi: "सायरन की वो गूंज और इमरजेंसी के खुलते दरवाजे, मौत के जबड़े से ज़िंदगी खींच लाते हैं हमारे इरादे।", hinglish: "Siren ki woh goonj aur emergency ke khulte darwaaze, maut ke jabde se zindagi kheench laate hain humare iraade." },
-      { hindi: "रात के दो बजे जब दुनिया गहरी नींद में सोती है, कैज़ुअल्टी में ज़िंदगी और मौत की जंग होती है।", hinglish: "Raat ke 2 baje jab duniya gehri neend mein soti hai, casualty mein zindagi aur maut ki jung hoti hai." },
-      { hindi: "रेड क्रैश कार्ट, डिफिब्रिलेटर और सीपीआर का जोर, जब तक सांस ना लौटे हम नहीं छोड़ते डोर।", hinglish: "Red crash cart, defibrillator aur CPR ka zor, jab tak saans na laute hum nahi chodte dor." },
-      { hindi: "एड्रेनालाईन का वो रश और खून से सने ग्लव्स, उस एक ज़िंदगी को बचाने में लगा देते हैं सब।", hinglish: "Adrenaline ka woh rush aur khoon se sane gloves, us ek zindagi ko bachaane mein laga dete hain sab." },
-      { hindi: "जब फ्लैटलाइन अचानक फिर से धड़कन में बदलती है, डॉक्टरों की आंखों से खुशी की बूंदें छलकती हैं।", hinglish: "Jab flatline achanak phir se dhadkan mein badalti hai, doctoron ki aankhon se khushi ki boondein chalkti hain." },
     ],
   },
   {
@@ -383,11 +324,7 @@ export const SCENES: Scene[] = [
     accentHex: "#10b981",
     alt: "Operation theatre gowning area with green scrubs",
     shayaris: [
-      { hindi: "ग्रीन स्क्रब्स पहनकर जब हम हाथ धोते हैं तीन मिनट, मन का हर मैल धुल जाता है, बन जाते हैं सिर्फ़ हिम्मत।", hinglish: "Green scrubs pehankar jab hum haath dhote hain 3 minute, mann ka har mail dhul jaata hai, ban jaate hain sirf himmat." },
-      { hindi: "ओटी की वो ठंडी हवा और शैडोलेस लैंप की रोशनी, सर्जन के हाथ में स्कैल्पल जैसे कोई जादूगर की छड़ी।", hinglish: "OT ki woh thandi hawa aur shadowless lamp ki roshni, surgeon ke haath mein scalpel jaise koi jaadoogar ki chhadi." },
-      { hindi: "ग्लव्स जब हाथों में स्नैप होते हैं एक आवाज़ के साथ, शुरू हो जाती है कुदरत के सबसे नाज़ुक काम की बात।", hinglish: "Gloves jab haathon mein snap hote hain ek aawaaz ke saath, shuru ho jaati hai qudrat ke sabse naazuk kaam ki baat." },
-      { hindi: "ओटी में जब तूने मास्क के ऊपर से सिर्फ़ आंखों से इशारा किया, उस खामोश इशारे ने मेरा हौसला दोगुना कर दिया।", hinglish: "OT mein jab tune mask ke oopar se sirf aankhon se ishara kiya, us khamosh ishaare ne mera hausla doguna kar diya." },
-      { hindi: "धड़कते हुए दिल को जब अपनी आंखों के सामने देखा, जिंदगी की नजाकत का तब जाके अहसास हुआ।", hinglish: "Dhadakte hue dil ko jab apni aankhon ke saamne dekha, zindagi ki nazaakat ka tab jaake ehsaas hua." },
+      { hindi: "ग्रीन scrub पहनकर जब हम हाथ धोते हैं तीन मिनट, मन का हर मैल धुल जाता है, बन जाते हैं सिर्फ़ हिम्मत।", hinglish: "Green scrubs pehankar jab hum haath dhote hain 3 minute, mann ka har mail dhul jaata hai, ban jaate hain sirf himmat." },
     ],
   },
   {
@@ -402,10 +339,6 @@ export const SCENES: Scene[] = [
     alt: "Medical student study table with textbooks and stethoscope",
     shayaris: [
       { hindi: "दीवारों पे चिपके फ्लैशकार्ड्स और ठंडी हो चुकी कॉफी, मेडिकल के वाइवा से बड़ी नहीं है कोई आंधी।", hinglish: "Deewaron pe chipke flashcards aur thandi ho chuki coffee, medical ke viva se badi nahi hai koi aandhi." },
-      { hindi: "हाईलाइटर खत्म हो गए पर सिलेबस कभी ना खत्म हुआ, फिर भी ये दिल हमेशा डॉक्टर बनने को बेताब रहा।", hinglish: "Highlighter khatam ho gaye par syllabus kabhi na khatam hua, phir bhi yeh dil hamesha doctor ban-ne ko betaab रहा." },
-      { hindi: "टेबल पे बिखरी किताबें और स्टेथोस्कोप की माला, इस तपस्या ने ही तो हमारी सोई किस्मत को संभाला।", hinglish: "Table pe bikhri kitaabein aur stethoscope ki maala, is tapasya ne hi toh humari soyi kismat ko sambhaala." },
-      { hindi: "रात के चार बजे जब आंखें बंद होने लगती हैं, माँ-बाप के चेहरों की मुस्कान याद आने लगती है।", hinglish: "Raat ke 4 baje jab aankhein band hone lagti hain, maa-baap ke chehron ki muskaan yaad aane lagti hai." },
-      { hindi: "हमने अपनी जवानी इन पन्नों के नाम लिख दी है, ताकि कल किसी मासूम की ज़िंदगी ना छीने।", hinglish: "Humne apni jawani in pannon ke naam likh di hai, taaki kal kisi masoom ki zindagi na chheene." },
     ],
   },
   {
@@ -420,10 +353,6 @@ export const SCENES: Scene[] = [
     alt: "Convocation evening on the medical college steps",
     shayaris: [
       { hindi: "पाँच बरस का ये सफ़र और वो आंसुओं की धार, आज नाम के आगे डॉ. लग गया मेरे यार।", hinglish: "Paanch baras ka yeh safar aur woh aansuon ki dhaar, aaj naam ke aage Dr. lag gaya mere yaar." },
-      { hindi: "माँ की आंखों में जो खुशी के आंसू छलके आज, दुनिया का सबसे बड़ा मिल गया मुझे ताज।", hinglish: "Maa ki aankhon mein jo khushi ke aansu chalke aaj, duniya ka sabse bada mil gaya mujhe taaj." },
-      { hindi: "पिता का वो गर्व से चौड़ा हुआ सीना देखकर, लगा जैसे पूरी कायनात झुक गई मेरे कदमों पर।", hinglish: "Pita ka woh garv se chauda hua seena dekhkar, laga jaise poori qaaynaat jhuk gayi mere kadmon par." },
-      { hindi: "सफ़ेद कोट पहनकर जब कॉन्वोकेशन की सीढ़ियां चढ़े, सारे दर्द, सारी रातें, सारे इम्तिहान छोटे पड़े।", hinglish: "Safed coat pehankar jab convocation ki seedhiyan chadhe, saare dard, saari raatein, saare imtihaan chhote pade." },
-      { hindi: "हिपोक्रेटिक ओथ लेते हुए जब कांपी थी आवाज़, रूह ने महसूस किया था एक नया परवाज़।", hinglish: "Hippocratic oath lete hue jab kaanpi thi aawaaz, rooh ne mehsoos kiya tha ek naya parwaaz." },
     ],
   },
   {
@@ -438,10 +367,6 @@ export const SCENES: Scene[] = [
     alt: "Students on a hostel rooftop at dusk with chai",
     shayaris: [
       { hindi: "शाम की चाय और हॉस्टल की छत, मेडिकल की ज़िंदगी में यही है सबसे बड़ी दौलत।", hinglish: "Shaam ki chai aur hostel ki chhat, medical ki zindagi mein yahi hai sabse badi daulat." },
-      { hindi: "डूबते सूरज की रोशनी में जब सिलेबस भूल जाते हैं, हम कुछ पल के लिए फिर से बच्चे बन जाते हैं।", hinglish: "Doobte sooraj ki roshni mein jab syllabus bhool jaate hain, hum kuch pal ke liye phir se bachhe ban jaate hain." },
-      { hindi: "हवा में तैरती है चाय की वो सोंधी खुशबू, दोस्तों के साथ बैठकर भूल जाते हैं सारा दर्द-ओ-ग़म।", hinglish: "Hawa mein tairti hai chai ki woh sondhi khushboo, doston ke saath baithkar bhool jaate hain saara dard-o-gham." },
-      { hindi: "ये दस मिनट का ब्रेक हमें सौ घंटे की हिम्मत देता है, ये हॉस्टल का आंगन हमें हर रोज़ संभाल लेता है।", hinglish: "Yeh 10 minute ka break humein 100 ghante ki himmat deta hai, yeh hostel ka aangan humein har roz sambhaal leta hai." },
-      { hindi: "किताबों से बाहर भी एक खूबसूरत कायनात है, जहाँ सिर्फ़ चाय, सुकून और दोस्तों की बात है।", hinglish: "Kitaabon se baahar bhi ek khoobsurat qaaynaat hai, jahan sirf chai, sukoon aur doston ki baat hai." },
     ],
   },
   {
@@ -456,10 +381,270 @@ export const SCENES: Scene[] = [
     alt: "Doctor coat with slippers and stethoscope in serene hospital room",
     shayaris: [
       { hindi: "सफ़ेद लिबास में छुपा है समर्पण का संसार, हर धड़कन को सुनने को ये दिल है बेकरार।", hinglish: "Safed libaas mein chhupa hai samarpan ka sansaar, har dhadkan ko sun-ne ko yeh dil hai beqaraar." },
-      { hindi: "थके हुए कदमों ने जब वार्ड की दहलीज को छुआ, हर मरीज़ के चेहरे पे खिली एक नई दुआ।", hinglish: "Thake hue kadmon ne jab ward ki dehleez ko chhua, har mareez ke chehre pe khili ek nayi dua." },
-      { hindi: "ये चप्पलें, ये कोट और ये शांत अस्पताल का कोना, यही तो है मसीहाओं का सबसे पवित्र बिछौना।", hinglish: "Yeh chappalein, yeh coat aur yeh shaant aspatal ka kona, yahi toh hai masihaaon ka sabse pavitra bichhauna." },
-      { hindi: "दर्द जब हद से गुज़र जाए तो राहत बन जाते हैं, हम वो हैं जो हर मुश्किल में मुस्कुराते हैं।", hinglish: "Dard jab hadd se guzar jaaye toh raahat ban jaate hain, hum woh hain jo har mushkil mein muskuraate hain." },
-      { hindi: "सेवा ही हमारा मजहब, इंसानियत हमारा ईमान, इस सफ़ेद कोट पे न्योछावर है पूरी जान।", hinglish: "Seva hi humara mazhab, insaniyat humara imaan, is safed coat pe nyochhawar hai poori jaan." },
+    ],
+  },
+  {
+    id: 23,
+    src: scene22,
+    hindiTitle: "रेडियोलॉजी दृष्टिक्षेप",
+    englishTitle: "Radiology Scans Light-Box",
+    subtitle: "Medical Life Love",
+    category: "radiology",
+    mood: "Luminous X-Ray Focus",
+    accentHex: "#0ea5e9",
+    alt: "Medical student examining luminous brain MRI and chest X-rays on light box",
+    shayaris: [
+      { hindi: "काली शीटों पे छपी है ज़िंदगी की दास्ताँ, रोशनी के सामने हर एक राज़ हुआ बयाँ।", hinglish: "Kaali sheeton pe chhapi hai zindagi ki daastan, roshni ke saamne har ek raaz hua bayaan." },
+    ],
+  },
+  {
+    id: 24,
+    src: scene23,
+    hindiTitle: "नया जीवन",
+    englishTitle: "The First Cry & Labor Ward",
+    subtitle: "Medical Life Love",
+    category: "ward",
+    mood: "Sacred & Newborn Joy",
+    accentHex: "#f43f5e",
+    alt: "Resident doctor cradling newborn baby under morning sunrise light",
+    shayaris: [
+      { hindi: "जब नन्हीं सी जान ने पहली बार इस जहां में रोया, डॉक्टर की आंखों ने खुशी का सबसे पवित्र मोती खोया।", hinglish: "Jab nanhin si jaan ne pehli baar is jahaan mein roya, doctor ki aankhon ne khushi ka sabse pavitra moti khoya." },
+    ],
+  },
+  {
+    id: 25,
+    src: scene24,
+    hindiTitle: "मुस्कान एवं स्नेह",
+    englishTitle: "Pediatrics Ward Teddy",
+    subtitle: "Medical Life Love",
+    category: "pediatrics",
+    mood: "Heartwarming Child Care",
+    accentHex: "#eab308",
+    alt: "Doctor with teddy bear stethoscope cheering up child patient in pediatrics ward",
+    shayaris: [
+      { hindi: "टेडी बेयर वाला स्टेथोस्कोप जब बच्चे के सीने से लगाया, उसके खिलखिलाते चेहरे ने सारा दर्द मिटाया।", hinglish: "Teddy bear wala stethoscope jab bachhe ke seene se lagaya, uske khilkhilate chehre ne saara dard mitaya." },
+    ],
+  },
+  {
+    id: 26,
+    src: scene25,
+    hindiTitle: "सेवा एवं समर्पण",
+    englishTitle: "BSc Nursing Night IV Drip",
+    subtitle: "Medical Life Love",
+    category: "nursing",
+    mood: "Compassion & Night Care",
+    accentHex: "#38bdf8",
+    alt: "Nurse checking IV drip and patient pulse in night hospital ward",
+    shayaris: [
+      { hindi: "रात के सन्नाटे में जो धीमी सी आहट होती है, वो नर्स के कदमों की करुणा और ममता होती है।", hinglish: "Raat ke sannaate mein jo dheemi si aahat hoti hai, woh nurse ke kadmon ki karuna aur mamta hoti hai." },
+    ],
+  },
+  {
+    id: 27,
+    src: scene26,
+    hindiTitle: "दंत शिल्प कला",
+    englishTitle: "BDS Dental Crown Carving",
+    subtitle: "Medical Life Love",
+    category: "dental",
+    mood: "Precision Craftsmanship",
+    accentHex: "#14b8a6",
+    alt: "Dental student carving ceramic tooth crown model under workbench lamp",
+    shayaris: [
+      { hindi: "एक हाथ में हैंडपीस और दूसरे में हुनर की छड़ी, बीडीएस वालों ने मुस्कुराने की नई राह चुनी।", hinglish: "Ek haath mein handpiece aur doosre mein hunar ki chhadi, BDS walon ne muskurane ki nayi raah chuni." },
+    ],
+  },
+  {
+    id: 28,
+    src: scene27,
+    hindiTitle: "इश्क़-ए-लाइब्रेरी",
+    englishTitle: "Medical Library Romance",
+    subtitle: "Medical Life Love",
+    category: "love",
+    mood: "Pure Romance & Chemistry",
+    accentHex: "#ec4899",
+    alt: "Two medical students exchanging notes and smiling across library table at night",
+    shayaris: [
+      { hindi: "हैरिसन के भारी पन्नों के पीछे जब तेरी आंखें मिलीं, उस शांत लाइब्रेरी में भी मोहब्बत की कलियां खिलीं।", hinglish: "Harrison ke bhaari pannon ke peeche jab teri aankhein mileen, us shaant library mein bhi mohabbat ki kaliyan khileen." },
+    ],
+  },
+  {
+    id: 29,
+    src: scene28,
+    hindiTitle: "सूक्ष्मजीव विज्ञान",
+    englishTitle: "Microbiology Bioluminescence",
+    subtitle: "Medical Life Love",
+    category: "microbiology",
+    mood: "Fluorescent Neon Petri Glow",
+    accentHex: "#a855f7",
+    alt: "Glowing bioluminescent petri dish bacterial culture in dark laboratory with Devanagari calligraphy",
+    shayaris: [
+      { hindi: "पेट्री डिश की वो चमकती हुई कॉलोनियां, माइक्रोस्कोप में कैद हैं ज़िंदगी की अनगिनत कहानियां।", hinglish: "Petri dish ki woh chamakti hui colonies, microscope mein qaid hain zindagi ki an-ginat kahaniyan." },
+      { hindi: "अंधेरी लैब में जो हरी और बैंगनी रोशनी खिलती है, सूक्ष्म जीवों में भी कुदरत की कारीगरी दिखती है।", hinglish: "Andheri lab mein jo hari aur baingani roshni khilti hai, sookshm jeevon mein bhi qudrat ki kaarigari dikhti hai." },
+    ],
+  },
+  {
+    id: 30,
+    src: scene29,
+    hindiTitle: "आपातकाल",
+    englishTitle: "Monsoon Emergency Ambulance",
+    subtitle: "Medical Life Love",
+    category: "casualty",
+    mood: "Emergency Adrenaline",
+    accentHex: "#ef4444",
+    alt: "Emergency ambulance with flashing red and blue beacons in heavy monsoon rain outside casualty",
+    shayaris: [
+      { hindi: "बारिश की बूंदों में जब लाल-नीली बत्ती चमकती है, कैज़ुअल्टी में हर एक डॉक्टर की नब्ज़ धड़कती है।", hinglish: "Baarish ki boondon mein jab laal-neeli batti chamakti hai, casualty mein har ek doctor ki nabz dhadakti hai." },
+      { hindi: "भीगे हुए पोर्च पे जब स्ट्रेचर तेजी से दौड़ता है, डॉक्टर मौत के पंजों से ज़िंदगी को खींच लाता है।", hinglish: "Bheege hue porch pe jab stretcher tezi se daudta hai, doctor maut ke panjon se zindagi ko kheench laata hai." },
+    ],
+  },
+  {
+    id: 31,
+    src: scene30,
+    hindiTitle: "औषधि रसायन",
+    englishTitle: "Pharmacological Botany & Chemistry",
+    subtitle: "Medical Life Love",
+    category: "study",
+    mood: "Molecules & Medicinal Herbs",
+    accentHex: "#10b981",
+    alt: "Chemical volumetric flasks, molecular models, and fresh medicinal green plants in pharmacy lab",
+    shayaris: [
+      { hindi: "बेंजीन रिंग्स और जड़ी-बूटियों का ये गहरा संगम, हर बीमारी का इलाज ढूंढ लेता है फार्मा का दम।", hinglish: "Benzene rings aur jadi-bootiyon ka yeh gehra sangam, har beemari ka ilaaj dhoond leta hai pharma ka dam." },
+      { hindi: "कांच के फ्लास्क में जब औषधियां तैयार होती हैं, इंसानियत के दर्द से मुक्ति की नई राहें बनती हैं।", hinglish: "Kaanch ke flask mein jab aushadhiyan taiyaar hoti hain, insaniyat ke dard se mukti ki nayi raahein banti hain." },
+    ],
+  },
+  {
+    id: 32,
+    src: scene31,
+    hindiTitle: "आयुर्वेद धरोहर",
+    englishTitle: "BAMS Ayurveda & Charaka Samhita",
+    subtitle: "Medical Life Love",
+    category: "ayurveda",
+    mood: "Ancient Heritage Healing",
+    accentHex: "#d97706",
+    alt: "Ayurveda doctor grinding herbs in mortar pestle with Charaka Samhita manuscripts & brass lamps",
+    shayaris: [
+      { hindi: "चरक और सुश्रुत की वो पावन वाणी, पाँच हजार साल पुरानी है हमारी ये कहानी।", hinglish: "Charaka aur Sushruta ki woh paawan vaani, 5000 saal purani hai humari yeh kahani." },
+      { hindi: "तांबे के बर्तन और तुलसी नीम का वो काढ़ा, कुदरत ने हर बीमारी के लिए अमृत है संवारा।", hinglish: "Taambe ke bartan aur tulsi neem ka woh kaadha, qudrat ne har beemari ke liye amrit hai sanwaara." },
+    ],
+  },
+  {
+    id: 33,
+    src: scene32,
+    hindiTitle: "अस्थि पुनर्निर्माण",
+    englishTitle: "Orthopedic Surgery Titanium Plate",
+    subtitle: "Medical Life Love",
+    category: "ward",
+    mood: "Titanium Precision & Teamwork",
+    accentHex: "#38bdf8",
+    alt: "Orthopedic surgical team aligning titanium bone plate and screws on femur bone model",
+    shayaris: [
+      { hindi: "टूटी हुई हड्डियों को जब टाइटेनियम से जोड़ते हैं, हम इंसान को फिर से अपने पैरों पर खड़ा करते हैं।", hinglish: "Tooti hui haddiyon ko jab titanium se jodte hain, hum insaan ko phir se apne pairon par khada karte hain." },
+      { hindi: "हथौड़ी और ड्रिल जब ऑर्थो ओटी में चलते हैं, हम सिर्फ़ सर्जन नहीं, शरीर के इंजीनियर बनते हैं।", hinglish: "Hathaudi aur drill jab ortho OT mein chalte hain, hum sirf surgeon nahi, shareer ke engineer bante hain." },
+    ],
+  },
+  {
+    id: 34,
+    src: scene33,
+    hindiTitle: "धड़कन की तरंग",
+    englishTitle: "Cardiology Sinus Rhythm ECG",
+    subtitle: "Medical Life Love",
+    category: "cardiology",
+    mood: "Glowing Green ECG Trace",
+    accentHex: "#ef4444",
+    alt: "Cardiac doctor studying glowing green ECG rhythm P-Q-R-S-T wave monitor screen",
+    shayaris: [
+      { hindi: "पी-क्यू-आर-एस-टी की वो खूबसूरत तरंग, इसी धड़कन में बसती है ज़िंदगी की उमंग।", hinglish: "P-Q-R-S-T ki woh khoobsurat tarang, isi dhadkan mein basti hai zindagi ki umang." },
+      { hindi: "ईसीजी की वो रेखा जब सीधी होने लगती है, डॉक्टरों की सांसें भी साथ में थमने लगती हैं।", hinglish: "ECG ki woh rekha jab seedhi hone lagti hai, doctoron ki saansein bhi saath mein thamne lagti hain." },
+    ],
+  },
+  {
+    id: 35,
+    src: scene34,
+    hindiTitle: "रेडियोलॉजी दृष्टि",
+    englishTitle: "Radiology Brain MRI & Light-Box",
+    subtitle: "Medical Life Love",
+    category: "radiology",
+    mood: "Teal Luminous Brain MRI Scans",
+    accentHex: "#0ea5e9",
+    alt: "Medical student examining illuminated brain MRI and chest X-rays on light box",
+    shayaris: [
+      { hindi: "काली सीटों पे छपी है ज़िंदगी की दास्ताँ, रोशनी के सामने हर एक राज़ हुआ बयाँ।", hinglish: "Kaali sheeton pe chhapi hai zindagi ki daastan, roshni ke saamne har ek raaz hua bayaan." },
+      { hindi: "अंधेरे कमरे में जो चमकती है व्यूअर की रोशनी, बीमारी को पहचानना ही है डॉक्टर की असली बंदगी।", hinglish: "Andhere kamre mein jo chamakti hai viewer ki roshni, beemari ko pehchaanna hi hai doctor ki asli bandagi." },
+    ],
+  },
+  {
+    id: 36,
+    src: scene35,
+    hindiTitle: "नया जीवन आशीर्वाद",
+    englishTitle: "Labor Ward & Newborn First Cry",
+    subtitle: "Medical Life Love",
+    category: "ward",
+    mood: "Sacred Dawn Blessing",
+    accentHex: "#f43f5e",
+    alt: "Resident doctor cradling newborn baby in hospital labor room under morning sunrise",
+    shayaris: [
+      { hindi: "जब नन्हीं सी जान ने पहली बार इस जहां में रोया, डॉक्टर की आंखों ने खुशी का सबसे पवित्र मोती खोया।", hinglish: "Jab nanhin si jaan ne pehli baar is jahaan mein roya, doctor ki aankhon ne khushi ka sabse pavitra moti khoya." },
+      { hindi: "लेबर रूम की दीवारों ने देखी है माँ की वो हिम्मत, जब गोद में बच्चा आया तो मिल गई खुदा की जन्नत।", hinglish: "Labor room ki deewaron ne dekhi hai maa ki woh himmat, jab god mein bachha aaya toh mil gayi khuda ki jannat." },
+    ],
+  },
+  {
+    id: 37,
+    src: scene36,
+    hindiTitle: "मुस्कान बाल चिकित्सा",
+    englishTitle: "Pediatrics Ward Teddy Bear",
+    subtitle: "Medical Life Love",
+    category: "pediatrics",
+    mood: "Heartfelt Child Care",
+    accentHex: "#eab308",
+    alt: "Doctor kneeling down with teddy bear stethoscope to cheer up smiling child patient",
+    shayaris: [
+      { hindi: "टेडी बेयर वाला स्टेथोस्कोप जब बच्चे के सीने से लगाया, उसके खिलखिलाते चेहरे ने सारा दर्द मिटाया।", hinglish: "Teddy bear wala stethoscope jab bachhe ke seene se lagaya, uske khilkhilate chehre ne saara dard mitaya." },
+      { hindi: "पीडियाट्रिक्स वार्ड में जो जादू और मासूमियत मिलती है, वो दुनिया के किसी और कोने में कहाँ खिलती है।", hinglish: "Pediatrics ward mein jo jaadu aur masoomiyat milti hai, woh duniya ke kisi aur kone mein kahan khilti hai." },
+    ],
+  },
+  {
+    id: 38,
+    src: scene37,
+    hindiTitle: "सेवा एवं करुणा",
+    englishTitle: "BSc Nursing Night IV Care",
+    subtitle: "Medical Life Love",
+    category: "nursing",
+    mood: "Gentle Night Care & Seva",
+    accentHex: "#38bdf8",
+    alt: "BSc Nursing student adjusting IV infusion drip & checking patient pulse in calm night ward",
+    shayaris: [
+      { hindi: "रात के सन्नाटे में जो धीमी सी आहट होती है, वो नर्स के कदमों की करुणा और ममता होती है।", hinglish: "Raat ke sannaate mein jo dheemi si aahat hoti hai, woh nurse ke kadmon ki karuna aur mamta hoti hai." },
+      { hindi: "ड्रिप की एक-एक बूंद में जो जिंदगी बहती है, वो नर्सिंग की अथक सेवा की कहानी कहती है।", hinglish: "Drip ki ek-ek boond mein jo zindagi behti hai, woh nursing ki athak seva ki kahani kehti hai." },
+    ],
+  },
+  {
+    id: 39,
+    src: scene38,
+    hindiTitle: "दंत कला एवं शिल्प",
+    englishTitle: "BDS Dental Workbench Carving",
+    subtitle: "Medical Life Love",
+    category: "dental",
+    mood: "Craftsmanship & Precision",
+    accentHex: "#14b8a6",
+    alt: "BDS Dental student carving ceramic tooth crown model under workbench lamp",
+    shayaris: [
+      { hindi: "एक हाथ में हैंडपीस और दूसरे में हुनर की छड़ी, बीडीएस वालों ने मुस्कुराने की नई राह चुनी।", hinglish: "Ek haath mein handpiece aur doosre mein hunar ki chhadi, BDS walon ne muskurane ki nayi raah chuni." },
+      { hindi: "दांतों की वो बारीक नक्काशी और क्राउन की फिटिंग, डेंटिस्ट्री सिर्फ़ साइंस नहीं, ये है कला की मीटिंग।", hinglish: "Daanton ki woh baareek nakkaashi aur crown ki fitting, dentistry sirf science nahi, yeh hai kala ki meeting." },
+    ],
+  },
+  {
+    id: 40,
+    src: scene39,
+    hindiTitle: "इश्क़-ए-इल्म",
+    englishTitle: "Medical Library Quiet Romance",
+    subtitle: "Medical Life Love",
+    category: "love",
+    mood: "Pure Romance & Chemistry",
+    accentHex: "#ec4899",
+    alt: "Two medical students exchanging notes and smiling across library table at night",
+    shayaris: [
+      { hindi: "हैरिसन के भारी पन्नों के पीछे जब तेरी आंखें मिलीं, उस शांत लाइब्रेरी में भी मोहब्बत की कलियां खिलीं।", hinglish: "Harrison ke bhaari pannon ke peeche jab teri aankhein mileen, us shaant library mein bhi mohabbat ki kaliyan khileen." },
+      { hindi: "नोट्स पास करने के बहाने जो उंगलियां छू गईं, सच कहूं मेरी सारी पैथोलॉजी वहीं भूल गईं।", hinglish: "Notes pass karne ke bahaane jo ungliyan choo gayin, sach kahun meri saari pathology wahin bhool gayin." },
     ],
   },
 ];

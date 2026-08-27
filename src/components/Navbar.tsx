@@ -77,11 +77,11 @@ export function Navbar({
           </div>
 
           <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-sm sm:text-base md:text-lg font-black tracking-wide text-amber-300 drop-shadow uppercase">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-mono text-base sm:text-lg md:text-xl font-black tracking-wide text-amber-300 drop-shadow uppercase">
                 MEDICAL HUB
               </span>
-              <span className="rounded-full bg-rose-500/25 border border-rose-500/50 px-2 py-0.5 text-[10px] sm:text-[11px] font-bold text-rose-200 shadow-sm">
+              <span className="rounded-full bg-rose-500/30 border border-rose-400/60 px-3 py-0.5 text-xs sm:text-sm font-extrabold text-rose-100 shadow-md">
                 ❤️ Medical Life Love
               </span>
             </div>
