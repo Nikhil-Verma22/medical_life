@@ -14,6 +14,7 @@ const videoPlaylist = [
 	"/vibechess/videos/v8.mp4",
 	"/vibechess/videos/v9.mp4",
 	"/vibechess/videos/v10.mp4",
+	"/vibechess/videos/v11.mp4",
 ];
 
 const CentralVideoCard = () => {
