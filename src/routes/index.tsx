@@ -339,7 +339,7 @@ function Index() {
         currentScene={currentScene}
         zenMode={zenMode}
         activeTrackIndex={activeTrackIndex}
-        onTrackChange={(idx) => handleProtectedAction(() => setActiveTrackIndex(idx))}
+        onTrackChange={(idx) => setActiveTrackIndex(idx)}
         isUnlocked={isUnlocked}
       />
 

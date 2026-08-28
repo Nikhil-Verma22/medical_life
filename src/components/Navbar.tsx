@@ -67,7 +67,7 @@ export function Navbar({
       if (onPromptUnlock) onPromptUnlock();
       else {
         alert("Please fill the 1-minute counseling form to unlock all website features!");
-        window.open("http://localhost:4000/", "_blank");
+        window.open("/form-filling/index.html", "_blank");
       }
       return;
     }
@@ -75,13 +75,24 @@ export function Navbar({
   };
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ${
-        zenMode
-          ? "opacity-0 hover:opacity-100 pointer-events-none hover:pointer-events-auto"
-          : "opacity-100"
-      }`}
-    >
+    <>
+      {/* Floating Persistent Zen Exit Button (Always Visible in Zen Mode) */}
+      {zenMode && (
+        <button
+          onClick={onToggleZenMode}
+          title="Exit Zen Focus Mode"
+          className="fixed top-3 right-3 z-50 flex items-center gap-2 rounded-full border-2 border-amber-400/80 bg-black/90 px-3.5 py-1.5 text-xs font-black text-amber-300 shadow-2xl backdrop-blur-xl transition-all hover:scale-110 active:scale-95 cursor-pointer"
+        >
+          <EyeOff className="h-4 w-4 text-amber-400 animate-pulse" />
+          <span className="font-mono tracking-wide uppercase">EXIT ZEN MODE</span>
+        </button>
+      )}
+
+      <header
+        className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ${
+          zenMode ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-3 py-2 sm:px-6">
         {/* Left: Brand (Enlarged & Prominent) */}
         <div className="flex items-center gap-2.5">
@@ -189,5 +200,6 @@ export function Navbar({
         </div>
       </div>
     </header>
+  </>
   );
 }

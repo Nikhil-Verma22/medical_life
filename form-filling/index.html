@@ -387,10 +387,10 @@
       alert("🎉 Form Submitted Successfully! Permanent Access Unlocked. Returning to Medical Hub...");
       try {
         if (window.opener) {
-          window.opener.location.href = "http://localhost:8080/?unlocked=true";
+          window.opener.location.href = window.location.origin + "/?unlocked=true";
         }
       } catch (e) {}
-      window.location.href = "http://localhost:8080/?unlocked=true";
+      window.location.href = window.location.origin + "/?unlocked=true";
     }
   </script>
 </body>

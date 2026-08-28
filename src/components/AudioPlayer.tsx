@@ -100,12 +100,13 @@ export function AudioPlayer({
           event.target.setVolume(volume * 100);
         },
         onStateChange: (event: any) => {
-          // YT.PlayerState.PLAYING = 1, ENDED = 0
+          // YT.PlayerState.PLAYING = 1, ENDED = 0, PAUSED = 2
           if (event.data === 1) {
             setIsPlaying(true);
             startTimer();
           } else if (event.data === 0) {
             setIsPlaying(false);
+            // Smoothly auto-advance to next track when song finishes
             handleNext();
           } else if (event.data === 2) {
             setIsPlaying(false);
@@ -127,10 +128,13 @@ export function AudioPlayer({
     }, 500);
   };
 
-  // Load new track when index changes
+  // Load new track when index changes and auto-play
   useEffect(() => {
     if (ytPlayerRef.current && typeof ytPlayerRef.current.loadVideoById === "function") {
       ytPlayerRef.current.loadVideoById(track.youtubeId);
+      if (typeof ytPlayerRef.current.playVideo === "function") {
+        ytPlayerRef.current.playVideo();
+      }
       setIsPlaying(true);
     }
     setCurrentTime(0);
@@ -140,7 +144,7 @@ export function AudioPlayer({
   const togglePlay = () => {
     if (!isUnlocked) {
       alert("Please fill the 1-minute counseling form to unlock all website features!");
-      window.open("http://localhost:4000/", "_blank");
+      window.open("/form-filling/index.html", "_blank");
       return;
     }
     if (!ytPlayerRef.current) return;
