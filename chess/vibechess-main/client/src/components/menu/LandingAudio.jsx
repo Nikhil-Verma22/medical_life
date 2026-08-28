@@ -58,31 +58,32 @@ const LandingAudio = () => {
 
 		audio.volume = 0.85;
 
-		const isMuted = localStorage.getItem("isMusicMuted") === "true";
-		if (!isMuted) {
-			audio.play().catch((err) => {
-				console.log("Waiting for user gesture to start playback:", err);
-			});
-		}
-
-		const unlockGesture = () => {
-			const currentMuted = localStorage.getItem("isMusicMuted") === "true";
-			if (!currentMuted && audio.paused) {
+		const attemptPlay = () => {
+			const isMuted = localStorage.getItem("isMusicMuted") === "true";
+			if (!isMuted && audio && audio.paused) {
 				audio.volume = 0.85;
-				audio.play().catch(() => {});
+				audio.play().then(() => {
+					removeListeners();
+				}).catch((err) => {
+					console.log("Waiting for user interaction to start audio:", err);
+				});
 			}
 		};
 
-		window.addEventListener("click", unlockGesture, { once: true });
-		window.addEventListener("pointerdown", unlockGesture, { once: true });
-		window.addEventListener("keydown", unlockGesture, { once: true });
-		window.addEventListener("touchstart", unlockGesture, { once: true });
+		const events = ["click", "pointerdown", "pointermove", "mousemove", "keydown", "touchstart", "focus"];
+		
+		const removeListeners = () => {
+			events.forEach((evt) => window.removeEventListener(evt, attemptPlay));
+		};
+
+		// Try playing immediately
+		attemptPlay();
+
+		// Add comprehensive user interaction listeners so any mouse movement or touch starts audio seamlessly
+		events.forEach((evt) => window.addEventListener(evt, attemptPlay, { passive: true }));
 
 		return () => {
-			window.removeEventListener("click", unlockGesture);
-			window.removeEventListener("pointerdown", unlockGesture);
-			window.removeEventListener("keydown", unlockGesture);
-			window.removeEventListener("touchstart", unlockGesture);
+			removeListeners();
 		};
 	}, [trackIndex]);
 
