@@ -63,18 +63,29 @@ const LandingAudio = () => {
 		if (!audio) return;
 
 		audio.volume = 0.85;
-		audio.muted = false;
 
-		const attemptPlay = () => {
+		const attemptPlay = async () => {
 			const isMuted = localStorage.getItem("isMusicMuted") === "true";
-			if (!isMuted && audio && audio.paused) {
-				audio.volume = 0.85;
-				audio.muted = false;
-				audio.play().then(() => {
+			if (isMuted || !audio) return;
+
+			if (audio.paused) {
+				try {
+					audio.volume = 0.85;
+					audio.muted = false;
+					await audio.play();
 					removeListeners();
-				}).catch((err) => {
-					console.log("Waiting for user interaction to start audio:", err);
-				});
+				} catch (err) {
+					// Browser blocked unmuted autoplay -> Start muted then immediately unmute to bypass restrictions!
+					try {
+						audio.muted = true;
+						await audio.play();
+						audio.muted = false;
+						audio.volume = 0.85;
+						removeListeners();
+					} catch (e) {
+						// Waiting for interaction fallback
+					}
+				}
 			}
 		};
 
@@ -84,7 +95,7 @@ const LandingAudio = () => {
 			events.forEach((evt) => window.removeEventListener(evt, attemptPlay));
 		};
 
-		// Try playing immediately
+		// Try playing immediately on load
 		attemptPlay();
 
 		// Add comprehensive user interaction listeners so any mouse movement or touch starts audio seamlessly
