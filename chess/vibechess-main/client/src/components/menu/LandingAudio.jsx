@@ -23,6 +23,13 @@ const LandingAudio = () => {
 		setTrackIndex((prev) => (prev + 1) % trackList.length);
 	};
 
+	// Ensure music is unmuted by default on fresh session
+	useEffect(() => {
+		if (localStorage.getItem("isMusicMuted") === null) {
+			localStorage.setItem("isMusicMuted", "false");
+		}
+	}, []);
+
 	// Listen for changes from settings or menu sound toggle
 	useEffect(() => {
 		const handleStorage = () => {
@@ -37,6 +44,7 @@ const LandingAudio = () => {
 			} else {
 				if (audio.paused) {
 					audio.volume = 0.85;
+					audio.muted = false;
 					audio.play().catch(() => {});
 				}
 			}
@@ -57,11 +65,13 @@ const LandingAudio = () => {
 		if (!audio) return;
 
 		audio.volume = 0.85;
+		audio.muted = false;
 
 		const attemptPlay = () => {
 			const isMuted = localStorage.getItem("isMusicMuted") === "true";
 			if (!isMuted && audio && audio.paused) {
 				audio.volume = 0.85;
+				audio.muted = false;
 				audio.play().then(() => {
 					removeListeners();
 				}).catch((err) => {

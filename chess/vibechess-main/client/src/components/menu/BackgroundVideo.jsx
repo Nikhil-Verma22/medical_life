@@ -2,6 +2,15 @@ import React, { useState, useRef, useEffect } from "react";
 
 const videoPlaylist = [
 	"/vibechess/videos/v1.mp4",
+	"/vibechess/videos/v2.mp4",
+	"/vibechess/videos/v3.mp4",
+	"/vibechess/videos/v4.mp4",
+	"/vibechess/videos/v5.mp4",
+	"/vibechess/videos/v6.mp4",
+	"/vibechess/videos/v7.mp4",
+	"/vibechess/videos/v8.mp4",
+	"/vibechess/videos/v9.mp4",
+	"/vibechess/videos/v10.mp4",
 ];
 
 const BackgroundVideo = () => {
@@ -9,10 +18,7 @@ const BackgroundVideo = () => {
 	const videoRef = useRef(null);
 
 	const handleVideoEnded = () => {
-		if (videoRef.current) {
-			videoRef.current.currentTime = 0;
-			videoRef.current.play().catch(() => {});
-		}
+		setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videoPlaylist.length);
 	};
 
 	useEffect(() => {
@@ -41,7 +47,6 @@ const BackgroundVideo = () => {
 				src={videoPlaylist[currentVideoIndex]}
 				autoPlay
 				muted
-				loop
 				playsInline
 				onEnded={handleVideoEnded}
 				style={{
