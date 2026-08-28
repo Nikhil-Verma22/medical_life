@@ -7,6 +7,7 @@ import {
   Play,
   Heart,
   Volume2,
+  Sparkles,
 } from "lucide-react";
 
 import { SCENES, ROTATE_INTERVAL_MS } from "../data/scenes";
@@ -82,7 +83,7 @@ function Index() {
   const [isPomodoroOpen, setIsPomodoroOpen] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
-  const currentScene = SCENES[sceneIndex] ?? SCENES[0];
+  const currentScene = SCENES[sceneIndex] || SCENES[0];
 
   const nextScene = useCallback(() => {
     setSceneIndex((prev) => (prev + 1) % SCENES.length);
@@ -160,6 +161,78 @@ function Index() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [nextScene, prevScene]);
 
+  const [isUnlocked, setIsUnlocked] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const checkUnlockStatus = () => {
+      // 1. Check URL param ?unlocked=true
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("unlocked") === "true") {
+          localStorage.setItem("medical_hub_counseling_unlocked", "true");
+          setIsUnlocked(true);
+          window.history.replaceState({}, document.title, window.location.pathname);
+          return;
+        }
+      } catch (e) {}
+
+      if (localStorage.getItem("medical_hub_counseling_unlocked") === "true") {
+        setIsUnlocked(true);
+      }
+    };
+
+    checkUnlockStatus();
+
+    // 1. Cross-window postMessage listener
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data?.type === "UNLOCK_SUCCESS" || event.data === "UNLOCK_SUCCESS") {
+        localStorage.setItem("medical_hub_counseling_unlocked", "true");
+        setIsUnlocked(true);
+      }
+    };
+    window.addEventListener("message", handleMessage);
+
+    // 2. Tab focus & Storage event listeners
+    window.addEventListener("focus", checkUnlockStatus);
+    window.addEventListener("storage", checkUnlockStatus);
+
+    // 3. BroadcastChannel listener fallback
+    let channel: BroadcastChannel | null = null;
+    try {
+      channel = new BroadcastChannel("medical_hub_unlock_channel");
+      channel.onmessage = (event) => {
+        if (event.data?.type === "UNLOCK_SUCCESS") {
+          localStorage.setItem("medical_hub_counseling_unlocked", "true");
+          setIsUnlocked(true);
+        }
+      };
+    } catch (e) {}
+
+    checkUnlockStatus();
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      window.removeEventListener("focus", checkUnlockStatus);
+      window.removeEventListener("storage", checkUnlockStatus);
+      if (channel) channel.close();
+    };
+  }, []);
+
+  const handlePromptUnlock = () => {
+    alert("Please fill the 1-minute counseling form to unlock all website features!");
+    window.open("http://localhost:4000/", "_blank");
+  };
+
+  const handleProtectedAction = (action: () => void) => {
+    if (!isUnlocked) {
+      handlePromptUnlock();
+      return;
+    }
+    action();
+  };
+
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-neutral-950 select-none">
       {/* 40 Rotating Background Artworks: 8s Cross-Dissolve + Subtle Cinematic Ken Burns */}
@@ -202,18 +275,20 @@ function Index() {
         currentIndex={sceneIndex}
         totalScenes={SCENES.length}
         zenMode={zenMode}
-        onToggleZen={() => setZenMode((z) => !z)}
-        onOpenAiHub={() => setIsAiHubOpen(true)}
-        onOpenPomodoro={() => setIsPomodoroOpen(true)}
-        onOpenGallery={() => setIsGalleryOpen(true)}
-        onOpenVideoPlayer={() => setIsVideoPlayerOpen((v) => !v)}
+        onToggleZenMode={() => setZenMode((z) => !z)}
+        onOpenAiHub={() => handleProtectedAction(() => setIsAiHubOpen(true))}
+        onOpenPomodoro={() => handleProtectedAction(() => setIsPomodoroOpen(true))}
+        onOpenGallery={() => handleProtectedAction(() => setIsGalleryOpen(true))}
+        onOpenVideoPlayer={() => handleProtectedAction(() => setIsVideoPlayerOpen((v) => !v))}
         isVideoPlayerOpen={isVideoPlayerOpen}
+        isUnlocked={isUnlocked}
+        onPromptUnlock={handlePromptUnlock}
       />
 
       {/* Top AI Mood Tuner Bar */}
       <TopAiMoodBar
         zenMode={zenMode}
-        onApplyMood={handleApplyMood}
+        onApplyMood={(kw) => handleProtectedAction(() => handleApplyMood(kw))}
       />
 
       {/* Dynamic Masthead shifted upwards with 10-12 Rotating Shayaris */}
@@ -228,7 +303,7 @@ function Index() {
       {!zenMode && (
         <>
           <button
-            onClick={prevScene}
+            onClick={() => handleProtectedAction(prevScene)}
             aria-label="Previous scene"
             className="group fixed left-3 top-1/2 -translate-y-1/2 z-20 hidden md:flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/50 text-white/80 backdrop-blur-xl transition-all hover:scale-110 hover:border-amber-400 hover:bg-black/80 hover:text-white"
           >
@@ -236,7 +311,7 @@ function Index() {
           </button>
 
           <button
-            onClick={nextScene}
+            onClick={() => handleProtectedAction(nextScene)}
             aria-label="Next scene"
             className="group fixed right-3 top-1/2 -translate-y-1/2 z-20 hidden md:flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/50 text-white/80 backdrop-blur-xl transition-all hover:scale-110 hover:border-amber-400 hover:bg-black/80 hover:text-white"
           >
@@ -245,14 +320,27 @@ function Index() {
         </>
       )}
 
-
+      {/* Pink "UNLOCK WEBSITE FEATURES" Button directly above Audio Player Bar */}
+      {!isUnlocked && !zenMode && (
+        <div className="fixed bottom-24 sm:bottom-28 left-1/2 -translate-x-1/2 z-40 animate-bounce">
+          <button
+            onClick={handlePromptUnlock}
+            className="flex items-center gap-2 rounded-full border-2 border-rose-400 bg-rose-500/95 px-5 py-2.5 text-xs font-black text-white shadow-2xl backdrop-blur-xl transition-all hover:scale-105 active:scale-95"
+            title="Click to Fill 1-Minute Form & Unlock All Features"
+          >
+            <Sparkles className="h-4 w-4 text-amber-300 animate-spin" />
+            <span className="font-mono tracking-wide uppercase">UNLOCK WEBSITE FEATURES</span>
+          </button>
+        </div>
+      )}
 
       {/* Audio Player Bar */}
       <AudioPlayer
         currentScene={currentScene}
         zenMode={zenMode}
         activeTrackIndex={activeTrackIndex}
-        onTrackChange={setActiveTrackIndex}
+        onTrackChange={(idx) => handleProtectedAction(() => setActiveTrackIndex(idx))}
+        isUnlocked={isUnlocked}
       />
 
       {/* Floating Embedded YouTube Mini-Cinema Player Box */}
@@ -265,6 +353,7 @@ function Index() {
       <AiSuggestionHub
         isOpen={isAiHubOpen}
         onClose={() => setIsAiHubOpen(false)}
+        onPlayTrack={(idx) => handleProtectedAction(() => setActiveTrackIndex(idx))}
       />
 
       {/* Med-Focus Pomodoro Modal */}

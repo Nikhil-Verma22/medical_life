@@ -27,6 +27,7 @@ interface AudioPlayerProps {
   zenMode: boolean;
   activeTrackIndex?: number;
   onTrackChange?: (index: number) => void;
+  isUnlocked?: boolean;
 }
 
 export function AudioPlayer({
@@ -34,6 +35,7 @@ export function AudioPlayer({
   zenMode,
   activeTrackIndex: externalTrackIndex,
   onTrackChange,
+  isUnlocked = true,
 }: AudioPlayerProps) {
   const [internalTrackIndex, setInternalTrackIndex] = useState(0);
   const trackIndex = externalTrackIndex !== undefined ? externalTrackIndex : internalTrackIndex;
@@ -136,6 +138,11 @@ export function AudioPlayer({
   }, [trackIndex]);
 
   const togglePlay = () => {
+    if (!isUnlocked) {
+      alert("Please fill the 1-minute counseling form to unlock all website features!");
+      window.open("http://localhost:4000/", "_blank");
+      return;
+    }
     if (!ytPlayerRef.current) return;
     if (isPlaying) {
       ytPlayerRef.current.pauseVideo();

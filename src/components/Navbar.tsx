@@ -7,8 +7,8 @@ import {
   LayoutGrid,
   Eye,
   EyeOff,
-  Video,
   Clock,
+  Swords,
 } from "lucide-react";
 import { Scene } from "../data/scenes";
 
@@ -17,12 +17,13 @@ interface NavbarProps {
   currentIndex: number;
   totalScenes: number;
   zenMode: boolean;
-  onToggleZen: () => void;
+  onToggleZenMode: () => void;
   onOpenAiHub: () => void;
   onOpenPomodoro: () => void;
   onOpenGallery: () => void;
-  onOpenVideoPlayer: () => void;
-  isVideoPlayerOpen: boolean;
+  onOpenChessGame?: () => void;
+  isUnlocked?: boolean;
+  onPromptUnlock?: () => void;
 }
 
 export function Navbar({
@@ -30,12 +31,12 @@ export function Navbar({
   currentIndex,
   totalScenes,
   zenMode,
-  onToggleZen,
+  onToggleZenMode,
   onOpenAiHub,
   onOpenPomodoro,
   onOpenGallery,
-  onOpenVideoPlayer,
-  isVideoPlayerOpen,
+  isUnlocked = true,
+  onPromptUnlock,
 }: NavbarProps) {
   // Live Indian Standard Time (IST) Clock
   const [istTime, setIstTime] = useState("");
@@ -57,6 +58,18 @@ export function Navbar({
     return () => clearInterval(timer);
   }, []);
 
+  const handleProtectedClick = (action: () => void) => {
+    if (!isUnlocked) {
+      if (onPromptUnlock) onPromptUnlock();
+      else {
+        alert("Please fill the 1-minute counseling form to unlock all website features!");
+        window.open("http://localhost:4000/", "_blank");
+      }
+      return;
+    }
+    action();
+  };
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ${
@@ -65,7 +78,7 @@ export function Navbar({
           : "opacity-100"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-3 py-2 sm:px-6">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-3 py-2 sm:px-6">
         {/* Left: Brand (Enlarged & Prominent) */}
         <div className="flex items-center gap-2.5">
           <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl border border-amber-400/50 bg-black/70 shadow-lg backdrop-blur-xl transition-transform hover:scale-105">
@@ -91,8 +104,8 @@ export function Navbar({
           </div>
         </div>
 
-        {/* Center: Live Indian Standard Time (IST) */}
-        <div className="flex items-center gap-2 rounded-full border border-amber-400/25 bg-black/60 px-3.5 py-1 text-xs text-white/90 backdrop-blur-xl shadow-md">
+        {/* Center: Live Indian Standard Time (IST) - Perfectly Centered */}
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center gap-2 rounded-full border border-amber-400/25 bg-black/60 px-3.5 py-1 text-xs text-white/90 backdrop-blur-xl shadow-md">
           <Clock className="h-3.5 w-3.5 text-amber-400" />
           <span className="font-mono text-[10px] text-amber-200/80 font-bold uppercase">
             IST
@@ -109,22 +122,27 @@ export function Navbar({
 
         {/* Right: Sleek Compact Action Buttons */}
         <div className="flex items-center gap-1.5">
-          {/* Cinema Mini-Box (Compact) */}
-          <button
-            onClick={onOpenVideoPlayer}
-            className={`flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-medium backdrop-blur-xl transition-all hover:scale-105 active:scale-95 ${
-              isVideoPlayerOpen
-                ? "border-rose-400 bg-rose-500/30 text-rose-200"
-                : "border-white/15 bg-black/60 text-white/90 hover:bg-white/15 hover:text-white"
-            }`}
+          {/* ILAAJ-E-MAAT (Medical Lounge Chess) */}
+          <a
+            href="http://localhost:3000/vibechess/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (!isUnlocked) {
+                e.preventDefault();
+                handleProtectedClick(() => window.open("http://localhost:3000/vibechess/", "_blank"));
+              }
+            }}
+            className="flex items-center gap-1.5 rounded-full border border-rose-400/40 bg-rose-500/20 px-3 py-1 text-[11px] font-black text-rose-200 backdrop-blur-xl transition-all hover:scale-105 hover:bg-rose-500/30 active:scale-95 shadow-md"
+            title="Play ILAAJ-E-MAAT Medical Lounge Chess in New Tab"
           >
-            <Video className="h-3 w-3 text-rose-400" />
-            <span className="hidden sm:inline">Cinema Box</span>
-          </button>
+            <Swords className="h-3.5 w-3.5 text-rose-300 animate-pulse" />
+            <span className="font-mono tracking-wide uppercase">ILAAJ-E-MAAT</span>
+          </a>
 
           {/* AI Suggestions (Compact) */}
           <button
-            onClick={onOpenAiHub}
+            onClick={() => handleProtectedClick(onOpenAiHub)}
             className="flex items-center gap-1 rounded-full border border-amber-400/30 bg-amber-500/20 px-2.5 py-1 text-[11px] font-semibold text-amber-200 backdrop-blur-xl transition-all hover:scale-105 hover:bg-amber-500/30 active:scale-95"
           >
             <Sparkles className="h-3 w-3 text-amber-300" />
@@ -133,7 +151,7 @@ export function Navbar({
 
           {/* Pomodoro Focus */}
           <button
-            onClick={onOpenPomodoro}
+            onClick={() => handleProtectedClick(onOpenPomodoro)}
             title="Med-Focus Study Pomodoro"
             className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-black/60 text-white/80 backdrop-blur-xl transition-all hover:scale-105 hover:bg-white/15 hover:text-white"
           >
@@ -142,7 +160,7 @@ export function Navbar({
 
           {/* 40 Scenes Gallery */}
           <button
-            onClick={onOpenGallery}
+            onClick={() => handleProtectedClick(onOpenGallery)}
             title="View all 40 Medical Scenes"
             className="flex items-center gap-1 rounded-full border border-white/15 bg-black/60 px-2 py-1 text-[10px] font-medium text-white/80 backdrop-blur-xl transition-all hover:scale-105 hover:bg-white/15 hover:text-white"
           >
@@ -154,7 +172,7 @@ export function Navbar({
 
           {/* Zen View Toggle */}
           <button
-            onClick={onToggleZen}
+            onClick={onToggleZenMode}
             title={zenMode ? "Exit Zen Mode" : "Zen Focus Mode (Hide UI)"}
             className={`flex h-7 w-7 items-center justify-center rounded-full border backdrop-blur-xl transition-all hover:scale-105 ${
               zenMode

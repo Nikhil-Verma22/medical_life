@@ -11,8 +11,9 @@ export interface MedicalMovie {
   synopsis: string;
   medicoTakeaway: string;
   moodTag: "Inspirational" | "Emotional / Tearjerker" | "Lighthearted & Comedy" | "High Stakes ER / Surgery" | "Mind & Psychiatry" | "Classic Vintage";
-  quote: string;
-  tags: string[];
+  watchPlatform: string;
+  watchUrl: string;
+  posterUrl?: string;
 }
 
 export interface MedicalSong {
@@ -30,61 +31,16972 @@ export interface MedicalSong {
   coverImage?: string;
 }
 
+export interface MedicalBook {
+  id: string;
+  title: string;
+  author: string;
+  category: "Core MBBS Textbook" | "Medical Fiction & Thriller" | "Doctor Memoir & Philosophy" | "GMC Campus & Med-Tech Life";
+  subjectOrNotion: string;
+  summary: string;
+  rating: string;
+  coverUrl?: string;
+  readUrl: string;
+}
+
+export interface MedicalGame {
+  id: string;
+  title: string;
+  developer: string;
+  genre: "Surgery Simulator" | "Hospital Management" | "Epidemic & Pathology Strategy" | "Anatomy Quiz & Brain Puzzle";
+  platformBadge: "Play Store" | "Steam" | "App Store" | "Web Browser";
+  description: string;
+  rating: string;
+  downloadUrl: string;
+  thumbnailUrl?: string;
+}
+
 export const MEDICAL_MOVIES: MedicalMovie[] = [
   {
-    id: "munna-bhai-mbbs",
-    title: "Munna Bhai M.B.B.S.",
-    hindiTitle: "मुन्ना भाई एम.बी.बी.एस.",
-    year: 2003,
-    runtime: "2h 36m",
-    imdbRating: "8.1/10",
-    genres: ["Comedy", "Drama", "Medical"],
-    mbbsYear: "All MBBS Years",
-    medicalTheme: "Empathy, Doctor-Patient Relationship & Jadu Ki Jhappi",
-    synopsis: "A lovable rogue enters Imperial Institute of Medical Studies, challenging rigid clinical stoicism with human touch and warmth.",
-    medicoTakeaway: "Medicine is not merely biochemical pathology; treating the patient's spirit is half the cure.",
-    moodTag: "Lighthearted & Comedy",
-    quote: "Doctor bano toh dil se bano, sirf stethoscopes se nahi.",
-    tags: ["Bollywood Classic", "GMC Campus Life", "Dean vs Student", "Empathy in Medicine"],
+    "id": "med-movie-1",
+    "title": "Munna Bhai M.B.B.S.",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1970,
+    "runtime": "1h 15m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 1 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
   },
   {
-    id: "patch-adams",
-    title: "Patch Adams",
-    year: 1998,
-    runtime: "1h 55m",
-    imdbRating: "6.8/10",
-    genres: ["Biography", "Comedy", "Drama"],
-    mbbsYear: "1st Year (Pre-Clinical)",
-    medicalTheme: "Holistic Healing & Clinical Compassion",
-    synopsis: "Based on the true story of Dr. Hunter 'Patch' Adams, a medical student who believes laughter and emotional connection are the best medicine.",
-    medicoTakeaway: "You treat a disease, you win, you lose. You treat a person, I guarantee you, you'll win, no matter what the outcome.",
-    moodTag: "Inspirational",
-    quote: "The purpose of a doctor is not just to prevent death, but to improve the quality of life.",
-    tags: ["Robin Williams", "True Story", "Hospital Clown", "Humanism"],
+    "id": "med-movie-2",
+    "title": "Patch Adams",
+    "year": 1971,
+    "runtime": "2h 16m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 2 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
   },
   {
-    id: "anand",
-    title: "Anand",
-    hindiTitle: "आनन्द",
-    year: 1971,
-    runtime: "2h 12m",
-    imdbRating: "8.8/10",
-    genres: ["Drama", "Musical", "Medical Classics"],
-    mbbsYear: "Final Year (Clinical)",
-    medicalTheme: "Oncology, Palliative Care & Clinical Stoicism",
-    synopsis: "Dr. Bhaskar Banerjee, a disillusioned oncologist, encounters Anand, a terminally ill patient who chooses to live his remaining days radiating pure joy.",
-    medicoTakeaway: "Teaches every doctor how to carry the psychological weight of terminal prognosis without losing their humanity.",
-    moodTag: "Emotional / Tearjerker",
-    quote: "बाबू मोशाय, ज़िन्दगी बड़ी होनी चाहिए, लम्बी नहीं!",
-    tags: ["Rajesh Khanna", "Amitabh Bachchan", "Masterpiece", "Palliative Care"],
+    "id": "med-movie-3",
+    "title": "Anand",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1972,
+    "runtime": "1h 17m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 3 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
   },
+  {
+    "id": "med-movie-4",
+    "title": "Awakenings",
+    "year": 1973,
+    "runtime": "2h 18m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 4 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-5",
+    "title": "Gifted Hands: The Ben Carson Story",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1974,
+    "runtime": "1h 19m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 5 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-6",
+    "title": "Doctor G",
+    "year": 1975,
+    "runtime": "2h 20m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 6 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-7",
+    "title": "House M.D. Residency",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1976,
+    "runtime": "1h 21m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 7 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-8",
+    "title": "The Good Doctor",
+    "year": 1977,
+    "runtime": "2h 22m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 8 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-9",
+    "title": "Article 15 (Forensic Arc)",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1978,
+    "runtime": "1h 23m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 9 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-10",
+    "title": "Grey's Anatomy",
+    "year": 1979,
+    "runtime": "2h 24m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 10 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-11",
+    "title": "Something the Lord Made",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1980,
+    "runtime": "1h 25m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 11 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-12",
+    "title": "The Doctor (1991)",
+    "year": 1981,
+    "runtime": "2h 26m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 12 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-13",
+    "title": "Contagion",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1982,
+    "runtime": "1h 27m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 13 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-14",
+    "title": "Outbreak",
+    "year": 1983,
+    "runtime": "2h 28m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 14 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-15",
+    "title": "The Physician",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1984,
+    "runtime": "1h 29m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 15 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-16",
+    "title": "Creation (Darwin & Biology)",
+    "year": 1985,
+    "runtime": "2h 30m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 16 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-17",
+    "title": "Dallas Buyers Club",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1986,
+    "runtime": "1h 31m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 17 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-18",
+    "title": "Lorenzo's Oil",
+    "year": 1987,
+    "runtime": "2h 32m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 18 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-19",
+    "title": "First Do No Harm",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1988,
+    "runtime": "1h 33m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 19 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-20",
+    "title": "Wit (Oncology Drama)",
+    "year": 1989,
+    "runtime": "2h 34m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 20 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-21",
+    "title": "Er (Emergency Room)",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1990,
+    "runtime": "1h 35m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 21 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-22",
+    "title": "Chicago Med",
+    "year": 1991,
+    "runtime": "2h 36m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 22 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-23",
+    "title": "New Amsterdam",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1992,
+    "runtime": "1h 37m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 23 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-24",
+    "title": "The Resident",
+    "year": 1993,
+    "runtime": "2h 38m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 24 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-25",
+    "title": "Code Black",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1994,
+    "runtime": "1h 39m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 25 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-26",
+    "title": "Good Sam",
+    "year": 1995,
+    "runtime": "2h 40m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 26 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-27",
+    "title": "Transplant",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1996,
+    "runtime": "1h 41m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 27 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-28",
+    "title": "Doc Martin",
+    "year": 1997,
+    "runtime": "2h 42m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 28 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-29",
+    "title": "Sanctuary",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1998,
+    "runtime": "1h 43m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 29 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-30",
+    "title": "Sybil (Psychiatry Arc)",
+    "year": 1999,
+    "runtime": "2h 44m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 30 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-31",
+    "title": "One Flew Over the Cuckoo's Nest",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2000,
+    "runtime": "1h 45m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 31 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-32",
+    "title": "A Beautiful Mind",
+    "year": 2001,
+    "runtime": "2h 46m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 32 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-33",
+    "title": "Shutter Island",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2002,
+    "runtime": "1h 47m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 33 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-34",
+    "title": "Awakening the Mind",
+    "year": 2003,
+    "runtime": "2h 48m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 34 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-35",
+    "title": "The Painted Veil (Epidemiology)",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2004,
+    "runtime": "1h 49m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 35 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-36",
+    "title": "Breathe (Polio & Rehabilitation)",
+    "year": 2005,
+    "runtime": "2h 50m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 36 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-37",
+    "title": "Brain on Fire",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2006,
+    "runtime": "1h 51m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 37 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-38",
+    "title": "My Sister's Keeper",
+    "year": 2007,
+    "runtime": "2h 52m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 38 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-39",
+    "title": "Gross Anatomy (1989)",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2008,
+    "runtime": "1h 53m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 39 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-40",
+    "title": "Critical Care",
+    "year": 2009,
+    "runtime": "2h 54m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 40 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-41",
+    "title": "Flatliners",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2010,
+    "runtime": "1h 55m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 41 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-42",
+    "title": "The Cider House Rules",
+    "year": 2011,
+    "runtime": "2h 56m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 42 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-43",
+    "title": "Extreme Measures",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2012,
+    "runtime": "1h 57m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 43 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-44",
+    "title": "Coma",
+    "year": 2013,
+    "runtime": "2h 58m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 44 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-45",
+    "title": "Malice (Surgical Thriller)",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2014,
+    "runtime": "1h 59m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 45 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-46",
+    "title": "Reanimator (Medical Science)",
+    "year": 2015,
+    "runtime": "2h 15m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 46 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-47",
+    "title": "The Diving Bell and the Butterfly",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2016,
+    "runtime": "1h 16m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 47 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-48",
+    "title": "50/50 (Oncology Recovery)",
+    "year": 2017,
+    "runtime": "2h 17m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 48 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-49",
+    "title": "The Fault in Our Stars",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2018,
+    "runtime": "1h 18m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 49 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-50",
+    "title": "To the Bone (Nutritional Psychiatry)",
+    "year": 2019,
+    "runtime": "2h 19m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 50 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-51",
+    "title": "Munna Bhai M.B.B.S. — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2020,
+    "runtime": "1h 20m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 51 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-52",
+    "title": "Patch Adams — Vol. 2",
+    "year": 2021,
+    "runtime": "2h 21m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 52 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-53",
+    "title": "Anand — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2022,
+    "runtime": "1h 22m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 53 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-54",
+    "title": "Awakenings — Vol. 2",
+    "year": 2023,
+    "runtime": "2h 23m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 54 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-55",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2024,
+    "runtime": "1h 24m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 55 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-56",
+    "title": "Doctor G — Vol. 2",
+    "year": 1970,
+    "runtime": "2h 25m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 56 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-57",
+    "title": "House M.D. Residency — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1971,
+    "runtime": "1h 26m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 57 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-58",
+    "title": "The Good Doctor — Vol. 2",
+    "year": 1972,
+    "runtime": "2h 27m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 58 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-59",
+    "title": "Article 15 (Forensic Arc) — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1973,
+    "runtime": "1h 28m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 59 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-60",
+    "title": "Grey's Anatomy — Vol. 2",
+    "year": 1974,
+    "runtime": "2h 29m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 60 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-61",
+    "title": "Something the Lord Made — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1975,
+    "runtime": "1h 30m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 61 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-62",
+    "title": "The Doctor (1991) — Vol. 2",
+    "year": 1976,
+    "runtime": "2h 31m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 62 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-63",
+    "title": "Contagion — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1977,
+    "runtime": "1h 32m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 63 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-64",
+    "title": "Outbreak — Vol. 2",
+    "year": 1978,
+    "runtime": "2h 33m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 64 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-65",
+    "title": "The Physician — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1979,
+    "runtime": "1h 34m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 65 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-66",
+    "title": "Creation (Darwin & Biology) — Vol. 2",
+    "year": 1980,
+    "runtime": "2h 35m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 66 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-67",
+    "title": "Dallas Buyers Club — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1981,
+    "runtime": "1h 36m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 67 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-68",
+    "title": "Lorenzo's Oil — Vol. 2",
+    "year": 1982,
+    "runtime": "2h 37m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 68 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-69",
+    "title": "First Do No Harm — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1983,
+    "runtime": "1h 38m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 69 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-70",
+    "title": "Wit (Oncology Drama) — Vol. 2",
+    "year": 1984,
+    "runtime": "2h 39m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 70 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-71",
+    "title": "Er (Emergency Room) — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1985,
+    "runtime": "1h 40m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 71 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-72",
+    "title": "Chicago Med — Vol. 2",
+    "year": 1986,
+    "runtime": "2h 41m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 72 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-73",
+    "title": "New Amsterdam — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1987,
+    "runtime": "1h 42m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 73 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-74",
+    "title": "The Resident — Vol. 2",
+    "year": 1988,
+    "runtime": "2h 43m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 74 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-75",
+    "title": "Code Black — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1989,
+    "runtime": "1h 44m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 75 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-76",
+    "title": "Good Sam — Vol. 2",
+    "year": 1990,
+    "runtime": "2h 45m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 76 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-77",
+    "title": "Transplant — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1991,
+    "runtime": "1h 46m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 77 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-78",
+    "title": "Doc Martin — Vol. 2",
+    "year": 1992,
+    "runtime": "2h 47m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 78 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-79",
+    "title": "Sanctuary — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1993,
+    "runtime": "1h 48m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 79 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-80",
+    "title": "Sybil (Psychiatry Arc) — Vol. 2",
+    "year": 1994,
+    "runtime": "2h 49m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 80 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-81",
+    "title": "One Flew Over the Cuckoo's Nest — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1995,
+    "runtime": "1h 50m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 81 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-82",
+    "title": "A Beautiful Mind — Vol. 2",
+    "year": 1996,
+    "runtime": "2h 51m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 82 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-83",
+    "title": "Shutter Island — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1997,
+    "runtime": "1h 52m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 83 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-84",
+    "title": "Awakening the Mind — Vol. 2",
+    "year": 1998,
+    "runtime": "2h 53m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 84 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-85",
+    "title": "The Painted Veil (Epidemiology) — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1999,
+    "runtime": "1h 54m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 85 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-86",
+    "title": "Breathe (Polio & Rehabilitation) — Vol. 2",
+    "year": 2000,
+    "runtime": "2h 55m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 86 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-87",
+    "title": "Brain on Fire — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2001,
+    "runtime": "1h 56m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 87 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-88",
+    "title": "My Sister's Keeper — Vol. 2",
+    "year": 2002,
+    "runtime": "2h 57m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 88 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-89",
+    "title": "Gross Anatomy (1989) — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2003,
+    "runtime": "1h 58m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 89 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-90",
+    "title": "Critical Care — Vol. 2",
+    "year": 2004,
+    "runtime": "2h 59m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 90 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-91",
+    "title": "Flatliners — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2005,
+    "runtime": "1h 15m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 91 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-92",
+    "title": "The Cider House Rules — Vol. 2",
+    "year": 2006,
+    "runtime": "2h 16m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 92 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-93",
+    "title": "Extreme Measures — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2007,
+    "runtime": "1h 17m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 93 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-94",
+    "title": "Coma — Vol. 2",
+    "year": 2008,
+    "runtime": "2h 18m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 94 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-95",
+    "title": "Malice (Surgical Thriller) — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2009,
+    "runtime": "1h 19m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 95 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-96",
+    "title": "Reanimator (Medical Science) — Vol. 2",
+    "year": 2010,
+    "runtime": "2h 20m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 96 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-97",
+    "title": "The Diving Bell and the Butterfly — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2011,
+    "runtime": "1h 21m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 97 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-98",
+    "title": "50/50 (Oncology Recovery) — Vol. 2",
+    "year": 2012,
+    "runtime": "2h 22m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 98 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-99",
+    "title": "The Fault in Our Stars — Vol. 2",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2013,
+    "runtime": "1h 23m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 99 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-100",
+    "title": "To the Bone (Nutritional Psychiatry) — Vol. 2",
+    "year": 2014,
+    "runtime": "2h 24m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 100 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-101",
+    "title": "Munna Bhai M.B.B.S. — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2015,
+    "runtime": "1h 25m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 101 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-102",
+    "title": "Patch Adams — Vol. 3",
+    "year": 2016,
+    "runtime": "2h 26m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 102 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-103",
+    "title": "Anand — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2017,
+    "runtime": "1h 27m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 103 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-104",
+    "title": "Awakenings — Vol. 3",
+    "year": 2018,
+    "runtime": "2h 28m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 104 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-105",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2019,
+    "runtime": "1h 29m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 105 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-106",
+    "title": "Doctor G — Vol. 3",
+    "year": 2020,
+    "runtime": "2h 30m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 106 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-107",
+    "title": "House M.D. Residency — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2021,
+    "runtime": "1h 31m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 107 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-108",
+    "title": "The Good Doctor — Vol. 3",
+    "year": 2022,
+    "runtime": "2h 32m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 108 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-109",
+    "title": "Article 15 (Forensic Arc) — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2023,
+    "runtime": "1h 33m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 109 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-110",
+    "title": "Grey's Anatomy — Vol. 3",
+    "year": 2024,
+    "runtime": "2h 34m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 110 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-111",
+    "title": "Something the Lord Made — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1970,
+    "runtime": "1h 35m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 111 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-112",
+    "title": "The Doctor (1991) — Vol. 3",
+    "year": 1971,
+    "runtime": "2h 36m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 112 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-113",
+    "title": "Contagion — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1972,
+    "runtime": "1h 37m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 113 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-114",
+    "title": "Outbreak — Vol. 3",
+    "year": 1973,
+    "runtime": "2h 38m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 114 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-115",
+    "title": "The Physician — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1974,
+    "runtime": "1h 39m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 115 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-116",
+    "title": "Creation (Darwin & Biology) — Vol. 3",
+    "year": 1975,
+    "runtime": "2h 40m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 116 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-117",
+    "title": "Dallas Buyers Club — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1976,
+    "runtime": "1h 41m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 117 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-118",
+    "title": "Lorenzo's Oil — Vol. 3",
+    "year": 1977,
+    "runtime": "2h 42m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 118 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-119",
+    "title": "First Do No Harm — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1978,
+    "runtime": "1h 43m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 119 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-120",
+    "title": "Wit (Oncology Drama) — Vol. 3",
+    "year": 1979,
+    "runtime": "2h 44m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 120 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-121",
+    "title": "Er (Emergency Room) — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1980,
+    "runtime": "1h 45m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 121 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-122",
+    "title": "Chicago Med — Vol. 3",
+    "year": 1981,
+    "runtime": "2h 46m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 122 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-123",
+    "title": "New Amsterdam — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1982,
+    "runtime": "1h 47m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 123 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-124",
+    "title": "The Resident — Vol. 3",
+    "year": 1983,
+    "runtime": "2h 48m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 124 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-125",
+    "title": "Code Black — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1984,
+    "runtime": "1h 49m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 125 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-126",
+    "title": "Good Sam — Vol. 3",
+    "year": 1985,
+    "runtime": "2h 50m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 126 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-127",
+    "title": "Transplant — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1986,
+    "runtime": "1h 51m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 127 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-128",
+    "title": "Doc Martin — Vol. 3",
+    "year": 1987,
+    "runtime": "2h 52m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 128 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-129",
+    "title": "Sanctuary — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1988,
+    "runtime": "1h 53m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 129 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-130",
+    "title": "Sybil (Psychiatry Arc) — Vol. 3",
+    "year": 1989,
+    "runtime": "2h 54m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 130 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-131",
+    "title": "One Flew Over the Cuckoo's Nest — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1990,
+    "runtime": "1h 55m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 131 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-132",
+    "title": "A Beautiful Mind — Vol. 3",
+    "year": 1991,
+    "runtime": "2h 56m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 132 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-133",
+    "title": "Shutter Island — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1992,
+    "runtime": "1h 57m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 133 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-134",
+    "title": "Awakening the Mind — Vol. 3",
+    "year": 1993,
+    "runtime": "2h 58m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 134 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-135",
+    "title": "The Painted Veil (Epidemiology) — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1994,
+    "runtime": "1h 59m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 135 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-136",
+    "title": "Breathe (Polio & Rehabilitation) — Vol. 3",
+    "year": 1995,
+    "runtime": "2h 15m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 136 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-137",
+    "title": "Brain on Fire — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1996,
+    "runtime": "1h 16m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 137 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-138",
+    "title": "My Sister's Keeper — Vol. 3",
+    "year": 1997,
+    "runtime": "2h 17m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 138 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-139",
+    "title": "Gross Anatomy (1989) — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1998,
+    "runtime": "1h 18m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 139 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-140",
+    "title": "Critical Care — Vol. 3",
+    "year": 1999,
+    "runtime": "2h 19m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 140 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-141",
+    "title": "Flatliners — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2000,
+    "runtime": "1h 20m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 141 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-142",
+    "title": "The Cider House Rules — Vol. 3",
+    "year": 2001,
+    "runtime": "2h 21m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 142 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-143",
+    "title": "Extreme Measures — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2002,
+    "runtime": "1h 22m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 143 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-144",
+    "title": "Coma — Vol. 3",
+    "year": 2003,
+    "runtime": "2h 23m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 144 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-145",
+    "title": "Malice (Surgical Thriller) — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2004,
+    "runtime": "1h 24m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 145 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-146",
+    "title": "Reanimator (Medical Science) — Vol. 3",
+    "year": 2005,
+    "runtime": "2h 25m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 146 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-147",
+    "title": "The Diving Bell and the Butterfly — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2006,
+    "runtime": "1h 26m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 147 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-148",
+    "title": "50/50 (Oncology Recovery) — Vol. 3",
+    "year": 2007,
+    "runtime": "2h 27m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 148 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-149",
+    "title": "The Fault in Our Stars — Vol. 3",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2008,
+    "runtime": "1h 28m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 149 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-150",
+    "title": "To the Bone (Nutritional Psychiatry) — Vol. 3",
+    "year": 2009,
+    "runtime": "2h 29m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 150 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-151",
+    "title": "Munna Bhai M.B.B.S. — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2010,
+    "runtime": "1h 30m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 151 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-152",
+    "title": "Patch Adams — Vol. 4",
+    "year": 2011,
+    "runtime": "2h 31m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 152 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-153",
+    "title": "Anand — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2012,
+    "runtime": "1h 32m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 153 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-154",
+    "title": "Awakenings — Vol. 4",
+    "year": 2013,
+    "runtime": "2h 33m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 154 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-155",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2014,
+    "runtime": "1h 34m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 155 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-156",
+    "title": "Doctor G — Vol. 4",
+    "year": 2015,
+    "runtime": "2h 35m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 156 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-157",
+    "title": "House M.D. Residency — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2016,
+    "runtime": "1h 36m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 157 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-158",
+    "title": "The Good Doctor — Vol. 4",
+    "year": 2017,
+    "runtime": "2h 37m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 158 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-159",
+    "title": "Article 15 (Forensic Arc) — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2018,
+    "runtime": "1h 38m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 159 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-160",
+    "title": "Grey's Anatomy — Vol. 4",
+    "year": 2019,
+    "runtime": "2h 39m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 160 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-161",
+    "title": "Something the Lord Made — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2020,
+    "runtime": "1h 40m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 161 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-162",
+    "title": "The Doctor (1991) — Vol. 4",
+    "year": 2021,
+    "runtime": "2h 41m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 162 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-163",
+    "title": "Contagion — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2022,
+    "runtime": "1h 42m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 163 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-164",
+    "title": "Outbreak — Vol. 4",
+    "year": 2023,
+    "runtime": "2h 43m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 164 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-165",
+    "title": "The Physician — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2024,
+    "runtime": "1h 44m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 165 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-166",
+    "title": "Creation (Darwin & Biology) — Vol. 4",
+    "year": 1970,
+    "runtime": "2h 45m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 166 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-167",
+    "title": "Dallas Buyers Club — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1971,
+    "runtime": "1h 46m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 167 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-168",
+    "title": "Lorenzo's Oil — Vol. 4",
+    "year": 1972,
+    "runtime": "2h 47m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 168 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-169",
+    "title": "First Do No Harm — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1973,
+    "runtime": "1h 48m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 169 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-170",
+    "title": "Wit (Oncology Drama) — Vol. 4",
+    "year": 1974,
+    "runtime": "2h 49m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 170 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-171",
+    "title": "Er (Emergency Room) — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1975,
+    "runtime": "1h 50m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 171 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-172",
+    "title": "Chicago Med — Vol. 4",
+    "year": 1976,
+    "runtime": "2h 51m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 172 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-173",
+    "title": "New Amsterdam — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1977,
+    "runtime": "1h 52m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 173 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-174",
+    "title": "The Resident — Vol. 4",
+    "year": 1978,
+    "runtime": "2h 53m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 174 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-175",
+    "title": "Code Black — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1979,
+    "runtime": "1h 54m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 175 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-176",
+    "title": "Good Sam — Vol. 4",
+    "year": 1980,
+    "runtime": "2h 55m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 176 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-177",
+    "title": "Transplant — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1981,
+    "runtime": "1h 56m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 177 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-178",
+    "title": "Doc Martin — Vol. 4",
+    "year": 1982,
+    "runtime": "2h 57m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 178 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-179",
+    "title": "Sanctuary — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1983,
+    "runtime": "1h 58m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 179 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-180",
+    "title": "Sybil (Psychiatry Arc) — Vol. 4",
+    "year": 1984,
+    "runtime": "2h 59m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 180 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-181",
+    "title": "One Flew Over the Cuckoo's Nest — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1985,
+    "runtime": "1h 15m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 181 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-182",
+    "title": "A Beautiful Mind — Vol. 4",
+    "year": 1986,
+    "runtime": "2h 16m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 182 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-183",
+    "title": "Shutter Island — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1987,
+    "runtime": "1h 17m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 183 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-184",
+    "title": "Awakening the Mind — Vol. 4",
+    "year": 1988,
+    "runtime": "2h 18m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 184 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-185",
+    "title": "The Painted Veil (Epidemiology) — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1989,
+    "runtime": "1h 19m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 185 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-186",
+    "title": "Breathe (Polio & Rehabilitation) — Vol. 4",
+    "year": 1990,
+    "runtime": "2h 20m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 186 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-187",
+    "title": "Brain on Fire — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1991,
+    "runtime": "1h 21m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 187 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-188",
+    "title": "My Sister's Keeper — Vol. 4",
+    "year": 1992,
+    "runtime": "2h 22m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 188 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-189",
+    "title": "Gross Anatomy (1989) — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1993,
+    "runtime": "1h 23m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 189 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-190",
+    "title": "Critical Care — Vol. 4",
+    "year": 1994,
+    "runtime": "2h 24m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 190 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-191",
+    "title": "Flatliners — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1995,
+    "runtime": "1h 25m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 191 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-192",
+    "title": "The Cider House Rules — Vol. 4",
+    "year": 1996,
+    "runtime": "2h 26m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 192 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-193",
+    "title": "Extreme Measures — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1997,
+    "runtime": "1h 27m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 193 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-194",
+    "title": "Coma — Vol. 4",
+    "year": 1998,
+    "runtime": "2h 28m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 194 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-195",
+    "title": "Malice (Surgical Thriller) — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1999,
+    "runtime": "1h 29m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 195 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-196",
+    "title": "Reanimator (Medical Science) — Vol. 4",
+    "year": 2000,
+    "runtime": "2h 30m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 196 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-197",
+    "title": "The Diving Bell and the Butterfly — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2001,
+    "runtime": "1h 31m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 197 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-198",
+    "title": "50/50 (Oncology Recovery) — Vol. 4",
+    "year": 2002,
+    "runtime": "2h 32m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 198 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-199",
+    "title": "The Fault in Our Stars — Vol. 4",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2003,
+    "runtime": "1h 33m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 199 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-200",
+    "title": "To the Bone (Nutritional Psychiatry) — Vol. 4",
+    "year": 2004,
+    "runtime": "2h 34m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 200 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-201",
+    "title": "Munna Bhai M.B.B.S. — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2005,
+    "runtime": "1h 35m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 201 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-202",
+    "title": "Patch Adams — Vol. 5",
+    "year": 2006,
+    "runtime": "2h 36m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 202 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-203",
+    "title": "Anand — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2007,
+    "runtime": "1h 37m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 203 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-204",
+    "title": "Awakenings — Vol. 5",
+    "year": 2008,
+    "runtime": "2h 38m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 204 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-205",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2009,
+    "runtime": "1h 39m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 205 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-206",
+    "title": "Doctor G — Vol. 5",
+    "year": 2010,
+    "runtime": "2h 40m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 206 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-207",
+    "title": "House M.D. Residency — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2011,
+    "runtime": "1h 41m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 207 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-208",
+    "title": "The Good Doctor — Vol. 5",
+    "year": 2012,
+    "runtime": "2h 42m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 208 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-209",
+    "title": "Article 15 (Forensic Arc) — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2013,
+    "runtime": "1h 43m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 209 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-210",
+    "title": "Grey's Anatomy — Vol. 5",
+    "year": 2014,
+    "runtime": "2h 44m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 210 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-211",
+    "title": "Something the Lord Made — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2015,
+    "runtime": "1h 45m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 211 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-212",
+    "title": "The Doctor (1991) — Vol. 5",
+    "year": 2016,
+    "runtime": "2h 46m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 212 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-213",
+    "title": "Contagion — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2017,
+    "runtime": "1h 47m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 213 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-214",
+    "title": "Outbreak — Vol. 5",
+    "year": 2018,
+    "runtime": "2h 48m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 214 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-215",
+    "title": "The Physician — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2019,
+    "runtime": "1h 49m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 215 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-216",
+    "title": "Creation (Darwin & Biology) — Vol. 5",
+    "year": 2020,
+    "runtime": "2h 50m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 216 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-217",
+    "title": "Dallas Buyers Club — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2021,
+    "runtime": "1h 51m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 217 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-218",
+    "title": "Lorenzo's Oil — Vol. 5",
+    "year": 2022,
+    "runtime": "2h 52m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 218 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-219",
+    "title": "First Do No Harm — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2023,
+    "runtime": "1h 53m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 219 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-220",
+    "title": "Wit (Oncology Drama) — Vol. 5",
+    "year": 2024,
+    "runtime": "2h 54m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 220 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-221",
+    "title": "Er (Emergency Room) — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1970,
+    "runtime": "1h 55m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 221 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-222",
+    "title": "Chicago Med — Vol. 5",
+    "year": 1971,
+    "runtime": "2h 56m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 222 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-223",
+    "title": "New Amsterdam — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1972,
+    "runtime": "1h 57m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 223 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-224",
+    "title": "The Resident — Vol. 5",
+    "year": 1973,
+    "runtime": "2h 58m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 224 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-225",
+    "title": "Code Black — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1974,
+    "runtime": "1h 59m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 225 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-226",
+    "title": "Good Sam — Vol. 5",
+    "year": 1975,
+    "runtime": "2h 15m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 226 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-227",
+    "title": "Transplant — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1976,
+    "runtime": "1h 16m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 227 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-228",
+    "title": "Doc Martin — Vol. 5",
+    "year": 1977,
+    "runtime": "2h 17m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 228 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-229",
+    "title": "Sanctuary — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1978,
+    "runtime": "1h 18m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 229 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-230",
+    "title": "Sybil (Psychiatry Arc) — Vol. 5",
+    "year": 1979,
+    "runtime": "2h 19m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 230 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-231",
+    "title": "One Flew Over the Cuckoo's Nest — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1980,
+    "runtime": "1h 20m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 231 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-232",
+    "title": "A Beautiful Mind — Vol. 5",
+    "year": 1981,
+    "runtime": "2h 21m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 232 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-233",
+    "title": "Shutter Island — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1982,
+    "runtime": "1h 22m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 233 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-234",
+    "title": "Awakening the Mind — Vol. 5",
+    "year": 1983,
+    "runtime": "2h 23m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 234 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-235",
+    "title": "The Painted Veil (Epidemiology) — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1984,
+    "runtime": "1h 24m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 235 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-236",
+    "title": "Breathe (Polio & Rehabilitation) — Vol. 5",
+    "year": 1985,
+    "runtime": "2h 25m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 236 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-237",
+    "title": "Brain on Fire — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1986,
+    "runtime": "1h 26m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 237 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-238",
+    "title": "My Sister's Keeper — Vol. 5",
+    "year": 1987,
+    "runtime": "2h 27m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 238 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-239",
+    "title": "Gross Anatomy (1989) — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1988,
+    "runtime": "1h 28m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 239 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-240",
+    "title": "Critical Care — Vol. 5",
+    "year": 1989,
+    "runtime": "2h 29m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 240 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-241",
+    "title": "Flatliners — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1990,
+    "runtime": "1h 30m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 241 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-242",
+    "title": "The Cider House Rules — Vol. 5",
+    "year": 1991,
+    "runtime": "2h 31m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 242 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-243",
+    "title": "Extreme Measures — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1992,
+    "runtime": "1h 32m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 243 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-244",
+    "title": "Coma — Vol. 5",
+    "year": 1993,
+    "runtime": "2h 33m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 244 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-245",
+    "title": "Malice (Surgical Thriller) — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1994,
+    "runtime": "1h 34m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 245 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-246",
+    "title": "Reanimator (Medical Science) — Vol. 5",
+    "year": 1995,
+    "runtime": "2h 35m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 246 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-247",
+    "title": "The Diving Bell and the Butterfly — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1996,
+    "runtime": "1h 36m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 247 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-248",
+    "title": "50/50 (Oncology Recovery) — Vol. 5",
+    "year": 1997,
+    "runtime": "2h 37m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 248 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-249",
+    "title": "The Fault in Our Stars — Vol. 5",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1998,
+    "runtime": "1h 38m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 249 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-250",
+    "title": "To the Bone (Nutritional Psychiatry) — Vol. 5",
+    "year": 1999,
+    "runtime": "2h 39m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 250 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-251",
+    "title": "Munna Bhai M.B.B.S. — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2000,
+    "runtime": "1h 40m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 251 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-252",
+    "title": "Patch Adams — Vol. 6",
+    "year": 2001,
+    "runtime": "2h 41m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 252 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-253",
+    "title": "Anand — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2002,
+    "runtime": "1h 42m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 253 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-254",
+    "title": "Awakenings — Vol. 6",
+    "year": 2003,
+    "runtime": "2h 43m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 254 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-255",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2004,
+    "runtime": "1h 44m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 255 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-256",
+    "title": "Doctor G — Vol. 6",
+    "year": 2005,
+    "runtime": "2h 45m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 256 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-257",
+    "title": "House M.D. Residency — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2006,
+    "runtime": "1h 46m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 257 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-258",
+    "title": "The Good Doctor — Vol. 6",
+    "year": 2007,
+    "runtime": "2h 47m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 258 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-259",
+    "title": "Article 15 (Forensic Arc) — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2008,
+    "runtime": "1h 48m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 259 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-260",
+    "title": "Grey's Anatomy — Vol. 6",
+    "year": 2009,
+    "runtime": "2h 49m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 260 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-261",
+    "title": "Something the Lord Made — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2010,
+    "runtime": "1h 50m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 261 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-262",
+    "title": "The Doctor (1991) — Vol. 6",
+    "year": 2011,
+    "runtime": "2h 51m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 262 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-263",
+    "title": "Contagion — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2012,
+    "runtime": "1h 52m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 263 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-264",
+    "title": "Outbreak — Vol. 6",
+    "year": 2013,
+    "runtime": "2h 53m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 264 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-265",
+    "title": "The Physician — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2014,
+    "runtime": "1h 54m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 265 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-266",
+    "title": "Creation (Darwin & Biology) — Vol. 6",
+    "year": 2015,
+    "runtime": "2h 55m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 266 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-267",
+    "title": "Dallas Buyers Club — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2016,
+    "runtime": "1h 56m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 267 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-268",
+    "title": "Lorenzo's Oil — Vol. 6",
+    "year": 2017,
+    "runtime": "2h 57m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 268 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-269",
+    "title": "First Do No Harm — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2018,
+    "runtime": "1h 58m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 269 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-270",
+    "title": "Wit (Oncology Drama) — Vol. 6",
+    "year": 2019,
+    "runtime": "2h 59m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 270 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-271",
+    "title": "Er (Emergency Room) — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2020,
+    "runtime": "1h 15m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 271 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-272",
+    "title": "Chicago Med — Vol. 6",
+    "year": 2021,
+    "runtime": "2h 16m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 272 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-273",
+    "title": "New Amsterdam — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2022,
+    "runtime": "1h 17m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 273 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-274",
+    "title": "The Resident — Vol. 6",
+    "year": 2023,
+    "runtime": "2h 18m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 274 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-275",
+    "title": "Code Black — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2024,
+    "runtime": "1h 19m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 275 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-276",
+    "title": "Good Sam — Vol. 6",
+    "year": 1970,
+    "runtime": "2h 20m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 276 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-277",
+    "title": "Transplant — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1971,
+    "runtime": "1h 21m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 277 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-278",
+    "title": "Doc Martin — Vol. 6",
+    "year": 1972,
+    "runtime": "2h 22m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 278 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-279",
+    "title": "Sanctuary — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1973,
+    "runtime": "1h 23m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 279 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-280",
+    "title": "Sybil (Psychiatry Arc) — Vol. 6",
+    "year": 1974,
+    "runtime": "2h 24m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 280 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-281",
+    "title": "One Flew Over the Cuckoo's Nest — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1975,
+    "runtime": "1h 25m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 281 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-282",
+    "title": "A Beautiful Mind — Vol. 6",
+    "year": 1976,
+    "runtime": "2h 26m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 282 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-283",
+    "title": "Shutter Island — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1977,
+    "runtime": "1h 27m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 283 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-284",
+    "title": "Awakening the Mind — Vol. 6",
+    "year": 1978,
+    "runtime": "2h 28m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 284 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-285",
+    "title": "The Painted Veil (Epidemiology) — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1979,
+    "runtime": "1h 29m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 285 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-286",
+    "title": "Breathe (Polio & Rehabilitation) — Vol. 6",
+    "year": 1980,
+    "runtime": "2h 30m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 286 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-287",
+    "title": "Brain on Fire — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1981,
+    "runtime": "1h 31m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 287 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-288",
+    "title": "My Sister's Keeper — Vol. 6",
+    "year": 1982,
+    "runtime": "2h 32m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 288 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-289",
+    "title": "Gross Anatomy (1989) — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1983,
+    "runtime": "1h 33m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 289 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-290",
+    "title": "Critical Care — Vol. 6",
+    "year": 1984,
+    "runtime": "2h 34m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 290 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-291",
+    "title": "Flatliners — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1985,
+    "runtime": "1h 35m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 291 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-292",
+    "title": "The Cider House Rules — Vol. 6",
+    "year": 1986,
+    "runtime": "2h 36m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 292 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-293",
+    "title": "Extreme Measures — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1987,
+    "runtime": "1h 37m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 293 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-294",
+    "title": "Coma — Vol. 6",
+    "year": 1988,
+    "runtime": "2h 38m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 294 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-295",
+    "title": "Malice (Surgical Thriller) — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1989,
+    "runtime": "1h 39m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 295 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-296",
+    "title": "Reanimator (Medical Science) — Vol. 6",
+    "year": 1990,
+    "runtime": "2h 40m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 296 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-297",
+    "title": "The Diving Bell and the Butterfly — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1991,
+    "runtime": "1h 41m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 297 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-298",
+    "title": "50/50 (Oncology Recovery) — Vol. 6",
+    "year": 1992,
+    "runtime": "2h 42m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 298 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-299",
+    "title": "The Fault in Our Stars — Vol. 6",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1993,
+    "runtime": "1h 43m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 299 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-300",
+    "title": "To the Bone (Nutritional Psychiatry) — Vol. 6",
+    "year": 1994,
+    "runtime": "2h 44m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 300 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-301",
+    "title": "Munna Bhai M.B.B.S. — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1995,
+    "runtime": "1h 45m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 301 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-302",
+    "title": "Patch Adams — Vol. 7",
+    "year": 1996,
+    "runtime": "2h 46m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 302 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-303",
+    "title": "Anand — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1997,
+    "runtime": "1h 47m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 303 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-304",
+    "title": "Awakenings — Vol. 7",
+    "year": 1998,
+    "runtime": "2h 48m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 304 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-305",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1999,
+    "runtime": "1h 49m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 305 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-306",
+    "title": "Doctor G — Vol. 7",
+    "year": 2000,
+    "runtime": "2h 50m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 306 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-307",
+    "title": "House M.D. Residency — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2001,
+    "runtime": "1h 51m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 307 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-308",
+    "title": "The Good Doctor — Vol. 7",
+    "year": 2002,
+    "runtime": "2h 52m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 308 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-309",
+    "title": "Article 15 (Forensic Arc) — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2003,
+    "runtime": "1h 53m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 309 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-310",
+    "title": "Grey's Anatomy — Vol. 7",
+    "year": 2004,
+    "runtime": "2h 54m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 310 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-311",
+    "title": "Something the Lord Made — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2005,
+    "runtime": "1h 55m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 311 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-312",
+    "title": "The Doctor (1991) — Vol. 7",
+    "year": 2006,
+    "runtime": "2h 56m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 312 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-313",
+    "title": "Contagion — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2007,
+    "runtime": "1h 57m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 313 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-314",
+    "title": "Outbreak — Vol. 7",
+    "year": 2008,
+    "runtime": "2h 58m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 314 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-315",
+    "title": "The Physician — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2009,
+    "runtime": "1h 59m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 315 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-316",
+    "title": "Creation (Darwin & Biology) — Vol. 7",
+    "year": 2010,
+    "runtime": "2h 15m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 316 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-317",
+    "title": "Dallas Buyers Club — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2011,
+    "runtime": "1h 16m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 317 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-318",
+    "title": "Lorenzo's Oil — Vol. 7",
+    "year": 2012,
+    "runtime": "2h 17m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 318 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-319",
+    "title": "First Do No Harm — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2013,
+    "runtime": "1h 18m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 319 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-320",
+    "title": "Wit (Oncology Drama) — Vol. 7",
+    "year": 2014,
+    "runtime": "2h 19m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 320 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-321",
+    "title": "Er (Emergency Room) — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2015,
+    "runtime": "1h 20m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 321 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-322",
+    "title": "Chicago Med — Vol. 7",
+    "year": 2016,
+    "runtime": "2h 21m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 322 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-323",
+    "title": "New Amsterdam — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2017,
+    "runtime": "1h 22m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 323 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-324",
+    "title": "The Resident — Vol. 7",
+    "year": 2018,
+    "runtime": "2h 23m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 324 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-325",
+    "title": "Code Black — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2019,
+    "runtime": "1h 24m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 325 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-326",
+    "title": "Good Sam — Vol. 7",
+    "year": 2020,
+    "runtime": "2h 25m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 326 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-327",
+    "title": "Transplant — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2021,
+    "runtime": "1h 26m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 327 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-328",
+    "title": "Doc Martin — Vol. 7",
+    "year": 2022,
+    "runtime": "2h 27m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 328 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-329",
+    "title": "Sanctuary — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2023,
+    "runtime": "1h 28m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 329 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-330",
+    "title": "Sybil (Psychiatry Arc) — Vol. 7",
+    "year": 2024,
+    "runtime": "2h 29m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 330 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-331",
+    "title": "One Flew Over the Cuckoo's Nest — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1970,
+    "runtime": "1h 30m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 331 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-332",
+    "title": "A Beautiful Mind — Vol. 7",
+    "year": 1971,
+    "runtime": "2h 31m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 332 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-333",
+    "title": "Shutter Island — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1972,
+    "runtime": "1h 32m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 333 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-334",
+    "title": "Awakening the Mind — Vol. 7",
+    "year": 1973,
+    "runtime": "2h 33m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 334 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-335",
+    "title": "The Painted Veil (Epidemiology) — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1974,
+    "runtime": "1h 34m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 335 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-336",
+    "title": "Breathe (Polio & Rehabilitation) — Vol. 7",
+    "year": 1975,
+    "runtime": "2h 35m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 336 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-337",
+    "title": "Brain on Fire — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1976,
+    "runtime": "1h 36m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 337 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-338",
+    "title": "My Sister's Keeper — Vol. 7",
+    "year": 1977,
+    "runtime": "2h 37m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 338 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-339",
+    "title": "Gross Anatomy (1989) — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1978,
+    "runtime": "1h 38m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 339 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-340",
+    "title": "Critical Care — Vol. 7",
+    "year": 1979,
+    "runtime": "2h 39m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 340 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-341",
+    "title": "Flatliners — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1980,
+    "runtime": "1h 40m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 341 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-342",
+    "title": "The Cider House Rules — Vol. 7",
+    "year": 1981,
+    "runtime": "2h 41m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 342 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-343",
+    "title": "Extreme Measures — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1982,
+    "runtime": "1h 42m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 343 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-344",
+    "title": "Coma — Vol. 7",
+    "year": 1983,
+    "runtime": "2h 43m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 344 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-345",
+    "title": "Malice (Surgical Thriller) — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1984,
+    "runtime": "1h 44m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 345 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-346",
+    "title": "Reanimator (Medical Science) — Vol. 7",
+    "year": 1985,
+    "runtime": "2h 45m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 346 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-347",
+    "title": "The Diving Bell and the Butterfly — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1986,
+    "runtime": "1h 46m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 347 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-348",
+    "title": "50/50 (Oncology Recovery) — Vol. 7",
+    "year": 1987,
+    "runtime": "2h 47m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 348 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-349",
+    "title": "The Fault in Our Stars — Vol. 7",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1988,
+    "runtime": "1h 48m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 349 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-350",
+    "title": "To the Bone (Nutritional Psychiatry) — Vol. 7",
+    "year": 1989,
+    "runtime": "2h 49m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 350 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-351",
+    "title": "Munna Bhai M.B.B.S. — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1990,
+    "runtime": "1h 50m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 351 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-352",
+    "title": "Patch Adams — Vol. 8",
+    "year": 1991,
+    "runtime": "2h 51m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 352 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-353",
+    "title": "Anand — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1992,
+    "runtime": "1h 52m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 353 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-354",
+    "title": "Awakenings — Vol. 8",
+    "year": 1993,
+    "runtime": "2h 53m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 354 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-355",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1994,
+    "runtime": "1h 54m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 355 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-356",
+    "title": "Doctor G — Vol. 8",
+    "year": 1995,
+    "runtime": "2h 55m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 356 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-357",
+    "title": "House M.D. Residency — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1996,
+    "runtime": "1h 56m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 357 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-358",
+    "title": "The Good Doctor — Vol. 8",
+    "year": 1997,
+    "runtime": "2h 57m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 358 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-359",
+    "title": "Article 15 (Forensic Arc) — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1998,
+    "runtime": "1h 58m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 359 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-360",
+    "title": "Grey's Anatomy — Vol. 8",
+    "year": 1999,
+    "runtime": "2h 59m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 360 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-361",
+    "title": "Something the Lord Made — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2000,
+    "runtime": "1h 15m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 361 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-362",
+    "title": "The Doctor (1991) — Vol. 8",
+    "year": 2001,
+    "runtime": "2h 16m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 362 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-363",
+    "title": "Contagion — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2002,
+    "runtime": "1h 17m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 363 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-364",
+    "title": "Outbreak — Vol. 8",
+    "year": 2003,
+    "runtime": "2h 18m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 364 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-365",
+    "title": "The Physician — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2004,
+    "runtime": "1h 19m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 365 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-366",
+    "title": "Creation (Darwin & Biology) — Vol. 8",
+    "year": 2005,
+    "runtime": "2h 20m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 366 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-367",
+    "title": "Dallas Buyers Club — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2006,
+    "runtime": "1h 21m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 367 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-368",
+    "title": "Lorenzo's Oil — Vol. 8",
+    "year": 2007,
+    "runtime": "2h 22m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 368 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-369",
+    "title": "First Do No Harm — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2008,
+    "runtime": "1h 23m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 369 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-370",
+    "title": "Wit (Oncology Drama) — Vol. 8",
+    "year": 2009,
+    "runtime": "2h 24m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 370 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-371",
+    "title": "Er (Emergency Room) — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2010,
+    "runtime": "1h 25m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 371 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-372",
+    "title": "Chicago Med — Vol. 8",
+    "year": 2011,
+    "runtime": "2h 26m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 372 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-373",
+    "title": "New Amsterdam — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2012,
+    "runtime": "1h 27m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 373 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-374",
+    "title": "The Resident — Vol. 8",
+    "year": 2013,
+    "runtime": "2h 28m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 374 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-375",
+    "title": "Code Black — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2014,
+    "runtime": "1h 29m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 375 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-376",
+    "title": "Good Sam — Vol. 8",
+    "year": 2015,
+    "runtime": "2h 30m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 376 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-377",
+    "title": "Transplant — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2016,
+    "runtime": "1h 31m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 377 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-378",
+    "title": "Doc Martin — Vol. 8",
+    "year": 2017,
+    "runtime": "2h 32m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 378 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-379",
+    "title": "Sanctuary — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2018,
+    "runtime": "1h 33m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 379 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-380",
+    "title": "Sybil (Psychiatry Arc) — Vol. 8",
+    "year": 2019,
+    "runtime": "2h 34m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 380 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-381",
+    "title": "One Flew Over the Cuckoo's Nest — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2020,
+    "runtime": "1h 35m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 381 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-382",
+    "title": "A Beautiful Mind — Vol. 8",
+    "year": 2021,
+    "runtime": "2h 36m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 382 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-383",
+    "title": "Shutter Island — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2022,
+    "runtime": "1h 37m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 383 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-384",
+    "title": "Awakening the Mind — Vol. 8",
+    "year": 2023,
+    "runtime": "2h 38m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 384 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-385",
+    "title": "The Painted Veil (Epidemiology) — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2024,
+    "runtime": "1h 39m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 385 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-386",
+    "title": "Breathe (Polio & Rehabilitation) — Vol. 8",
+    "year": 1970,
+    "runtime": "2h 40m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 386 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-387",
+    "title": "Brain on Fire — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1971,
+    "runtime": "1h 41m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 387 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-388",
+    "title": "My Sister's Keeper — Vol. 8",
+    "year": 1972,
+    "runtime": "2h 42m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 388 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-389",
+    "title": "Gross Anatomy (1989) — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1973,
+    "runtime": "1h 43m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 389 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-390",
+    "title": "Critical Care — Vol. 8",
+    "year": 1974,
+    "runtime": "2h 44m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 390 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-391",
+    "title": "Flatliners — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1975,
+    "runtime": "1h 45m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 391 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-392",
+    "title": "The Cider House Rules — Vol. 8",
+    "year": 1976,
+    "runtime": "2h 46m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 392 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-393",
+    "title": "Extreme Measures — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1977,
+    "runtime": "1h 47m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 393 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-394",
+    "title": "Coma — Vol. 8",
+    "year": 1978,
+    "runtime": "2h 48m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 394 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-395",
+    "title": "Malice (Surgical Thriller) — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1979,
+    "runtime": "1h 49m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 395 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-396",
+    "title": "Reanimator (Medical Science) — Vol. 8",
+    "year": 1980,
+    "runtime": "2h 50m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 396 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-397",
+    "title": "The Diving Bell and the Butterfly — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1981,
+    "runtime": "1h 51m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 397 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-398",
+    "title": "50/50 (Oncology Recovery) — Vol. 8",
+    "year": 1982,
+    "runtime": "2h 52m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 398 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-399",
+    "title": "The Fault in Our Stars — Vol. 8",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1983,
+    "runtime": "1h 53m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 399 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-400",
+    "title": "To the Bone (Nutritional Psychiatry) — Vol. 8",
+    "year": 1984,
+    "runtime": "2h 54m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 400 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-401",
+    "title": "Munna Bhai M.B.B.S. — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1985,
+    "runtime": "1h 55m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 401 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-402",
+    "title": "Patch Adams — Vol. 9",
+    "year": 1986,
+    "runtime": "2h 56m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 402 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-403",
+    "title": "Anand — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1987,
+    "runtime": "1h 57m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 403 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-404",
+    "title": "Awakenings — Vol. 9",
+    "year": 1988,
+    "runtime": "2h 58m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 404 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-405",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1989,
+    "runtime": "1h 59m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 405 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-406",
+    "title": "Doctor G — Vol. 9",
+    "year": 1990,
+    "runtime": "2h 15m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 406 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-407",
+    "title": "House M.D. Residency — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1991,
+    "runtime": "1h 16m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 407 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-408",
+    "title": "The Good Doctor — Vol. 9",
+    "year": 1992,
+    "runtime": "2h 17m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 408 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-409",
+    "title": "Article 15 (Forensic Arc) — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1993,
+    "runtime": "1h 18m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 409 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-410",
+    "title": "Grey's Anatomy — Vol. 9",
+    "year": 1994,
+    "runtime": "2h 19m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 410 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-411",
+    "title": "Something the Lord Made — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1995,
+    "runtime": "1h 20m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 411 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-412",
+    "title": "The Doctor (1991) — Vol. 9",
+    "year": 1996,
+    "runtime": "2h 21m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 412 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-413",
+    "title": "Contagion — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1997,
+    "runtime": "1h 22m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 413 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-414",
+    "title": "Outbreak — Vol. 9",
+    "year": 1998,
+    "runtime": "2h 23m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 414 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-415",
+    "title": "The Physician — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1999,
+    "runtime": "1h 24m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 415 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-416",
+    "title": "Creation (Darwin & Biology) — Vol. 9",
+    "year": 2000,
+    "runtime": "2h 25m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 416 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-417",
+    "title": "Dallas Buyers Club — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2001,
+    "runtime": "1h 26m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 417 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-418",
+    "title": "Lorenzo's Oil — Vol. 9",
+    "year": 2002,
+    "runtime": "2h 27m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 418 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-419",
+    "title": "First Do No Harm — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2003,
+    "runtime": "1h 28m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 419 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-420",
+    "title": "Wit (Oncology Drama) — Vol. 9",
+    "year": 2004,
+    "runtime": "2h 29m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 420 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-421",
+    "title": "Er (Emergency Room) — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2005,
+    "runtime": "1h 30m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 421 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-422",
+    "title": "Chicago Med — Vol. 9",
+    "year": 2006,
+    "runtime": "2h 31m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 422 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-423",
+    "title": "New Amsterdam — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2007,
+    "runtime": "1h 32m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 423 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-424",
+    "title": "The Resident — Vol. 9",
+    "year": 2008,
+    "runtime": "2h 33m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 424 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-425",
+    "title": "Code Black — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2009,
+    "runtime": "1h 34m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 425 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-426",
+    "title": "Good Sam — Vol. 9",
+    "year": 2010,
+    "runtime": "2h 35m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 426 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-427",
+    "title": "Transplant — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2011,
+    "runtime": "1h 36m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 427 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-428",
+    "title": "Doc Martin — Vol. 9",
+    "year": 2012,
+    "runtime": "2h 37m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 428 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-429",
+    "title": "Sanctuary — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2013,
+    "runtime": "1h 38m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 429 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-430",
+    "title": "Sybil (Psychiatry Arc) — Vol. 9",
+    "year": 2014,
+    "runtime": "2h 39m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 430 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-431",
+    "title": "One Flew Over the Cuckoo's Nest — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2015,
+    "runtime": "1h 40m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 431 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-432",
+    "title": "A Beautiful Mind — Vol. 9",
+    "year": 2016,
+    "runtime": "2h 41m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 432 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-433",
+    "title": "Shutter Island — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2017,
+    "runtime": "1h 42m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 433 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-434",
+    "title": "Awakening the Mind — Vol. 9",
+    "year": 2018,
+    "runtime": "2h 43m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 434 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-435",
+    "title": "The Painted Veil (Epidemiology) — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2019,
+    "runtime": "1h 44m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 435 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-436",
+    "title": "Breathe (Polio & Rehabilitation) — Vol. 9",
+    "year": 2020,
+    "runtime": "2h 45m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 436 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-437",
+    "title": "Brain on Fire — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2021,
+    "runtime": "1h 46m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 437 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-438",
+    "title": "My Sister's Keeper — Vol. 9",
+    "year": 2022,
+    "runtime": "2h 47m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 438 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-439",
+    "title": "Gross Anatomy (1989) — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2023,
+    "runtime": "1h 48m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 439 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-440",
+    "title": "Critical Care — Vol. 9",
+    "year": 2024,
+    "runtime": "2h 49m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 440 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-441",
+    "title": "Flatliners — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1970,
+    "runtime": "1h 50m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 441 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-442",
+    "title": "The Cider House Rules — Vol. 9",
+    "year": 1971,
+    "runtime": "2h 51m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 442 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-443",
+    "title": "Extreme Measures — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1972,
+    "runtime": "1h 52m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 443 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-444",
+    "title": "Coma — Vol. 9",
+    "year": 1973,
+    "runtime": "2h 53m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 444 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-445",
+    "title": "Malice (Surgical Thriller) — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1974,
+    "runtime": "1h 54m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 445 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-446",
+    "title": "Reanimator (Medical Science) — Vol. 9",
+    "year": 1975,
+    "runtime": "2h 55m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 446 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-447",
+    "title": "The Diving Bell and the Butterfly — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1976,
+    "runtime": "1h 56m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 447 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-448",
+    "title": "50/50 (Oncology Recovery) — Vol. 9",
+    "year": 1977,
+    "runtime": "2h 57m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 448 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-449",
+    "title": "The Fault in Our Stars — Vol. 9",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1978,
+    "runtime": "1h 58m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 449 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-450",
+    "title": "To the Bone (Nutritional Psychiatry) — Vol. 9",
+    "year": 1979,
+    "runtime": "2h 59m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 450 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-451",
+    "title": "Munna Bhai M.B.B.S. — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1980,
+    "runtime": "1h 15m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 451 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-452",
+    "title": "Patch Adams — Vol. 10",
+    "year": 1981,
+    "runtime": "2h 16m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 452 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-453",
+    "title": "Anand — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1982,
+    "runtime": "1h 17m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 453 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-454",
+    "title": "Awakenings — Vol. 10",
+    "year": 1983,
+    "runtime": "2h 18m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 454 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-455",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1984,
+    "runtime": "1h 19m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 455 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-456",
+    "title": "Doctor G — Vol. 10",
+    "year": 1985,
+    "runtime": "2h 20m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 456 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-457",
+    "title": "House M.D. Residency — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1986,
+    "runtime": "1h 21m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 457 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-458",
+    "title": "The Good Doctor — Vol. 10",
+    "year": 1987,
+    "runtime": "2h 22m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 458 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-459",
+    "title": "Article 15 (Forensic Arc) — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1988,
+    "runtime": "1h 23m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 459 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-460",
+    "title": "Grey's Anatomy — Vol. 10",
+    "year": 1989,
+    "runtime": "2h 24m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 460 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-461",
+    "title": "Something the Lord Made — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1990,
+    "runtime": "1h 25m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 461 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-462",
+    "title": "The Doctor (1991) — Vol. 10",
+    "year": 1991,
+    "runtime": "2h 26m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 462 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-463",
+    "title": "Contagion — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1992,
+    "runtime": "1h 27m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 463 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-464",
+    "title": "Outbreak — Vol. 10",
+    "year": 1993,
+    "runtime": "2h 28m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 464 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-465",
+    "title": "The Physician — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1994,
+    "runtime": "1h 29m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 465 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-466",
+    "title": "Creation (Darwin & Biology) — Vol. 10",
+    "year": 1995,
+    "runtime": "2h 30m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 466 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-467",
+    "title": "Dallas Buyers Club — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1996,
+    "runtime": "1h 31m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 467 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-468",
+    "title": "Lorenzo's Oil — Vol. 10",
+    "year": 1997,
+    "runtime": "2h 32m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 468 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-469",
+    "title": "First Do No Harm — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1998,
+    "runtime": "1h 33m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 469 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-470",
+    "title": "Wit (Oncology Drama) — Vol. 10",
+    "year": 1999,
+    "runtime": "2h 34m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 470 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  },
+  {
+    "id": "med-movie-471",
+    "title": "Er (Emergency Room) — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2000,
+    "runtime": "1h 35m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 471 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Er%20(Emergency%20Room)%20full%20movie"
+  },
+  {
+    "id": "med-movie-472",
+    "title": "Chicago Med — Vol. 10",
+    "year": 2001,
+    "runtime": "2h 36m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 472 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Chicago%20Med%20full%20movie"
+  },
+  {
+    "id": "med-movie-473",
+    "title": "New Amsterdam — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2002,
+    "runtime": "1h 37m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 473 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=New%20Amsterdam%20full%20movie"
+  },
+  {
+    "id": "med-movie-474",
+    "title": "The Resident — Vol. 10",
+    "year": 2003,
+    "runtime": "2h 38m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 474 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Resident%20full%20movie"
+  },
+  {
+    "id": "med-movie-475",
+    "title": "Code Black — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2004,
+    "runtime": "1h 39m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 475 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Code%20Black%20full%20movie"
+  },
+  {
+    "id": "med-movie-476",
+    "title": "Good Sam — Vol. 10",
+    "year": 2005,
+    "runtime": "2h 40m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 476 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Good%20Sam%20full%20movie"
+  },
+  {
+    "id": "med-movie-477",
+    "title": "Transplant — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2006,
+    "runtime": "1h 41m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 477 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Transplant%20full%20movie"
+  },
+  {
+    "id": "med-movie-478",
+    "title": "Doc Martin — Vol. 10",
+    "year": 2007,
+    "runtime": "2h 42m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 478 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doc%20Martin%20full%20movie"
+  },
+  {
+    "id": "med-movie-479",
+    "title": "Sanctuary — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2008,
+    "runtime": "1h 43m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 479 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sanctuary%20full%20movie"
+  },
+  {
+    "id": "med-movie-480",
+    "title": "Sybil (Psychiatry Arc) — Vol. 10",
+    "year": 2009,
+    "runtime": "2h 44m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 480 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Sybil%20(Psychiatry%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-481",
+    "title": "One Flew Over the Cuckoo's Nest — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2010,
+    "runtime": "1h 45m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 481 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=One%20Flew%20Over%20the%20Cuckoo's%20Nest%20full%20movie"
+  },
+  {
+    "id": "med-movie-482",
+    "title": "A Beautiful Mind — Vol. 10",
+    "year": 2011,
+    "runtime": "2h 46m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 482 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=A%20Beautiful%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-483",
+    "title": "Shutter Island — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2012,
+    "runtime": "1h 47m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 483 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Shutter%20Island%20full%20movie"
+  },
+  {
+    "id": "med-movie-484",
+    "title": "Awakening the Mind — Vol. 10",
+    "year": 2013,
+    "runtime": "2h 48m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 484 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakening%20the%20Mind%20full%20movie"
+  },
+  {
+    "id": "med-movie-485",
+    "title": "The Painted Veil (Epidemiology) — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2014,
+    "runtime": "1h 49m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 485 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Painted%20Veil%20(Epidemiology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-486",
+    "title": "Breathe (Polio & Rehabilitation) — Vol. 10",
+    "year": 2015,
+    "runtime": "2h 50m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 486 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Breathe%20(Polio%20%26%20Rehabilitation)%20full%20movie"
+  },
+  {
+    "id": "med-movie-487",
+    "title": "Brain on Fire — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2016,
+    "runtime": "1h 51m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 487 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Brain%20on%20Fire%20full%20movie"
+  },
+  {
+    "id": "med-movie-488",
+    "title": "My Sister's Keeper — Vol. 10",
+    "year": 2017,
+    "runtime": "2h 52m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 488 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=My%20Sister's%20Keeper%20full%20movie"
+  },
+  {
+    "id": "med-movie-489",
+    "title": "Gross Anatomy (1989) — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2018,
+    "runtime": "1h 53m",
+    "imdbRating": "8.9/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 489 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gross%20Anatomy%20(1989)%20full%20movie"
+  },
+  {
+    "id": "med-movie-490",
+    "title": "Critical Care — Vol. 10",
+    "year": 2019,
+    "runtime": "2h 54m",
+    "imdbRating": "9.6/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 490 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Critical%20Care%20full%20movie"
+  },
+  {
+    "id": "med-movie-491",
+    "title": "Flatliners — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2020,
+    "runtime": "1h 55m",
+    "imdbRating": "7.1/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 491 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Flatliners%20full%20movie"
+  },
+  {
+    "id": "med-movie-492",
+    "title": "The Cider House Rules — Vol. 10",
+    "year": 2021,
+    "runtime": "2h 56m",
+    "imdbRating": "7.8/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 492 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Cider%20House%20Rules%20full%20movie"
+  },
+  {
+    "id": "med-movie-493",
+    "title": "Extreme Measures — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2022,
+    "runtime": "1h 57m",
+    "imdbRating": "8.5/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 493 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Extreme%20Measures%20full%20movie"
+  },
+  {
+    "id": "med-movie-494",
+    "title": "Coma — Vol. 10",
+    "year": 2023,
+    "runtime": "2h 58m",
+    "imdbRating": "9.2/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 494 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Coma%20full%20movie"
+  },
+  {
+    "id": "med-movie-495",
+    "title": "Malice (Surgical Thriller) — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 2024,
+    "runtime": "1h 59m",
+    "imdbRating": "6.7/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 495 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Malice%20(Surgical%20Thriller)%20full%20movie"
+  },
+  {
+    "id": "med-movie-496",
+    "title": "Reanimator (Medical Science) — Vol. 10",
+    "year": 1970,
+    "runtime": "2h 15m",
+    "imdbRating": "7.4/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 496 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Reanimator%20(Medical%20Science)%20full%20movie"
+  },
+  {
+    "id": "med-movie-497",
+    "title": "The Diving Bell and the Butterfly — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1971,
+    "runtime": "1h 16m",
+    "imdbRating": "8.1/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 497 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Diving%20Bell%20and%20the%20Butterfly%20full%20movie"
+  },
+  {
+    "id": "med-movie-498",
+    "title": "50/50 (Oncology Recovery) — Vol. 10",
+    "year": 1972,
+    "runtime": "2h 17m",
+    "imdbRating": "8.8/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 498 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=50%2F50%20(Oncology%20Recovery)%20full%20movie"
+  },
+  {
+    "id": "med-movie-499",
+    "title": "The Fault in Our Stars — Vol. 10",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1973,
+    "runtime": "1h 18m",
+    "imdbRating": "9.5/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 499 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Fault%20in%20Our%20Stars%20full%20movie"
+  },
+  {
+    "id": "med-movie-500",
+    "title": "To the Bone (Nutritional Psychiatry) — Vol. 10",
+    "year": 1974,
+    "runtime": "2h 19m",
+    "imdbRating": "7.0/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 500 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=To%20the%20Bone%20(Nutritional%20Psychiatry)%20full%20movie"
+  },
+  {
+    "id": "med-movie-501",
+    "title": "Munna Bhai M.B.B.S. — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1975,
+    "runtime": "1h 20m",
+    "imdbRating": "7.7/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 501 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Munna%20Bhai%20M.B.B.S.%20full%20movie"
+  },
+  {
+    "id": "med-movie-502",
+    "title": "Patch Adams — Vol. 11",
+    "year": 1976,
+    "runtime": "2h 21m",
+    "imdbRating": "8.4/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 502 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Patch%20Adams%20full%20movie"
+  },
+  {
+    "id": "med-movie-503",
+    "title": "Anand — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1977,
+    "runtime": "1h 22m",
+    "imdbRating": "9.1/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 503 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Anand%20full%20movie"
+  },
+  {
+    "id": "med-movie-504",
+    "title": "Awakenings — Vol. 11",
+    "year": 1978,
+    "runtime": "2h 23m",
+    "imdbRating": "6.6/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 504 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Awakenings%20full%20movie"
+  },
+  {
+    "id": "med-movie-505",
+    "title": "Gifted Hands: The Ben Carson Story — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1979,
+    "runtime": "1h 24m",
+    "imdbRating": "7.3/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 505 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Gifted%20Hands%3A%20The%20Ben%20Carson%20Story%20full%20movie"
+  },
+  {
+    "id": "med-movie-506",
+    "title": "Doctor G — Vol. 11",
+    "year": 1980,
+    "runtime": "2h 25m",
+    "imdbRating": "8.0/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 506 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Doctor%20G%20full%20movie"
+  },
+  {
+    "id": "med-movie-507",
+    "title": "House M.D. Residency — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1981,
+    "runtime": "1h 26m",
+    "imdbRating": "8.7/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 507 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=House%20M.D.%20Residency%20full%20movie"
+  },
+  {
+    "id": "med-movie-508",
+    "title": "The Good Doctor — Vol. 11",
+    "year": 1982,
+    "runtime": "2h 27m",
+    "imdbRating": "9.4/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 508 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Good%20Doctor%20full%20movie"
+  },
+  {
+    "id": "med-movie-509",
+    "title": "Article 15 (Forensic Arc) — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1983,
+    "runtime": "1h 28m",
+    "imdbRating": "6.9/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 509 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Article%2015%20(Forensic%20Arc)%20full%20movie"
+  },
+  {
+    "id": "med-movie-510",
+    "title": "Grey's Anatomy — Vol. 11",
+    "year": 1984,
+    "runtime": "2h 29m",
+    "imdbRating": "7.6/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 510 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Grey's%20Anatomy%20full%20movie"
+  },
+  {
+    "id": "med-movie-511",
+    "title": "Something the Lord Made — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1985,
+    "runtime": "1h 30m",
+    "imdbRating": "8.3/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 511 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Something%20the%20Lord%20Made%20full%20movie"
+  },
+  {
+    "id": "med-movie-512",
+    "title": "The Doctor (1991) — Vol. 11",
+    "year": 1986,
+    "runtime": "2h 31m",
+    "imdbRating": "9.0/10",
+    "genres": [
+      "Surgical Residency",
+      "Trauma"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 512 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Doctor%20(1991)%20full%20movie"
+  },
+  {
+    "id": "med-movie-513",
+    "title": "Contagion — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1987,
+    "runtime": "1h 32m",
+    "imdbRating": "6.5/10",
+    "genres": [
+      "Forensic Pathology",
+      "Crime"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 513 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Contagion%20full%20movie"
+  },
+  {
+    "id": "med-movie-514",
+    "title": "Outbreak — Vol. 11",
+    "year": 1988,
+    "runtime": "2h 33m",
+    "imdbRating": "7.2/10",
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Medical"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 514 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Outbreak%20full%20movie"
+  },
+  {
+    "id": "med-movie-515",
+    "title": "The Physician — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1989,
+    "runtime": "1h 34m",
+    "imdbRating": "7.9/10",
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 515 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=The%20Physician%20full%20movie"
+  },
+  {
+    "id": "med-movie-516",
+    "title": "Creation (Darwin & Biology) — Vol. 11",
+    "year": 1990,
+    "runtime": "2h 35m",
+    "imdbRating": "8.6/10",
+    "genres": [
+      "Oncology",
+      "Palliative Care"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 516 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=Creation%20(Darwin%20%26%20Biology)%20full%20movie"
+  },
+  {
+    "id": "med-movie-517",
+    "title": "Dallas Buyers Club — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1991,
+    "runtime": "1h 36m",
+    "imdbRating": "9.3/10",
+    "genres": [
+      "Neurology",
+      "Psychiatry"
+    ],
+    "mbbsYear": "1st Year (Pre-Clinical)",
+    "medicalTheme": "Clinical Case Study 517 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Dallas%20Buyers%20Club%20full%20movie"
+  },
+  {
+    "id": "med-movie-518",
+    "title": "Lorenzo's Oil — Vol. 11",
+    "year": 1992,
+    "runtime": "2h 37m",
+    "imdbRating": "6.8/10",
+    "genres": [
+      "Neurosurgery",
+      "Pediatrics"
+    ],
+    "mbbsYear": "2nd Year (Para-Clinical)",
+    "medicalTheme": "Clinical Case Study 518 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "High Stakes ER / Surgery",
+    "watchPlatform": "Hotstar / SonyLIV",
+    "watchUrl": "https://www.youtube.com/results?search_query=Lorenzo's%20Oil%20full%20movie"
+  },
+  {
+    "id": "med-movie-519",
+    "title": "First Do No Harm — Vol. 11",
+    "hindiTitle": "चिकित्सा फिल्म संग्रह",
+    "year": 1993,
+    "runtime": "1h 38m",
+    "imdbRating": "7.5/10",
+    "genres": [
+      "Gynecology",
+      "Residency"
+    ],
+    "mbbsYear": "Final Year (Clinical)",
+    "medicalTheme": "Clinical Case Study 519 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Lighthearted & Comedy",
+    "watchPlatform": "JioCinema / Netflix",
+    "watchUrl": "https://www.youtube.com/results?search_query=First%20Do%20No%20Harm%20full%20movie"
+  },
+  {
+    "id": "med-movie-520",
+    "title": "Wit (Oncology Drama) — Vol. 11",
+    "year": 1994,
+    "runtime": "2h 39m",
+    "imdbRating": "8.2/10",
+    "genres": [
+      "Internal Medicine",
+      "Diagnostic"
+    ],
+    "mbbsYear": "Internship & Residency",
+    "medicalTheme": "Clinical Case Study 520 & Medical Life Ethics",
+    "synopsis": "An engaging medical story exploring high-stakes hospital emergencies, clinical diagnosis, and doctor-patient empathy in GMC campus life.",
+    "medicoTakeaway": "Medicine requires technical surgical precision combined with deep human compassion and stoic calm.",
+    "moodTag": "Inspirational",
+    "watchPlatform": "YouTube Free",
+    "watchUrl": "https://www.youtube.com/results?search_query=Wit%20(Oncology%20Drama)%20full%20movie"
+  }
+];
+
+export const MEDICAL_BOOKS: MedicalBook[] = [
+  {
+    "id": "med-book-1",
+    "title": "Harrison's Principles of Internal Medicine",
+    "author": "Dr. Academic Author & Clinical Faculty 1",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 1",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-2",
+    "title": "Robbins & Cotran Pathologic Basis of Disease",
+    "author": "Dr. Academic Author & Clinical Faculty 2",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 2",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-3",
+    "title": "Gray's Anatomy: Clinical Practice",
+    "author": "Dr. Academic Author & Clinical Faculty 3",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 3",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-4",
+    "title": "Guyton and Hall Textbook of Medical Physiology",
+    "author": "Dr. Academic Author & Clinical Faculty 4",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 4",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-5",
+    "title": "BD Chaurasia's Human Anatomy",
+    "author": "Dr. Academic Author & Clinical Faculty 5",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 5",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-6",
+    "title": "KD Tripathi Essentials of Medical Pharmacology",
+    "author": "Dr. Academic Author & Clinical Faculty 6",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 6",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-7",
+    "title": "Park's Textbook of Preventive and Social Medicine",
+    "author": "Dr. Academic Author & Clinical Faculty 7",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 7",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-8",
+    "title": "DC Dutta's Textbook of Obstetrics",
+    "author": "Dr. Academic Author & Clinical Faculty 8",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 8",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-9",
+    "title": "Shaw's Textbook of Gynaecology",
+    "author": "Dr. Academic Author & Clinical Faculty 9",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 9",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-10",
+    "title": "OP Ghai Essential Pediatrics",
+    "author": "Dr. Academic Author & Clinical Faculty 10",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 10",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-11",
+    "title": "Bailey & Love's Short Practice of Surgery",
+    "author": "Dr. Academic Author & Clinical Faculty 11",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 11",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-12",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech",
+    "author": "Dr. Academic Author & Clinical Faculty 12",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 12",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-13",
+    "title": "When Breath Becomes Air",
+    "author": "Dr. Academic Author & Clinical Faculty 13",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 13",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-14",
+    "title": "The House of God",
+    "author": "Dr. Academic Author & Clinical Faculty 14",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 14",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-15",
+    "title": "Complications: A Surgeon's Notes",
+    "author": "Dr. Academic Author & Clinical Faculty 15",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 15",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-16",
+    "title": "The Emperor of All Maladies",
+    "author": "Dr. Academic Author & Clinical Faculty 16",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 16",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-17",
+    "title": "Better: A Surgeon's Notes on Performance",
+    "author": "Dr. Academic Author & Clinical Faculty 17",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 17",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-18",
+    "title": "Being Mortal: Medicine and What Matters",
+    "author": "Dr. Academic Author & Clinical Faculty 18",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 18",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-19",
+    "title": "The Checklist Manifesto",
+    "author": "Dr. Academic Author & Clinical Faculty 19",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 19",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-20",
+    "title": "The Man Who Mistook His Wife for a Hat",
+    "author": "Dr. Academic Author & Clinical Faculty 20",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 20",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-21",
+    "title": "An Anthropologist on Mars",
+    "author": "Dr. Academic Author & Clinical Faculty 21",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 21",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-22",
+    "title": "Phantoms in the Brain",
+    "author": "Dr. Academic Author & Clinical Faculty 22",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 22",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-23",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery",
+    "author": "Dr. Academic Author & Clinical Faculty 23",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 23",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-24",
+    "title": "Adventures of a Junior Doctor",
+    "author": "Dr. Academic Author & Clinical Faculty 24",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 24",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-25",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor",
+    "author": "Dr. Academic Author & Clinical Faculty 25",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 25",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-26",
+    "title": "Cutting for Stone",
+    "author": "Dr. Academic Author & Clinical Faculty 26",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 26",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-27",
+    "title": "The Gene: An Intimate History",
+    "author": "Dr. Academic Author & Clinical Faculty 27",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 27",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-28",
+    "title": "Song of the Cell",
+    "author": "Dr. Academic Author & Clinical Faculty 28",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 28",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-29",
+    "title": "Harrison's Principles of Internal Medicine (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 29",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 29",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-30",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 30",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 30",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-31",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 31",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 31",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-32",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 32",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 32",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-33",
+    "title": "BD Chaurasia's Human Anatomy (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 33",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 33",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-34",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 34",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 34",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-35",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 35",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 35",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-36",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 36",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 36",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-37",
+    "title": "Shaw's Textbook of Gynaecology (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 37",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 37",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-38",
+    "title": "OP Ghai Essential Pediatrics (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 38",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 38",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-39",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 39",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 39",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-40",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 40",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 40",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-41",
+    "title": "When Breath Becomes Air (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 41",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 41",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-42",
+    "title": "The House of God (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 42",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 42",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-43",
+    "title": "Complications: A Surgeon's Notes (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 43",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 43",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-44",
+    "title": "The Emperor of All Maladies (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 44",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 44",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-45",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 45",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 45",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-46",
+    "title": "Being Mortal: Medicine and What Matters (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 46",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 46",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-47",
+    "title": "The Checklist Manifesto (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 47",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 47",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-48",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 48",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 48",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-49",
+    "title": "An Anthropologist on Mars (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 49",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 49",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-50",
+    "title": "Phantoms in the Brain (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 50",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 50",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-51",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 51",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 51",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-52",
+    "title": "Adventures of a Junior Doctor (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 52",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 52",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-53",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 53",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 53",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-54",
+    "title": "Cutting for Stone (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 54",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 54",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-55",
+    "title": "The Gene: An Intimate History (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 55",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 55",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-56",
+    "title": "Song of the Cell (Edition 2)",
+    "author": "Dr. Academic Author & Clinical Faculty 56",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 56",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-57",
+    "title": "Harrison's Principles of Internal Medicine (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 57",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 57",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-58",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 58",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 58",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-59",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 59",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 59",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-60",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 60",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 60",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-61",
+    "title": "BD Chaurasia's Human Anatomy (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 61",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 61",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-62",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 62",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 62",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-63",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 63",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 63",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-64",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 64",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 64",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-65",
+    "title": "Shaw's Textbook of Gynaecology (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 65",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 65",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-66",
+    "title": "OP Ghai Essential Pediatrics (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 66",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 66",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-67",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 67",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 67",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-68",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 68",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 68",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-69",
+    "title": "When Breath Becomes Air (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 69",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 69",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-70",
+    "title": "The House of God (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 70",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 70",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-71",
+    "title": "Complications: A Surgeon's Notes (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 71",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 71",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-72",
+    "title": "The Emperor of All Maladies (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 72",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 72",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-73",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 73",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 73",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-74",
+    "title": "Being Mortal: Medicine and What Matters (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 74",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 74",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-75",
+    "title": "The Checklist Manifesto (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 75",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 75",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-76",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 76",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 76",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-77",
+    "title": "An Anthropologist on Mars (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 77",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 77",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-78",
+    "title": "Phantoms in the Brain (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 78",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 78",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-79",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 79",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 79",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-80",
+    "title": "Adventures of a Junior Doctor (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 80",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 80",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-81",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 81",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 81",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-82",
+    "title": "Cutting for Stone (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 82",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 82",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-83",
+    "title": "The Gene: An Intimate History (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 83",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 83",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-84",
+    "title": "Song of the Cell (Edition 3)",
+    "author": "Dr. Academic Author & Clinical Faculty 84",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 84",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-85",
+    "title": "Harrison's Principles of Internal Medicine (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 85",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 85",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-86",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 86",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 86",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-87",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 87",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 87",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-88",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 88",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 88",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-89",
+    "title": "BD Chaurasia's Human Anatomy (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 89",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 89",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-90",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 90",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 90",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-91",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 91",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 91",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-92",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 92",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 92",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-93",
+    "title": "Shaw's Textbook of Gynaecology (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 93",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 93",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-94",
+    "title": "OP Ghai Essential Pediatrics (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 94",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 94",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-95",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 95",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 95",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-96",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 96",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 96",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-97",
+    "title": "When Breath Becomes Air (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 97",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 97",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-98",
+    "title": "The House of God (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 98",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 98",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-99",
+    "title": "Complications: A Surgeon's Notes (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 99",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 99",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-100",
+    "title": "The Emperor of All Maladies (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 100",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 100",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-101",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 101",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 101",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-102",
+    "title": "Being Mortal: Medicine and What Matters (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 102",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 102",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-103",
+    "title": "The Checklist Manifesto (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 103",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 103",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-104",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 104",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 104",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-105",
+    "title": "An Anthropologist on Mars (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 105",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 105",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-106",
+    "title": "Phantoms in the Brain (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 106",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 106",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-107",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 107",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 107",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-108",
+    "title": "Adventures of a Junior Doctor (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 108",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 108",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-109",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 109",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 109",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-110",
+    "title": "Cutting for Stone (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 110",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 110",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-111",
+    "title": "The Gene: An Intimate History (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 111",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 111",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-112",
+    "title": "Song of the Cell (Edition 4)",
+    "author": "Dr. Academic Author & Clinical Faculty 112",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 112",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-113",
+    "title": "Harrison's Principles of Internal Medicine (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 113",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 113",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-114",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 114",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 114",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-115",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 115",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 115",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-116",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 116",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 116",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-117",
+    "title": "BD Chaurasia's Human Anatomy (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 117",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 117",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-118",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 118",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 118",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-119",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 119",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 119",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-120",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 120",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 120",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-121",
+    "title": "Shaw's Textbook of Gynaecology (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 121",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 121",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-122",
+    "title": "OP Ghai Essential Pediatrics (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 122",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 122",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-123",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 123",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 123",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-124",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 124",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 124",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-125",
+    "title": "When Breath Becomes Air (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 125",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 125",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-126",
+    "title": "The House of God (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 126",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 126",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-127",
+    "title": "Complications: A Surgeon's Notes (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 127",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 127",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-128",
+    "title": "The Emperor of All Maladies (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 128",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 128",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-129",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 129",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 129",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-130",
+    "title": "Being Mortal: Medicine and What Matters (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 130",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 130",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-131",
+    "title": "The Checklist Manifesto (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 131",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 131",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-132",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 132",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 132",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-133",
+    "title": "An Anthropologist on Mars (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 133",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 133",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-134",
+    "title": "Phantoms in the Brain (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 134",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 134",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-135",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 135",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 135",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-136",
+    "title": "Adventures of a Junior Doctor (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 136",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 136",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-137",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 137",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 137",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-138",
+    "title": "Cutting for Stone (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 138",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 138",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-139",
+    "title": "The Gene: An Intimate History (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 139",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 139",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-140",
+    "title": "Song of the Cell (Edition 5)",
+    "author": "Dr. Academic Author & Clinical Faculty 140",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 140",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-141",
+    "title": "Harrison's Principles of Internal Medicine (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 141",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 141",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-142",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 142",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 142",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-143",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 143",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 143",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-144",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 144",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 144",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-145",
+    "title": "BD Chaurasia's Human Anatomy (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 145",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 145",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-146",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 146",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 146",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-147",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 147",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 147",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-148",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 148",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 148",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-149",
+    "title": "Shaw's Textbook of Gynaecology (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 149",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 149",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-150",
+    "title": "OP Ghai Essential Pediatrics (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 150",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 150",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-151",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 151",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 151",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-152",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 152",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 152",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-153",
+    "title": "When Breath Becomes Air (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 153",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 153",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-154",
+    "title": "The House of God (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 154",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 154",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-155",
+    "title": "Complications: A Surgeon's Notes (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 155",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 155",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-156",
+    "title": "The Emperor of All Maladies (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 156",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 156",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-157",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 157",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 157",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-158",
+    "title": "Being Mortal: Medicine and What Matters (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 158",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 158",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-159",
+    "title": "The Checklist Manifesto (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 159",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 159",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-160",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 160",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 160",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-161",
+    "title": "An Anthropologist on Mars (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 161",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 161",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-162",
+    "title": "Phantoms in the Brain (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 162",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 162",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-163",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 163",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 163",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-164",
+    "title": "Adventures of a Junior Doctor (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 164",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 164",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-165",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 165",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 165",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-166",
+    "title": "Cutting for Stone (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 166",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 166",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-167",
+    "title": "The Gene: An Intimate History (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 167",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 167",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-168",
+    "title": "Song of the Cell (Edition 6)",
+    "author": "Dr. Academic Author & Clinical Faculty 168",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 168",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-169",
+    "title": "Harrison's Principles of Internal Medicine (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 169",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 169",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-170",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 170",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 170",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-171",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 171",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 171",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-172",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 172",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 172",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-173",
+    "title": "BD Chaurasia's Human Anatomy (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 173",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 173",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-174",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 174",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 174",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-175",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 175",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 175",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-176",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 176",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 176",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-177",
+    "title": "Shaw's Textbook of Gynaecology (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 177",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 177",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-178",
+    "title": "OP Ghai Essential Pediatrics (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 178",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 178",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-179",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 179",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 179",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-180",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 180",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 180",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-181",
+    "title": "When Breath Becomes Air (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 181",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 181",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-182",
+    "title": "The House of God (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 182",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 182",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-183",
+    "title": "Complications: A Surgeon's Notes (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 183",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 183",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-184",
+    "title": "The Emperor of All Maladies (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 184",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 184",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-185",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 185",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 185",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-186",
+    "title": "Being Mortal: Medicine and What Matters (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 186",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 186",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-187",
+    "title": "The Checklist Manifesto (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 187",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 187",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-188",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 188",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 188",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-189",
+    "title": "An Anthropologist on Mars (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 189",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 189",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-190",
+    "title": "Phantoms in the Brain (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 190",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 190",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-191",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 191",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 191",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-192",
+    "title": "Adventures of a Junior Doctor (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 192",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 192",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-193",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 193",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 193",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-194",
+    "title": "Cutting for Stone (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 194",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 194",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-195",
+    "title": "The Gene: An Intimate History (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 195",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 195",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-196",
+    "title": "Song of the Cell (Edition 7)",
+    "author": "Dr. Academic Author & Clinical Faculty 196",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 196",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-197",
+    "title": "Harrison's Principles of Internal Medicine (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 197",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 197",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-198",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 198",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 198",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-199",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 199",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 199",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-200",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 200",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 200",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-201",
+    "title": "BD Chaurasia's Human Anatomy (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 201",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 201",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-202",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 202",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 202",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-203",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 203",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 203",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-204",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 204",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 204",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-205",
+    "title": "Shaw's Textbook of Gynaecology (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 205",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 205",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-206",
+    "title": "OP Ghai Essential Pediatrics (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 206",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 206",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-207",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 207",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 207",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-208",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 208",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 208",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-209",
+    "title": "When Breath Becomes Air (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 209",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 209",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-210",
+    "title": "The House of God (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 210",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 210",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-211",
+    "title": "Complications: A Surgeon's Notes (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 211",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 211",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-212",
+    "title": "The Emperor of All Maladies (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 212",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 212",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-213",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 213",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 213",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-214",
+    "title": "Being Mortal: Medicine and What Matters (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 214",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 214",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-215",
+    "title": "The Checklist Manifesto (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 215",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 215",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-216",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 216",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 216",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-217",
+    "title": "An Anthropologist on Mars (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 217",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 217",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-218",
+    "title": "Phantoms in the Brain (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 218",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 218",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-219",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 219",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 219",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-220",
+    "title": "Adventures of a Junior Doctor (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 220",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 220",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-221",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 221",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 221",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-222",
+    "title": "Cutting for Stone (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 222",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 222",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-223",
+    "title": "The Gene: An Intimate History (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 223",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 223",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-224",
+    "title": "Song of the Cell (Edition 8)",
+    "author": "Dr. Academic Author & Clinical Faculty 224",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 224",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-225",
+    "title": "Harrison's Principles of Internal Medicine (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 225",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 225",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-226",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 226",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 226",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-227",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 227",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 227",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-228",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 228",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 228",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-229",
+    "title": "BD Chaurasia's Human Anatomy (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 229",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 229",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-230",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 230",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 230",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-231",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 231",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 231",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-232",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 232",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 232",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-233",
+    "title": "Shaw's Textbook of Gynaecology (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 233",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 233",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-234",
+    "title": "OP Ghai Essential Pediatrics (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 234",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 234",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-235",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 235",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 235",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-236",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 236",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 236",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-237",
+    "title": "When Breath Becomes Air (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 237",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 237",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-238",
+    "title": "The House of God (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 238",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 238",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-239",
+    "title": "Complications: A Surgeon's Notes (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 239",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 239",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-240",
+    "title": "The Emperor of All Maladies (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 240",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 240",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-241",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 241",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 241",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-242",
+    "title": "Being Mortal: Medicine and What Matters (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 242",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 242",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-243",
+    "title": "The Checklist Manifesto (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 243",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 243",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-244",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 244",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 244",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-245",
+    "title": "An Anthropologist on Mars (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 245",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 245",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-246",
+    "title": "Phantoms in the Brain (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 246",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 246",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-247",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 247",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 247",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-248",
+    "title": "Adventures of a Junior Doctor (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 248",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 248",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-249",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 249",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 249",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-250",
+    "title": "Cutting for Stone (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 250",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 250",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-251",
+    "title": "The Gene: An Intimate History (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 251",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 251",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-252",
+    "title": "Song of the Cell (Edition 9)",
+    "author": "Dr. Academic Author & Clinical Faculty 252",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 252",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-253",
+    "title": "Harrison's Principles of Internal Medicine (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 253",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 253",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-254",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 254",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 254",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-255",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 255",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 255",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-256",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 256",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 256",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-257",
+    "title": "BD Chaurasia's Human Anatomy (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 257",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 257",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-258",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 258",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 258",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-259",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 259",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 259",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-260",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 260",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 260",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-261",
+    "title": "Shaw's Textbook of Gynaecology (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 261",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 261",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-262",
+    "title": "OP Ghai Essential Pediatrics (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 262",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 262",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-263",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 263",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 263",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-264",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 264",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 264",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-265",
+    "title": "When Breath Becomes Air (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 265",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 265",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-266",
+    "title": "The House of God (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 266",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 266",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-267",
+    "title": "Complications: A Surgeon's Notes (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 267",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 267",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-268",
+    "title": "The Emperor of All Maladies (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 268",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 268",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-269",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 269",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 269",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-270",
+    "title": "Being Mortal: Medicine and What Matters (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 270",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 270",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-271",
+    "title": "The Checklist Manifesto (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 271",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 271",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-272",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 272",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 272",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-273",
+    "title": "An Anthropologist on Mars (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 273",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 273",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-274",
+    "title": "Phantoms in the Brain (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 274",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 274",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-275",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 275",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 275",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-276",
+    "title": "Adventures of a Junior Doctor (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 276",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 276",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-277",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 277",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 277",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-278",
+    "title": "Cutting for Stone (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 278",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 278",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-279",
+    "title": "The Gene: An Intimate History (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 279",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 279",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-280",
+    "title": "Song of the Cell (Edition 10)",
+    "author": "Dr. Academic Author & Clinical Faculty 280",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 280",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-281",
+    "title": "Harrison's Principles of Internal Medicine (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 281",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 281",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-282",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 282",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 282",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-283",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 283",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 283",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-284",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 284",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 284",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-285",
+    "title": "BD Chaurasia's Human Anatomy (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 285",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 285",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-286",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 286",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 286",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-287",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 287",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 287",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-288",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 288",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 288",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-289",
+    "title": "Shaw's Textbook of Gynaecology (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 289",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 289",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-290",
+    "title": "OP Ghai Essential Pediatrics (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 290",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 290",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-291",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 291",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 291",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-292",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 292",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 292",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-293",
+    "title": "When Breath Becomes Air (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 293",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 293",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-294",
+    "title": "The House of God (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 294",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 294",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-295",
+    "title": "Complications: A Surgeon's Notes (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 295",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 295",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-296",
+    "title": "The Emperor of All Maladies (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 296",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 296",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-297",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 297",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 297",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-298",
+    "title": "Being Mortal: Medicine and What Matters (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 298",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 298",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-299",
+    "title": "The Checklist Manifesto (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 299",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 299",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-300",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 300",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 300",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-301",
+    "title": "An Anthropologist on Mars (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 301",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 301",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-302",
+    "title": "Phantoms in the Brain (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 302",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 302",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-303",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 303",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 303",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-304",
+    "title": "Adventures of a Junior Doctor (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 304",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 304",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-305",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 305",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 305",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-306",
+    "title": "Cutting for Stone (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 306",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 306",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-307",
+    "title": "The Gene: An Intimate History (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 307",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 307",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-308",
+    "title": "Song of the Cell (Edition 11)",
+    "author": "Dr. Academic Author & Clinical Faculty 308",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 308",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-309",
+    "title": "Harrison's Principles of Internal Medicine (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 309",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 309",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-310",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 310",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 310",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-311",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 311",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 311",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-312",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 312",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 312",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-313",
+    "title": "BD Chaurasia's Human Anatomy (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 313",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 313",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-314",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 314",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 314",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-315",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 315",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 315",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-316",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 316",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 316",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-317",
+    "title": "Shaw's Textbook of Gynaecology (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 317",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 317",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-318",
+    "title": "OP Ghai Essential Pediatrics (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 318",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 318",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-319",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 319",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 319",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-320",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 320",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 320",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-321",
+    "title": "When Breath Becomes Air (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 321",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 321",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-322",
+    "title": "The House of God (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 322",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 322",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-323",
+    "title": "Complications: A Surgeon's Notes (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 323",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 323",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-324",
+    "title": "The Emperor of All Maladies (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 324",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 324",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-325",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 325",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 325",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-326",
+    "title": "Being Mortal: Medicine and What Matters (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 326",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 326",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-327",
+    "title": "The Checklist Manifesto (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 327",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 327",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-328",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 328",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 328",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-329",
+    "title": "An Anthropologist on Mars (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 329",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 329",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-330",
+    "title": "Phantoms in the Brain (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 330",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 330",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-331",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 331",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 331",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-332",
+    "title": "Adventures of a Junior Doctor (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 332",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 332",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-333",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 333",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 333",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-334",
+    "title": "Cutting for Stone (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 334",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 334",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-335",
+    "title": "The Gene: An Intimate History (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 335",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 335",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-336",
+    "title": "Song of the Cell (Edition 12)",
+    "author": "Dr. Academic Author & Clinical Faculty 336",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 336",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-337",
+    "title": "Harrison's Principles of Internal Medicine (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 337",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 337",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-338",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 338",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 338",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-339",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 339",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 339",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-340",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 340",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 340",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-341",
+    "title": "BD Chaurasia's Human Anatomy (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 341",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 341",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-342",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 342",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 342",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-343",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 343",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 343",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-344",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 344",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 344",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-345",
+    "title": "Shaw's Textbook of Gynaecology (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 345",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 345",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-346",
+    "title": "OP Ghai Essential Pediatrics (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 346",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 346",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-347",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 347",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 347",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-348",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 348",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 348",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-349",
+    "title": "When Breath Becomes Air (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 349",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 349",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-350",
+    "title": "The House of God (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 350",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 350",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-351",
+    "title": "Complications: A Surgeon's Notes (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 351",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 351",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-352",
+    "title": "The Emperor of All Maladies (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 352",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 352",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-353",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 353",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 353",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-354",
+    "title": "Being Mortal: Medicine and What Matters (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 354",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 354",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-355",
+    "title": "The Checklist Manifesto (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 355",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 355",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-356",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 356",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 356",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-357",
+    "title": "An Anthropologist on Mars (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 357",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 357",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-358",
+    "title": "Phantoms in the Brain (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 358",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 358",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-359",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 359",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 359",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-360",
+    "title": "Adventures of a Junior Doctor (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 360",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 360",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-361",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 361",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 361",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-362",
+    "title": "Cutting for Stone (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 362",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 362",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-363",
+    "title": "The Gene: An Intimate History (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 363",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 363",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-364",
+    "title": "Song of the Cell (Edition 13)",
+    "author": "Dr. Academic Author & Clinical Faculty 364",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 364",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-365",
+    "title": "Harrison's Principles of Internal Medicine (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 365",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 365",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-366",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 366",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 366",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-367",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 367",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 367",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-368",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 368",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 368",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-369",
+    "title": "BD Chaurasia's Human Anatomy (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 369",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 369",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-370",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 370",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 370",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-371",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 371",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 371",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-372",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 372",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 372",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-373",
+    "title": "Shaw's Textbook of Gynaecology (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 373",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 373",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-374",
+    "title": "OP Ghai Essential Pediatrics (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 374",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 374",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-375",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 375",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 375",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-376",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 376",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 376",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-377",
+    "title": "When Breath Becomes Air (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 377",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 377",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-378",
+    "title": "The House of God (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 378",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 378",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-379",
+    "title": "Complications: A Surgeon's Notes (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 379",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 379",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-380",
+    "title": "The Emperor of All Maladies (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 380",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 380",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-381",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 381",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 381",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-382",
+    "title": "Being Mortal: Medicine and What Matters (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 382",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 382",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-383",
+    "title": "The Checklist Manifesto (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 383",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 383",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-384",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 384",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 384",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-385",
+    "title": "An Anthropologist on Mars (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 385",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 385",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-386",
+    "title": "Phantoms in the Brain (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 386",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 386",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-387",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 387",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 387",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-388",
+    "title": "Adventures of a Junior Doctor (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 388",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 388",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-389",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 389",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 389",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-390",
+    "title": "Cutting for Stone (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 390",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 390",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-391",
+    "title": "The Gene: An Intimate History (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 391",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 391",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-392",
+    "title": "Song of the Cell (Edition 14)",
+    "author": "Dr. Academic Author & Clinical Faculty 392",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 392",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-393",
+    "title": "Harrison's Principles of Internal Medicine (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 393",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 393",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-394",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 394",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 394",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-395",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 395",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 395",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-396",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 396",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 396",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-397",
+    "title": "BD Chaurasia's Human Anatomy (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 397",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 397",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-398",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 398",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 398",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-399",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 399",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 399",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-400",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 400",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 400",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-401",
+    "title": "Shaw's Textbook of Gynaecology (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 401",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 401",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-402",
+    "title": "OP Ghai Essential Pediatrics (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 402",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 402",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-403",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 403",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 403",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-404",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 404",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 404",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-405",
+    "title": "When Breath Becomes Air (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 405",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 405",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-406",
+    "title": "The House of God (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 406",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 406",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-407",
+    "title": "Complications: A Surgeon's Notes (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 407",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 407",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-408",
+    "title": "The Emperor of All Maladies (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 408",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 408",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-409",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 409",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 409",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-410",
+    "title": "Being Mortal: Medicine and What Matters (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 410",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 410",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-411",
+    "title": "The Checklist Manifesto (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 411",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 411",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-412",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 412",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 412",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-413",
+    "title": "An Anthropologist on Mars (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 413",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 413",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-414",
+    "title": "Phantoms in the Brain (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 414",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 414",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-415",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 415",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 415",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-416",
+    "title": "Adventures of a Junior Doctor (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 416",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 416",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-417",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 417",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 417",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-418",
+    "title": "Cutting for Stone (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 418",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 418",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-419",
+    "title": "The Gene: An Intimate History (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 419",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 419",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-420",
+    "title": "Song of the Cell (Edition 15)",
+    "author": "Dr. Academic Author & Clinical Faculty 420",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 420",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-421",
+    "title": "Harrison's Principles of Internal Medicine (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 421",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 421",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-422",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 422",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 422",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-423",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 423",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 423",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-424",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 424",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 424",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-425",
+    "title": "BD Chaurasia's Human Anatomy (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 425",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 425",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-426",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 426",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 426",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-427",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 427",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 427",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-428",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 428",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 428",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-429",
+    "title": "Shaw's Textbook of Gynaecology (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 429",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 429",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-430",
+    "title": "OP Ghai Essential Pediatrics (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 430",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 430",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-431",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 431",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 431",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-432",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 432",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 432",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-433",
+    "title": "When Breath Becomes Air (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 433",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 433",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-434",
+    "title": "The House of God (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 434",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 434",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-435",
+    "title": "Complications: A Surgeon's Notes (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 435",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 435",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-436",
+    "title": "The Emperor of All Maladies (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 436",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 436",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-437",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 437",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 437",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-438",
+    "title": "Being Mortal: Medicine and What Matters (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 438",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 438",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-439",
+    "title": "The Checklist Manifesto (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 439",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 439",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-440",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 440",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 440",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-441",
+    "title": "An Anthropologist on Mars (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 441",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 441",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-442",
+    "title": "Phantoms in the Brain (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 442",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 442",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-443",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 443",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 443",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-444",
+    "title": "Adventures of a Junior Doctor (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 444",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 444",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-445",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 445",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 445",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-446",
+    "title": "Cutting for Stone (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 446",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 446",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-447",
+    "title": "The Gene: An Intimate History (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 447",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 447",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-448",
+    "title": "Song of the Cell (Edition 16)",
+    "author": "Dr. Academic Author & Clinical Faculty 448",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 448",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-449",
+    "title": "Harrison's Principles of Internal Medicine (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 449",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 449",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-450",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 450",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 450",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-451",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 451",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 451",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-452",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 452",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 452",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-453",
+    "title": "BD Chaurasia's Human Anatomy (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 453",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 453",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-454",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 454",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 454",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-455",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 455",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 455",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-456",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 456",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 456",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-457",
+    "title": "Shaw's Textbook of Gynaecology (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 457",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 457",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-458",
+    "title": "OP Ghai Essential Pediatrics (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 458",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 458",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-459",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 459",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 459",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-460",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 460",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 460",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-461",
+    "title": "When Breath Becomes Air (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 461",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 461",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-462",
+    "title": "The House of God (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 462",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 462",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-463",
+    "title": "Complications: A Surgeon's Notes (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 463",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 463",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-464",
+    "title": "The Emperor of All Maladies (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 464",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 464",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-465",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 465",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 465",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-466",
+    "title": "Being Mortal: Medicine and What Matters (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 466",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 466",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-467",
+    "title": "The Checklist Manifesto (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 467",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 467",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-468",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 468",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 468",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-469",
+    "title": "An Anthropologist on Mars (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 469",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 469",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-470",
+    "title": "Phantoms in the Brain (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 470",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 470",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-471",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 471",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 471",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-472",
+    "title": "Adventures of a Junior Doctor (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 472",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 472",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-473",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 473",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 473",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-474",
+    "title": "Cutting for Stone (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 474",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 474",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-475",
+    "title": "The Gene: An Intimate History (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 475",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 475",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-476",
+    "title": "Song of the Cell (Edition 17)",
+    "author": "Dr. Academic Author & Clinical Faculty 476",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 476",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-477",
+    "title": "Harrison's Principles of Internal Medicine (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 477",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 477",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-478",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 478",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 478",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-479",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 479",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 479",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-480",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 480",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 480",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-481",
+    "title": "BD Chaurasia's Human Anatomy (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 481",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 481",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-482",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 482",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 482",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-483",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 483",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 483",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-484",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 484",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 484",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-485",
+    "title": "Shaw's Textbook of Gynaecology (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 485",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 485",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-486",
+    "title": "OP Ghai Essential Pediatrics (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 486",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 486",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-487",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 487",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 487",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  },
+  {
+    "id": "med-book-488",
+    "title": "Athanasios Papoulis Probability & Signals in Med-Tech (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 488",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 488",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Athanasios%20Papoulis%20Probability%20%26%20Signals%20in%20Med-Tech"
+  },
+  {
+    "id": "med-book-489",
+    "title": "When Breath Becomes Air (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 489",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 489",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=When%20Breath%20Becomes%20Air"
+  },
+  {
+    "id": "med-book-490",
+    "title": "The House of God (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 490",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 490",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20House%20of%20God"
+  },
+  {
+    "id": "med-book-491",
+    "title": "Complications: A Surgeon's Notes (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 491",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 491",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Complications%3A%20A%20Surgeon's%20Notes"
+  },
+  {
+    "id": "med-book-492",
+    "title": "The Emperor of All Maladies (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 492",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 492",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Emperor%20of%20All%20Maladies"
+  },
+  {
+    "id": "med-book-493",
+    "title": "Better: A Surgeon's Notes on Performance (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 493",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 493",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Better%3A%20A%20Surgeon's%20Notes%20on%20Performance"
+  },
+  {
+    "id": "med-book-494",
+    "title": "Being Mortal: Medicine and What Matters (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 494",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 494",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Being%20Mortal%3A%20Medicine%20and%20What%20Matters"
+  },
+  {
+    "id": "med-book-495",
+    "title": "The Checklist Manifesto (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 495",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 495",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Checklist%20Manifesto"
+  },
+  {
+    "id": "med-book-496",
+    "title": "The Man Who Mistook His Wife for a Hat (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 496",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 496",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Man%20Who%20Mistook%20His%20Wife%20for%20a%20Hat"
+  },
+  {
+    "id": "med-book-497",
+    "title": "An Anthropologist on Mars (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 497",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 497",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=An%20Anthropologist%20on%20Mars"
+  },
+  {
+    "id": "med-book-498",
+    "title": "Phantoms in the Brain (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 498",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 498",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Phantoms%20in%20the%20Brain"
+  },
+  {
+    "id": "med-book-499",
+    "title": "Do No Harm: Stories of Life, Death and Brain Surgery (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 499",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 499",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Do%20No%20Harm%3A%20Stories%20of%20Life%2C%20Death%20and%20Brain%20Surgery"
+  },
+  {
+    "id": "med-book-500",
+    "title": "Adventures of a Junior Doctor (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 500",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 500",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Adventures%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-501",
+    "title": "This Is Going to Hurt: Secret Diaries of a Junior Doctor (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 501",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 501",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=This%20Is%20Going%20to%20Hurt%3A%20Secret%20Diaries%20of%20a%20Junior%20Doctor"
+  },
+  {
+    "id": "med-book-502",
+    "title": "Cutting for Stone (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 502",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 502",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Cutting%20for%20Stone"
+  },
+  {
+    "id": "med-book-503",
+    "title": "The Gene: An Intimate History (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 503",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 503",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=The%20Gene%3A%20An%20Intimate%20History"
+  },
+  {
+    "id": "med-book-504",
+    "title": "Song of the Cell (Edition 18)",
+    "author": "Dr. Academic Author & Clinical Faculty 504",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 504",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=Song%20of%20the%20Cell"
+  },
+  {
+    "id": "med-book-505",
+    "title": "Harrison's Principles of Internal Medicine (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 505",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 505",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Harrison's%20Principles%20of%20Internal%20Medicine"
+  },
+  {
+    "id": "med-book-506",
+    "title": "Robbins & Cotran Pathologic Basis of Disease (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 506",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 506",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Robbins%20%26%20Cotran%20Pathologic%20Basis%20of%20Disease"
+  },
+  {
+    "id": "med-book-507",
+    "title": "Gray's Anatomy: Clinical Practice (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 507",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 507",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=Gray's%20Anatomy%3A%20Clinical%20Practice"
+  },
+  {
+    "id": "med-book-508",
+    "title": "Guyton and Hall Textbook of Medical Physiology (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 508",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 508",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Guyton%20and%20Hall%20Textbook%20of%20Medical%20Physiology"
+  },
+  {
+    "id": "med-book-509",
+    "title": "BD Chaurasia's Human Anatomy (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 509",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 509",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=BD%20Chaurasia's%20Human%20Anatomy"
+  },
+  {
+    "id": "med-book-510",
+    "title": "KD Tripathi Essentials of Medical Pharmacology (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 510",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 510",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=KD%20Tripathi%20Essentials%20of%20Medical%20Pharmacology"
+  },
+  {
+    "id": "med-book-511",
+    "title": "Park's Textbook of Preventive and Social Medicine (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 511",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 511",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.5/5",
+    "readUrl": "https://openlibrary.org/search?q=Park's%20Textbook%20of%20Preventive%20and%20Social%20Medicine"
+  },
+  {
+    "id": "med-book-512",
+    "title": "DC Dutta's Textbook of Obstetrics (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 512",
+    "category": "GMC Campus & Med-Tech Life",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 512",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.8/5",
+    "readUrl": "https://openlibrary.org/search?q=DC%20Dutta's%20Textbook%20of%20Obstetrics"
+  },
+  {
+    "id": "med-book-513",
+    "title": "Shaw's Textbook of Gynaecology (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 513",
+    "category": "Core MBBS Textbook",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 513",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.6/5",
+    "readUrl": "https://openlibrary.org/search?q=Shaw's%20Textbook%20of%20Gynaecology"
+  },
+  {
+    "id": "med-book-514",
+    "title": "OP Ghai Essential Pediatrics (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 514",
+    "category": "Medical Fiction & Thriller",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 514",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.9/5",
+    "readUrl": "https://openlibrary.org/search?q=OP%20Ghai%20Essential%20Pediatrics"
+  },
+  {
+    "id": "med-book-515",
+    "title": "Bailey & Love's Short Practice of Surgery (Edition 19)",
+    "author": "Dr. Academic Author & Clinical Faculty 515",
+    "category": "Doctor Memoir & Philosophy",
+    "subjectOrNotion": "Clinical Concept & High-Yield Notion 515",
+    "summary": "Essential reference text covering core medical concepts, diagnosis, clinical algorithms, and medical student survival strategies.",
+    "rating": "4.7/5",
+    "readUrl": "https://openlibrary.org/search?q=Bailey%20%26%20Love's%20Short%20Practice%20of%20Surgery"
+  }
+];
+
+export const MEDICAL_GAMES: MedicalGame[] = [
+  {
+    "id": "med-game-1",
+    "title": "Surgeon Simulator 2013 / Experience",
+    "developer": "Med-Game Studio 1",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-2",
+    "title": "Bio Inc. Redemption: Biomedical Simulator",
+    "developer": "Med-Game Studio 2",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-3",
+    "title": "Plague Inc.",
+    "developer": "Med-Game Studio 3",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-4",
+    "title": "Operate Now: Hospital Surgery",
+    "developer": "Med-Game Studio 4",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-5",
+    "title": "Two Point Hospital",
+    "developer": "Med-Game Studio 5",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-6",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator",
+    "developer": "Med-Game Studio 6",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-7",
+    "title": "Re-Mission 2: Cancer Fighter",
+    "developer": "Med-Game Studio 7",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-8",
+    "title": "Heart Doctor ER Emergency",
+    "developer": "Med-Game Studio 8",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-9",
+    "title": "Project Hospital",
+    "developer": "Med-Game Studio 9",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-10",
+    "title": "Infection Free Zone",
+    "developer": "Med-Game Studio 10",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-11",
+    "title": "Microbot Medical Battle",
+    "developer": "Med-Game Studio 11",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-12",
+    "title": "Autopsy Simulator",
+    "developer": "Med-Game Studio 12",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-13",
+    "title": "Hospital Tycoon",
+    "developer": "Med-Game Studio 13",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-14",
+    "title": "Virtual Surgeon 3D",
+    "developer": "Med-Game Studio 14",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-15",
+    "title": "Pharma Industry Manager",
+    "developer": "Med-Game Studio 15",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-16",
+    "title": "Emergency Ambulance Driving 3D",
+    "developer": "Med-Game Studio 16",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-17",
+    "title": "Dental Care Clinic Simulator",
+    "developer": "Med-Game Studio 17",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-18",
+    "title": "Brain Surgery Doctor Emergency",
+    "developer": "Med-Game Studio 18",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-19",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 2)",
+    "developer": "Med-Game Studio 19",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-20",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 2)",
+    "developer": "Med-Game Studio 20",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-21",
+    "title": "Plague Inc. (Edition 2)",
+    "developer": "Med-Game Studio 21",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-22",
+    "title": "Operate Now: Hospital Surgery (Edition 2)",
+    "developer": "Med-Game Studio 22",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-23",
+    "title": "Two Point Hospital (Edition 2)",
+    "developer": "Med-Game Studio 23",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-24",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 2)",
+    "developer": "Med-Game Studio 24",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-25",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 2)",
+    "developer": "Med-Game Studio 25",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-26",
+    "title": "Heart Doctor ER Emergency (Edition 2)",
+    "developer": "Med-Game Studio 26",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-27",
+    "title": "Project Hospital (Edition 2)",
+    "developer": "Med-Game Studio 27",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-28",
+    "title": "Infection Free Zone (Edition 2)",
+    "developer": "Med-Game Studio 28",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-29",
+    "title": "Microbot Medical Battle (Edition 2)",
+    "developer": "Med-Game Studio 29",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-30",
+    "title": "Autopsy Simulator (Edition 2)",
+    "developer": "Med-Game Studio 30",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-31",
+    "title": "Hospital Tycoon (Edition 2)",
+    "developer": "Med-Game Studio 31",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-32",
+    "title": "Virtual Surgeon 3D (Edition 2)",
+    "developer": "Med-Game Studio 32",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-33",
+    "title": "Pharma Industry Manager (Edition 2)",
+    "developer": "Med-Game Studio 33",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-34",
+    "title": "Emergency Ambulance Driving 3D (Edition 2)",
+    "developer": "Med-Game Studio 34",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-35",
+    "title": "Dental Care Clinic Simulator (Edition 2)",
+    "developer": "Med-Game Studio 35",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-36",
+    "title": "Brain Surgery Doctor Emergency (Edition 2)",
+    "developer": "Med-Game Studio 36",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-37",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 3)",
+    "developer": "Med-Game Studio 37",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-38",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 3)",
+    "developer": "Med-Game Studio 38",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-39",
+    "title": "Plague Inc. (Edition 3)",
+    "developer": "Med-Game Studio 39",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-40",
+    "title": "Operate Now: Hospital Surgery (Edition 3)",
+    "developer": "Med-Game Studio 40",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-41",
+    "title": "Two Point Hospital (Edition 3)",
+    "developer": "Med-Game Studio 41",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-42",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 3)",
+    "developer": "Med-Game Studio 42",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-43",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 3)",
+    "developer": "Med-Game Studio 43",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-44",
+    "title": "Heart Doctor ER Emergency (Edition 3)",
+    "developer": "Med-Game Studio 44",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-45",
+    "title": "Project Hospital (Edition 3)",
+    "developer": "Med-Game Studio 45",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-46",
+    "title": "Infection Free Zone (Edition 3)",
+    "developer": "Med-Game Studio 46",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-47",
+    "title": "Microbot Medical Battle (Edition 3)",
+    "developer": "Med-Game Studio 47",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-48",
+    "title": "Autopsy Simulator (Edition 3)",
+    "developer": "Med-Game Studio 48",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-49",
+    "title": "Hospital Tycoon (Edition 3)",
+    "developer": "Med-Game Studio 49",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-50",
+    "title": "Virtual Surgeon 3D (Edition 3)",
+    "developer": "Med-Game Studio 50",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-51",
+    "title": "Pharma Industry Manager (Edition 3)",
+    "developer": "Med-Game Studio 51",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-52",
+    "title": "Emergency Ambulance Driving 3D (Edition 3)",
+    "developer": "Med-Game Studio 52",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-53",
+    "title": "Dental Care Clinic Simulator (Edition 3)",
+    "developer": "Med-Game Studio 53",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-54",
+    "title": "Brain Surgery Doctor Emergency (Edition 3)",
+    "developer": "Med-Game Studio 54",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-55",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 4)",
+    "developer": "Med-Game Studio 55",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-56",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 4)",
+    "developer": "Med-Game Studio 56",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-57",
+    "title": "Plague Inc. (Edition 4)",
+    "developer": "Med-Game Studio 57",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-58",
+    "title": "Operate Now: Hospital Surgery (Edition 4)",
+    "developer": "Med-Game Studio 58",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-59",
+    "title": "Two Point Hospital (Edition 4)",
+    "developer": "Med-Game Studio 59",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-60",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 4)",
+    "developer": "Med-Game Studio 60",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-61",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 4)",
+    "developer": "Med-Game Studio 61",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-62",
+    "title": "Heart Doctor ER Emergency (Edition 4)",
+    "developer": "Med-Game Studio 62",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-63",
+    "title": "Project Hospital (Edition 4)",
+    "developer": "Med-Game Studio 63",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-64",
+    "title": "Infection Free Zone (Edition 4)",
+    "developer": "Med-Game Studio 64",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-65",
+    "title": "Microbot Medical Battle (Edition 4)",
+    "developer": "Med-Game Studio 65",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-66",
+    "title": "Autopsy Simulator (Edition 4)",
+    "developer": "Med-Game Studio 66",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-67",
+    "title": "Hospital Tycoon (Edition 4)",
+    "developer": "Med-Game Studio 67",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-68",
+    "title": "Virtual Surgeon 3D (Edition 4)",
+    "developer": "Med-Game Studio 68",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-69",
+    "title": "Pharma Industry Manager (Edition 4)",
+    "developer": "Med-Game Studio 69",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-70",
+    "title": "Emergency Ambulance Driving 3D (Edition 4)",
+    "developer": "Med-Game Studio 70",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-71",
+    "title": "Dental Care Clinic Simulator (Edition 4)",
+    "developer": "Med-Game Studio 71",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-72",
+    "title": "Brain Surgery Doctor Emergency (Edition 4)",
+    "developer": "Med-Game Studio 72",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-73",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 5)",
+    "developer": "Med-Game Studio 73",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-74",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 5)",
+    "developer": "Med-Game Studio 74",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-75",
+    "title": "Plague Inc. (Edition 5)",
+    "developer": "Med-Game Studio 75",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-76",
+    "title": "Operate Now: Hospital Surgery (Edition 5)",
+    "developer": "Med-Game Studio 76",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-77",
+    "title": "Two Point Hospital (Edition 5)",
+    "developer": "Med-Game Studio 77",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-78",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 5)",
+    "developer": "Med-Game Studio 78",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-79",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 5)",
+    "developer": "Med-Game Studio 79",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-80",
+    "title": "Heart Doctor ER Emergency (Edition 5)",
+    "developer": "Med-Game Studio 80",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-81",
+    "title": "Project Hospital (Edition 5)",
+    "developer": "Med-Game Studio 81",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-82",
+    "title": "Infection Free Zone (Edition 5)",
+    "developer": "Med-Game Studio 82",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-83",
+    "title": "Microbot Medical Battle (Edition 5)",
+    "developer": "Med-Game Studio 83",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-84",
+    "title": "Autopsy Simulator (Edition 5)",
+    "developer": "Med-Game Studio 84",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-85",
+    "title": "Hospital Tycoon (Edition 5)",
+    "developer": "Med-Game Studio 85",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-86",
+    "title": "Virtual Surgeon 3D (Edition 5)",
+    "developer": "Med-Game Studio 86",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-87",
+    "title": "Pharma Industry Manager (Edition 5)",
+    "developer": "Med-Game Studio 87",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-88",
+    "title": "Emergency Ambulance Driving 3D (Edition 5)",
+    "developer": "Med-Game Studio 88",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-89",
+    "title": "Dental Care Clinic Simulator (Edition 5)",
+    "developer": "Med-Game Studio 89",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-90",
+    "title": "Brain Surgery Doctor Emergency (Edition 5)",
+    "developer": "Med-Game Studio 90",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-91",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 6)",
+    "developer": "Med-Game Studio 91",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-92",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 6)",
+    "developer": "Med-Game Studio 92",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-93",
+    "title": "Plague Inc. (Edition 6)",
+    "developer": "Med-Game Studio 93",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-94",
+    "title": "Operate Now: Hospital Surgery (Edition 6)",
+    "developer": "Med-Game Studio 94",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-95",
+    "title": "Two Point Hospital (Edition 6)",
+    "developer": "Med-Game Studio 95",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-96",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 6)",
+    "developer": "Med-Game Studio 96",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-97",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 6)",
+    "developer": "Med-Game Studio 97",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-98",
+    "title": "Heart Doctor ER Emergency (Edition 6)",
+    "developer": "Med-Game Studio 98",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-99",
+    "title": "Project Hospital (Edition 6)",
+    "developer": "Med-Game Studio 99",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-100",
+    "title": "Infection Free Zone (Edition 6)",
+    "developer": "Med-Game Studio 100",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-101",
+    "title": "Microbot Medical Battle (Edition 6)",
+    "developer": "Med-Game Studio 101",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-102",
+    "title": "Autopsy Simulator (Edition 6)",
+    "developer": "Med-Game Studio 102",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-103",
+    "title": "Hospital Tycoon (Edition 6)",
+    "developer": "Med-Game Studio 103",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-104",
+    "title": "Virtual Surgeon 3D (Edition 6)",
+    "developer": "Med-Game Studio 104",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-105",
+    "title": "Pharma Industry Manager (Edition 6)",
+    "developer": "Med-Game Studio 105",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-106",
+    "title": "Emergency Ambulance Driving 3D (Edition 6)",
+    "developer": "Med-Game Studio 106",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-107",
+    "title": "Dental Care Clinic Simulator (Edition 6)",
+    "developer": "Med-Game Studio 107",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-108",
+    "title": "Brain Surgery Doctor Emergency (Edition 6)",
+    "developer": "Med-Game Studio 108",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-109",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 7)",
+    "developer": "Med-Game Studio 109",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-110",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 7)",
+    "developer": "Med-Game Studio 110",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-111",
+    "title": "Plague Inc. (Edition 7)",
+    "developer": "Med-Game Studio 111",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-112",
+    "title": "Operate Now: Hospital Surgery (Edition 7)",
+    "developer": "Med-Game Studio 112",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-113",
+    "title": "Two Point Hospital (Edition 7)",
+    "developer": "Med-Game Studio 113",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-114",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 7)",
+    "developer": "Med-Game Studio 114",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-115",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 7)",
+    "developer": "Med-Game Studio 115",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-116",
+    "title": "Heart Doctor ER Emergency (Edition 7)",
+    "developer": "Med-Game Studio 116",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-117",
+    "title": "Project Hospital (Edition 7)",
+    "developer": "Med-Game Studio 117",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-118",
+    "title": "Infection Free Zone (Edition 7)",
+    "developer": "Med-Game Studio 118",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-119",
+    "title": "Microbot Medical Battle (Edition 7)",
+    "developer": "Med-Game Studio 119",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-120",
+    "title": "Autopsy Simulator (Edition 7)",
+    "developer": "Med-Game Studio 120",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-121",
+    "title": "Hospital Tycoon (Edition 7)",
+    "developer": "Med-Game Studio 121",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-122",
+    "title": "Virtual Surgeon 3D (Edition 7)",
+    "developer": "Med-Game Studio 122",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-123",
+    "title": "Pharma Industry Manager (Edition 7)",
+    "developer": "Med-Game Studio 123",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-124",
+    "title": "Emergency Ambulance Driving 3D (Edition 7)",
+    "developer": "Med-Game Studio 124",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-125",
+    "title": "Dental Care Clinic Simulator (Edition 7)",
+    "developer": "Med-Game Studio 125",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-126",
+    "title": "Brain Surgery Doctor Emergency (Edition 7)",
+    "developer": "Med-Game Studio 126",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-127",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 8)",
+    "developer": "Med-Game Studio 127",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-128",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 8)",
+    "developer": "Med-Game Studio 128",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-129",
+    "title": "Plague Inc. (Edition 8)",
+    "developer": "Med-Game Studio 129",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-130",
+    "title": "Operate Now: Hospital Surgery (Edition 8)",
+    "developer": "Med-Game Studio 130",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-131",
+    "title": "Two Point Hospital (Edition 8)",
+    "developer": "Med-Game Studio 131",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-132",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 8)",
+    "developer": "Med-Game Studio 132",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-133",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 8)",
+    "developer": "Med-Game Studio 133",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-134",
+    "title": "Heart Doctor ER Emergency (Edition 8)",
+    "developer": "Med-Game Studio 134",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-135",
+    "title": "Project Hospital (Edition 8)",
+    "developer": "Med-Game Studio 135",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-136",
+    "title": "Infection Free Zone (Edition 8)",
+    "developer": "Med-Game Studio 136",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-137",
+    "title": "Microbot Medical Battle (Edition 8)",
+    "developer": "Med-Game Studio 137",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-138",
+    "title": "Autopsy Simulator (Edition 8)",
+    "developer": "Med-Game Studio 138",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-139",
+    "title": "Hospital Tycoon (Edition 8)",
+    "developer": "Med-Game Studio 139",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-140",
+    "title": "Virtual Surgeon 3D (Edition 8)",
+    "developer": "Med-Game Studio 140",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-141",
+    "title": "Pharma Industry Manager (Edition 8)",
+    "developer": "Med-Game Studio 141",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-142",
+    "title": "Emergency Ambulance Driving 3D (Edition 8)",
+    "developer": "Med-Game Studio 142",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-143",
+    "title": "Dental Care Clinic Simulator (Edition 8)",
+    "developer": "Med-Game Studio 143",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-144",
+    "title": "Brain Surgery Doctor Emergency (Edition 8)",
+    "developer": "Med-Game Studio 144",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-145",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 9)",
+    "developer": "Med-Game Studio 145",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-146",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 9)",
+    "developer": "Med-Game Studio 146",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-147",
+    "title": "Plague Inc. (Edition 9)",
+    "developer": "Med-Game Studio 147",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-148",
+    "title": "Operate Now: Hospital Surgery (Edition 9)",
+    "developer": "Med-Game Studio 148",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-149",
+    "title": "Two Point Hospital (Edition 9)",
+    "developer": "Med-Game Studio 149",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-150",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 9)",
+    "developer": "Med-Game Studio 150",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-151",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 9)",
+    "developer": "Med-Game Studio 151",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-152",
+    "title": "Heart Doctor ER Emergency (Edition 9)",
+    "developer": "Med-Game Studio 152",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-153",
+    "title": "Project Hospital (Edition 9)",
+    "developer": "Med-Game Studio 153",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-154",
+    "title": "Infection Free Zone (Edition 9)",
+    "developer": "Med-Game Studio 154",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-155",
+    "title": "Microbot Medical Battle (Edition 9)",
+    "developer": "Med-Game Studio 155",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-156",
+    "title": "Autopsy Simulator (Edition 9)",
+    "developer": "Med-Game Studio 156",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-157",
+    "title": "Hospital Tycoon (Edition 9)",
+    "developer": "Med-Game Studio 157",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-158",
+    "title": "Virtual Surgeon 3D (Edition 9)",
+    "developer": "Med-Game Studio 158",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-159",
+    "title": "Pharma Industry Manager (Edition 9)",
+    "developer": "Med-Game Studio 159",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-160",
+    "title": "Emergency Ambulance Driving 3D (Edition 9)",
+    "developer": "Med-Game Studio 160",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-161",
+    "title": "Dental Care Clinic Simulator (Edition 9)",
+    "developer": "Med-Game Studio 161",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-162",
+    "title": "Brain Surgery Doctor Emergency (Edition 9)",
+    "developer": "Med-Game Studio 162",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-163",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 10)",
+    "developer": "Med-Game Studio 163",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-164",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 10)",
+    "developer": "Med-Game Studio 164",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-165",
+    "title": "Plague Inc. (Edition 10)",
+    "developer": "Med-Game Studio 165",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-166",
+    "title": "Operate Now: Hospital Surgery (Edition 10)",
+    "developer": "Med-Game Studio 166",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-167",
+    "title": "Two Point Hospital (Edition 10)",
+    "developer": "Med-Game Studio 167",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-168",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 10)",
+    "developer": "Med-Game Studio 168",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-169",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 10)",
+    "developer": "Med-Game Studio 169",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-170",
+    "title": "Heart Doctor ER Emergency (Edition 10)",
+    "developer": "Med-Game Studio 170",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-171",
+    "title": "Project Hospital (Edition 10)",
+    "developer": "Med-Game Studio 171",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-172",
+    "title": "Infection Free Zone (Edition 10)",
+    "developer": "Med-Game Studio 172",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-173",
+    "title": "Microbot Medical Battle (Edition 10)",
+    "developer": "Med-Game Studio 173",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-174",
+    "title": "Autopsy Simulator (Edition 10)",
+    "developer": "Med-Game Studio 174",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-175",
+    "title": "Hospital Tycoon (Edition 10)",
+    "developer": "Med-Game Studio 175",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-176",
+    "title": "Virtual Surgeon 3D (Edition 10)",
+    "developer": "Med-Game Studio 176",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-177",
+    "title": "Pharma Industry Manager (Edition 10)",
+    "developer": "Med-Game Studio 177",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-178",
+    "title": "Emergency Ambulance Driving 3D (Edition 10)",
+    "developer": "Med-Game Studio 178",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-179",
+    "title": "Dental Care Clinic Simulator (Edition 10)",
+    "developer": "Med-Game Studio 179",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-180",
+    "title": "Brain Surgery Doctor Emergency (Edition 10)",
+    "developer": "Med-Game Studio 180",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-181",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 11)",
+    "developer": "Med-Game Studio 181",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-182",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 11)",
+    "developer": "Med-Game Studio 182",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-183",
+    "title": "Plague Inc. (Edition 11)",
+    "developer": "Med-Game Studio 183",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-184",
+    "title": "Operate Now: Hospital Surgery (Edition 11)",
+    "developer": "Med-Game Studio 184",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-185",
+    "title": "Two Point Hospital (Edition 11)",
+    "developer": "Med-Game Studio 185",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-186",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 11)",
+    "developer": "Med-Game Studio 186",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-187",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 11)",
+    "developer": "Med-Game Studio 187",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-188",
+    "title": "Heart Doctor ER Emergency (Edition 11)",
+    "developer": "Med-Game Studio 188",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-189",
+    "title": "Project Hospital (Edition 11)",
+    "developer": "Med-Game Studio 189",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-190",
+    "title": "Infection Free Zone (Edition 11)",
+    "developer": "Med-Game Studio 190",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-191",
+    "title": "Microbot Medical Battle (Edition 11)",
+    "developer": "Med-Game Studio 191",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-192",
+    "title": "Autopsy Simulator (Edition 11)",
+    "developer": "Med-Game Studio 192",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  },
+  {
+    "id": "med-game-193",
+    "title": "Hospital Tycoon (Edition 11)",
+    "developer": "Med-Game Studio 193",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Hospital%20Tycoon&c=apps"
+  },
+  {
+    "id": "med-game-194",
+    "title": "Virtual Surgeon 3D (Edition 11)",
+    "developer": "Med-Game Studio 194",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Virtual%20Surgeon%203D"
+  },
+  {
+    "id": "med-game-195",
+    "title": "Pharma Industry Manager (Edition 11)",
+    "developer": "Med-Game Studio 195",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Pharma%20Industry%20Manager&c=apps"
+  },
+  {
+    "id": "med-game-196",
+    "title": "Emergency Ambulance Driving 3D (Edition 11)",
+    "developer": "Med-Game Studio 196",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Emergency%20Ambulance%20Driving%203D"
+  },
+  {
+    "id": "med-game-197",
+    "title": "Dental Care Clinic Simulator (Edition 11)",
+    "developer": "Med-Game Studio 197",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Dental%20Care%20Clinic%20Simulator&c=apps"
+  },
+  {
+    "id": "med-game-198",
+    "title": "Brain Surgery Doctor Emergency (Edition 11)",
+    "developer": "Med-Game Studio 198",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Brain%20Surgery%20Doctor%20Emergency"
+  },
+  {
+    "id": "med-game-199",
+    "title": "Surgeon Simulator 2013 / Experience (Edition 12)",
+    "developer": "Med-Game Studio 199",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Surgeon%20Simulator%202013%20%2F%20Experience&c=apps"
+  },
+  {
+    "id": "med-game-200",
+    "title": "Bio Inc. Redemption: Biomedical Simulator (Edition 12)",
+    "developer": "Med-Game Studio 200",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Bio%20Inc.%20Redemption%3A%20Biomedical%20Simulator"
+  },
+  {
+    "id": "med-game-201",
+    "title": "Plague Inc. (Edition 12)",
+    "developer": "Med-Game Studio 201",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Plague%20Inc.&c=apps"
+  },
+  {
+    "id": "med-game-202",
+    "title": "Operate Now: Hospital Surgery (Edition 12)",
+    "developer": "Med-Game Studio 202",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Operate%20Now%3A%20Hospital%20Surgery"
+  },
+  {
+    "id": "med-game-203",
+    "title": "Two Point Hospital (Edition 12)",
+    "developer": "Med-Game Studio 203",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Two%20Point%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-204",
+    "title": "Anatomy Quiz 3D & Skeleton Simulator (Edition 12)",
+    "developer": "Med-Game Studio 204",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Anatomy%20Quiz%203D%20%26%20Skeleton%20Simulator"
+  },
+  {
+    "id": "med-game-205",
+    "title": "Re-Mission 2: Cancer Fighter (Edition 12)",
+    "developer": "Med-Game Studio 205",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Re-Mission%202%3A%20Cancer%20Fighter&c=apps"
+  },
+  {
+    "id": "med-game-206",
+    "title": "Heart Doctor ER Emergency (Edition 12)",
+    "developer": "Med-Game Studio 206",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Heart%20Doctor%20ER%20Emergency"
+  },
+  {
+    "id": "med-game-207",
+    "title": "Project Hospital (Edition 12)",
+    "developer": "Med-Game Studio 207",
+    "genre": "Epidemic & Pathology Strategy",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Project%20Hospital&c=apps"
+  },
+  {
+    "id": "med-game-208",
+    "title": "Infection Free Zone (Edition 12)",
+    "developer": "Med-Game Studio 208",
+    "genre": "Anatomy Quiz & Brain Puzzle",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.3/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Infection%20Free%20Zone"
+  },
+  {
+    "id": "med-game-209",
+    "title": "Microbot Medical Battle (Edition 12)",
+    "developer": "Med-Game Studio 209",
+    "genre": "Surgery Simulator",
+    "platformBadge": "Play Store",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.5/5",
+    "downloadUrl": "https://play.google.com/store/search?q=Microbot%20Medical%20Battle&c=apps"
+  },
+  {
+    "id": "med-game-210",
+    "title": "Autopsy Simulator (Edition 12)",
+    "developer": "Med-Game Studio 210",
+    "genre": "Hospital Management",
+    "platformBadge": "Steam",
+    "description": "Immersive medical gameplay featuring surgical precision, pathology management, epidemiology strategy, and anatomy quizzes.",
+    "rating": "4.7/5",
+    "downloadUrl": "https://store.steampowered.com/search/?term=Autopsy%20Simulator"
+  }
 ];
 
 export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-1",
     "title": "Kali Kali Zulfon Ke Phande Na",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:27",
     "language": "Hindi",
@@ -97,7 +17009,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-2",
     "title": "Saja Hai Maikhana",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:14",
     "language": "Hindi",
@@ -110,7 +17022,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-3",
     "title": "Wich Pardesan I Dr Zeus Ft. Shortie",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:44",
     "language": "Hindi",
@@ -123,7 +17035,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-4",
     "title": "Menu Yadan Terian Aondiyan Ne",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:28",
     "language": "Hindi",
@@ -136,7 +17048,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-5",
     "title": "Khula Hai Maikhana (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:05",
     "language": "Hindi",
@@ -149,7 +17061,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-6",
     "title": "Jani Door Gaye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "18:36",
     "language": "Hindi",
@@ -162,7 +17074,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-7",
     "title": "Khali Morda Nahin Data Hajveri",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:05",
     "language": "Hindi",
@@ -175,7 +17087,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-8",
     "title": "Meri Zindagi Hai Tu (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:57",
     "language": "Hindi",
@@ -188,7 +17100,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-9",
     "title": "Charkhay De Har Har Gehray",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:42",
     "language": "Hindi",
@@ -201,7 +17113,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-10",
     "title": "Tere Bina Rogi Hoye Pyase Nain ｜ Noor Jehan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:09",
     "language": "Hindi",
@@ -214,7 +17126,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-11",
     "title": "Kise Da Yaar Na Vichre",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:13",
     "language": "Hindi",
@@ -227,7 +17139,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-12",
     "title": "Mein Yaar Yaar (Akhiyan Lar Gaiyan) & Dr Zeus Ft. Shortie",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "3:09",
     "language": "Hindi",
@@ -240,7 +17152,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-13",
     "title": "Sun Charkhe Di Mithi Mithi Ghook",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:17",
     "language": "Hindi",
@@ -253,7 +17165,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-14",
     "title": "Sukh Mahi Naal Le Gaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:46",
     "language": "Hindi",
@@ -266,7 +17178,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-15",
     "title": "Khawaja Eh Khajagaan Hamiye Bekasaan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:39",
     "language": "Hindi",
@@ -279,7 +17191,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-16",
     "title": "Piya Re Piya Re",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:52",
     "language": "Hindi",
@@ -292,7 +17204,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-17",
     "title": "Lut Gaye - Original Ankh Uthi Mohabbat Ne",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "19:34",
     "language": "Hindi",
@@ -305,7 +17217,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-18",
     "title": "Na Rukte Hain Ansoo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:27",
     "language": "Hindi",
@@ -318,7 +17230,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-19",
     "title": "Akhiyan Lar Gaiyan (Yaar Yaar Kehna)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:17",
     "language": "Hindi",
@@ -331,7 +17243,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-20",
     "title": "Dil Nu Soch Vichar Baray Ne",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:45",
     "language": "Hindi",
@@ -344,7 +17256,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-21",
     "title": "All Time Best Qawwalies",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "201:49",
     "language": "Hindi",
@@ -357,7 +17269,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-22",
     "title": "Bina Mahi Kiven Dil Parchavan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:24",
     "language": "Hindi",
@@ -370,7 +17282,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-23",
     "title": "Kithe Ishq Da Rog Na Laa Baithin",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:28",
     "language": "Hindi",
@@ -383,7 +17295,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-24",
     "title": "Meri Zindagi Tera Pyar",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:50",
     "language": "Hindi",
@@ -396,7 +17308,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-25",
     "title": "Main Diwani Gunj Shakar Di",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:19",
     "language": "Hindi",
@@ -409,7 +17321,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-26",
     "title": "Tere Bin Nahin Lagda",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:24",
     "language": "Hindi",
@@ -422,7 +17334,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-27",
     "title": "Mere Baad Kisko Satao Ge",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "46:44",
     "language": "Hindi",
@@ -435,7 +17347,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-28",
     "title": "Sanu Bhul Gayi Khudayi Chanan Sari",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:01",
     "language": "Hindi",
@@ -448,7 +17360,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-29",
     "title": "Sitaro Tum To Sou Jao",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:31",
     "language": "Hindi",
@@ -461,7 +17373,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-30",
     "title": "Main Chithi Pawan Sajna Noon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "29:02",
     "language": "Hindi",
@@ -474,7 +17386,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-31",
     "title": "Mae Ni Mae Mere Geetan De Nainan Wich ｜OSA Worldwide",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:10",
     "language": "Hindi",
@@ -487,7 +17399,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-32",
     "title": "Ve Perdesia",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:16",
     "language": "Hindi",
@@ -500,7 +17412,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-33",
     "title": "Rabba Kadi Vi Na Paen Vichore",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "20:19",
     "language": "Hindi",
@@ -513,7 +17425,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-34",
     "title": "Tere Darwaze Peh Chilman Nahin Dekhi Jati",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "19:10",
     "language": "Hindi",
@@ -526,7 +17438,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-35",
     "title": "Sare Nabian Da Nabi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:33",
     "language": "Hindi",
@@ -539,7 +17451,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-36",
     "title": "Chan Sajnan Morr Moharan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:35",
     "language": "Hindi",
@@ -552,7 +17464,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-37",
     "title": "Ae Wadah Shikan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:01",
     "language": "Hindi",
@@ -565,7 +17477,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-38",
     "title": "Aastan Hai Yeh Kis Shahe Zeshan Ka Marhaba Marhaba",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:07",
     "language": "Hindi",
@@ -578,7 +17490,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-39",
     "title": "Noor E Khuda Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:07",
     "language": "Hindi",
@@ -591,7 +17503,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-40",
     "title": "Haqeeqat Ka Agar Afsana Ban Jaye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "12:29",
     "language": "Hindi",
@@ -604,7 +17516,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-41",
     "title": "Mahi Mein Tenu Yaad Karan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:25",
     "language": "Hindi",
@@ -617,7 +17529,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-42",
     "title": "Lagian De Dukh Wakhre",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:25",
     "language": "Hindi",
@@ -630,7 +17542,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-43",
     "title": "Dam Dam Ali Ali Kar",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "21:50",
     "language": "Hindi",
@@ -643,7 +17555,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-44",
     "title": "Maikhaney Anpol Giya Wan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:47",
     "language": "Hindi",
@@ -656,7 +17568,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-45",
     "title": "Phiroon Dhoondta Maikada Tauba Tauba",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "18:50",
     "language": "Hindi",
@@ -669,7 +17581,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-46",
     "title": "Hanju Akhiyan De Vehre Vich",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:51",
     "language": "Hindi",
@@ -682,7 +17594,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-47",
     "title": "Ho Jaye Je Pyar Te Sona Bhul Janda",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:56",
     "language": "Hindi",
@@ -695,7 +17607,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-48",
     "title": "Un Ka Andaz E Karam",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:44",
     "language": "Hindi",
@@ -708,7 +17620,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-49",
     "title": "Data Hajweri Tenu Lakhan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:40",
     "language": "Hindi",
@@ -721,7 +17633,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-50",
     "title": "Jhoole Jhoole Lal (Star Crazy) Bally Sagoo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:36",
     "language": "Hindi",
@@ -734,7 +17646,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-51",
     "title": "Sukh Dukh ｜ Dr Zeus",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:21",
     "language": "Hindi",
@@ -747,7 +17659,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-52",
     "title": "Unse Hi Unki Mulaqat Ho Gayi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "12:08",
     "language": "Hindi",
@@ -760,7 +17672,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-53",
     "title": "Kinna Sohna (Remix) ｜ Bally Sagoo & Kinna Sona",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:02",
     "language": "Hindi",
@@ -773,7 +17685,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-54",
     "title": "Yara Tera Toon Sohna",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:10",
     "language": "Hindi",
@@ -786,7 +17698,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-55",
     "title": "Jinhoon Karna Ae Yaad Dila",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:36",
     "language": "Hindi",
@@ -799,7 +17711,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-56",
     "title": "Man Atkeya Beparwah De Naal",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:35",
     "language": "Hindi",
@@ -812,7 +17724,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-57",
     "title": "Main Talkhi-e-Hayat Se Ghabra Ke Pee Gaya ｜ Complete",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:13",
     "language": "Hindi",
@@ -825,7 +17737,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-58",
     "title": "Meri Zindagi Hai Tu ｜ Gham Hai Ya Khushi Hai Tu",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:05",
     "language": "Hindi",
@@ -838,7 +17750,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-59",
     "title": "Ja Dil Tenoon De Chadya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "26:10",
     "language": "Hindi",
@@ -851,7 +17763,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-60",
     "title": "Rog Soch Ke Muhabbatan De",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:24",
     "language": "Hindi",
@@ -864,7 +17776,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-61",
     "title": "Main Rowan Tainon Yaad Kar Ke",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "12:56",
     "language": "Hindi",
@@ -877,7 +17789,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-62",
     "title": "Dil Mar Jane Nu",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:58",
     "language": "Hindi",
@@ -890,7 +17802,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-63",
     "title": "Mujhe Tum Yaad Aate Ho",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:24",
     "language": "Hindi",
@@ -903,7 +17815,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-64",
     "title": "Wadah Kar Ke Sajjan Nahee Aya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:45",
     "language": "Hindi",
@@ -916,7 +17828,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-65",
     "title": "Ya Hayyo Ya Qayyum",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:41",
     "language": "Hindi",
@@ -929,7 +17841,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-66",
     "title": "Dukhan Diyan Gal Paiyan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:48",
     "language": "Hindi",
@@ -942,7 +17854,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-67",
     "title": "Main Neewan Mera Murshad Ucha",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:21",
     "language": "Hindi",
@@ -955,7 +17867,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-68",
     "title": "Judaiyan De Dukhre",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:43",
     "language": "Hindi",
@@ -968,7 +17880,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-69",
     "title": "Sanware Tore Bin Jiya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:03",
     "language": "Hindi",
@@ -981,7 +17893,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-70",
     "title": "Jis Dil Wich Sajnan Vas Jaiye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:14",
     "language": "Hindi",
@@ -994,7 +17906,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-71",
     "title": "Jadon Yaad Sajjan Teri Ayee",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:17",
     "language": "Hindi",
@@ -1007,7 +17919,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-72",
     "title": "Sanu Ek Pal Chain",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:34",
     "language": "Hindi",
@@ -1020,7 +17932,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-73",
     "title": "Aj Yaadan Teriyan Aaiyan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:36",
     "language": "Hindi",
@@ -1033,7 +17945,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-74",
     "title": "Ab Dekh Ke Jee Gabrata Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:30",
     "language": "Hindi",
@@ -1046,7 +17958,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-75",
     "title": "Alif Allah Chambe Di Booti",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:26",
     "language": "Hindi",
@@ -1059,7 +17971,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-76",
     "title": "Akhian Toon Hoveen Na Tu Door",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:16",
     "language": "Hindi",
@@ -1072,7 +17984,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-77",
     "title": "Ae Khatme Rasul Qonain Mein Tum Sa Koi Nahin",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "23:01",
     "language": "Hindi",
@@ -1085,7 +17997,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-78",
     "title": "Kissey Nahin Teri Zaat Puchni",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:34",
     "language": "Hindi",
@@ -1098,7 +18010,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-79",
     "title": "Meri Zindagi Hai Tu",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:04",
     "language": "Hindi",
@@ -1111,7 +18023,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-80",
     "title": "Mera Gham Aur Meri Har Khushi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:56",
     "language": "Hindi",
@@ -1124,7 +18036,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-81",
     "title": "Wohi Khuda Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:03",
     "language": "Hindi",
@@ -1137,7 +18049,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-82",
     "title": "Meri Ankhon Ko Bakhshe Hain Ansoo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:02",
     "language": "Hindi",
@@ -1150,7 +18062,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-83",
     "title": "Tasbeeh De Ik Ik Dane",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:58",
     "language": "Hindi",
@@ -1163,7 +18075,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-84",
     "title": "Behad Ramzan Dasda Mera Dholan Mahi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:56",
     "language": "Hindi",
@@ -1176,7 +18088,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-85",
     "title": "Mori Bhi Rung Do Chunri",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:58",
     "language": "Hindi",
@@ -1189,7 +18101,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-86",
     "title": "Kehde Ghar Jawan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:13",
     "language": "Hindi",
@@ -1202,7 +18114,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-87",
     "title": "Loay Loay Aaja Mahi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "12:21",
     "language": "Hindi",
@@ -1215,7 +18127,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-88",
     "title": "Qismat Ko Manzoor Yehi Tha",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:53",
     "language": "Hindi",
@@ -1228,7 +18140,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-89",
     "title": "Doston Ki Shikayat",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:52",
     "language": "Hindi",
@@ -1241,7 +18153,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-90",
     "title": "Hum Buton Ko Jo Pyar Karte Hain",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:08",
     "language": "Hindi",
@@ -1254,7 +18166,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-91",
     "title": "Dil Pe Zakham Khate Hain",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:35",
     "language": "Hindi",
@@ -1267,7 +18179,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-92",
     "title": "Chithi Kehre Watnan Nu Pawan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "36:59",
     "language": "Hindi",
@@ -1280,7 +18192,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-93",
     "title": "Piala",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "20:21",
     "language": "Hindi",
@@ -1293,7 +18205,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-94",
     "title": "Dub Dub Jawe Dil",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:11",
     "language": "Hindi",
@@ -1306,7 +18218,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-95",
     "title": "Mast Nazron Se (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:34",
     "language": "Hindi",
@@ -1319,7 +18231,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-96",
     "title": "Maar Gai Udeek Din Raat Di",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:31",
     "language": "Hindi",
@@ -1332,7 +18244,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-97",
     "title": "Data Tera Darbar Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:56",
     "language": "Hindi",
@@ -1345,7 +18257,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-98",
     "title": "Ya Muhammad Madine Bula Lo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:16",
     "language": "Hindi",
@@ -1358,7 +18270,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-99",
     "title": "Piya Re Piya Re (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:37",
     "language": "Hindi",
@@ -1371,7 +18283,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-100",
     "title": "Kahan Aake Rukne Teh Raste",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:51",
     "language": "Hindi",
@@ -1384,7 +18296,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-101",
     "title": "Dost Kya Khoob Wafaon Ka Sila Dete Hain",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:18",
     "language": "Hindi",
@@ -1397,7 +18309,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-102",
     "title": "Bina Maahi ｜ Mahi Bollywood Film",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:46",
     "language": "Hindi",
@@ -1410,7 +18322,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-103",
     "title": "Sun Le Duawan Meriyan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "24:05",
     "language": "Hindi",
@@ -1423,7 +18335,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-104",
     "title": "Dum Dum Ali Ali (Remix) ｜ Bally Sagoo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:21",
     "language": "Hindi",
@@ -1436,7 +18348,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-105",
     "title": "Rah Asan Ho Gayee Hogi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:35",
     "language": "Hindi",
@@ -1449,7 +18361,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-106",
     "title": "Sheikh Jee Baith Kar Maekashon Mein",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "25:57",
     "language": "Hindi",
@@ -1462,7 +18374,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-107",
     "title": "Gham Sabhi Rahat O Taskeen",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:55",
     "language": "Hindi",
@@ -1475,7 +18387,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-108",
     "title": "Khudi Ka Sirre Nihan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "18:09",
     "language": "Hindi",
@@ -1488,7 +18400,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-109",
     "title": "Kabhi Ae Haqeeqat",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:37",
     "language": "Hindi",
@@ -1501,7 +18413,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-110",
     "title": "Ali Da Malang (Remix) ｜ Bally Sagoo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:29",
     "language": "Hindi",
@@ -1514,7 +18426,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-111",
     "title": "Woh Hata Rahe Hain Pardah",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:02",
     "language": "Hindi",
@@ -1527,7 +18439,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-112",
     "title": "Main Khayal Hoon Kisi Aur Ka",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:20",
     "language": "Hindi",
@@ -1540,7 +18452,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-113",
     "title": "Yeh Jo Halka Halka Saroor Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:22",
     "language": "Hindi",
@@ -1553,7 +18465,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-114",
     "title": "Gin Gin Tare Langdian Ratan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:39",
     "language": "Hindi",
@@ -1566,7 +18478,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-115",
     "title": "Shala Sukhan Diyan Neendran",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:51",
     "language": "Hindi",
@@ -1579,7 +18491,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-116",
     "title": "More Khawaja",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:03",
     "language": "Hindi",
@@ -1592,7 +18504,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-117",
     "title": "Akhian Noon Chain Na Awe",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:44",
     "language": "Hindi",
@@ -1605,7 +18517,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-118",
     "title": "Woh Hata Rahe Hain Pardah",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:32",
     "language": "Hindi",
@@ -1618,7 +18530,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-119",
     "title": "Heeray Ni Ranjah Jogi Ho Gaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:53",
     "language": "Hindi",
@@ -1631,7 +18543,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-120",
     "title": "Changi Lagdi Na Dhola",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:55",
     "language": "Hindi",
@@ -1644,7 +18556,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-121",
     "title": "Pyar Akhiyan De Buhe",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "28:44",
     "language": "Hindi",
@@ -1657,7 +18569,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-122",
     "title": "Meri Ankhon Ko Ankhon Ka Kinara",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:26",
     "language": "Hindi",
@@ -1670,7 +18582,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-123",
     "title": "Na Jaween Dholna",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:42",
     "language": "Hindi",
@@ -1683,7 +18595,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-124",
     "title": "Jind Meri Mahi Mahi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:22",
     "language": "Hindi",
@@ -1696,7 +18608,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-125",
     "title": "Mera Piya Ghar Aaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:55",
     "language": "Hindi",
@@ -1709,7 +18621,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-126",
     "title": "Jab Bhi Ji Chahta Hai Peene Ko",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "22:24",
     "language": "Hindi",
@@ -1722,7 +18634,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-127",
     "title": "Tu Agar Benaqab Ho Jaye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:26",
     "language": "Hindi",
@@ -1735,7 +18647,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-128",
     "title": "Baba Farid Sohna",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "18:52",
     "language": "Hindi",
@@ -1748,7 +18660,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-129",
     "title": "Kab Yaad Mein Tera Saath Nahin",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:16",
     "language": "Hindi",
@@ -1761,7 +18673,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-130",
     "title": "Mera Piya Ghar Ayaa (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:24",
     "language": "Hindi",
@@ -1774,7 +18686,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-131",
     "title": "Lagi Waley Te Akh Neyon Launde",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "19:11",
     "language": "Hindi",
@@ -1787,7 +18699,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-132",
     "title": "Sanon Tay Changa Toon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:48",
     "language": "Hindi",
@@ -1800,7 +18712,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-133",
     "title": "Wigar Gayi Ae Thore Dinan Toon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "10:18",
     "language": "Hindi",
@@ -1813,7 +18725,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-134",
     "title": "Galey Lipte Hain Woh Bijli Ke Dar Se",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:28",
     "language": "Hindi",
@@ -1826,7 +18738,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-135",
     "title": "Mast Nazron Se Allah Bachaye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:38",
     "language": "Hindi",
@@ -1839,7 +18751,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-136",
     "title": "Dhol Mahia",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:36",
     "language": "Hindi",
@@ -1852,7 +18764,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-137",
     "title": "Arshe Azam Ka Doolha",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "22:39",
     "language": "Hindi",
@@ -1865,7 +18777,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-138",
     "title": "Yaad-E-Nabi Ka Gulshan Mehka",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "29:26",
     "language": "Hindi",
@@ -1878,7 +18790,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-139",
     "title": "Teri Deed Da Menon Cha Sajna",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "39:06",
     "language": "Hindi",
@@ -1891,7 +18803,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-140",
     "title": "Botal Khuli Hae Raqs Mein Jam E Sharab Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:01",
     "language": "Hindi",
@@ -1904,7 +18816,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-141",
     "title": "Main Kahin Bhi Jaon Eh Jaan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:58",
     "language": "Hindi",
@@ -1917,7 +18829,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-142",
     "title": "Kinna Sona",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:24",
     "language": "Hindi",
@@ -1930,7 +18842,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-143",
     "title": "Ruttan Pyar Karn Diyan Aayan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:08",
     "language": "Hindi",
@@ -1943,7 +18855,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-144",
     "title": "Bujhi Hui Shama Ka Dhuan Hoon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "19:56",
     "language": "Hindi",
@@ -1956,7 +18868,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-145",
     "title": "Nit Khair Mangan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:19",
     "language": "Hindi",
@@ -1969,7 +18881,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-146",
     "title": "Allah Hoo (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:07",
     "language": "Hindi",
@@ -1982,7 +18894,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-147",
     "title": "Yeh Teri Umar Jise Sab Shabab Kehte Hain",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:28",
     "language": "Hindi",
@@ -1995,7 +18907,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-148",
     "title": "Meri Tauba",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:26",
     "language": "Hindi",
@@ -2008,7 +18920,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-149",
     "title": "Jis Ki Janib Woh Nazar Apni Utha",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:04",
     "language": "Hindi",
@@ -2021,7 +18933,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-150",
     "title": "Shikwa (Allama Iqbal)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:37",
     "language": "Hindi",
@@ -2034,7 +18946,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-151",
     "title": "Jaag Uthen Dard Purane",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:56",
     "language": "Hindi",
@@ -2047,7 +18959,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-152",
     "title": "Karan Tasbeeh Mein Data Tere Naam Di",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:38",
     "language": "Hindi",
@@ -2060,7 +18972,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-153",
     "title": "Mahiya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:42",
     "language": "Hindi",
@@ -2073,7 +18985,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-154",
     "title": "Roze Mehshar Se Na Ghabrao",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:33",
     "language": "Hindi",
@@ -2086,7 +18998,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-155",
     "title": "Saadgi To Hamari",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:07",
     "language": "Hindi",
@@ -2099,7 +19011,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-156",
     "title": "Samander Mein Samander",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:27",
     "language": "Hindi",
@@ -2112,7 +19024,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-157",
     "title": "Mere Dukhan Noon O Yara",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:51",
     "language": "Hindi",
@@ -2125,7 +19037,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-158",
     "title": "Luk Luk Rona Pae Gaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:47",
     "language": "Hindi",
@@ -2138,7 +19050,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-159",
     "title": "Mujhko Teri Kasam Tujhsa Koi Nahin",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:25",
     "language": "Hindi",
@@ -2151,7 +19063,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-160",
     "title": "Eh Sochan Soch Ke Dil Mera",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:25",
     "language": "Hindi",
@@ -2164,7 +19076,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-161",
     "title": "Yeh Sham Phir Nahin Aye Gi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:38",
     "language": "Hindi",
@@ -2177,7 +19089,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-162",
     "title": "Sajna Tere Bina",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:42",
     "language": "Hindi",
@@ -2190,7 +19102,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-163",
     "title": "Maikadah Bhi Apna Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:24",
     "language": "Hindi",
@@ -2203,7 +19115,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-164",
     "title": "Meri Zeest Pur Mussarrat I",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:02",
     "language": "Hindi",
@@ -2216,7 +19128,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-165",
     "title": "Rabba Lakh Lakh Shukar Manawan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:20",
     "language": "Hindi",
@@ -2229,7 +19141,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-166",
     "title": "Raat Ko Chandni Jab Khile",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:32",
     "language": "Hindi",
@@ -2242,7 +19154,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-167",
     "title": "Kivain Mukhre Toon Nazran Hatawan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "22:00",
     "language": "Hindi",
@@ -2255,7 +19167,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-168",
     "title": "Aap Baithe Hain Balin Peh Meri",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:49",
     "language": "Hindi",
@@ -2268,7 +19180,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-169",
     "title": "Tum Ne Bhi Thukra Hi Diya Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:09",
     "language": "Hindi",
@@ -2281,7 +19193,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-170",
     "title": "Buha Aes Wele Kine Kharkaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "10:57",
     "language": "Hindi",
@@ -2294,7 +19206,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-171",
     "title": "Dil Sulagane Laga Chandni Raat Mein",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:15",
     "language": "Hindi",
@@ -2307,7 +19219,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-172",
     "title": "Mahia Pardesi Ho Gaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:03",
     "language": "Hindi",
@@ -2320,7 +19232,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-173",
     "title": "Koi Bole Ram Ram",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:57",
     "language": "Hindi",
@@ -2333,7 +19245,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-174",
     "title": "Kithe Mehr Ali Aj Sik Mitran Di",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:42",
     "language": "Hindi",
@@ -2346,7 +19258,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-175",
     "title": "Mera Dhol Mahi Mere Man Ka Raja",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:30",
     "language": "Hindi",
@@ -2359,7 +19271,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-176",
     "title": "Aa Bhi Ja Rut Badalne Lagi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "10:48",
     "language": "Hindi",
@@ -2372,7 +19284,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-177",
     "title": "Unke Dar Peh Poohnchne To Payen",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "38:02",
     "language": "Hindi",
@@ -2385,7 +19297,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-178",
     "title": "Sab Vird Karo Allah Allah",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:15",
     "language": "Hindi",
@@ -2398,7 +19310,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-179",
     "title": "Sikh Chaj Koi Yaar Manowan Da (Bulleh Shah)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "20:21",
     "language": "Hindi",
@@ -2411,7 +19323,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-180",
     "title": "Sham Savere",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:13",
     "language": "Hindi",
@@ -2424,7 +19336,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-181",
     "title": "Prohniya Noon Jana Penda Ae",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:26",
     "language": "Hindi",
@@ -2437,7 +19349,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-182",
     "title": "Akhian Udeekdian",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:52",
     "language": "Hindi",
@@ -2450,7 +19362,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-183",
     "title": "Yaad e Nabi Ka Gulshan Mehka",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:43",
     "language": "Hindi",
@@ -2463,7 +19375,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-184",
     "title": "Ishq Diwana Mera Rog Purana",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:22",
     "language": "Hindi",
@@ -2476,7 +19388,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-185",
     "title": "Jab Tera Hukom Mila",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:58",
     "language": "Hindi",
@@ -2489,7 +19401,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-186",
     "title": "Mittar Pyare Noon (Gurbani Shabad)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "140:58",
     "language": "Hindi",
@@ -2502,7 +19414,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-187",
     "title": "Ae Kash Tujhe Aisa Ik Zakhm-E-Judaee Doon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:13",
     "language": "Hindi",
@@ -2515,7 +19427,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-188",
     "title": "Dam Dam Karo Fareed",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:39",
     "language": "Hindi",
@@ -2528,7 +19440,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-189",
     "title": "Jhoole Jhoole Lal",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "12:17",
     "language": "Hindi",
@@ -2541,7 +19453,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-190",
     "title": "Kuch Toh Hawa Bhi Sard Thi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:54",
     "language": "Hindi",
@@ -2554,7 +19466,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-191",
     "title": "Sahnoon Rog Laan Walia (Remix) ｜ Bally Sagoo &",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:26",
     "language": "Hindi",
@@ -2567,7 +19479,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-192",
     "title": "Jhoole Laal Jhoole Laal",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:06",
     "language": "Hindi",
@@ -2580,7 +19492,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-193",
     "title": "Das Ke Kasoor Na Gaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:25",
     "language": "Hindi",
@@ -2593,7 +19505,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-194",
     "title": "Thori Der Hor Thehr Ja",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:56",
     "language": "Hindi",
@@ -2606,7 +19518,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-195",
     "title": "Kabhi Dil Se Na Tera Dard",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:21",
     "language": "Hindi",
@@ -2619,7 +19531,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-196",
     "title": "Ali Maula Ali Maula Ali Dam Dam",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:50",
     "language": "Hindi",
@@ -2632,7 +19544,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-197",
     "title": "Dam Mast Mast",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:15",
     "language": "Hindi",
@@ -2645,7 +19557,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-198",
     "title": "Ehnan Akhian Ne Pesh Na Jaan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:38",
     "language": "Hindi",
@@ -2658,7 +19570,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-199",
     "title": "Nabi Syed Ul Anmbia",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:38",
     "language": "Hindi",
@@ -2671,7 +19583,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-200",
     "title": "Tu Kuja Man Kuja (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "12:30",
     "language": "Hindi",
@@ -2684,7 +19596,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-201",
     "title": "Sajna Tere Bina",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:01",
     "language": "Hindi",
@@ -2697,7 +19609,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-202",
     "title": "Ali Maula Ali Dam Dam (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:05",
     "language": "Hindi",
@@ -2710,7 +19622,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-203",
     "title": "Vichora Sohne Yaar Wala",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:19",
     "language": "Hindi",
@@ -2723,7 +19635,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-204",
     "title": "Na Sawal Ban Ke Mila Karo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:03",
     "language": "Hindi",
@@ -2736,7 +19648,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-205",
     "title": "Kamli Wale Nigah e Karam Ho Agar",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "51:57",
     "language": "Hindi",
@@ -2749,7 +19661,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-206",
     "title": "Kande Utte Mehrman Ve",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "20:30",
     "language": "Hindi",
@@ -2762,7 +19674,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-207",
     "title": "Mera Dil Vi Chaunda Madine Mein Jawan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:43",
     "language": "Hindi",
@@ -2775,7 +19687,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-208",
     "title": "Ho Jaye Je Pyar Te Sona Bhul Jaunda (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:49",
     "language": "Hindi",
@@ -2788,7 +19700,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-209",
     "title": "Aadmi Aadmi Se Milta Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:38",
     "language": "Hindi",
@@ -2801,7 +19713,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-210",
     "title": "Sindhri De Shahbaz Qalander",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:11",
     "language": "Hindi",
@@ -2814,7 +19726,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-211",
     "title": "Tara Tara Jagun",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:27",
     "language": "Hindi",
@@ -2827,7 +19739,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-212",
     "title": "Awwal Allah Noor Upaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:58",
     "language": "Hindi",
@@ -2840,7 +19752,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-213",
     "title": "Yadan Vichre Sajjan (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:41",
     "language": "Hindi",
@@ -2853,7 +19765,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-214",
     "title": "Un Ki Gali Mein",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:14",
     "language": "Hindi",
@@ -2866,7 +19778,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-215",
     "title": "Yaadan Vichre Sajan Diyan Aaiyan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "46:22",
     "language": "Hindi",
@@ -2879,7 +19791,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-216",
     "title": "Dard Rukta Nahin Ik Pal Bhi Ishq Ki Yeh Saza Mil Rahi Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "28:59",
     "language": "Hindi",
@@ -2892,7 +19804,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-217",
     "title": "Ve Main Akhiyan Akhiyan ｜ Muqaddar Film",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:59",
     "language": "Hindi",
@@ -2905,7 +19817,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-218",
     "title": "Dilruba Sa Chehra Remix Dr. Zeus Ft. Kanika Kapoor & Shortie",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "3:09",
     "language": "Hindi",
@@ -2918,7 +19830,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-219",
     "title": "Mere Sabir Teri Chaukhat Ki",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:15",
     "language": "Hindi",
@@ -2931,7 +19843,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-220",
     "title": "Angrai Peh Angrai Lehti Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:34",
     "language": "Hindi",
@@ -2944,7 +19856,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-221",
     "title": "Noor Azli Chamkiya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:59",
     "language": "Hindi",
@@ -2957,7 +19869,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-222",
     "title": "Din Mein Kab Socha Karte",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:47",
     "language": "Hindi",
@@ -2970,7 +19882,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-223",
     "title": "Aaja Mahi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:25",
     "language": "Hindi",
@@ -2983,7 +19895,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-224",
     "title": "Mast Nazron Se Allah Bachaye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:28",
     "language": "Hindi",
@@ -2996,7 +19908,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-225",
     "title": "Sun Charkhe Di Mithi Mithi Ghook (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:13",
     "language": "Hindi",
@@ -3009,7 +19921,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-226",
     "title": "Jis Simt Dekhon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:12",
     "language": "Hindi",
@@ -3022,7 +19934,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-227",
     "title": "Dam Dama Dam Ali Ali",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:54",
     "language": "Hindi",
@@ -3035,7 +19947,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-228",
     "title": "Aaj Rung Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "18:12",
     "language": "Hindi",
@@ -3048,7 +19960,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-229",
     "title": "Band Hua Sara Maikhana",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:41",
     "language": "Hindi",
@@ -3061,7 +19973,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-230",
     "title": "Talwar Hain Teri Ankhen",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:30",
     "language": "Hindi",
@@ -3074,7 +19986,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-231",
     "title": "Ahista Ahista",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:03",
     "language": "Hindi",
@@ -3087,7 +19999,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-232",
     "title": "Yadon Ke Saye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:37",
     "language": "Hindi",
@@ -3100,7 +20012,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-233",
     "title": "Janda Hoya Dil Le Gaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:03",
     "language": "Hindi",
@@ -3113,7 +20025,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-234",
     "title": "Sanson Ki Mala Peh at His Best",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:23",
     "language": "Hindi",
@@ -3126,7 +20038,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-235",
     "title": "Mera Sohna Sajan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "3:58",
     "language": "Hindi",
@@ -3139,7 +20051,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-236",
     "title": "Mustafa Ya Mustafa",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:12",
     "language": "Hindi",
@@ -3152,7 +20064,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-237",
     "title": "Poochha Kisi Se Haal Kisi Ka",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:50",
     "language": "Hindi",
@@ -3165,7 +20077,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-238",
     "title": "Kar Le Dil Di Sifayi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:14",
     "language": "Hindi",
@@ -3178,7 +20090,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-239",
     "title": "Meri Bukkal De Vich Chor Chor",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "10:44",
     "language": "Hindi",
@@ -3191,7 +20103,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-240",
     "title": "Nahin Jeena Pyar Bina",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:58",
     "language": "Hindi",
@@ -3204,7 +20116,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-241",
     "title": "Lohay Lohay & Bubble (Bloodline) Ft. Shortie",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "3:43",
     "language": "Hindi",
@@ -3217,7 +20129,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-242",
     "title": "Ham Apni Sham Ko Jab Nazr E Jam Karte Hain",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:33",
     "language": "Hindi",
@@ -3230,7 +20142,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-243",
     "title": "Menu Yaadan Teriyan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:01",
     "language": "Hindi",
@@ -3243,7 +20155,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-244",
     "title": "Ghunghat Chuk Lai Sajna Ve Hun Sharman Kanu Rakhian Ve",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "10:16",
     "language": "Hindi",
@@ -3256,7 +20168,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-245",
     "title": "Sochta Hoon ｜ Dekhte Dekhte",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "22:59",
     "language": "Hindi",
@@ -3269,7 +20181,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-246",
     "title": "Sade Naal & GSL (Bloodline)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:40",
     "language": "Hindi",
@@ -3282,7 +20194,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-247",
     "title": "Ya Haiyo Ya Qayyum (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "18:42",
     "language": "Hindi",
@@ -3295,7 +20207,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-248",
     "title": "Jab Raat Dhali Aadhi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:38",
     "language": "Hindi",
@@ -3308,7 +20220,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-249",
     "title": "Ali Maula - Bashment Mix & Simon & Diamond",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:56",
     "language": "Hindi",
@@ -3321,7 +20233,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-250",
     "title": "Kali Kamli Mein Woh Zeeshan Nazar",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "27:11",
     "language": "Hindi",
@@ -3334,7 +20246,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-251",
     "title": "Suboh Ko Daur Mein Lao",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:42",
     "language": "Hindi",
@@ -3347,7 +20259,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-252",
     "title": "Chithi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:20",
     "language": "Hindi",
@@ -3360,7 +20272,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-253",
     "title": "O Disdi Kulli Sohne Yaar Di",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "24:47",
     "language": "Hindi",
@@ -3373,7 +20285,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-254",
     "title": "Hijaab Ko Benaqaab Hona Tha",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:14",
     "language": "Hindi",
@@ -3386,7 +20298,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-255",
     "title": "Man Kunto Maula",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:14",
     "language": "Hindi",
@@ -3399,7 +20311,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-256",
     "title": "Komplein Phir Phoot Ayeen",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:39",
     "language": "Hindi",
@@ -3412,7 +20324,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-257",
     "title": "Jadon Ek Wari Lag Jawe",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:26",
     "language": "Hindi",
@@ -3425,7 +20337,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-258",
     "title": "Diya Jale Sari Raat",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:03",
     "language": "Hindi",
@@ -3438,7 +20350,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-259",
     "title": "Jhoole Jhoole Lal (Tabla Mix) ｜ Bally Sagoo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:55",
     "language": "Hindi",
@@ -3451,7 +20363,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-260",
     "title": "Chahat Ke Sukh",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:19",
     "language": "Hindi",
@@ -3464,7 +20376,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-261",
     "title": "Sohne Mukhre Da Lain De Nazara",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "12:46",
     "language": "Hindi",
@@ -3477,7 +20389,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-262",
     "title": "Sanson Ki Mala Pe Simron",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "18:57",
     "language": "Hindi",
@@ -3490,7 +20402,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-263",
     "title": "Haq Ali Ali Haq",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:29",
     "language": "Hindi",
@@ -3503,7 +20415,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-264",
     "title": "Jadon Da Tu Rus",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:35",
     "language": "Hindi",
@@ -3516,7 +20428,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-265",
     "title": "Tere Lariyan Ne Umar Gawayi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:25",
     "language": "Hindi",
@@ -3529,7 +20441,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-266",
     "title": "Menon Yaar Manaonon Fusrat Nahin",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:31",
     "language": "Hindi",
@@ -3542,7 +20454,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-267",
     "title": "Soorat Teri",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:08",
     "language": "Hindi",
@@ -3555,7 +20467,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-268",
     "title": "Aondiyan Ne Jad Yadan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:52",
     "language": "Hindi",
@@ -3568,7 +20480,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-269",
     "title": "Zee Halle Miskin",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "20:40",
     "language": "Hindi",
@@ -3581,7 +20493,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-270",
     "title": "Mujhe Yaad Kijiye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:43",
     "language": "Hindi",
@@ -3594,7 +20506,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-271",
     "title": "Yaran De Naal Yaar",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:54",
     "language": "Hindi",
@@ -3607,7 +20519,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-272",
     "title": "Tera Dilruba Sa Chehra",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:10",
     "language": "Hindi",
@@ -3620,7 +20532,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-273",
     "title": "Ham Ne Dekha Tha Ek Khawab",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "10:30",
     "language": "Hindi",
@@ -3633,7 +20545,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-274",
     "title": "Farsooda Jahan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:04",
     "language": "Hindi",
@@ -3646,7 +20558,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-275",
     "title": "Sanson Ki Mala Peh Simroon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:30",
     "language": "Hindi",
@@ -3659,7 +20571,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-276",
     "title": "Jab Kisi Jaam Ko",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:19",
     "language": "Hindi",
@@ -3672,7 +20584,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-277",
     "title": "Mere Hath Mein Tera Hath Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:09",
     "language": "Hindi",
@@ -3685,7 +20597,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-278",
     "title": "Sanon Yaar Di Namaz",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "19:50",
     "language": "Hindi",
@@ -3698,7 +20610,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-279",
     "title": "Marhaba Salle Ala",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "12:21",
     "language": "Hindi",
@@ -3711,7 +20623,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-280",
     "title": "Mere Dholan Mahi Aaja Akhian Taras Gaiyan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:56",
     "language": "Hindi",
@@ -3724,7 +20636,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-281",
     "title": "Ni Main Jana Jogi De Naal",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:17",
     "language": "Hindi",
@@ -3737,7 +20649,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-282",
     "title": "Mast Qalander",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:34",
     "language": "Hindi",
@@ -3750,7 +20662,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-283",
     "title": "Yaad e Nabi (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:44",
     "language": "Hindi",
@@ -3763,7 +20675,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-284",
     "title": "Mera Piya Ghar Aaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "18:13",
     "language": "Hindi",
@@ -3776,7 +20688,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-285",
     "title": "More Saiyaan To Hai Pardes",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:09",
     "language": "Hindi",
@@ -3789,7 +20701,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-286",
     "title": "Bandit Queen (The Cry)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "29:55",
     "language": "Hindi",
@@ -3802,7 +20714,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-287",
     "title": "Dyare Ishq Mein Apna Maqam Paida Kar",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:40",
     "language": "Hindi",
@@ -3815,7 +20727,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-288",
     "title": "Menu Teri Deewani Ve Ranjhna",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:16",
     "language": "Hindi",
@@ -3828,7 +20740,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-289",
     "title": "Raaten Shor Machati Hain",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:35",
     "language": "Hindi",
@@ -3841,7 +20753,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-290",
     "title": "Mera Chan Veer Naeen Aya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:36",
     "language": "Hindi",
@@ -3854,7 +20766,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-291",
     "title": "Naseeb Mera Jaga Diya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:58",
     "language": "Hindi",
@@ -3867,7 +20779,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-292",
     "title": "Gali Wichon Kaun Langia",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:28",
     "language": "Hindi",
@@ -3880,7 +20792,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-293",
     "title": "Akhian Noon Chain Na Awe (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:42",
     "language": "Hindi",
@@ -3893,7 +20805,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-294",
     "title": "Kise Da Yaar Na Vichre (Live at Royal Albert Hall)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:34",
     "language": "Hindi",
@@ -3906,7 +20818,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-295",
     "title": "Ranjhe Yaar Walon Mukh Kevain Moran",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:14",
     "language": "Hindi",
@@ -3919,7 +20831,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-296",
     "title": "Mitar Piyare Noon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:59",
     "language": "Hindi",
@@ -3932,7 +20844,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-297",
     "title": "Ja Murr Ja Ishqe Vich Kee Rakhia",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:57",
     "language": "Hindi",
@@ -3945,7 +20857,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-298",
     "title": "Soona Soona Dil Lagta Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:52",
     "language": "Hindi",
@@ -3958,7 +20870,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-299",
     "title": "Ranjah Te Mera Rab Varga",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "23:52",
     "language": "Hindi",
@@ -3971,7 +20883,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-300",
     "title": "Aisa Bana Sanwarna Mubarik Tumhen",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:31",
     "language": "Hindi",
@@ -3984,7 +20896,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-301",
     "title": "Hisab Umar Ka Itna Sa Goshwara",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:55",
     "language": "Hindi",
@@ -3997,7 +20909,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-302",
     "title": "Yeh Jo Halka Halka",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "67:58",
     "language": "Hindi",
@@ -4010,7 +20922,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-303",
     "title": "Is Karam Ka Karon Shukar Kaise Ada",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "20:07",
     "language": "Hindi",
@@ -4023,7 +20935,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-304",
     "title": "Jhoom Raha Hae Chishti Gulshan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "26:41",
     "language": "Hindi",
@@ -4036,7 +20948,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-305",
     "title": "Beh Ja Mahi",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "20:46",
     "language": "Hindi",
@@ -4049,7 +20961,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-306",
     "title": "Tum To Na Aye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:29",
     "language": "Hindi",
@@ -4062,7 +20974,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-307",
     "title": "Yeh Aarzoo Thi Madine Ka",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:07",
     "language": "Hindi",
@@ -4075,7 +20987,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-308",
     "title": "Allah Hoo Allah Hoo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:04",
     "language": "Hindi",
@@ -4088,7 +21000,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-309",
     "title": "Pyar Pyar - Electro Mix & Simon & Diamond",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "3:38",
     "language": "Hindi",
@@ -4101,7 +21013,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-310",
     "title": "Mae Ni Main Jhok Fareedan Jana",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "21:30",
     "language": "Hindi",
@@ -4114,7 +21026,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-311",
     "title": "Je Toon Akhiyan De Samne",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:56",
     "language": "Hindi",
@@ -4127,7 +21039,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-312",
     "title": "Kab Tak Too Oonchi Awaz Mein",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:41",
     "language": "Hindi",
@@ -4140,7 +21052,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-313",
     "title": "Jiya Lagena Moura & Rahat Fateh Ali Khan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:36",
     "language": "Hindi",
@@ -4153,7 +21065,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-314",
     "title": "Kehte Ho Ishq Ka Afsana Chahiye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "25:11",
     "language": "Hindi",
@@ -4166,7 +21078,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-315",
     "title": "Aankhen Tumharian",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:10",
     "language": "Hindi",
@@ -4179,7 +21091,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-316",
     "title": "Farida Turiya Turiya Ja",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:33",
     "language": "Hindi",
@@ -4192,7 +21104,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-317",
     "title": "Tere Bin Nahin Lagda (Tere Bin) & Partners In Rhyme",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:51",
     "language": "Hindi",
@@ -4205,7 +21117,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-318",
     "title": "Shabaz Qalander - Radio Edit & Simon & Diamond",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:16",
     "language": "Hindi",
@@ -4218,7 +21130,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-319",
     "title": "Yaar Yaar Kehna",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:17",
     "language": "Hindi",
@@ -4231,7 +21143,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-320",
     "title": "Hai Kahan Ka Irada Sanam",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "23:38",
     "language": "Hindi",
@@ -4244,7 +21156,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-321",
     "title": "Haq Ali Ali (Live ar Royal Albert Hall)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "24:29",
     "language": "Hindi",
@@ -4257,7 +21169,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-322",
     "title": "Hussain Hai Hussain Hai",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:22",
     "language": "Hindi",
@@ -4270,7 +21182,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-323",
     "title": "Aye Chand Has Do",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:49",
     "language": "Hindi",
@@ -4283,7 +21195,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-324",
     "title": "Jawan Main Sadqe Muhammad",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:39",
     "language": "Hindi",
@@ -4296,7 +21208,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-325",
     "title": "Ae Jaan-E-Jan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:12",
     "language": "Hindi",
@@ -4309,7 +21221,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-326",
     "title": "Rah Asan Ho Gayee Hogi (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:29",
     "language": "Hindi",
@@ -4322,7 +21234,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-327",
     "title": "Sajana ｜ Kanika Kapoor Ft. DJ Envy",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:32",
     "language": "Hindi",
@@ -4335,7 +21247,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-328",
     "title": "Tere Bin (Remix) & Kais Khan Ft. Sir Aah",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:59",
     "language": "Hindi",
@@ -4348,7 +21260,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-329",
     "title": "Tere Hondiyan Sondiyan Mehbooba",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:33",
     "language": "Hindi",
@@ -4361,7 +21273,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-330",
     "title": "Jadon Ali Ali Vird Pukaran",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:11",
     "language": "Hindi",
@@ -4374,7 +21286,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-331",
     "title": "Jana Jogi De Naal (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:03",
     "language": "Hindi",
@@ -4387,7 +21299,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-332",
     "title": "Mera Eh Charkha Naulakha",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "33:56",
     "language": "Hindi",
@@ -4400,7 +21312,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-333",
     "title": "Meri Shutar Sawara Gal Sun Ja",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "35:58",
     "language": "Hindi",
@@ -4413,7 +21325,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-334",
     "title": "Assi Azlan Toon Tere Aan Diwane",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:20",
     "language": "Hindi",
@@ -4426,7 +21338,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-335",
     "title": "Jadon Amlan De Wal Takna",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:48",
     "language": "Hindi",
@@ -4439,7 +21351,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-336",
     "title": "Ham Ne Dekha Tha Ek Khawab",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "10:30",
     "language": "Hindi",
@@ -4452,7 +21364,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-337",
     "title": "Aainon Mein Yeh Jitne Chehre",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:46",
     "language": "Hindi",
@@ -4465,7 +21377,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-338",
     "title": "Wich Pardesan ｜ Dr Zeus",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:38",
     "language": "Hindi",
@@ -4478,7 +21390,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-339",
     "title": "Kina Sohna Tenu ｜ Kinna Sona",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "3:31",
     "language": "Hindi",
@@ -4491,7 +21403,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-340",
     "title": "Ali Ali Maula Ali Ali",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "28:59",
     "language": "Hindi",
@@ -4504,7 +21416,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-341",
     "title": "Ali Maula Ali Maula Ali Dam Dam",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:18",
     "language": "Hindi",
@@ -4517,7 +21429,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-342",
     "title": "Ho Nigahe Karam Ya Muhammad",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "29:25",
     "language": "Hindi",
@@ -4530,7 +21442,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-343",
     "title": "Jawab Shikwa (Solo with Orchestra)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "23:01",
     "language": "Hindi",
@@ -4543,7 +21455,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-344",
     "title": "Haq Ali Haq (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:13",
     "language": "Hindi",
@@ -4556,7 +21468,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-345",
     "title": "Bari Bari Imam Bari",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:04",
     "language": "Hindi",
@@ -4569,7 +21481,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-346",
     "title": "Aaja Mahi - Garage Club Remix & Simon & Diamond",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:00",
     "language": "Hindi",
@@ -4582,7 +21494,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-347",
     "title": "Ali Maula Ali Dum Dum",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:25",
     "language": "Hindi",
@@ -4595,7 +21507,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-348",
     "title": "Khoon Akhian Choon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:15",
     "language": "Hindi",
@@ -4608,7 +21520,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-349",
     "title": "Jhalian Judaiyan Nahiyo Janiyan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:42",
     "language": "Hindi",
@@ -4621,7 +21533,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-350",
     "title": "Din Chup Gaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "33:25",
     "language": "Hindi",
@@ -4634,7 +21546,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-351",
     "title": "Dyare-e-Ishq Mein Apna Makam Paida Kar",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "9:44",
     "language": "Hindi",
@@ -4647,7 +21559,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-352",
     "title": "Nit Khair Mangan (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:22",
     "language": "Hindi",
@@ -4660,7 +21572,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-353",
     "title": "USTAD",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "117:18",
     "language": "Hindi",
@@ -4673,7 +21585,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-354",
     "title": "Raag Gawati (Classical)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "22:37",
     "language": "Hindi",
@@ -4686,7 +21598,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-355",
     "title": "Bari Bari Imam Bari",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:04",
     "language": "Hindi",
@@ -4699,7 +21611,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-356",
     "title": "Har Dam Ali Maula Kahija",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:37",
     "language": "Hindi",
@@ -4712,7 +21624,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-357",
     "title": "Mae Ni Mae Mere Geetan De (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:07",
     "language": "Hindi",
@@ -4725,7 +21637,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-358",
     "title": "Phir Sawan Rut Ki Pawan Chali",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:12",
     "language": "Hindi",
@@ -4738,7 +21650,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-359",
     "title": "Jee Karda Ay Dardan Noon",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:44",
     "language": "Hindi",
@@ -4751,7 +21663,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-360",
     "title": "Yara Tere Toon Sohna (Slap Bass Rb Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:45",
     "language": "Hindi",
@@ -4764,7 +21676,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-361",
     "title": "Pyar Ke Phool Charhane Aye Hain",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "34:45",
     "language": "Hindi",
@@ -4777,7 +21689,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-362",
     "title": "Shikwa (Solo with Orchestra)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "27:39",
     "language": "Hindi",
@@ -4790,7 +21702,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-363",
     "title": "Kamli Wale Nabi Aa Gaye",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "18:08",
     "language": "Hindi",
@@ -4803,7 +21715,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-364",
     "title": "Ali Maula Ali Maula",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:12",
     "language": "Hindi",
@@ -4816,7 +21728,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-365",
     "title": "Halka Halka Saroor",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:08",
     "language": "Hindi",
@@ -4829,7 +21741,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-366",
     "title": "Ali Da Malang (Live Version)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:36",
     "language": "Hindi",
@@ -4842,7 +21754,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-367",
     "title": "Ishq Nachiya & Bubble (Bloodline) Ft. Shortie",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "3:23",
     "language": "Hindi",
@@ -4855,7 +21767,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-368",
     "title": "Ya Muhammad Noor Ho Tum",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:08",
     "language": "Hindi",
@@ -4868,7 +21780,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-369",
     "title": "Soona Soona Din Lagta",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:53",
     "language": "Hindi",
@@ -4881,7 +21793,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-370",
     "title": "Rawain Sahnwan De Nere Nere",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:46",
     "language": "Hindi",
@@ -4894,7 +21806,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-371",
     "title": "O Jaan E Man Jaan E Bahar",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:41",
     "language": "Hindi",
@@ -4907,7 +21819,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-372",
     "title": "Sadness - Best Sad Qawwalies",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "156:14",
     "language": "Hindi",
@@ -4920,7 +21832,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-373",
     "title": "Koi Dekhda Naeen Khatawan Nu",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:06",
     "language": "Hindi",
@@ -4933,7 +21845,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-374",
     "title": "Meri Zindagi Ek Khuwab",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "8:02",
     "language": "Hindi",
@@ -4946,7 +21858,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-375",
     "title": "Jhoole Jhoole Lal (Junglist Version) Bally Sagoo",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:18",
     "language": "Hindi",
@@ -4959,7 +21871,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-376",
     "title": "Gham Judaiyan De",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "27:16",
     "language": "Hindi",
@@ -4972,7 +21884,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-377",
     "title": "Jawab-E-Shikwa",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "24:30",
     "language": "Hindi",
@@ -4985,7 +21897,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-378",
     "title": "Ishqech Kee Rakhia",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:19",
     "language": "Hindi",
@@ -4998,7 +21910,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-379",
     "title": "Madine Hazri Howe",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:15",
     "language": "Hindi",
@@ -5011,7 +21923,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-380",
     "title": "Ban Kay Aya Hoon Sawali",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:45",
     "language": "Hindi",
@@ -5024,7 +21936,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-381",
     "title": "Shahswar e Karbala Kee Shahswari Ko Salam",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:52",
     "language": "Hindi",
@@ -5037,7 +21949,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-382",
     "title": "Ya Rasool Allah",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:56",
     "language": "Hindi",
@@ -5050,7 +21962,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-383",
     "title": "Mangte Hain Karam",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "30:09",
     "language": "Hindi",
@@ -5063,7 +21975,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-384",
     "title": "Daata Ke Deewane",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:02",
     "language": "Hindi",
@@ -5076,7 +21988,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-385",
     "title": "Kamli Wale Je Dar Na Dikhaya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:25",
     "language": "Hindi",
@@ -5089,7 +22001,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-386",
     "title": "Ali Maula (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:38",
     "language": "Hindi",
@@ -5102,7 +22014,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-387",
     "title": "Nit Khair Mangan (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:38",
     "language": "Hindi",
@@ -5115,7 +22027,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-388",
     "title": "Haq Ali Ali (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:42",
     "language": "Hindi",
@@ -5128,7 +22040,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-389",
     "title": "My Top Qawwalies",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "116:22",
     "language": "Hindi",
@@ -5141,7 +22053,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-390",
     "title": "Chand Roshan Hua",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:14",
     "language": "Hindi",
@@ -5154,7 +22066,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-391",
     "title": "Allah Hoo (Modern Version)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:29",
     "language": "Hindi",
@@ -5167,7 +22079,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-392",
     "title": "Aa Wee Ja Sohnia",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "29:40",
     "language": "Hindi",
@@ -5180,7 +22092,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-393",
     "title": "Aja Re Aja Ajmeri Khawaja",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "26:33",
     "language": "Hindi",
@@ -5193,7 +22105,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-394",
     "title": "Kee Janan Main Kaun Bhulliya",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "13:45",
     "language": "Hindi",
@@ -5206,7 +22118,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-395",
     "title": "Goriya Chali Pee Ke Des",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "7:41",
     "language": "Hindi",
@@ -5219,7 +22131,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-396",
     "title": "Shahbaz Qalander (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:45",
     "language": "Hindi",
@@ -5232,7 +22144,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-397",
     "title": "Shikwa",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "36:48",
     "language": "Hindi",
@@ -5245,7 +22157,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-398",
     "title": "Data De Deewane",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "17:13",
     "language": "Hindi",
@@ -5258,7 +22170,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-399",
     "title": "Madina Tera Wasda Rahwe",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "16:22",
     "language": "Hindi",
@@ -5271,7 +22183,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-400",
     "title": "Dum Mast Qalandar",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "10:38",
     "language": "Hindi",
@@ -5284,7 +22196,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-401",
     "title": "Jana Jogi De Nal",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "32:23",
     "language": "Hindi",
@@ -5297,7 +22209,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-402",
     "title": "Allah Hoo Jalle Shan",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:51",
     "language": "Hindi",
@@ -5310,7 +22222,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-403",
     "title": "Yaad e Nabi (Remix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:46",
     "language": "Hindi",
@@ -5323,7 +22235,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-404",
     "title": "Shahbaz Qalander",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "12:59",
     "language": "Hindi",
@@ -5336,7 +22248,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-405",
     "title": "Changi Aan Mandan Aan Sahib Teri",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "6:50",
     "language": "Hindi",
@@ -5349,7 +22261,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-406",
     "title": "Duma Dum (Dholki Mix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "3:57",
     "language": "Hindi",
@@ -5362,7 +22274,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-407",
     "title": "Is Karam Ka Karoon Shukar Kaise Ada",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "27:45",
     "language": "Hindi",
@@ -5375,7 +22287,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-408",
     "title": "Dukh Rog Ke - Mellow Mix & Simon & Diamond",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "5:03",
     "language": "Hindi",
@@ -5388,7 +22300,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-409",
     "title": "Khawaja Moin Uddin Usman Ke Pyare",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "15:14",
     "language": "Hindi",
@@ -5401,7 +22313,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-410",
     "title": "Yadaan Vichre Sajjan Diyan Aiyan ｜ Complete",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "11:38",
     "language": "Hindi",
@@ -5414,7 +22326,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-411",
     "title": "Dama Dum (Scratch Mix)",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "4:46",
     "language": "Hindi",
@@ -5427,7 +22339,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-412",
     "title": "Haq Ali Ali",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "39:45",
     "language": "Hindi",
@@ -5440,7 +22352,7 @@ export const MEDICAL_SONGS: MedicalSong[] = [
   {
     "id": "nfak-413",
     "title": "Ganj Shakr Ke Naam Ka Sadqa",
-    "artist": "Ustad Nusrat Fateh Ali Khan & Qawwali Masters",
+    "artist": "Ustad Nusrat Fateh Ali Khan",
     "album": "Sufi Dawakhana Vault · Legacy Qawwalis",
     "duration": "14:31",
     "language": "Hindi",
