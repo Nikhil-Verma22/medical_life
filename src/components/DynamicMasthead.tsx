@@ -28,9 +28,9 @@ export function DynamicMasthead({
   if (zenMode) return null;
 
   const currentShayari =
-    scene.shayaris && scene.shayaris.length > 0
+    (scene.shayaris && scene.shayaris.length > 0
       ? scene.shayaris[shayariIndex % scene.shayaris.length]
-      : {
+      : null) || {
           hindi: "ये सफ़ेद कोट महज़ लिबास नहीं, ये मेरे इश्क़ और इबादत की पहचान है।",
           hinglish: "Yeh safed coat mehez libaas nahi, yeh mere ishq aur ibaadat ki pehchan hai.",
         };

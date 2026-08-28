@@ -1,0 +1,79 @@
+/*
+ * Optional background effects, user-selectable from Settings.
+ * Applied as a class on <body> by App.jsx, based on localStorage
+ * key "backgroundEffect" ("none" | "pulsating" | "wave").
+ *
+ * Kept subtle and low-opacity on purpose: this sits behind gameplay,
+ * so it should never distract from the board or affect readability.
+ */
+
+body.bg-effect-pulsating {
+	position: relative;
+}
+
+body.bg-effect-pulsating::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background: radial-gradient(
+		circle at 50% 40%,
+		rgba(11, 110, 110, 0.16),
+		transparent 60%
+	);
+	animation: vc-pulse 4.5s ease-in-out infinite;
+}
+
+@keyframes vc-pulse {
+	0%,
+	100% {
+		opacity: 0.35;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.75;
+		transform: scale(1.06);
+	}
+}
+
+body.bg-effect-wave {
+	position: relative;
+}
+
+body.bg-effect-wave::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background: linear-gradient(
+		120deg,
+		rgba(11, 110, 110, 0.18),
+		rgba(27, 42, 74, 0.18),
+		rgba(31, 77, 61, 0.18),
+		rgba(224, 138, 111, 0.18)
+	);
+	background-size: 400% 400%;
+	animation: vc-wave 16s ease infinite;
+}
+
+@keyframes vc-wave {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	body.bg-effect-pulsating::before,
+	body.bg-effect-wave::before {
+		animation: none;
+	}
+}

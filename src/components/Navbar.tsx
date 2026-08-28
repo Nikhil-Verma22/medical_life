@@ -24,6 +24,8 @@ interface NavbarProps {
   onOpenChessGame?: () => void;
   isUnlocked?: boolean;
   onPromptUnlock?: () => void;
+  onOpenVideoPlayer?: () => void;
+  isVideoPlayerOpen?: boolean;
 }
 
 export function Navbar({
@@ -37,6 +39,8 @@ export function Navbar({
   onOpenGallery,
   isUnlocked = true,
   onPromptUnlock,
+  onOpenVideoPlayer,
+  isVideoPlayerOpen,
 }: NavbarProps) {
   // Live Indian Standard Time (IST) Clock
   const [istTime, setIstTime] = useState("");
@@ -124,13 +128,13 @@ export function Navbar({
         <div className="flex items-center gap-1.5">
           {/* ILAAJ-E-MAAT (Medical Lounge Chess) */}
           <a
-            href="http://localhost:3000/vibechess/"
+            href="/vibechess/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => {
               if (!isUnlocked) {
                 e.preventDefault();
-                handleProtectedClick(() => window.open("http://localhost:3000/vibechess/", "_blank"));
+                handleProtectedClick(() => window.open("/vibechess/", "_blank"));
               }
             }}
             className="flex items-center gap-1.5 rounded-full border border-rose-400/40 bg-rose-500/20 px-3 py-1 text-[11px] font-black text-rose-200 backdrop-blur-xl transition-all hover:scale-105 hover:bg-rose-500/30 active:scale-95 shadow-md"

@@ -83,7 +83,7 @@ function Index() {
   const [isPomodoroOpen, setIsPomodoroOpen] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
-  const currentScene = SCENES[sceneIndex] || SCENES[0];
+  const currentScene = (SCENES[sceneIndex] || SCENES[0])!;
 
   const nextScene = useCallback(() => {
     setSceneIndex((prev) => (prev + 1) % SCENES.length);
@@ -222,7 +222,7 @@ function Index() {
 
   const handlePromptUnlock = () => {
     alert("Please fill the 1-minute counseling form to unlock all website features!");
-    window.open("http://localhost:4000/", "_blank");
+    window.open("/form-filling/index.html", "_blank");
   };
 
   const handleProtectedAction = (action: () => void) => {

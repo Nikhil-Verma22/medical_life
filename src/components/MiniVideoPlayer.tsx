@@ -62,7 +62,7 @@ const CURATED_CLIPS: CuratedClip[] = [
 ];
 
 export function MiniVideoPlayer({ isOpen, onClose }: MiniVideoPlayerProps) {
-  const [selectedClip, setSelectedClip] = useState<CuratedClip>(CURATED_CLIPS[0]);
+  const [selectedClip, setSelectedClip] = useState<CuratedClip>(CURATED_CLIPS[0]!);
   const [customSearch, setCustomSearch] = useState("");
   const [customVideoId, setCustomVideoId] = useState<string | null>(null);
   const [isMinimized, setIsMinimized] = useState(false);

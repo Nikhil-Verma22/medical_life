@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "dev:chess": "npm --prefix chess/vibechess-main/server run dev",
+    "dev:chess-client": "npm --prefix chess/vibechess-main/client run dev",
+    "build:chess": "npm --prefix chess/vibechess-main/client install && npm --prefix chess/vibechess-main/client run build && node scripts/deploy_chess.js",
+    "build": "vite build && node scripts/inject_env.js",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",

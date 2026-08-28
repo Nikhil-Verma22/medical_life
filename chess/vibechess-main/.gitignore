@@ -1,0 +1,28 @@
+# Node modules & dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+**/dist/
+build/
+**/build/
+
+# Heavy media files
+client/public/videos/v2.mp4
+client/public/videos/v3.mp4
+client/public/videos/v4.mp4
+client/public/videos/v5.mp4
+client/public/videos/v6.mp4
+client/public/videos/v7.mp4
+client/public/videos/v8.mp4
+client/public/videos/v9.mp4
+client/public/videos/v10.mp4
+
+# Environment and system files
+.env
+.env.local
+.DS_Store
+Thumbs.db
+.system_generated/
+*.log

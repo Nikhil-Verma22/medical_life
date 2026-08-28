@@ -159,22 +159,22 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
         ]);
       } else {
         // Generate contextual recommendation
-        let matchedMovie = MEDICAL_MOVIES[0];
-        let matchedSong = MEDICAL_SONGS[0];
-        let matchedBook = MEDICAL_BOOKS[0];
-        let matchedGame = MEDICAL_GAMES[0];
+        let matchedMovie = MEDICAL_MOVIES[0]!;
+        let matchedSong = MEDICAL_SONGS[0]!;
+        let matchedBook = MEDICAL_BOOKS[0]!;
+        let matchedGame = MEDICAL_GAMES[0]!;
 
         if (q.includes("surg") || q.includes("ot") || q.includes("operation")) {
-          matchedMovie = MEDICAL_MOVIES.find((m) => m.id === "gifted-hands") ?? MEDICAL_MOVIES[4];
-          matchedBook = MEDICAL_BOOKS.find((b) => b.id === "complications-gawande") ?? MEDICAL_BOOKS[5];
-          matchedGame = MEDICAL_GAMES.find((g) => g.id === "surgeon-simulator-2013") ?? MEDICAL_GAMES[0];
+          matchedMovie = (MEDICAL_MOVIES.find((m) => m.id === "gifted-hands") ?? MEDICAL_MOVIES[4])!;
+          matchedBook = (MEDICAL_BOOKS.find((b) => b.id === "complications-gawande") ?? MEDICAL_BOOKS[5])!;
+          matchedGame = (MEDICAL_GAMES.find((g) => g.id === "surgeon-simulator-2013") ?? MEDICAL_GAMES[0])!;
         } else if (q.includes("stress") || q.includes("viva") || q.includes("panic")) {
-          matchedMovie = MEDICAL_MOVIES.find((m) => m.id === "munna-bhai-mbbs") ?? MEDICAL_MOVIES[0];
-          matchedBook = MEDICAL_BOOKS.find((b) => b.id === "the-house-of-god") ?? MEDICAL_BOOKS[4];
+          matchedMovie = (MEDICAL_MOVIES.find((m) => m.id === "munna-bhai-mbbs") ?? MEDICAL_MOVIES[0])!;
+          matchedBook = (MEDICAL_BOOKS.find((b) => b.id === "the-house-of-god") ?? MEDICAL_BOOKS[4])!;
         } else if (q.includes("patho") || q.includes("disease") || q.includes("virus")) {
-          matchedMovie = MEDICAL_MOVIES.find((m) => m.id === "awakenings") ?? MEDICAL_MOVIES[3];
-          matchedBook = MEDICAL_BOOKS.find((b) => b.id === "robbins-pathology") ?? MEDICAL_BOOKS[1];
-          matchedGame = MEDICAL_GAMES.find((g) => g.id === "plague-inc") ?? MEDICAL_GAMES[2];
+          matchedMovie = (MEDICAL_MOVIES.find((m) => m.id === "awakenings") ?? MEDICAL_MOVIES[3])!;
+          matchedBook = (MEDICAL_BOOKS.find((b) => b.id === "robbins-pathology") ?? MEDICAL_BOOKS[1])!;
+          matchedGame = (MEDICAL_GAMES.find((g) => g.id === "plague-inc") ?? MEDICAL_GAMES[2])!;
         }
 
         const reply = `🩺 **AI Medical Prescription for "${userText}":**\n\n🎬 **Movie Pick**: *${matchedMovie.title}* (${matchedMovie.year}) — ${matchedMovie.medicalTheme}. Watch free on ${matchedMovie.watchPlatform}.\n\n🎵 **Anthem Pick**: *${matchedSong.title}* — ${matchedSong.medVibe}\n\n📚 **Book Pick**: *${matchedBook.title}* by ${matchedBook.author} — ${matchedBook.summary}\n\n🎮 **Game Pick**: *${matchedGame.title}* (${matchedGame.genre}) — Available on ${matchedGame.platformBadge}.`;
@@ -472,7 +472,7 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
                 </div>
               </div>
               <a
-                href="http://localhost:3000/vibechess/"
+                href="/vibechess/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 rounded-2xl bg-rose-500 px-5 py-2.5 text-xs font-black text-white shadow-lg hover:bg-rose-400 hover:scale-105 active:scale-95 transition-all whitespace-nowrap"

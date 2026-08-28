@@ -55,7 +55,7 @@ export function AudioPlayer({
 
   const ytPlayerRef = useRef<any>(null);
   const timerRef = useRef<any>(null);
-  const track = MEDICAL_SONGS[trackIndex] ?? MEDICAL_SONGS[0];
+  const track = (MEDICAL_SONGS[trackIndex] ?? MEDICAL_SONGS[0])!;
 
   // Initialize YouTube Iframe API
   useEffect(() => {
@@ -333,7 +333,6 @@ export function AudioPlayer({
                 max={duration || 100}
                 value={currentTime}
                 onChange={handleSeek}
-                onInput={handleSeek}
                 aria-label="Seek audio track"
                 className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/20 accent-amber-400 hover:bg-white/40 transition-all"
               />
