@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-// Load variables from .env file manually if it exists (to avoid requiring dotenv dependency)
+// Load variables from .env file manually if it exists
 function loadEnv() {
   const envPath = path.resolve('.env');
   if (fs.existsSync(envPath)) {
@@ -11,7 +11,6 @@ function loadEnv() {
       if (match) {
         const key = match[1];
         let value = match[2] || '';
-        // Remove surrounding quotes if present
         if (value.startsWith('"') && value.endsWith('"')) {
           value = value.slice(1, -1);
         } else if (value.startsWith("'") && value.endsWith("'")) {
@@ -25,12 +24,14 @@ function loadEnv() {
 
 loadEnv();
 
-const supabaseUrl = process.env.VITE_SUPABASE_URL || "https://rupdketviytkavqjxwro.supabase.co";
-const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY || "sb_publishable_rseXSzTGdyslPCb1lfXfRQ_o3ToFITO";
+const supabaseUrl = process.env.VITE_SUPABASE_URL || "https://jvyudlqbzknossfcfrqd.supabase.co";
+const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2eXVkbHFiemtub3NzZmNmcnFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc4NDgxNzgsImV4cCI6MjEwMzQyNDE3OH0.gRktWCMQJlQA2h08kCKj53l2nfXGGRenF7oB-KWdii4";
 
 const paths = [
   path.resolve('.output/public/form-filling/index.html'),
   path.resolve('dist/form-filling/index.html'),
+  path.resolve('public/form-filling/index.html'),
+  path.resolve('form-filling/index.html'),
 ];
 
 let injected = false;
@@ -42,6 +43,9 @@ paths.forEach((targetPath) => {
     
     content = content.replace(/___SUPABASE_URL___/g, supabaseUrl);
     content = content.replace(/___SUPABASE_ANON_KEY___/g, supabaseAnonKey);
+    // Replace old legacy fallback URL if present in any file
+    content = content.replace(/https:\/\/rupdketviytkavqjxwro\.supabase\.co/g, supabaseUrl);
+    content = content.replace(/sb_publishable_rseXSzTGdyslPCb1lfXfRQ_o3ToFITO/g, supabaseAnonKey);
     
     fs.writeFileSync(targetPath, content, 'utf8');
     console.log(`✅ Injection complete for ${targetPath}!`);
@@ -50,5 +54,5 @@ paths.forEach((targetPath) => {
 });
 
 if (!injected) {
-  console.warn(`⚠️ Warning: Built files not found in paths: ${paths.join(', ')}. Make sure to run after build step.`);
+  console.warn(`⚠️ Warning: Built files not found in paths: ${paths.join(', ')}.`);
 }
