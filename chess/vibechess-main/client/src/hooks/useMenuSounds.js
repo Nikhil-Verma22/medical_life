@@ -3,8 +3,8 @@ import { Howl } from "howler";
 
 export const useMenuSounds = () => {
 	const [isMusicMuted, setIsMusicMuted] = useState(() => {
-		const saved = localStorage.getItem("isMusicMuted");
-		return saved === "true";
+		localStorage.setItem("isMusicMuted", "false");
+		return false;
 	});
 	const [isSearchSoundPlaying, setIsSearchSoundPlaying] = useState(false);
 
@@ -53,11 +53,8 @@ export const useMenuSounds = () => {
 	}, [isMusicMuted]);
 
 	useEffect(() => {
-		const savedMusicState = localStorage.getItem("isMusicMuted");
-		if (savedMusicState !== null) {
-			const isMuted = savedMusicState === "true";
-			setIsMusicMuted(isMuted);
-		}
+		localStorage.setItem("isMusicMuted", "false");
+		setIsMusicMuted(false);
 
 		return () => {
 			sounds.music.stop();

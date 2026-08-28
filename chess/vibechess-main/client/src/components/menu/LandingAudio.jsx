@@ -23,11 +23,9 @@ const LandingAudio = () => {
 		setTrackIndex((prev) => (prev + 1) % trackList.length);
 	};
 
-	// Ensure music is unmuted by default on fresh session
+	// Force music to start UNMUTED by default on every load
 	useEffect(() => {
-		if (localStorage.getItem("isMusicMuted") === null) {
-			localStorage.setItem("isMusicMuted", "false");
-		}
+		localStorage.setItem("isMusicMuted", "false");
 	}, []);
 
 	// Listen for changes from settings or menu sound toggle
