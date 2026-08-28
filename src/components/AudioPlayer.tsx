@@ -39,8 +39,14 @@ export function AudioPlayer({
 }: AudioPlayerProps) {
   const [internalTrackIndex, setInternalTrackIndex] = useState(0);
   const trackIndex = externalTrackIndex !== undefined ? externalTrackIndex : internalTrackIndex;
+  
+  const trackIndexRef = useRef(trackIndex);
+  useEffect(() => {
+    trackIndexRef.current = trackIndex;
+  }, [trackIndex]);
+
   const setTrackIndex = (idx: number | ((prev: number) => number)) => {
-    const nextVal = typeof idx === "function" ? idx(trackIndex) : idx;
+    const nextVal = typeof idx === "function" ? idx(trackIndexRef.current) : idx;
     setInternalTrackIndex(nextVal);
     onTrackChange?.(nextVal);
   };
@@ -106,8 +112,9 @@ export function AudioPlayer({
             startTimer();
           } else if (event.data === 0) {
             setIsPlaying(false);
-            // Smoothly auto-advance to next track when song finishes
-            handleNext();
+            // Smoothly auto-advance to next track sequentially using current ref
+            const nextIdx = (trackIndexRef.current + 1) % MEDICAL_SONGS.length;
+            setTrackIndex(nextIdx);
           } else if (event.data === 2) {
             setIsPlaying(false);
           }
@@ -158,11 +165,13 @@ export function AudioPlayer({
   };
 
   const handleNext = () => {
-    setTrackIndex((prev) => (prev + 1) % MEDICAL_SONGS.length);
+    const nextIdx = (trackIndexRef.current + 1) % MEDICAL_SONGS.length;
+    setTrackIndex(nextIdx);
   };
 
   const handlePrev = () => {
-    setTrackIndex((prev) => (prev - 1 + MEDICAL_SONGS.length) % MEDICAL_SONGS.length);
+    const prevIdx = (trackIndexRef.current - 1 + MEDICAL_SONGS.length) % MEDICAL_SONGS.length;
+    setTrackIndex(prevIdx);
   };
 
   // Seek Handler for 10%, 50%, 70%, 90%
