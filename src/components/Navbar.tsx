@@ -96,8 +96,8 @@ export function Navbar({
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-3 py-2 sm:px-6">
         {/* Left: Brand (Enlarged & Prominent) */}
         <div className="flex items-center gap-2.5">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl border border-amber-400/50 bg-black/70 shadow-lg backdrop-blur-xl transition-transform hover:scale-105">
-            <Stethoscope className="h-5 w-5 text-amber-300" />
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl border border-rose-400/50 bg-black/70 shadow-lg backdrop-blur-xl transition-transform hover:scale-105 overflow-hidden p-1">
+            <img src="/logo.png" alt="Medical Hub Logo" className="h-full w-full object-contain" />
             <span className="absolute -bottom-0.5 -right-0.5 flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-rose-500" />
