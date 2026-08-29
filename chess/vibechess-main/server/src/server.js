@@ -228,8 +228,8 @@ process.on("SIGINT", () => {
 });
 
 httpServer
-	.listen(PORT, () => {
-		console.log(`♟️ Chess server listening on port ${PORT}`);
+	.listen(PORT, "0.0.0.0", () => {
+		console.log(`♟️ Chess server listening on 0.0.0.0:${PORT}`);
 		console.log(`🌐 Allowed origins: ${rawOrigins || "*"}`);
 	})
 	.on("error", (error) => {
