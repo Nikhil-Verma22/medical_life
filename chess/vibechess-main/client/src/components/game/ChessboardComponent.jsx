@@ -395,6 +395,7 @@ const ChessboardComponent = ({
 					onClose={modalHandlers.closeSettings}
 					onBoardChange={handleBoardChange}
 					onPiecesChange={handlePiecesChange}
+					isIngame={true}
 				/>
 				<ShareModal
 					isOpen={shareModalOpen}

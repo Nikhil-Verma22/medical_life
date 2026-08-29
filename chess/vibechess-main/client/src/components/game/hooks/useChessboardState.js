@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 
 export const useChessboardState = (gameMode, matchData) => {
 	const [selectedPieceSet, setSelectedPieceSet] = useState(
-		localStorage.getItem("selectedPieces") || "tatiana",
+		localStorage.getItem("selectedPieces") || "anarcandy",
 	);
 	const [selectedTheme, setSelectedTheme] = useState(
 		localStorage.getItem("selectedBoard") || "medicalTeal",
@@ -32,7 +32,7 @@ export const useChessboardState = (gameMode, matchData) => {
 			if (e.key === "selectedBoard") {
 				setSelectedTheme(e.newValue || "medicalTeal");
 			} else if (e.key === "selectedPieces") {
-				setSelectedPieceSet(e.newValue || "tatiana");
+				setSelectedPieceSet(e.newValue || "anarcandy");
 			}
 		};
 		window.addEventListener("storage", handleStorageChange);

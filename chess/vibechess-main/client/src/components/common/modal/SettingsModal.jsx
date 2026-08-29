@@ -19,7 +19,7 @@ import { validateUsername } from "../../../utils/usernameValidation";
 import { useTheme } from "@mui/material/styles";
 import { ThemeContext } from "../../../theme/ThemeContext";
 
-function SettingsModal({ isOpen, onClose, onBoardChange, onPiecesChange }) {
+function SettingsModal({ isOpen, onClose, onBoardChange, onPiecesChange, isIngame = false }) {
 	const theme = useTheme();
 	const { switchColorMode } = useContext(ThemeContext);
 
@@ -33,7 +33,7 @@ function SettingsModal({ isOpen, onClose, onBoardChange, onPiecesChange }) {
 		window.localStorage.getItem("selectedBoard") || "medicalTeal"
 	);
 	const [selectedPieces, setSelectedPieces] = useState(
-		window.localStorage.getItem("selectedPieces") || "tatiana"
+		window.localStorage.getItem("selectedPieces") || "anarcandy"
 	);
 	const [premoves, setPremoves] = useState(
 		getBooleanFromStorage("premoves", true)
@@ -111,31 +111,33 @@ function SettingsModal({ isOpen, onClose, onBoardChange, onPiecesChange }) {
 	};
 
 	const handleOkay = () => {
-		let finalUsername = username.trim();
+		if (!isIngame) {
+			let finalUsername = username.trim();
 
-		if (!finalUsername) {
-			finalUsername = generateRandomUsername();
+			if (!finalUsername) {
+				finalUsername = generateRandomUsername();
+			}
+
+			const validationError = validateUsername(finalUsername);
+			if (validationError) {
+				setUsernameError(validationError);
+				return;
+			}
+
+			if (finalUsername !== username) {
+				setUsername(finalUsername);
+			}
+
+			window.localStorage.setItem("username", finalUsername);
+
+			window.dispatchEvent(
+				new CustomEvent("settingsChanged", {
+					detail: {
+						username: finalUsername,
+					},
+				})
+			);
 		}
-
-		const validationError = validateUsername(finalUsername);
-		if (validationError) {
-			setUsernameError(validationError);
-			return;
-		}
-
-		if (finalUsername !== username) {
-			setUsername(finalUsername);
-		}
-
-		window.localStorage.setItem("username", finalUsername);
-
-		window.dispatchEvent(
-			new CustomEvent("settingsChanged", {
-				detail: {
-					username: finalUsername,
-				},
-			})
-		);
 
 		onClose();
 	};
@@ -152,7 +154,7 @@ function SettingsModal({ isOpen, onClose, onBoardChange, onPiecesChange }) {
 				window.localStorage.getItem("selectedBoard") || "medicalTeal"
 			);
 			setSelectedPieces(
-				window.localStorage.getItem("selectedPieces") || "tatiana"
+				window.localStorage.getItem("selectedPieces") || "anarcandy"
 			);
 			setPremoves(getBooleanFromStorage("premoves", true));
 			setSounds(getBooleanFromStorage("sounds", true));
@@ -195,7 +197,8 @@ function SettingsModal({ isOpen, onClose, onBoardChange, onPiecesChange }) {
 					>
 						<IconButton
 							onClick={handleFlagButtonClick}
-							style={{ borderRadius: "100%" }}
+							disabled={isIngame}
+							style={{ borderRadius: "100%", opacity: isIngame ? 0.6 : 1 }}
 						>
 							<CircleFlag
 								countryCode={selectedFlag}
@@ -204,11 +207,13 @@ function SettingsModal({ isOpen, onClose, onBoardChange, onPiecesChange }) {
 						</IconButton>
 						<TextField
 							id="outlined-helperText"
-							label={usernameError || "Username"}
-							sx={{ marginLeft: 1 }}
+							label={isIngame ? "Username (Locked in Game)" : (usernameError || "Username")}
+							disabled={isIngame}
+							helperText={isIngame ? "🔒 Username cannot be changed during a match" : undefined}
+							sx={{ marginLeft: 1, flex: 1 }}
 							value={username}
 							onChange={handleUsernameChange}
-							error={!!usernameError}
+							error={!isIngame && !!usernameError}
 							inputProps={{ maxLength: 14 }}
 						/>
 					</Box>

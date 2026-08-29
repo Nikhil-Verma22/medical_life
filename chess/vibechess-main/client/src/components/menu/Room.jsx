@@ -23,7 +23,7 @@ const Room = () => {
 	const hasEmittedCreate = useRef(false);
 	const { selectedTimeControl } = location.state || {};
 	const selectedPieceSet =
-		window.localStorage.getItem("selectedPieces") || "tatiana";
+		window.localStorage.getItem("selectedPieces") || "anarcandy";
 
 	const handleCreateRoom = useCallback(() => {
 		if (!socket || isCreating || roomCode) return;

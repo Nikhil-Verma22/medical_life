@@ -54,6 +54,15 @@ import FanHeroBackground from "./FanHeroBackground";
 import CentralVideoCard from "./CentralVideoCard";
 import SlidingMenuOverlay from "./SlidingMenuOverlay";
 import GameIdeaModal from "./GameIdeaModal";
+import { CircleFlag } from "react-circle-flags";
+import FlagSelectorModal from "../common/modal/FlagSelectorModal";
+import { generateRandomUsername } from "../../data/randomName";
+import { validateUsername } from "../../utils/usernameValidation";
+import { toast } from "react-toastify";
+import EditRoundedIcon from "@mui/icons-material/EditRounded";
+import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import CasinoRoundedIcon from "@mui/icons-material/CasinoRounded";
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 
 const useAnimatedEllipsis = (isActive) => {
 	const [dotCount, setDotCount] = useState(1);
@@ -84,6 +93,80 @@ const Menu = () => {
 	const [isRotating, setIsRotating] = useState(false);
 	const [isMenuOverlayOpen, setIsMenuOverlayOpen] = useState(false);
 	const [isGameIdeaOpen, setIsGameIdeaOpen] = useState(false);
+
+	const [currentUsername, setCurrentUsername] = useState(
+		() => window.localStorage.getItem("username") || "Player"
+	);
+	const [currentFlag, setCurrentFlag] = useState(
+		() => window.localStorage.getItem("selectedFlag") || "in"
+	);
+	const [isEditingUsername, setIsEditingUsername] = useState(false);
+	const [editUsernameVal, setEditUsernameVal] = useState(
+		() => window.localStorage.getItem("username") || "Player"
+	);
+	const [isFlagModalOpen, setIsFlagModalOpen] = useState(false);
+
+	useEffect(() => {
+		const handleSettingsChanged = (e) => {
+			if (e.detail?.username) {
+				setCurrentUsername(e.detail.username);
+				setEditUsernameVal(e.detail.username);
+			}
+		};
+		const handleStorageChange = () => {
+			const u = window.localStorage.getItem("username");
+			const f = window.localStorage.getItem("selectedFlag");
+			if (u) {
+				setCurrentUsername(u);
+				setEditUsernameVal(u);
+			}
+			if (f) {
+				setCurrentFlag(f);
+			}
+		};
+		window.addEventListener("settingsChanged", handleSettingsChanged);
+		window.addEventListener("storage", handleStorageChange);
+		return () => {
+			window.removeEventListener("settingsChanged", handleSettingsChanged);
+			window.removeEventListener("storage", handleStorageChange);
+		};
+	}, []);
+
+	const handleSaveQuickUsername = () => {
+		let finalName = editUsernameVal.trim();
+		if (!finalName) {
+			finalName = generateRandomUsername();
+		}
+		const err = validateUsername(finalName);
+		if (err) {
+			toast.error(err);
+			return;
+		}
+		setCurrentUsername(finalName);
+		setEditUsernameVal(finalName);
+		setIsEditingUsername(false);
+		window.localStorage.setItem("username", finalName);
+		window.dispatchEvent(
+			new CustomEvent("settingsChanged", {
+				detail: { username: finalName },
+			})
+		);
+		toast.success(`Username set to ${finalName}!`);
+	};
+
+	const handleRandomQuickUsername = () => {
+		const randName = generateRandomUsername();
+		setCurrentUsername(randName);
+		setEditUsernameVal(randName);
+		setIsEditingUsername(false);
+		window.localStorage.setItem("username", randName);
+		window.dispatchEvent(
+			new CustomEvent("settingsChanged", {
+				detail: { username: randName },
+			})
+		);
+		toast.info(`Random name: ${randName}`);
+	};
 
 	const {
 		isMusicMuted,
@@ -226,13 +309,13 @@ const Menu = () => {
 		>
 			<BackgroundVideo />
 
-			{/* Title */}
+			{/* Title & Quick Username Profile */}
 			<Container
 				sx={{
 					display: "flex",
 					alignItems: "center",
 					flexDirection: "column",
-					marginBottom: isMobile ? "20px" : "30px",
+					marginBottom: isMobile ? "10px" : "15px",
 					marginTop: isMobile ? "0" : "0px",
 					position: "relative",
 					zIndex: 2,
@@ -254,6 +337,157 @@ const Menu = () => {
 						ILAAJ-E-MAAT
 					</Typography>
 				</Zoom>
+
+				{/* Quick Username & Flag Bar */}
+				<Box
+					sx={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+						gap: 1.2,
+						mt: 1,
+						px: 2.2,
+						py: 0.7,
+						borderRadius: "50px",
+						background: "rgba(0, 0, 0, 0.55)",
+						backdropFilter: "blur(14px)",
+						border: "1.5px solid rgba(255, 255, 255, 0.25)",
+						boxShadow: "0 8px 30px rgba(0, 0, 0, 0.45)",
+						transition: "all 0.3s ease",
+						"&:hover": {
+							borderColor: "#2176ff",
+							boxShadow: "0 8px 30px rgba(33, 118, 255, 0.35)",
+						},
+					}}
+				>
+					<Tooltip title="Change Flag">
+						<IconButton
+							onClick={() => setIsFlagModalOpen(true)}
+							sx={{
+								p: 0.2,
+								transition: "transform 0.2s ease",
+								"&:hover": { transform: "scale(1.15)" },
+							}}
+						>
+							<CircleFlag countryCode={currentFlag || "in"} height="26" />
+						</IconButton>
+					</Tooltip>
+
+					{isEditingUsername ? (
+						<Box sx={{ display: "flex", alignItems: "center", gap: 0.8 }}>
+							<TextField
+								size="small"
+								variant="standard"
+								value={editUsernameVal}
+								onChange={(e) => setEditUsernameVal(e.target.value)}
+								onKeyDown={(e) => {
+									if (e.key === "Enter") handleSaveQuickUsername();
+									if (e.key === "Escape") setIsEditingUsername(false);
+								}}
+								autoFocus
+								inputProps={{
+									maxLength: 14,
+									style: {
+										color: "#ffffff",
+										fontFamily: "'Bebas Neue', cursive",
+										fontSize: "1.25rem",
+										letterSpacing: "1px",
+										textAlign: "center",
+										width: "130px",
+									},
+								}}
+								sx={{
+									"& .MuiInput-underline:before": { borderBottomColor: "rgba(255,255,255,0.4)" },
+									"& .MuiInput-underline:after": { borderBottomColor: "#2176ff" },
+								}}
+							/>
+							<Tooltip title="Save Name">
+								<IconButton
+									size="small"
+									onClick={handleSaveQuickUsername}
+									sx={{
+										color: "#4ade80",
+										backgroundColor: "rgba(74, 222, 128, 0.18)",
+										p: "4px",
+										"&:hover": { backgroundColor: "rgba(74, 222, 128, 0.35)" },
+									}}
+								>
+									<CheckRoundedIcon sx={{ fontSize: 18 }} />
+								</IconButton>
+							</Tooltip>
+						</Box>
+					) : (
+						<Box
+							onClick={() => setIsEditingUsername(true)}
+							sx={{
+								display: "flex",
+								alignItems: "center",
+								gap: 0.8,
+								cursor: "pointer",
+								px: 1,
+								py: 0.2,
+								borderRadius: "6px",
+								"&:hover": { backgroundColor: "rgba(255, 255, 255, 0.1)" },
+							}}
+						>
+							<Typography
+								sx={{
+									color: "#ffffff",
+									fontFamily: "'Bebas Neue', cursive",
+									fontSize: isMobile ? "1.15rem" : "1.35rem",
+									letterSpacing: "1.5px",
+									textShadow: "0 2px 6px rgba(0,0,0,0.8)",
+								}}
+							>
+								{currentUsername}
+							</Typography>
+							<Tooltip title="Edit Username">
+								<EditRoundedIcon
+									sx={{
+										color: "rgba(255, 255, 255, 0.7)",
+										fontSize: 16,
+										"&:hover": { color: "#ffffff" },
+									}}
+								/>
+							</Tooltip>
+						</Box>
+					)}
+
+					<Tooltip title="Generate Random Name">
+						<IconButton
+							size="small"
+							onClick={handleRandomQuickUsername}
+							sx={{
+								color: "rgba(255, 255, 255, 0.8)",
+								p: "4px",
+								transition: "transform 0.3s ease",
+								"&:hover": {
+									color: "#f59e0b",
+									transform: "rotate(45deg)",
+								},
+							}}
+						>
+							<CasinoRoundedIcon sx={{ fontSize: 19 }} />
+						</IconButton>
+					</Tooltip>
+
+					<Tooltip title="Settings">
+						<IconButton
+							size="small"
+							onClick={() => setIsSettingsModalOpen(true)}
+							sx={{
+								color: "rgba(255, 255, 255, 0.8)",
+								p: "4px",
+								"&:hover": {
+									color: "#2176ff",
+									transform: "rotate(90deg)",
+								},
+							}}
+						>
+							<SettingsRoundedIcon sx={{ fontSize: 18 }} />
+						</IconButton>
+					</Tooltip>
+				</Box>
 			</Container>
 
 			{/* Main Menu Buttons */}
@@ -262,7 +496,7 @@ const Menu = () => {
 					display: "flex",
 					flexDirection: isMobile ? "column" : "row",
 					alignItems: "flex-start",
-					marginTop: "5px",
+					marginTop: isMobile ? "10px" : "16px",
 					flexWrap: "nowrap",
 					overflowX: "visible",
 					overflowY: "visible",
@@ -457,6 +691,17 @@ const Menu = () => {
 				onClose={() => {
 					playClickSound();
 					setIsFAQModalOpen(false);
+				}}
+			/>
+
+			<FlagSelectorModal
+				isOpen={isFlagModalOpen}
+				onClose={() => setIsFlagModalOpen(false)}
+				onSelectFlag={(newFlag) => {
+					setCurrentFlag(newFlag);
+					window.localStorage.setItem("selectedFlag", newFlag);
+					setIsFlagModalOpen(false);
+					toast.success("Flag updated!");
 				}}
 			/>
 		</Box>
