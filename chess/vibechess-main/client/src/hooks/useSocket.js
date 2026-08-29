@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import io from "socket.io-client";
 
 const useSocket = (
-	serverUrl = import.meta.env.VITE_SOCKET_URL || "http://localhost:5000"
+	serverUrl = import.meta.env.VITE_SOCKET_URL || "https://medical-chess-backend.onrender.com"
 ) => {
 	const [socket, setSocket] = useState(null);
 	const [isConnected, setIsConnected] = useState(false);
@@ -26,9 +26,10 @@ const useSocket = (
 		const newSocket = io(serverUrl, {
 			autoConnect: true,
 			reconnection: true,
-			reconnectionDelay: 1000,
-			reconnectionAttempts: 10,
-			timeout: 30000,
+			reconnectionDelay: 2000,
+			reconnectionDelayMax: 5000,
+			reconnectionAttempts: 30,
+			timeout: 60000,
 			forceNew: false,
 			transports: ["polling", "websocket"],
 			upgrade: true,

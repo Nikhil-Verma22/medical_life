@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: medical-chess-backend
+    runtime: node
+    rootDir: chess/vibechess-main/server
+    buildCommand: npm install
+    startCommand: node src/server.js
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: CORS_ORIGIN
+        value: "*"

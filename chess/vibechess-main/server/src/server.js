@@ -12,21 +12,33 @@ import { SocketHandler } from "./SocketHandler.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
-const CORS_ORIGIN = process.env.CORS_ORIGIN?.split(",") || [
-	"http://localhost:3000",
-	"http://localhost:8080",
-	"http://127.0.0.1:8080",
-];
+const rawOrigins = process.env.CORS_ORIGIN;
+
+const corsOriginHandler = (origin, callback) => {
+	// Allow all origins (all workers.dev, pages.dev, custom domains, localhost)
+	if (!origin || rawOrigins === "*" || !rawOrigins) {
+		return callback(null, true);
+	}
+	const allowed = rawOrigins.split(",").map((o) => o.trim());
+	if (allowed.includes("*") || allowed.includes(origin)) {
+		return callback(null, true);
+	}
+	return callback(null, true);
+};
 
 const app = express();
 const httpServer = createServer(app);
 
 app.use(
 	cors({
-		origin: CORS_ORIGIN,
+		origin: corsOriginHandler,
 		credentials: true,
 	})
 );
+
+app.get("/", (req, res) => {
+	res.status(200).send("♟️ Medical Life Chess Server is Online!");
+});
 
 app.get("/health", (req, res) => {
 	res.status(200).json({
@@ -38,10 +50,11 @@ app.get("/health", (req, res) => {
 
 const io = new Server(httpServer, {
 	cors: {
-		origin: CORS_ORIGIN,
+		origin: corsOriginHandler,
 		methods: ["GET", "POST"],
 		credentials: true,
 	},
+	transports: ["websocket", "polling"],
 });
 
 let gameManager, socketHandler;

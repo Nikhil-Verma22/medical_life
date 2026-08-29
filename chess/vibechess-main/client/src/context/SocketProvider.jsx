@@ -82,7 +82,7 @@ const SocketProvider = ({ children }) => {
 				case CONNECTION_STATES.SHOWING_STARTUP:
 					showToast(
 						"info",
-						"🚀 Server is starting up, please wait...",
+						"♟️ Connecting to game server (waking up, please wait a moment)...",
 						{
 							autoClose: false,
 							closeOnClick: false,
@@ -166,11 +166,10 @@ const SocketProvider = ({ children }) => {
 		if (
 			socket.connectionError &&
 			connectionState.current !== CONNECTION_STATES.CONNECTING &&
-			connectionState.current !== CONNECTION_STATES.SHOWING_STARTUP
+			connectionState.current !== CONNECTION_STATES.SHOWING_STARTUP &&
+			connectionState.current !== CONNECTION_STATES.RECONNECTING
 		) {
-			if (connectionState.current !== CONNECTION_STATES.FAILED) {
-				transitionToState(CONNECTION_STATES.FAILED);
-			}
+			transitionToState(CONNECTION_STATES.SHOWING_STARTUP);
 			return;
 		}
 
