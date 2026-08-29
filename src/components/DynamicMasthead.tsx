@@ -38,7 +38,7 @@ export function DynamicMasthead({
   return (
     <div
       key={`masthead-${scene.id}`}
-      className="pointer-events-none fixed inset-x-0 top-20 sm:top-22 md:top-24 z-10 mx-auto max-w-3xl px-4 text-center transition-all duration-700"
+      className="pointer-events-none fixed inset-x-0 top-28 sm:top-32 md:top-36 z-10 mx-auto max-w-3xl px-3 sm:px-4 text-center transition-all duration-700"
     >
       <div className="inline-flex flex-col items-center">
         {/* Medical Life Love Beacon */}

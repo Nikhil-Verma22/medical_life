@@ -322,13 +322,13 @@ function Index() {
 
       {/* Pink "UNLOCK WEBSITE FEATURES" Button directly above Audio Player Bar */}
       {!isUnlocked && !zenMode && (
-        <div className="fixed bottom-24 sm:bottom-28 left-1/2 -translate-x-1/2 z-40 animate-bounce">
+        <div className="fixed bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 z-40 animate-bounce">
           <button
             onClick={handlePromptUnlock}
-            className="flex items-center gap-2 rounded-full border-2 border-rose-400 bg-rose-500/95 px-5 py-2.5 text-xs font-black text-white shadow-2xl backdrop-blur-xl transition-all hover:scale-105 active:scale-95"
+            className="flex items-center gap-1.5 sm:gap-2 rounded-full border-2 border-rose-400 bg-rose-500/95 px-4 py-2 sm:px-5 sm:py-2.5 text-[10px] sm:text-xs font-black text-white shadow-2xl backdrop-blur-xl transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
             title="Click to Fill 1-Minute Form & Unlock All Features"
           >
-            <Sparkles className="h-4 w-4 text-amber-300 animate-spin" />
+            <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-300 animate-spin" />
             <span className="font-mono tracking-wide uppercase">UNLOCK WEBSITE FEATURES</span>
           </button>
         </div>

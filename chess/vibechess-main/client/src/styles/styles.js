@@ -43,10 +43,10 @@ export const styles = {
 	boardControlStyle: {
 		display: "flex",
 		flexDirection: "column",
-		flexWrap: "wrap",
 		alignItems: "center",
-		height: 320,
-		width: 400,
+		height: "auto",
+		maxHeight: 320,
+		width: "min(94vw, 380px)",
 		overflowY: "auto",
 		overflowX: "hidden",
 		justifyContent: "center",

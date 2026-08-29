@@ -38,13 +38,13 @@ const MenuButton = React.memo(
 					onClick={onClick}
 					variant="contained"
 					sx={{
-						width: isMobile ? "320px" : "25vh",
+						width: isMobile ? "min(92vw, 340px)" : "25vh",
 						height: isMobile ? "auto" : "25vh",
-						minHeight: isMobile ? "auto" : "210px",
-						margin: isMobile ? "8px" : "0 6px",
-						backgroundColor: "rgba(0, 0, 0, 0.25)",
-						backdropFilter: "blur(8px)",
-						border: "2px solid #000000",
+						minHeight: isMobile ? "68px" : "210px",
+						margin: isMobile ? "4px 0" : "0 6px",
+						backgroundColor: "rgba(0, 0, 0, 0.4)",
+						backdropFilter: "blur(12px)",
+						border: "2px solid rgba(255, 255, 255, 0.2)",
 						borderRadius: "18px",
 						position: "relative",
 						overflow: "hidden",
@@ -53,13 +53,13 @@ const MenuButton = React.memo(
 						animation: isAnimating ? "bounce 0.812s infinite" : "none",
 						...bounceAnimation,
 						"&:hover": {
-							transform: "translateY(-6px) scale(1.03)",
-							backgroundColor: "rgba(0, 0, 0, 0.5)",
-							borderColor: "#000000",
-							boxShadow: "0 8px 30px rgba(0, 0, 0, 0.7)",
+							transform: isMobile ? "scale(1.02)" : "translateY(-6px) scale(1.03)",
+							backgroundColor: "rgba(0, 0, 0, 0.6)",
+							borderColor: "#2176ff",
+							boxShadow: "0 8px 30px rgba(33, 118, 255, 0.4)",
 						},
 						"&.MuiButton-root": {
-							padding: isMobile ? "16px" : "16px 12px",
+							padding: isMobile ? "10px 16px" : "16px 12px",
 						},
 					}}
 				>

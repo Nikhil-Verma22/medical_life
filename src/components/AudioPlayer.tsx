@@ -295,17 +295,17 @@ export function AudioPlayer({
 
       {/* Main Bottom Player Bar (Ad-Free YouTube Audio Engine) */}
       <div
-        className={`fixed inset-x-0 bottom-3 z-30 flex justify-center px-3 transition-all duration-500 ${
+        className={`fixed inset-x-0 bottom-2 sm:bottom-3 z-30 flex justify-center px-2 sm:px-3 transition-all duration-500 ${
           zenMode
             ? "translate-y-24 opacity-0 hover:translate-y-0 hover:opacity-100"
             : "translate-y-0 opacity-100"
         }`}
       >
-        <div className="flex w-full max-w-lg items-center gap-2.5 rounded-full border border-white/20 bg-black/85 px-3.5 py-2.5 text-white shadow-2xl backdrop-blur-2xl sm:gap-3 sm:px-4">
+        <div className="flex w-full max-w-lg items-center gap-1.5 sm:gap-3 rounded-full border border-white/20 bg-black/90 px-2.5 py-1.5 sm:px-4 sm:py-2.5 text-white shadow-2xl backdrop-blur-2xl">
           {/* Rotating Artwork Icon */}
           <div className="relative flex-none">
             <div
-              className={`h-10 w-10 rounded-full overflow-hidden border border-white/30 bg-neutral-800 shadow-md ${
+              className={`h-8 w-8 sm:h-10 sm:w-10 rounded-full overflow-hidden border border-white/30 bg-neutral-800 shadow-md ${
                 isPlaying ? "animate-pulse" : ""
               }`}
             >
@@ -316,30 +316,30 @@ export function AudioPlayer({
               />
             </div>
             {isPlaying && (
-              <div className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-400 text-neutral-900 shadow">
-                <Disc3 className="h-2.5 w-2.5 animate-spin" />
+              <div className="absolute -top-0.5 -right-0.5 flex h-3 w-3 sm:h-3.5 sm:w-3.5 items-center justify-center rounded-full bg-amber-400 text-neutral-900 shadow">
+                <Disc3 className="h-2 w-2 sm:h-2.5 sm:w-2.5 animate-spin" />
               </div>
             )}
           </div>
 
           {/* Track Info & Scrubber */}
           <div className="min-w-0 flex-1">
-            <div className="flex items-center justify-between gap-1.5">
-              <div className="flex items-center gap-1.5 truncate">
-                <span className="rounded bg-amber-400/20 border border-amber-400/40 px-1 py-0 font-mono text-[8px] font-bold text-amber-300 uppercase">
+            <div className="flex items-center justify-between gap-1">
+              <div className="flex items-center gap-1 min-w-0 truncate">
+                <span className="rounded bg-amber-400/20 border border-amber-400/40 px-1 py-0 font-mono text-[8px] font-bold text-amber-300 uppercase flex-shrink-0">
                   NFAK
                 </span>
-                <p className="truncate text-xs font-bold text-white tracking-wide">
+                <p className="truncate text-[11px] sm:text-xs font-bold text-white tracking-wide">
                   {track.title}
                 </p>
               </div>
-              <span className="font-mono text-[10px] tabular-nums text-white/70 font-semibold flex-none">
+              <span className="font-mono text-[9px] sm:text-[10px] tabular-nums text-white/70 font-semibold flex-none">
                 {formatTime(currentTime)} / {formatTime(duration)}
               </span>
             </div>
 
-            {/* Seek Slider (Clickable anywhere for instant seeking) */}
-            <div className="mt-1 flex items-center">
+            {/* Seek Slider */}
+            <div className="mt-0.5 sm:mt-1 flex items-center">
               <input
                 type="range"
                 min={0}
@@ -347,41 +347,41 @@ export function AudioPlayer({
                 value={currentTime}
                 onChange={handleSeek}
                 aria-label="Seek audio track"
-                className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/20 accent-amber-400 hover:bg-white/40 transition-all"
+                className="h-1 sm:h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/20 accent-amber-400 hover:bg-white/40 transition-all"
               />
             </div>
           </div>
 
           {/* Controls */}
-          <div className="flex flex-none items-center gap-1">
+          <div className="flex flex-none items-center gap-0.5 sm:gap-1">
             {/* Playlist Button */}
             <button
               onClick={() => setShowPlaylist((p) => !p)}
               title={`View Playlist (${MEDICAL_SONGS.length} Qawwalis)`}
-              className="rounded-full p-1.5 text-amber-300 hover:bg-white/15 hover:text-white transition-colors"
+              className="rounded-full p-1 sm:p-1.5 text-amber-300 hover:bg-white/15 hover:text-white transition-colors"
             >
-              <ListMusic className="h-4 w-4" />
+              <ListMusic className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </button>
 
             {/* Prev Track */}
             <button
               onClick={handlePrev}
               aria-label="Previous track"
-              className="rounded-full p-1.5 text-white/80 hover:bg-white/15 hover:text-white transition-colors"
+              className="rounded-full p-1 sm:p-1.5 text-white/80 hover:bg-white/15 hover:text-white transition-colors"
             >
-              <SkipBack className="h-3.5 w-3.5 fill-current" />
+              <SkipBack className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-current" />
             </button>
 
             {/* Play / Pause Toggle */}
             <button
               onClick={togglePlay}
               aria-label={isPlaying ? "Pause" : "Play"}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-400 text-neutral-950 shadow-md transition-transform hover:scale-105 hover:bg-amber-300 active:scale-95"
+              className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-amber-400 text-neutral-950 shadow-md transition-transform hover:scale-105 hover:bg-amber-300 active:scale-95 flex-shrink-0"
             >
               {isPlaying ? (
-                <Pause className="h-4 w-4 fill-current" />
+                <Pause className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-current" />
               ) : (
-                <Play className="ml-0.5 h-4 w-4 fill-current" />
+                <Play className="ml-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 fill-current" />
               )}
             </button>
 
@@ -389,9 +389,9 @@ export function AudioPlayer({
             <button
               onClick={handleNext}
               aria-label="Next track"
-              className="rounded-full p-1.5 text-white/80 hover:bg-white/15 hover:text-white transition-colors"
+              className="rounded-full p-1 sm:p-1.5 text-white/80 hover:bg-white/15 hover:text-white transition-colors"
             >
-              <SkipForward className="h-3.5 w-3.5 fill-current" />
+              <SkipForward className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-current" />
             </button>
 
             {/* Volume Control */}

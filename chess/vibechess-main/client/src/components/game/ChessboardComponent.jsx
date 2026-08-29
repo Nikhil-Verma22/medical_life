@@ -303,15 +303,15 @@ const ChessboardComponent = ({
 			flexDirection={{ xs: "column", md: "row" }}
 			sx={{
 				zIndex: 1,
-				maxHeight: "100dvh",
-				...(!isMultiplayer
-					? { mt: { xs: "90px", sm: "90px", md: 0 } }
-					: {}),
+				width: "100%",
+				maxWidth: "100%",
 			}}
 			alignItems="center"
+			justifyContent="center"
+			gap={{ xs: 1.5, md: 3 }}
 		>
-			<Stack flexDirection="row">
-				<Stack flexDirection="column">
+			<Stack flexDirection="row" alignItems="center" justifyContent="center">
+				<Stack flexDirection="column" alignItems="center">
 					{/* Top player info */}
 					{isMultiplayer &&
 						(playerColor === "white"

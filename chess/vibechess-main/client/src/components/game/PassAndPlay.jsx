@@ -8,21 +8,17 @@ const PassAndPlay = () => {
 	const [gameMode] = useState("passandplay");
 	return (
 		<Stack
-			minHeight="100vh"
-			justifyContent="center"
-			alignItems="center"
-			height="100dvh"
-			spacing={-10}
+			minHeight="100dvh"
 			sx={{
 				zIndex: 1,
-				overflowY: { xs: "auto", sm: "auto", md: "hidden" },
-				overflowX: { xs: "auto", sm: "auto", md: "hidden" },
-				maxHeight: "100dvh",
+				overflowY: "auto",
+				overflowX: "hidden",
 				bgcolor: "background.default",
+				pb: 3,
 			}}
 		>
-			<Navbar title="" />
-			<Stack flexGrow={1} alignItems="center" justifyContent="center">
+			<Navbar title="ILAAJ-E-MAAT" />
+			<Stack flexGrow={1} alignItems="center" justifyContent="center" sx={{ px: 1, py: { xs: 1, sm: 2 } }}>
 				<ChessboardComponent
 					gameMode={gameMode}
 					isAnalysisMode={false}

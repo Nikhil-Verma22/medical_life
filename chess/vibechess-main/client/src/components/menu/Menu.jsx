@@ -495,14 +495,14 @@ const Menu = () => {
 				sx={{
 					display: "flex",
 					flexDirection: isMobile ? "column" : "row",
-					alignItems: "flex-start",
-					marginTop: isMobile ? "10px" : "16px",
+					alignItems: isMobile ? "center" : "flex-start",
+					marginTop: isMobile ? "8px" : "16px",
 					flexWrap: "nowrap",
 					overflowX: "visible",
 					overflowY: "visible",
 					width: "100%",
 					justifyContent: "center",
-					gap: isMobile ? "10px" : "0",
+					gap: isMobile ? "8px" : "0",
 					position: "relative",
 					zIndex: 2,
 				}}
@@ -534,6 +534,7 @@ const Menu = () => {
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
+						width: isMobile ? "100%" : "auto",
 					}}
 				>
 					<MenuButton
@@ -547,18 +548,18 @@ const Menu = () => {
 					<Slide direction="up" in={true} mountOnEnter unmountOnExit>
 						<Box
 							sx={{
-								width: isMobile ? "300px" : "25vh",
-								marginTop: isMobile ? "10px" : "4px",
-								backgroundColor: "rgba(0, 0, 0, 0.25)",
-								backdropFilter: "blur(8px)",
+								width: isMobile ? "min(92vw, 340px)" : "25vh",
+								marginTop: isMobile ? "6px" : "4px",
+								backgroundColor: "rgba(0, 0, 0, 0.4)",
+								backdropFilter: "blur(12px)",
 								borderRadius: "14px",
-								border: "2px solid #000000",
+								border: "2px solid rgba(255, 255, 255, 0.2)",
 								padding: "4px",
 								boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
 								transition: "all 0.3s ease",
 								"&:hover": {
-									borderColor: "#000000",
-									backgroundColor: "rgba(0, 0, 0, 0.45)",
+									borderColor: "#2176ff",
+									backgroundColor: "rgba(0, 0, 0, 0.6)",
 								},
 							}}
 						>

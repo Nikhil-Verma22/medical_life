@@ -30,11 +30,11 @@ export function TopAiMoodBar({ zenMode, onApplyMood }: TopAiMoodBarProps) {
   };
 
   return (
-    <div className="fixed inset-x-0 top-11 sm:top-12 z-20 mx-auto flex max-w-xl flex-col items-center px-3 transition-all duration-300">
-      <div className="flex w-full flex-col rounded-2xl border border-white/15 bg-black/65 p-1 shadow-xl backdrop-blur-xl transition-all hover:border-amber-400/40">
+    <div className="fixed inset-x-0 top-14 sm:top-16 z-20 mx-auto flex max-w-xl flex-col items-center px-2.5 sm:px-3 transition-all duration-300">
+      <div className="flex w-full flex-col rounded-2xl border border-white/15 bg-black/75 p-1 shadow-xl backdrop-blur-xl transition-all hover:border-amber-400/40">
         {/* Main Bar: Compact Prompt Input */}
-        <form onSubmit={handleSubmit} className="flex items-center gap-1.5">
-          <div className="flex items-center gap-1 pl-1.5 text-amber-300">
+        <form onSubmit={handleSubmit} className="flex items-center gap-1 sm:gap-1.5">
+          <div className="flex items-center gap-1 pl-1 text-amber-300 flex-shrink-0">
             <Sparkles className="h-3.5 w-3.5 animate-pulse" />
             <span className="font-mono text-[9px] font-bold uppercase tracking-wider hidden sm:inline">
               Tune Mood:
@@ -45,13 +45,13 @@ export function TopAiMoodBar({ zenMode, onApplyMood }: TopAiMoodBarProps) {
             type="text"
             value={customMood}
             onChange={(e) => setCustomMood(e.target.value)}
-            placeholder="Type mood (e.g. 3 AM study, post-viva chai, casualty...)"
-            className="flex-1 rounded-xl bg-white/5 px-2.5 py-1 text-xs text-white placeholder:text-white/40 focus:border-amber-400 focus:bg-black/60 focus:outline-none"
+            placeholder="Type mood (e.g. 3 AM study, chai, casualty...)"
+            className="flex-1 min-w-0 rounded-xl bg-white/10 px-2 py-1 text-xs text-white placeholder:text-white/40 focus:border-amber-400 focus:bg-black/80 focus:outline-none"
           />
 
           <button
             type="submit"
-            className="flex items-center gap-1 rounded-xl bg-amber-400 px-2.5 py-1 text-[11px] font-bold text-neutral-950 shadow hover:bg-amber-300 active:scale-95 transition-all"
+            className="flex items-center gap-1 rounded-xl bg-amber-400 px-2 sm:px-2.5 py-1 text-[10px] sm:text-[11px] font-bold text-neutral-950 shadow hover:bg-amber-300 active:scale-95 transition-all flex-shrink-0"
           >
             <Send className="h-2.5 w-2.5" />
             <span className="hidden sm:inline">Tune</span>
@@ -60,7 +60,7 @@ export function TopAiMoodBar({ zenMode, onApplyMood }: TopAiMoodBarProps) {
           <button
             type="button"
             onClick={() => setIsExpanded((e) => !e)}
-            className="rounded-xl border border-white/10 bg-white/5 px-2 py-1 text-[9px] font-medium text-white/70 hover:bg-white/15 hover:text-white transition-colors"
+            className="rounded-xl border border-white/15 bg-white/10 px-1.5 sm:px-2 py-1 text-[9px] font-semibold text-white/80 hover:bg-white/20 hover:text-white transition-colors flex-shrink-0"
           >
             {isExpanded ? "▲" : "Presets ▼"}
           </button>

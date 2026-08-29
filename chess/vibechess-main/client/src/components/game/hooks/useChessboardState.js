@@ -59,15 +59,11 @@ export const useChessboardState = (gameMode, matchData) => {
 	}, [matchData, gameMode]);
 
 	const handleResize = useCallback(() => {
-		const maxWidth = 690;
-		const minWidth = 310;
-		const availableWidth = Math.min(window.innerWidth - 100, maxWidth);
-		const availableHeight = window.innerHeight;
-		const newBoardWidth = Math.max(
-			Math.min(availableWidth, availableHeight * 0.75),
-			minWidth,
-		);
-		setBoardWidth(newBoardWidth);
+		const screenW = window.innerWidth;
+		const screenH = window.innerHeight;
+		// Responsive board width calculation for mobile and desktop
+		const maxW = Math.min(screenW - (screenW < 600 ? 20 : 100), screenH * (screenW < 600 ? 0.52 : 0.72), 600);
+		setBoardWidth(Math.max(Math.floor(maxW), 260));
 	}, []);
 
 	useEffect(() => {
