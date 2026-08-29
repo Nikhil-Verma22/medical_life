@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Modal, Box, Typography, Grid, Button, Fade } from "@mui/material";
 import { CircleFlag } from "react-circle-flags";
 import ReplayIcon from "@mui/icons-material/Replay";
+import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
 
 const GameOverModal = ({
 	isOpen,
@@ -16,16 +17,52 @@ const GameOverModal = ({
 	gameMode,
 }) => {
 	const navigate = useNavigate();
-	const selectedFlag = window.localStorage.getItem("selectedFlag") || "ph";
+	const selectedFlag = window.localStorage.getItem("selectedFlag") || "in";
 
 	const handleMenu = () => navigate("/");
 	const handleRematch = () => {
-		onRematch();
+		if (onRematch) onRematch();
 		onClose();
 	};
 
+	const formatEndReason = (reason) => {
+		if (!reason) return "";
+		const lower = reason.toLowerCase();
+		if (
+			lower.includes("opponent disconnected") ||
+			lower.includes("disconnection") ||
+			lower.includes("abandonment")
+		) {
+			return "by Opponent Disconnection / Abandonment";
+		}
+		if (lower.includes("resignation") || lower.includes("resigned")) {
+			return "by Resignation / Forfeit";
+		}
+		if (lower.includes("checkmate")) {
+			return "by Checkmate";
+		}
+		if (lower.includes("timeout") || lower.includes("time")) {
+			return "on Time (Clock Expired)";
+		}
+		if (lower.includes("agreement") || lower.includes("draw")) {
+			return "by Draw Agreement";
+		}
+		if (lower.includes("stalemate")) {
+			return "by Stalemate";
+		}
+		if (lower.includes("repetition")) {
+			return "by Threefold Repetition";
+		}
+		if (lower.includes("insufficient")) {
+			return "by Insufficient Material";
+		}
+		return reason;
+	};
+
+	const isUserWinner = winner && winner === playerColor;
+
 	const getWinnerMessage = () => {
-		if (!winner) return endReason || "Game Over";
+		if (!winner) return "Game Over (Draw)";
 
 		if (gameMode === "local") {
 			return `${winner.toUpperCase()} WON!`;
@@ -33,7 +70,7 @@ const GameOverModal = ({
 
 		if (gameMode === "versus-bot") {
 			if (winner === playerColor) {
-				return "YOU WON!";
+				return "🏆 YOU WON!";
 			} else {
 				return "BOT WON!";
 			}
@@ -44,9 +81,9 @@ const GameOverModal = ({
 		const currentPlayer = players.find((p) => p.color === playerColor);
 
 		if (winner === playerColor) {
-			return `${currentPlayer?.name || "You"} WON!`;
+			return `🏆 ${currentPlayer?.name || "YOU"} WON!`;
 		} else {
-			return `${winnerPlayer?.name || "Opponent"} WON!`;
+			return `${winnerPlayer?.name || "OPPONENT"} WON!`;
 		}
 	};
 
@@ -69,7 +106,7 @@ const GameOverModal = ({
 			} else {
 				return {
 					name: "Bot",
-					flag: "gb", // Default bot flag
+					flag: "gb",
 				};
 			}
 		}
@@ -99,21 +136,19 @@ const GameOverModal = ({
 			];
 		}
 
-		// For local and versus-bot, show only the winner
 		if (winner === "white") {
 			return [{ ...whitePlayer, color: "white" }];
 		} else if (winner === "black") {
 			return [{ ...blackPlayer, color: "black" }];
 		}
 
-		// Fallback - shouldn't happen but just in case
 		return [{ ...whitePlayer, color: "white" }];
 	};
 
 	const displayPlayers = getDisplayPlayers();
 
 	return (
-		<Modal open={isOpen} onClose={onClose} autoFocus={false}>
+		<Modal open={isOpen} onClose={onClose} autoFocus={false} closeAfterTransition>
 			<Fade in={isOpen}>
 				<Box
 					sx={{
@@ -121,58 +156,124 @@ const GameOverModal = ({
 						top: "50%",
 						left: "50%",
 						transform: "translate(-50%, -50%)",
-						width: 440,
-						bgcolor: "#1f2123",
-						boxShadow: 24,
-						p: 4,
-						borderRadius: 3,
+						width: { xs: "90%", sm: 440 },
+						bgcolor: "#1a1d20",
+						border: "1.5px solid rgba(255, 255, 255, 0.15)",
+						boxShadow: "0 20px 50px rgba(0, 0, 0, 0.9)",
+						p: { xs: 3, sm: 4 },
+						borderRadius: 4,
 						textAlign: "center",
+						outline: "none",
 					}}
 				>
-					{/* Top Box */}
-					<Box mb={4}>
-						<Typography variant="h4">
+					{/* Top Winner Box */}
+					<Box mb={3}>
+						<Typography
+							variant="h4"
+							sx={{
+								fontFamily: "'Bebas Neue', cursive",
+								letterSpacing: "2px",
+								fontSize: { xs: "2rem", sm: "2.5rem" },
+								color: isUserWinner ? "#4ade80" : "#ffffff",
+								textShadow: isUserWinner
+									? "0 0 20px rgba(74, 222, 128, 0.5)"
+									: "0 2px 8px rgba(0,0,0,0.8)",
+							}}
+						>
 							{getWinnerMessage()}
 						</Typography>
-						<Typography variant="subtitle1">{endReason}</Typography>
+						<Typography
+							variant="subtitle1"
+							sx={{
+								color: "rgba(255, 255, 255, 0.75)",
+								fontSize: "0.95rem",
+								mt: 0.5,
+							}}
+						>
+							{formatEndReason(endReason)}
+						</Typography>
 					</Box>
 
 					{/* Middle Box - Player Info */}
 					<Grid container spacing={2} justifyContent="center" mb={4}>
-						{displayPlayers.map((player) => (
-							<Grid
-								item
-								xs={shouldShowBothPlayers() ? 6 : 12}
-								key={player.color}
-							>
-								<CircleFlag
-									countryCode={player.flag}
-									height="90"
-								/>
-								<Typography variant="subtitle2">
-									{player.name}
-								</Typography>
-								{winner === player.color && (
-									<Typography
-										variant="caption"
-										color="success.main"
+						{displayPlayers.map((player) => {
+							const isThisWinner = winner === player.color;
+							return (
+								<Grid
+									item
+									xs={shouldShowBothPlayers() ? 6 : 12}
+									key={player.color}
+								>
+									<Box
+										sx={{
+											p: 2,
+											borderRadius: 3,
+											bgcolor: isThisWinner
+												? "rgba(74, 222, 128, 0.1)"
+												: "rgba(255, 255, 255, 0.04)",
+											border: isThisWinner
+												? "1.5px solid #4ade80"
+												: "1px solid rgba(255, 255, 255, 0.08)",
+											display: "flex",
+											flexDirection: "column",
+											alignItems: "center",
+											gap: 1,
+										}}
 									>
-										Winner
-									</Typography>
-								)}
-							</Grid>
-						))}
+										<CircleFlag
+											countryCode={player.flag}
+											height="64"
+										/>
+										<Typography
+											variant="subtitle2"
+											sx={{
+												fontWeight: 700,
+												color: "#ffffff",
+												letterSpacing: "0.5px",
+											}}
+										>
+											{player.name}
+										</Typography>
+										{isThisWinner && (
+											<Typography
+												variant="caption"
+												sx={{
+													color: "#4ade80",
+													fontWeight: 700,
+													display: "inline-flex",
+													alignItems: "center",
+													gap: 0.5,
+												}}
+											>
+												<EmojiEventsRoundedIcon sx={{ fontSize: 16 }} />
+												WINNER
+											</Typography>
+										)}
+									</Box>
+								</Grid>
+							);
+						})}
 					</Grid>
 
 					{/* Bottom Box - Action Buttons */}
 					<Grid container spacing={2} justifyContent="center">
 						<Grid item xs={6}>
 							<Button
-								variant="contained"
-								color="primary"
+								variant="outlined"
 								fullWidth
 								onClick={handleMenu}
-								sx={{ height: "50px" }}
+								sx={{
+									height: "48px",
+									color: "#ffffff",
+									borderColor: "rgba(255, 255, 255, 0.3)",
+									borderRadius: "10px",
+									fontWeight: 600,
+									textTransform: "none",
+									"&:hover": {
+										borderColor: "#ffffff",
+										bgcolor: "rgba(255, 255, 255, 0.08)",
+									},
+								}}
 							>
 								Back to Menu
 							</Button>
@@ -180,11 +281,17 @@ const GameOverModal = ({
 						<Grid item xs={6}>
 							<Button
 								variant="contained"
-								color="secondary"
 								fullWidth
 								startIcon={<ReplayIcon />}
 								onClick={handleRematch}
-								sx={{ height: "50px" }}
+								sx={{
+									height: "48px",
+									bgcolor: "#2176ff",
+									borderRadius: "10px",
+									fontWeight: 700,
+									textTransform: "none",
+									"&:hover": { bgcolor: "#1a62d6" },
+								}}
 							>
 								Rematch
 							</Button>

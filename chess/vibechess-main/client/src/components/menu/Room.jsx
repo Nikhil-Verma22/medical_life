@@ -179,10 +179,7 @@ const Room = () => {
 	return (
 		<Stack
 			direction="column"
-			justifyContent="space-between"
-			alignItems="center"
-			spacing={-10}
-			minHeight="100vh"
+			minHeight="100dvh"
 			sx={{ bgcolor: "background.default" }}
 		>
 			<Navbar />
@@ -190,7 +187,8 @@ const Room = () => {
 			<Stack
 				flexGrow={1}
 				px={3}
-				spacing={2}
+				py={4}
+				spacing={3}
 				alignItems="center"
 				justifyContent="center"
 			>

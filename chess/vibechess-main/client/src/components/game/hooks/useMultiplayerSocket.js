@@ -20,8 +20,30 @@ export const useMultiplayerSocket = (
 			if (players) {
 				chessGame.setPlayers(players);
 			}
+
+			if (gameState.isGameOver) {
+				const reason = (gameState.gameOverReason || "").toLowerCase();
+				if (
+					reason.includes("opponent disconnected") ||
+					reason.includes("abandonment")
+				) {
+					if (gameState.winner === playerColor) {
+						toast.success(
+							"Opponent disconnected! You won the match! 🏆",
+							{ position: "top-center", autoClose: 4000 }
+						);
+					}
+				} else if (reason.includes("resignation")) {
+					if (gameState.winner === playerColor) {
+						toast.success(
+							"Opponent resigned! You won the match! 🏆",
+							{ position: "top-center", autoClose: 4000 }
+						);
+					}
+				}
+			}
 		},
-		[chessGame],
+		[chessGame, playerColor],
 	);
 
 	// move rejection from server
@@ -42,8 +64,8 @@ export const useMultiplayerSocket = (
 	);
 
 	const handlePlayerDisconnected = useCallback((data) => {
-		const playerName = data.playerName || data.username || "Player";
-		toast.warning(`${playerName} disconnected`, {
+		const playerName = data.playerName || data.username || "Opponent";
+		toast.warning(`${playerName} left the match.`, {
 			position: "top-center",
 			autoClose: 3000,
 		});

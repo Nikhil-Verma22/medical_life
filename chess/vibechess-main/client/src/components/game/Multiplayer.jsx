@@ -4,6 +4,7 @@ import Navbar from "../common/Navbar";
 import Loading from "../common/Loading";
 import { Stack } from "@mui/material";
 import ChessboardComponent from "./ChessboardComponent";
+import ConfirmationModal from "../common/modal/ConfirmationModal";
 import { notifySound } from "../../data/utils";
 import { toast } from "react-toastify";
 import useSocketContext from "../../context/useSocketContext";
@@ -14,6 +15,8 @@ const Multiplayer = () => {
 	const [gameMode] = useState("multiplayer");
 	const [matchData, setMatchData] = useState(null);
 	const [isGameReady, setIsGameReady] = useState(false);
+	const [isGameOver, setIsGameOver] = useState(false);
+	const [isLeaveConfirmOpen, setIsLeaveConfirmOpen] = useState(false);
 
 	const gameInitialized = useRef(false);
 	const hasJoinedRoom = useRef(false);
@@ -121,10 +124,25 @@ const Multiplayer = () => {
 		}
 	}, [isConnected]);
 
+	const handleNavbarBackClick = () => {
+		if (isGameOver || !isGameReady) {
+			navigate("/");
+		} else {
+			setIsLeaveConfirmOpen(true);
+		}
+	};
+
+	const handleConfirmLeave = () => {
+		if (socket && matchData?.roomCode) {
+			socket.emit("resign", { roomCode: matchData.roomCode });
+		}
+		navigate("/");
+	};
+
 	if (!isGameReady || !matchData) {
 		return (
 			<Stack sx={{ bgcolor: "background.default", minHeight: "100dvh" }}>
-				<Navbar gameMode={gameMode} />
+				<Navbar gameMode={gameMode} onClick={() => navigate("/")} />
 				<Stack
 					minHeight="100dvh"
 					justifyContent="center"
@@ -138,15 +156,27 @@ const Multiplayer = () => {
 
 	return (
 		<Stack minHeight="100dvh" sx={{ bgcolor: "background.default" }}>
-			<Navbar gameMode={gameMode} />
+			<Navbar gameMode={gameMode} onClick={handleNavbarBackClick} />
 			<Stack flexGrow={1} justifyContent="center" alignItems="center">
 				<ChessboardComponent
 					gameMode={gameMode}
 					matchData={matchData}
 					socket={socket}
 					isConnected={isConnected}
+					onGameEnd={() => setIsGameOver(true)}
 				/>
 			</Stack>
+
+			<ConfirmationModal
+				isOpen={isLeaveConfirmOpen}
+				onClose={() => setIsLeaveConfirmOpen(false)}
+				onConfirm={handleConfirmLeave}
+				title="Leave Match?"
+				message="Are you sure you want to leave this game? Leaving will forfeit the match and declare your opponent the winner."
+				confirmText="Leave & Forfeit"
+				cancelText="Keep Playing"
+				isDanger={true}
+			/>
 		</Stack>
 	);
 };

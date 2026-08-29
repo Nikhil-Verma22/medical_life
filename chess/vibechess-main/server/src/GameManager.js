@@ -186,21 +186,25 @@ export class GameManager {
 		gameState.lastMoveTimestamp = now;
 	}
 
-	handleResignation(roomCode, playerId) {
+	handleResignation(roomCode, playerId, reason = "resignation") {
 		const room = this.rooms.get(roomCode);
-		if (!room) return;
+		if (!room || room.gameState.isGameOver) return;
 
 		const player = room.players.find((p) => p.id === playerId);
 		if (!player) return;
 
 		room.gameState.surrenderedPlayer = player.color;
 		room.gameState.isGameOver = true;
-		room.gameState.gameOverReason = "resignation";
+		room.gameState.gameOverReason = reason;
 		room.gameState.winner = player.color === "white" ? "black" : "white";
-		room.gameState.gameEndedBy = "resignation";
+		room.gameState.gameEndedBy = reason;
 		room.gameState.isPaused = true;
 
 		this.broadcastGameState(roomCode);
+	}
+
+	handlePlayerAbandonment(roomCode, playerId) {
+		this.handleResignation(roomCode, playerId, "opponent disconnected");
 	}
 
 	handleDrawOffer(roomCode, playerId) {

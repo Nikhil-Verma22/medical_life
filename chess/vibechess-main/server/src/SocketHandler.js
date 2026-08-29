@@ -454,7 +454,7 @@ export class SocketHandler {
 					});
 
 					if (!room.gameState.isGameOver) {
-						room.gameState.isPaused = true;
+						this.gm.handlePlayerAbandonment(roomCode, socket.id);
 					}
 				}
 			}

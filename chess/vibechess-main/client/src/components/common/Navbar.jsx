@@ -7,15 +7,16 @@ import {
 	Typography,
 	Button,
 	IconButton,
+	Box,
 	useMediaQuery,
 } from "@mui/material";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
-import { VibeChessLogo, VibeChessLogoBlack } from "../../styles/styles";
 import { useTheme } from "@mui/material/styles";
+import neetDice from "../../assets/neet_dice.png";
 
-function Navbar({ onClick, title, gameMode }) {
+function Navbar({ onClick, title = "ILAAJ-E-MAAT", gameMode }) {
 	const navigate = useNavigate();
-	const isXs = useMediaQuery((theme) => theme.breakpoints.down("xs"));
+	const isXs = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 	const theme = useTheme();
 
 	const handleButtonClick = onClick || (() => navigate("/"));
@@ -24,115 +25,74 @@ function Navbar({ onClick, title, gameMode }) {
 		<AppBar
 			position="static"
 			sx={{
-				zIndex: 1,
-				background: "none",
+				zIndex: 10,
+				background: "transparent",
 				boxShadow: "none",
+				pt: 1,
+				px: { xs: 1, sm: 2 },
 			}}
 		>
 			<Toolbar
-				style={{
+				sx={{
 					display: "flex",
 					justifyContent: "space-between",
+					alignItems: "center",
+					px: { xs: 1, sm: 2 },
 				}}
 			>
-				{gameMode === "multiplayer" ? (
-					<Toolbar
-						style={{
-							display: "flex",
-							justifyContent: "space-between",
-						}}
-					>
-						{isXs ? (
-							<IconButton
-								title="Go back to the main menu"
-								edge="start"
-								onClick={handleButtonClick}
-								sx={{
-									ml: 1,
-									mt: 1,
-								}}
-							>
-								<img
-									src="/neet_dice.png"
-									alt="Ilaaj-e-Maat Logo"
-									style={{
-										width: "40px",
-										height: "40px",
-										borderRadius: "6px",
-									}}
-								/>
-							</IconButton>
-						) : (
-							<>
-								<IconButton
-									title="Go back to the main menu"
-									edge="start"
-									onClick={handleButtonClick}
-									sx={{
-										ml: 1,
-										mt: 1,
-									}}
-								>
-									<img
-										src="/neet_dice.png"
-										alt="Ilaaj-e-Maat Logo"
-										style={{
-											width: "40px",
-											height: "40px",
-											borderRadius: "6px",
-										}}
-									/>
-								</IconButton>
-								<div style={{ width: 48 }} />{" "}
-							</>
-						)}
-						<Typography
-							variant="h4"
-							style={{
-								color:
-									theme.palette.mode === "light"
-										? "#000"
-										: "gray",
-							}}
-						>
-							{title}
-						</Typography>
-					</Toolbar>
-				) : (
-					<Button
-						variant="outlined"
-						edge="start"
-						onClick={handleButtonClick}
-						sx={{
-							color:
-								theme.palette.mode === "light"
-									? "#000"
-									: "rgba(255, 255, 255, 0.8)",
-							borderColor:
-								theme.palette.mode === "light"
-									? "#000"
-									: "rgba(255, 255, 255, 0.8)",
-							"&:hover": {
-								backgroundColor: theme.palette.primary.main,
-							},
-							ml: isXs ? 1 : 0,
-							mt: isXs ? 1 : 0,
-						}}
-					>
-						<ArrowBackRoundedIcon sx={{ mr: 1 }} />
-						Go back to menu
-					</Button>
-				)}
-
-				<Typography
-					variant="h4"
-					style={{
-						color:
-							theme.palette.mode === "light" ? "#000" : "inherit",
+				{/* Back to Menu Button */}
+				<Button
+					variant="outlined"
+					onClick={handleButtonClick}
+					startIcon={<ArrowBackRoundedIcon />}
+					sx={{
+						color: "#ffffff",
+						borderColor: "rgba(255, 255, 255, 0.3)",
+						background: "rgba(0, 0, 0, 0.4)",
+						backdropFilter: "blur(8px)",
+						textTransform: "none",
+						fontWeight: 600,
+						fontSize: { xs: "0.8rem", sm: "0.95rem" },
+						borderRadius: "20px",
+						px: { xs: 1.5, sm: 2.2 },
+						py: 0.6,
+						"&:hover": {
+							borderColor: "#2176ff",
+							background: "rgba(33, 118, 255, 0.2)",
+							boxShadow: "0 0 12px rgba(33, 118, 255, 0.4)",
+						},
 					}}
 				>
-					{title}
-				</Typography>
+					{isXs ? "Back" : "Back to Menu"}
+				</Button>
+
+				{/* Title / Branding */}
+				<Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
+					<Box
+						component="img"
+						src={neetDice}
+						alt="Ilaaj-e-Maat Logo"
+						sx={{
+							width: { xs: 28, sm: 36 },
+							height: { xs: 28, sm: 36 },
+							borderRadius: "8px",
+							boxShadow: "0 2px 8px rgba(0,0,0,0.5)",
+							objectFit: "contain",
+						}}
+					/>
+					<Typography
+						variant="h5"
+						sx={{
+							fontFamily: "'Bebas Neue', cursive",
+							letterSpacing: "2px",
+							color: "#ffffff",
+							fontSize: { xs: "1.3rem", sm: "1.8rem" },
+							textShadow: "0 2px 8px rgba(0,0,0,0.8)",
+						}}
+					>
+						{title}
+					</Typography>
+				</Box>
 			</Toolbar>
 		</AppBar>
 	);
