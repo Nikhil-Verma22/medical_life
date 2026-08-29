@@ -230,7 +230,7 @@ process.on("SIGINT", () => {
 httpServer
 	.listen(PORT, () => {
 		console.log(`♟️ Chess server listening on port ${PORT}`);
-		console.log(`🌐 Allowed origins: ${CORS_ORIGIN.join(", ")}`);
+		console.log(`🌐 Allowed origins: ${rawOrigins || "*"}`);
 	})
 	.on("error", (error) => {
 		console.error("❌ Server startup error:", error);
