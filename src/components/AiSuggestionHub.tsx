@@ -528,56 +528,56 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
                           )}
                         </div>
 
-                        {/* 4 Prescription Cards Grid */}
+                        {/* Category Prescription Cards Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                          {/* 1. Movie Pick */}
-                          {msg.prescription.movie && (
-                            <div className="flex flex-col justify-between rounded-xl border border-amber-400/30 bg-black/40 p-3">
+                          {/* Movies List */}
+                          {msg.prescription.movies && msg.prescription.movies.map((movie, mIdx) => (
+                            <div key={`m-${movie.id}-${mIdx}`} className="flex flex-col justify-between rounded-xl border border-amber-400/30 bg-black/40 p-3">
                               <div>
                                 <div className="flex items-center justify-between text-[10px] text-amber-400 font-mono mb-1">
                                   <span className="flex items-center gap-1 font-bold">
-                                    <Film className="h-3 w-3" /> MOVIE PICK
+                                    <Film className="h-3 w-3" /> MOVIE RECOMMENDATION
                                   </span>
-                                  <span>★ {msg.prescription.movie.imdbRating}</span>
+                                  <span>★ {movie.imdbRating}</span>
                                 </div>
                                 <h4 className="font-bold text-xs text-white line-clamp-1">
-                                  {msg.prescription.movie.title} ({msg.prescription.movie.year})
+                                  {movie.title} ({movie.year})
                                 </h4>
                                 <p className="text-[10px] text-white/70 mt-1 line-clamp-2 italic">
-                                  "{msg.prescription.movie.recommendationReason || msg.prescription.movie.medicoTakeaway}"
+                                  "{movie.recommendationReason || movie.medicoTakeaway}"
                                 </p>
                               </div>
                               <a
-                                href={msg.prescription.movie.watchUrl}
+                                href={movie.watchUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="mt-2.5 inline-flex items-center justify-center gap-1 rounded-lg bg-amber-400 px-2.5 py-1 text-[10px] font-black text-neutral-950 hover:bg-amber-300 transition-all"
                               >
                                 <Play className="h-2.5 w-2.5" />
-                                <span>Watch on {msg.prescription.movie.watchPlatform}</span>
+                                <span>Watch on {movie.watchPlatform}</span>
                               </a>
                             </div>
-                          )}
+                          ))}
 
-                          {/* 2. Song Pick */}
-                          {msg.prescription.song && (
-                            <div className="flex flex-col justify-between rounded-xl border border-emerald-400/30 bg-black/40 p-3">
+                          {/* Songs List */}
+                          {msg.prescription.songs && msg.prescription.songs.map((song, sIdx) => (
+                            <div key={`s-${song.id}-${sIdx}`} className="flex flex-col justify-between rounded-xl border border-emerald-400/30 bg-black/40 p-3">
                               <div>
                                 <div className="flex items-center justify-between text-[10px] text-emerald-400 font-mono mb-1">
                                   <span className="flex items-center gap-1 font-bold">
                                     <Music className="h-3 w-3" /> STUDY ANTHEM
                                   </span>
-                                  <span>{msg.prescription.song.duration}</span>
+                                  <span>{song.duration}</span>
                                 </div>
                                 <h4 className="font-bold text-xs text-white line-clamp-1">
-                                  {msg.prescription.song.title}
+                                  {song.title}
                                 </h4>
                                 <p className="text-[10px] text-white/70 mt-1 line-clamp-2 italic">
-                                  "{msg.prescription.song.recommendationReason || msg.prescription.song.medVibe}"
+                                  "{song.recommendationReason || song.medVibe}"
                                 </p>
                               </div>
                               <a
-                                href={`https://www.youtube.com/watch?v=${msg.prescription.song.youtubeId}`}
+                                href={`https://www.youtube.com/watch?v=${song.youtubeId}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="mt-2.5 inline-flex items-center justify-center gap-1 rounded-lg bg-emerald-400 px-2.5 py-1 text-[10px] font-black text-neutral-950 hover:bg-emerald-300 transition-all"
@@ -586,27 +586,27 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
                                 <span>Play on YouTube</span>
                               </a>
                             </div>
-                          )}
+                          ))}
 
-                          {/* 3. Book Pick */}
-                          {msg.prescription.book && (
-                            <div className="flex flex-col justify-between rounded-xl border border-sky-400/30 bg-black/40 p-3">
+                          {/* Books List */}
+                          {msg.prescription.books && msg.prescription.books.map((book, bIdx) => (
+                            <div key={`b-${book.id}-${bIdx}`} className="flex flex-col justify-between rounded-xl border border-sky-400/30 bg-black/40 p-3">
                               <div>
                                 <div className="flex items-center justify-between text-[10px] text-sky-400 font-mono mb-1">
                                   <span className="flex items-center gap-1 font-bold">
                                     <BookOpen className="h-3 w-3" /> CLINICAL BOOK
                                   </span>
-                                  <span>★ {msg.prescription.book.rating}</span>
+                                  <span>★ {book.rating}</span>
                                 </div>
                                 <h4 className="font-bold text-xs text-white line-clamp-1">
-                                  {msg.prescription.book.title}
+                                  {book.title}
                                 </h4>
                                 <p className="text-[10px] text-white/70 mt-1 line-clamp-2 italic">
-                                  "{msg.prescription.book.recommendationReason || msg.prescription.book.summary}"
+                                  "{book.recommendationReason || book.summary}"
                                 </p>
                               </div>
                               <a
-                                href={msg.prescription.book.readUrl}
+                                href={book.readUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="mt-2.5 inline-flex items-center justify-center gap-1 rounded-lg bg-sky-400 px-2.5 py-1 text-[10px] font-black text-neutral-950 hover:bg-sky-300 transition-all"
@@ -615,36 +615,36 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
                                 <span>Read Free</span>
                               </a>
                             </div>
-                          )}
+                          ))}
 
-                          {/* 4. Game Pick */}
-                          {msg.prescription.game && (
-                            <div className="flex flex-col justify-between rounded-xl border border-indigo-400/30 bg-black/40 p-3">
+                          {/* Games List */}
+                          {msg.prescription.games && msg.prescription.games.map((game, gIdx) => (
+                            <div key={`g-${game.id}-${gIdx}`} className="flex flex-col justify-between rounded-xl border border-indigo-400/30 bg-black/40 p-3">
                               <div>
                                 <div className="flex items-center justify-between text-[10px] text-indigo-400 font-mono mb-1">
                                   <span className="flex items-center gap-1 font-bold">
                                     <Gamepad2 className="h-3 w-3" /> SURGERY GAME
                                   </span>
-                                  <span>★ {msg.prescription.game.rating}</span>
+                                  <span>★ {game.rating}</span>
                                 </div>
                                 <h4 className="font-bold text-xs text-white line-clamp-1">
-                                  {msg.prescription.game.title}
+                                  {game.title}
                                 </h4>
                                 <p className="text-[10px] text-white/70 mt-1 line-clamp-2 italic">
-                                  "{msg.prescription.game.recommendationReason || msg.prescription.game.description}"
+                                  "{game.recommendationReason || game.description}"
                                 </p>
                               </div>
                               <a
-                                href={msg.prescription.game.downloadUrl}
+                                href={game.downloadUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="mt-2.5 inline-flex items-center justify-center gap-1 rounded-lg bg-indigo-400 px-2.5 py-1 text-[10px] font-black text-neutral-950 hover:bg-indigo-300 transition-all"
                               >
                                 <Download className="h-2.5 w-2.5" />
-                                <span>Play on {msg.prescription.game.platformBadge}</span>
+                                <span>Play on {game.platformBadge}</span>
                               </a>
                             </div>
-                          )}
+                          ))}
                         </div>
 
                         {/* Mentor Note */}

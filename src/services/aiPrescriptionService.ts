@@ -12,10 +12,11 @@ import {
 export interface PrescriptionResult {
   analysis: string;
   mentorNote?: string;
-  movie?: MedicalMovie & { recommendationReason?: string };
-  song?: MedicalSong & { recommendationReason?: string };
-  book?: MedicalBook & { recommendationReason?: string };
-  game?: MedicalGame & { recommendationReason?: string };
+  requestedCategory?: "movie" | "song" | "book" | "game" | "all";
+  movies?: (MedicalMovie & { recommendationReason?: string })[];
+  songs?: (MedicalSong & { recommendationReason?: string })[];
+  books?: (MedicalBook & { recommendationReason?: string })[];
+  games?: (MedicalGame & { recommendationReason?: string })[];
   isGuardrailWarning?: boolean;
   modelUsed?: string;
   rawText?: string;
@@ -30,7 +31,126 @@ const MODEL_CASCADE = [
 ];
 
 /**
- * Server-Side Gemini API Caller (API key is 100% private to server)
+ * Detect what specific category the user is asking for
+ */
+export function detectCategoryIntent(query: string): "movie" | "song" | "book" | "game" | "all" {
+  const q = query.toLowerCase();
+
+  const isMovie =
+    q.includes("movie") ||
+    q.includes("movies") ||
+    q.includes("film") ||
+    q.includes("films") ||
+    q.includes("cinema") ||
+    q.includes("docu") ||
+    q.includes("watch") ||
+    q.includes("series") ||
+    q.includes("show");
+
+  const isSong =
+    q.includes("song") ||
+    q.includes("songs") ||
+    q.includes("music") ||
+    q.includes("anthem") ||
+    q.includes("anthems") ||
+    q.includes("qawwali") ||
+    q.includes("track") ||
+    q.includes("tracks") ||
+    q.includes("listen") ||
+    q.includes("lofi") ||
+    q.includes("playlist") ||
+    q.includes("audio");
+
+  const isBook =
+    q.includes("book") ||
+    q.includes("books") ||
+    q.includes("read") ||
+    q.includes("reading") ||
+    q.includes("textbook") ||
+    q.includes("textbooks") ||
+    q.includes("novel") ||
+    q.includes("novels") ||
+    q.includes("memoir") ||
+    q.includes("author") ||
+    q.includes("literature") ||
+    q.includes("robbins") ||
+    q.includes("guyton") ||
+    q.includes("harrison") ||
+    q.includes("chaurasia");
+
+  const isGame =
+    q.includes("game") ||
+    q.includes("games") ||
+    q.includes("play") ||
+    q.includes("gaming") ||
+    q.includes("simulator") ||
+    q.includes("chess") ||
+    q.includes("steam");
+
+  const count = (isMovie ? 1 : 0) + (isSong ? 1 : 0) + (isBook ? 1 : 0) + (isGame ? 1 : 0);
+
+  if (count === 1) {
+    if (isMovie) return "movie";
+    if (isSong) return "song";
+    if (isBook) return "book";
+    if (isGame) return "game";
+  }
+
+  return "all";
+}
+
+/**
+ * Score and find best matching items from a list based on user query keywords
+ */
+function scoreAndFilterItems<T>(
+  items: T[],
+  query: string,
+  getText: (item: T) => string,
+  limit: number = 3
+): T[] {
+  const q = query.toLowerCase();
+  const words = q.split(/\s+/).filter((w) => w.length > 2);
+
+  const scored = items.map((item) => {
+    const text = getText(item).toLowerCase();
+    let score = 0;
+
+    // Full query substring match
+    if (text.includes(q)) score += 15;
+
+    // Individual keyword match
+    for (const w of words) {
+      if (text.includes(w)) {
+        score += 3;
+      }
+    }
+
+    // Clinical keyword boosts
+    const clinicalKeywords = [
+      "surgery", "surgeon", "brain", "neuro", "cardio", "heart", "psychiatry",
+      "mental", "stress", "viva", "exam", "pathology", "virus", "infection",
+      "emergency", "casualty", "night", "duty", "anatomy", "pharmacology",
+      "pediatrics", "ortho", "radiology", "forensic", "hostel", "intern"
+    ];
+
+    for (const ck of clinicalKeywords) {
+      if (q.includes(ck) && text.includes(ck)) {
+        score += 8;
+      }
+    }
+
+    // Add small random tie-breaker so subsequent queries have fresh variety
+    score += Math.random() * 0.5;
+
+    return { item, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit).map((s) => s.item);
+}
+
+/**
+ * Server-Side Gemini API Caller
  */
 async function callGeminiCascadeServer(prompt: string, systemInstruction: string, apiKey: string): Promise<{ text: string; model: string }> {
   for (const model of MODEL_CASCADE) {
@@ -41,7 +161,7 @@ async function callGeminiCascadeServer(prompt: string, systemInstruction: string
         systemInstruction: { parts: [{ text: systemInstruction }] },
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 1000,
+          maxOutputTokens: 1200,
           responseMimeType: "application/json",
         },
       };
@@ -70,7 +190,7 @@ async function callGeminiCascadeServer(prompt: string, systemInstruction: string
 }
 
 /**
- * Server-Only AI Prescription Generator (Called by Cloudflare Worker / Server Route)
+ * Server-Only AI Prescription Generator
  */
 export async function generateServerAiPrescription(userQuery: string, apiKey: string): Promise<PrescriptionResult> {
   const q = userQuery.trim().toLowerCase();
@@ -91,87 +211,151 @@ export async function generateServerAiPrescription(userQuery: string, apiKey: st
     };
   }
 
+  const categoryIntent = detectCategoryIntent(userQuery);
+
   if (!apiKey) {
-    return getLocalSmartFallback(userQuery);
+    return getLocalSmartFallback(userQuery, categoryIntent);
   }
 
-  const movieSample = MEDICAL_MOVIES.slice(0, 35).map((m) => ({ id: m.id, title: m.title, theme: m.medicalTheme, mood: m.moodTag }));
-  const songSample = MEDICAL_SONGS.slice(0, 25).map((s) => ({ id: s.id, title: s.title, artist: s.artist, vibe: s.medVibe }));
-  const bookSample = MEDICAL_BOOKS.slice(0, 25).map((b) => ({ id: b.id, title: b.title, author: b.author, category: b.category }));
-  const gameSample = MEDICAL_GAMES.slice(0, 20).map((g) => ({ id: g.id, title: g.title, genre: g.genre }));
+  // Curate candidates
+  const candidateMovies = scoreAndFilterItems(
+    MEDICAL_MOVIES,
+    userQuery,
+    (m) => `${m.title} ${m.medicalTheme} ${m.synopsis} ${m.moodTag} ${m.genres.join(" ")}`,
+    15
+  ).map((m) => ({ id: m.id, title: m.title, theme: m.medicalTheme, mood: m.moodTag }));
+
+  const candidateSongs = scoreAndFilterItems(
+    MEDICAL_SONGS,
+    userQuery,
+    (s) => `${s.title} ${s.artist} ${s.medVibe} ${s.mood}`,
+    15
+  ).map((s) => ({ id: s.id, title: s.title, artist: s.artist, vibe: s.medVibe }));
+
+  const candidateBooks = scoreAndFilterItems(
+    MEDICAL_BOOKS,
+    userQuery,
+    (b) => `${b.title} ${b.author} ${b.subjectOrNotion} ${b.category} ${b.summary}`,
+    15
+  ).map((b) => ({ id: b.id, title: b.title, author: b.author, category: b.category }));
+
+  const candidateGames = scoreAndFilterItems(
+    MEDICAL_GAMES,
+    userQuery,
+    (g) => `${g.title} ${g.genre} ${g.description}`,
+    12
+  ).map((g) => ({ id: g.id, title: g.title, genre: g.genre }));
 
   const systemInstruction = `You are the "Chief AI Medical Life Mentor & Prescriptions Engine" on Medical Hub.
 Your purpose is to prescribe tailored entertainment, focus music, clinical books, and surgery games to MBBS students, interns, and doctors based on their emotional and academic state.
-Strict Safety Rule: Never prescribe real pharmaceutical drugs or diagnose illnesses. You strictly curate movies, songs, books, and games.
+CRITICAL INSTRUCTION:
+1. Detect what the user is asking for:
+   - If the user ONLY asked for movies/cinema/documentaries, return 1-3 movie recommendations in "selectedMovies", and leave "selectedSongs", "selectedBooks", "selectedGames" as EMPTY arrays. DO NOT include songs/books/games if they only asked for movies.
+   - If the user ONLY asked for books/reading, return 1-3 book recommendations in "selectedBooks", and leave others EMPTY.
+   - If the user ONLY asked for music/songs/qawwali, return 1-3 song recommendations in "selectedSongs", and leave others EMPTY.
+   - If the user ONLY asked for games/simulators, return 1-3 game recommendations in "selectedGames", and leave others EMPTY.
+   - If the user asked a general question or asked for a full prescription, return 1 movie, 1 song, 1 book, and 1 game.
+
 Always return response in valid JSON matching this schema:
 {
-  "analysis": "1-2 empathetic sentences addressing the student's clinical or academic state",
+  "analysis": "1-2 empathetic sentences directly addressing the user's specific request and clinical topic",
   "mentorNote": "A short, motivating clinical insight or shayari for the healer",
-  "selectedMovieId": "ID of the best matching movie from provided catalogue",
-  "movieReason": "Why this movie suits their current state",
-  "selectedSongId": "ID of the best matching song from provided catalogue",
-  "songReason": "Why this song suits their vibe",
-  "selectedBookId": "ID of the best matching book from provided catalogue",
-  "bookReason": "Why this book will help or inspire them",
-  "selectedGameId": "ID of the best matching game from provided catalogue",
-  "gameReason": "Why this game suits their mood"
+  "requestedCategory": "movie" | "song" | "book" | "game" | "all",
+  "selectedMovies": [ { "id": "movie-id", "reason": "Why this movie specifically fits their query" } ],
+  "selectedSongs": [ { "id": "song-id", "reason": "Why this song fits" } ],
+  "selectedBooks": [ { "id": "book-id", "reason": "Why this book fits" } ],
+  "selectedGames": [ { "id": "game-id", "reason": "Why this game fits" } ]
 }`;
 
-  const prompt = `Student Query / Clinical Feeling: "${userQuery}"
+  const prompt = `Student Request: "${userQuery}"
+Detected Category Focus: ${categoryIntent}
 
-Available Medical Movies Catalogue:
-${JSON.stringify(movieSample)}
+Candidate Medical Movies from Catalogue:
+${JSON.stringify(candidateMovies)}
 
-Available MBBS Anthems & Study Songs:
-${JSON.stringify(songSample)}
+Candidate MBBS Study Songs from Catalogue:
+${JSON.stringify(candidateSongs)}
 
-Available Medical Books & Memoirs:
-${JSON.stringify(bookSample)}
+Candidate Medical Books from Catalogue:
+${JSON.stringify(candidateBooks)}
 
-Available Surgery & Medico Games:
-${JSON.stringify(gameSample)}
+Candidate Surgery/Medico Games from Catalogue:
+${JSON.stringify(candidateGames)}
 
-Select the most therapeutic combination and provide your clinical mentor prescription in JSON.`;
+Provide your tailored clinical mentor prescription in JSON matching the exact category requested.`;
 
   try {
     const { text, model } = await callGeminiCascadeServer(prompt, systemInstruction, apiKey);
     const parsed = JSON.parse(text);
 
-    const movie = (MEDICAL_MOVIES.find((m) => m.id === parsed.selectedMovieId) ||
-      MEDICAL_MOVIES.find((m) => m.title.toLowerCase().includes(parsed.selectedMovieTitle?.toLowerCase() || "")) ||
-      MEDICAL_MOVIES[0]);
+    const resultCategory = parsed.requestedCategory || categoryIntent;
 
-    const song = (MEDICAL_SONGS.find((s) => s.id === parsed.selectedSongId) ||
-      MEDICAL_SONGS.find((s) => s.title.toLowerCase().includes(parsed.selectedSongTitle?.toLowerCase() || "")) ||
-      MEDICAL_SONGS[0]);
+    // Resolve movies
+    let resolvedMovies: (MedicalMovie & { recommendationReason?: string })[] | undefined = undefined;
+    if (parsed.selectedMovies && parsed.selectedMovies.length > 0) {
+      resolvedMovies = parsed.selectedMovies
+        .map((sm: { id: string; reason?: string }) => {
+          const found = MEDICAL_MOVIES.find((m) => m.id === sm.id) || MEDICAL_MOVIES.find((m) => m.title.toLowerCase() === sm.id.toLowerCase());
+          return found ? { ...found, recommendationReason: sm.reason } : null;
+        })
+        .filter(Boolean);
+    }
 
-    const book = (MEDICAL_BOOKS.find((b) => b.id === parsed.selectedBookId) ||
-      MEDICAL_BOOKS.find((b) => b.title.toLowerCase().includes(parsed.selectedBookTitle?.toLowerCase() || "")) ||
-      MEDICAL_BOOKS[0]);
+    // Resolve songs
+    let resolvedSongs: (MedicalSong & { recommendationReason?: string })[] | undefined = undefined;
+    if (parsed.selectedSongs && parsed.selectedSongs.length > 0) {
+      resolvedSongs = parsed.selectedSongs
+        .map((ss: { id: string; reason?: string }) => {
+          const found = MEDICAL_SONGS.find((s) => s.id === ss.id) || MEDICAL_SONGS.find((s) => s.title.toLowerCase() === ss.id.toLowerCase());
+          return found ? { ...found, recommendationReason: ss.reason } : null;
+        })
+        .filter(Boolean);
+    }
 
-    const game = (MEDICAL_GAMES.find((g) => g.id === parsed.selectedGameId) ||
-      MEDICAL_GAMES.find((g) => g.title.toLowerCase().includes(parsed.selectedGameTitle?.toLowerCase() || "")) ||
-      MEDICAL_GAMES[0]);
+    // Resolve books
+    let resolvedBooks: (MedicalBook & { recommendationReason?: string })[] | undefined = undefined;
+    if (parsed.selectedBooks && parsed.selectedBooks.length > 0) {
+      resolvedBooks = parsed.selectedBooks
+        .map((sb: { id: string; reason?: string }) => {
+          const found = MEDICAL_BOOKS.find((b) => b.id === sb.id) || MEDICAL_BOOKS.find((b) => b.title.toLowerCase() === sb.id.toLowerCase());
+          return found ? { ...found, recommendationReason: sb.reason } : null;
+        })
+        .filter(Boolean);
+    }
+
+    // Resolve games
+    let resolvedGames: (MedicalGame & { recommendationReason?: string })[] | undefined = undefined;
+    if (parsed.selectedGames && parsed.selectedGames.length > 0) {
+      resolvedGames = parsed.selectedGames
+        .map((sg: { id: string; reason?: string }) => {
+          const found = MEDICAL_GAMES.find((g) => g.id === sg.id) || MEDICAL_GAMES.find((g) => g.title.toLowerCase() === sg.id.toLowerCase());
+          return found ? { ...found, recommendationReason: sg.reason } : null;
+        })
+        .filter(Boolean);
+    }
 
     return {
       analysis: parsed.analysis || `Prescription for "${userQuery}":`,
       mentorNote: parsed.mentorNote,
-      movie: movie ? { ...movie, recommendationReason: parsed.movieReason } : undefined,
-      song: song ? { ...song, recommendationReason: parsed.songReason } : undefined,
-      book: book ? { ...book, recommendationReason: parsed.bookReason } : undefined,
-      game: game ? { ...game, recommendationReason: parsed.gameReason } : undefined,
+      requestedCategory: resultCategory,
+      movies: resolvedMovies?.length ? resolvedMovies : undefined,
+      songs: resolvedSongs?.length ? resolvedSongs : undefined,
+      books: resolvedBooks?.length ? resolvedBooks : undefined,
+      games: resolvedGames?.length ? resolvedGames : undefined,
       modelUsed: model,
     };
   } catch (error) {
     console.warn("[generateServerAiPrescription] Gemini cascade failed, activating Local Smart Fallback Engine:", error);
-    return getLocalSmartFallback(userQuery);
+    return getLocalSmartFallback(userQuery, categoryIntent);
   }
 }
 
 /**
- * Client-Side Service Function: Calls the secure server API proxy without exposing any API keys to the browser
+ * Client-Side Service Function: Calls the secure server API proxy
  */
 export async function getAiPrescription(userQuery: string): Promise<PrescriptionResult> {
+  const categoryIntent = detectCategoryIntent(userQuery);
+
   try {
     const res = await fetch("/api/ai-prescription", {
       method: "POST",
@@ -189,45 +373,140 @@ export async function getAiPrescription(userQuery: string): Promise<Prescription
     console.warn("[getAiPrescription] Server proxy request failed, falling back to local matcher:", err);
   }
 
-  // Fallback if offline or server route is unavailable
-  return getLocalSmartFallback(userQuery);
+  // Local fallback if offline or server route is unavailable
+  return getLocalSmartFallback(userQuery, categoryIntent);
 }
 
 /**
- * Local Smart Fallback Engine (Zero Downtime Guarantee)
+ * Smart Local Clinical Semantic Matcher (Zero Downtime & Accurate Category Filtering)
  */
-function getLocalSmartFallback(userQuery: string): PrescriptionResult {
+function getLocalSmartFallback(
+  userQuery: string,
+  categoryIntent: "movie" | "song" | "book" | "game" | "all" = "all"
+): PrescriptionResult {
   const q = userQuery.toLowerCase();
 
-  let matchedMovie = MEDICAL_MOVIES[0];
-  let matchedSong = MEDICAL_SONGS[0];
-  let matchedBook = MEDICAL_BOOKS[0];
-  let matchedGame = MEDICAL_GAMES[0];
+  // If user only asked for MOVIES
+  if (categoryIntent === "movie") {
+    const topMovies = scoreAndFilterItems(
+      MEDICAL_MOVIES,
+      userQuery,
+      (m) => `${m.title} ${m.medicalTheme} ${m.synopsis} ${m.moodTag} ${m.genres.join(" ")}`,
+      3
+    );
 
-  if (q.includes("surg") || q.includes("ot") || q.includes("operation") || q.includes("knife")) {
-    matchedMovie = MEDICAL_MOVIES.find((m) => m.id === "gifted-hands") ?? MEDICAL_MOVIES[4];
-    matchedBook = MEDICAL_BOOKS.find((b) => b.id === "complications-gawande") ?? MEDICAL_BOOKS[5];
-    matchedGame = MEDICAL_GAMES.find((g) => g.id === "surgeon-simulator-2013") ?? MEDICAL_GAMES[0];
-  } else if (q.includes("stress") || q.includes("viva") || q.includes("panic") || q.includes("exhaust")) {
-    matchedMovie = MEDICAL_MOVIES.find((m) => m.id === "munna-bhai-mbbs") ?? MEDICAL_MOVIES[0];
-    matchedSong = MEDICAL_SONGS.find((s) => s.id === "med-song-1") ?? MEDICAL_SONGS[0];
-    matchedBook = MEDICAL_BOOKS.find((b) => b.id === "the-house-of-god") ?? MEDICAL_BOOKS[4];
-  } else if (q.includes("patho") || q.includes("virus") || q.includes("infection") || q.includes("micro")) {
-    matchedMovie = MEDICAL_MOVIES.find((m) => m.id === "awakenings") ?? MEDICAL_MOVIES[3];
-    matchedBook = MEDICAL_BOOKS.find((b) => b.id === "robbins-pathology") ?? MEDICAL_BOOKS[1];
-    matchedGame = MEDICAL_GAMES.find((g) => g.id === "plague-inc") ?? MEDICAL_GAMES[2];
-  } else if (q.includes("night") || q.includes("duty") || q.includes("casualty") || q.includes("er")) {
-    matchedMovie = MEDICAL_MOVIES.find((m) => m.id === "bringing-out-the-dead") ?? MEDICAL_MOVIES[2];
-    matchedSong = MEDICAL_SONGS.find((s) => s.mood === "Late Night Study") ?? MEDICAL_SONGS[1];
+    return {
+      analysis: `🎬 Here are the top medical movie recommendations tailored for "${userQuery}":`,
+      mentorNote: "Immerse yourself in cinema that captures the human essence and resilience of clinical practice.",
+      requestedCategory: "movie",
+      movies: topMovies.map((m) => ({
+        ...m,
+        recommendationReason: `Focuses on ${m.medicalTheme} with profound medical takeaways for medicos.`,
+      })),
+      modelUsed: "Clinical Semantic Engine",
+    };
   }
 
+  // If user only asked for SONGS
+  if (categoryIntent === "song") {
+    const topSongs = scoreAndFilterItems(
+      MEDICAL_SONGS,
+      userQuery,
+      (s) => `${s.title} ${s.artist} ${s.medVibe} ${s.mood} ${s.lyricsSnippet}`,
+      3
+    );
+
+    return {
+      analysis: `🎵 Here are the top study anthems & tracks for "${userQuery}":`,
+      mentorNote: "Let the soundscapes calm your nervous system and lock in deep clinical concentration.",
+      requestedCategory: "song",
+      songs: topSongs.map((s) => ({
+        ...s,
+        recommendationReason: `Delivers a ${s.medVibe} vibe ideal for late-night study and mental endurance.`,
+      })),
+      modelUsed: "Clinical Semantic Engine",
+    };
+  }
+
+  // If user only asked for BOOKS
+  if (categoryIntent === "book") {
+    const topBooks = scoreAndFilterItems(
+      MEDICAL_BOOKS,
+      userQuery,
+      (b) => `${b.title} ${b.author} ${b.subjectOrNotion} ${b.category} ${b.summary}`,
+      3
+    );
+
+    return {
+      analysis: `📚 Here are the top medical books & literature recommendations for "${userQuery}":`,
+      mentorNote: "Words from master clinicians offer clarity and wisdom when medicine feels overwhelming.",
+      requestedCategory: "book",
+      books: topBooks.map((b) => ({
+        ...b,
+        recommendationReason: `Covers ${b.subjectOrNotion} with essential insights for doctor development.`,
+      })),
+      modelUsed: "Clinical Semantic Engine",
+    };
+  }
+
+  // If user only asked for GAMES
+  if (categoryIntent === "game") {
+    const topGames = scoreAndFilterItems(
+      MEDICAL_GAMES,
+      userQuery,
+      (g) => `${g.title} ${g.genre} ${g.description}`,
+      3
+    );
+
+    return {
+      analysis: `🎮 Here are the top surgery & hospital games for "${userQuery}":`,
+      mentorNote: "Unwind while training tactical decision-making and surgical precision.",
+      requestedCategory: "game",
+      games: topGames.map((g) => ({
+        ...g,
+        recommendationReason: `Engaging ${g.genre} mechanics testing clinical intuition and strategy.`,
+      })),
+      modelUsed: "Clinical Semantic Engine",
+    };
+  }
+
+  // Default: General balanced prescription (1 Movie, 1 Song, 1 Book, 1 Game)
+  const topMovie = scoreAndFilterItems(
+    MEDICAL_MOVIES,
+    userQuery,
+    (m) => `${m.title} ${m.medicalTheme} ${m.synopsis} ${m.moodTag}`,
+    1
+  )[0] || MEDICAL_MOVIES[0];
+
+  const topSong = scoreAndFilterItems(
+    MEDICAL_SONGS,
+    userQuery,
+    (s) => `${s.title} ${s.artist} ${s.medVibe} ${s.mood}`,
+    1
+  )[0] || MEDICAL_SONGS[0];
+
+  const topBook = scoreAndFilterItems(
+    MEDICAL_BOOKS,
+    userQuery,
+    (b) => `${b.title} ${b.author} ${b.subjectOrNotion} ${b.category}`,
+    1
+  )[0] || MEDICAL_BOOKS[0];
+
+  const topGame = scoreAndFilterItems(
+    MEDICAL_GAMES,
+    userQuery,
+    (g) => `${g.title} ${g.genre} ${g.description}`,
+    1
+  )[0] || MEDICAL_GAMES[0];
+
   return {
-    analysis: `Prescription for "${userQuery}" (Clinical Matcher):`,
+    analysis: `🩺 Full Clinical Prescription for "${userQuery}":`,
     mentorNote: "Stay steadfast, Doctor. Every great clinician was once a tired student pushing through the night.",
-    movie: { ...matchedMovie, recommendationReason: "Matches your clinical focus and provides genuine healer inspiration." },
-    song: { ...matchedSong, recommendationReason: "Calms sympathetic hyperactivity and sharpens deep study focus." },
-    book: { ...matchedBook, recommendationReason: "Offers profound clinical insights and perspective from veteran physicians." },
-    game: { ...matchedGame, recommendationReason: "Engages hands-on surgical reflexes and strategic clinical management." },
-    modelUsed: "Local Smart Heuristic Engine",
+    requestedCategory: "all",
+    movies: [{ ...topMovie, recommendationReason: `Inspiring clinical cinema focusing on ${topMovie.medicalTheme}.` }],
+    songs: [{ ...topSong, recommendationReason: `Calms sympathetic hyperactivity and sharpens deep study focus.` }],
+    books: [{ ...topBook, recommendationReason: `Offers profound clinical perspective and doctor wisdom.` }],
+    games: [{ ...topGame, recommendationReason: `Hands-on ${topGame.genre} for clinical reflexes & strategy.` }],
+    modelUsed: "Clinical Semantic Engine",
   };
 }
