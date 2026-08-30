@@ -36,20 +36,27 @@ interface AiSuggestionHubProps {
   onOpenChessGame?: () => void;
 }
 
+import { getAiPrescription, PrescriptionResult } from "../services/aiPrescriptionService";
+
+interface ChatMessage {
+  role: "user" | "ai";
+  content?: string;
+  prescription?: PrescriptionResult;
+  isGuardrailWarning?: boolean;
+}
+
 export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame }: AiSuggestionHubProps) {
   const [activeTab, setActiveTab] = useState<"movies" | "songs" | "books" | "games" | "ai_ask">("movies");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  // AI Chatbot State with strict guardrails
+  // AI Chatbot State with live Gemini cascade
   const [aiPrompt, setAiPrompt] = useState<string>("");
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
-  const [chatHistory, setChatHistory] = useState<
-    { role: "user" | "ai"; content: string; isGuardrailWarning?: boolean }[]
-  >([
+  const [chatHistory, setChatHistory] = useState<ChatMessage[]>([
     {
       role: "ai",
       content:
-        "Welcome Healer! I am your AI Medical Recommender. Ask me for recommendations on Medical Movies, MBBS Anthems, Medical Books, or Surgery Games for any mood or clinical feeling!",
+        "Welcome Healer! I am your Chief AI Medical Prescriptions Mentor powered by Gemini. Ask me for personalized prescriptions for Medical Movies, MBBS Study Anthems, Clinical Books, or Surgery Games for any mood or clinical stress!",
     },
   ]);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
@@ -105,8 +112,8 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
     );
   });
 
-  // Strict AI Recommendation Guardrail Logic
-  const handleSendAiPrompt = () => {
+  // Live Gemini AI Prescriptions Handler
+  const handleSendAiPrompt = async () => {
     if (!aiPrompt.trim() || isGenerating) return;
 
     const userText = aiPrompt.trim();
@@ -114,75 +121,39 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
     setAiPrompt("");
     setIsGenerating(true);
 
-    setTimeout(() => {
-      const q = userText.toLowerCase();
+    try {
+      const result = await getAiPrescription(userText);
 
-      // Check if prompt is completely unrelated to medical recommendations
-      const isRecommendationQuery =
-        q.includes("movie") ||
-        q.includes("song") ||
-        q.includes("music") ||
-        q.includes("qawwali") ||
-        q.includes("book") ||
-        q.includes("read") ||
-        q.includes("game") ||
-        q.includes("play") ||
-        q.includes("chess") ||
-        q.includes("recommend") ||
-        q.includes("suggest") ||
-        q.includes("study") ||
-        q.includes("viva") ||
-        q.includes("stress") ||
-        q.includes("hostel") ||
-        q.includes("surgery") ||
-        q.includes("med") ||
-        q.includes("mbbs");
-
-      const isNonMedicalTopic =
-        q.includes("recipe") ||
-        q.includes("food") ||
-        q.includes("crypto") ||
-        q.includes("python") ||
-        q.includes("javascript") ||
-        q.includes("cricket") ||
-        q.includes("politic");
-
-      if (isNonMedicalTopic || !isRecommendationQuery) {
+      if (result.isGuardrailWarning) {
         setChatHistory((prev) => [
           ...prev,
           {
             role: "ai",
             isGuardrailWarning: true,
-            content:
-              "⚠️ Notice: I am an AI Recommender dedicated ONLY to recommending Medical Movies, Anthems/Songs, Medical Books, and Surgery Games for medical students and healers. Please ask me for recommendations in these 4 areas!",
+            content: result.rawText || result.analysis,
           },
         ]);
       } else {
-        // Generate contextual recommendation
-        let matchedMovie = MEDICAL_MOVIES[0]!;
-        let matchedSong = MEDICAL_SONGS[0]!;
-        let matchedBook = MEDICAL_BOOKS[0]!;
-        let matchedGame = MEDICAL_GAMES[0]!;
-
-        if (q.includes("surg") || q.includes("ot") || q.includes("operation")) {
-          matchedMovie = (MEDICAL_MOVIES.find((m) => m.id === "gifted-hands") ?? MEDICAL_MOVIES[4])!;
-          matchedBook = (MEDICAL_BOOKS.find((b) => b.id === "complications-gawande") ?? MEDICAL_BOOKS[5])!;
-          matchedGame = (MEDICAL_GAMES.find((g) => g.id === "surgeon-simulator-2013") ?? MEDICAL_GAMES[0])!;
-        } else if (q.includes("stress") || q.includes("viva") || q.includes("panic")) {
-          matchedMovie = (MEDICAL_MOVIES.find((m) => m.id === "munna-bhai-mbbs") ?? MEDICAL_MOVIES[0])!;
-          matchedBook = (MEDICAL_BOOKS.find((b) => b.id === "the-house-of-god") ?? MEDICAL_BOOKS[4])!;
-        } else if (q.includes("patho") || q.includes("disease") || q.includes("virus")) {
-          matchedMovie = (MEDICAL_MOVIES.find((m) => m.id === "awakenings") ?? MEDICAL_MOVIES[3])!;
-          matchedBook = (MEDICAL_BOOKS.find((b) => b.id === "robbins-pathology") ?? MEDICAL_BOOKS[1])!;
-          matchedGame = (MEDICAL_GAMES.find((g) => g.id === "plague-inc") ?? MEDICAL_GAMES[2])!;
-        }
-
-        const reply = `🩺 **AI Medical Prescription for "${userText}":**\n\n🎬 **Movie Pick**: *${matchedMovie.title}* (${matchedMovie.year}) — ${matchedMovie.medicalTheme}. Watch free on ${matchedMovie.watchPlatform}.\n\n🎵 **Anthem Pick**: *${matchedSong.title}* — ${matchedSong.medVibe}\n\n📚 **Book Pick**: *${matchedBook.title}* by ${matchedBook.author} — ${matchedBook.summary}\n\n🎮 **Game Pick**: *${matchedGame.title}* (${matchedGame.genre}) — Available on ${matchedGame.platformBadge}.`;
-
-        setChatHistory((prev) => [...prev, { role: "ai", content: reply }]);
+        setChatHistory((prev) => [
+          ...prev,
+          {
+            role: "ai",
+            prescription: result,
+          },
+        ]);
       }
+    } catch (err) {
+      console.error("AI Error:", err);
+      setChatHistory((prev) => [
+        ...prev,
+        {
+          role: "ai",
+          content: "🩺 Could not connect to Gemini models. Falling back to local clinical knowledgebase.",
+        },
+      ]);
+    } finally {
       setIsGenerating(false);
-    }, 1000);
+    }
   };
 
   const handleCopy = (text: string, index: number) => {
@@ -523,7 +494,7 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
 
         {/* TAB 5: 🤖 ASK AI RECOMMENDER */}
         {activeTab === "ai_ask" && (
-          <div className="flex flex-1 flex-col overflow-hidden p-4 sm:p-6">
+          <div className="flex flex-1 flex-col overflow-hidden p-3 sm:p-6">
             <div className="flex-1 overflow-y-auto space-y-3.5 pr-2 custom-scrollbar">
               {chatHistory.map((msg, idx) => (
                 <div
@@ -539,26 +510,163 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
                         : "bg-neutral-900 border border-white/15 text-white"
                     }`}
                   >
-                    <div className="whitespace-pre-wrap">{msg.content}</div>
-                    {msg.role === "ai" && !msg.isGuardrailWarning && (
-                      <button
-                        onClick={() => handleCopy(msg.content, idx)}
-                        className="mt-2 flex items-center gap-1 text-[10px] text-amber-300 hover:underline"
-                      >
-                        {copiedIndex === idx ? (
-                          <>
-                            <Check className="h-3 w-3" /> Copied!
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="h-3 w-3" /> Copy Prescription
-                          </>
+                    {/* Standard Text or Guardrail */}
+                    {msg.content && <div className="whitespace-pre-wrap">{msg.content}</div>}
+
+                    {/* Structured AI Prescription Result with Real Links */}
+                    {msg.prescription && (
+                      <div className="space-y-3">
+                        {/* Analysis & Model Badge */}
+                        <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-2">
+                          <p className="font-semibold text-amber-300 text-xs sm:text-sm">
+                            {msg.prescription.analysis}
+                          </p>
+                          {msg.prescription.modelUsed && (
+                            <span className="shrink-0 rounded-full bg-amber-400/20 border border-amber-400/40 px-2 py-0.5 font-mono text-[9px] font-bold text-amber-300">
+                              {msg.prescription.modelUsed.replace("models/", "")}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* 4 Prescription Cards Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                          {/* 1. Movie Pick */}
+                          {msg.prescription.movie && (
+                            <div className="flex flex-col justify-between rounded-xl border border-amber-400/30 bg-black/40 p-3">
+                              <div>
+                                <div className="flex items-center justify-between text-[10px] text-amber-400 font-mono mb-1">
+                                  <span className="flex items-center gap-1 font-bold">
+                                    <Film className="h-3 w-3" /> MOVIE PICK
+                                  </span>
+                                  <span>★ {msg.prescription.movie.imdbRating}</span>
+                                </div>
+                                <h4 className="font-bold text-xs text-white line-clamp-1">
+                                  {msg.prescription.movie.title} ({msg.prescription.movie.year})
+                                </h4>
+                                <p className="text-[10px] text-white/70 mt-1 line-clamp-2 italic">
+                                  "{msg.prescription.movie.recommendationReason || msg.prescription.movie.medicoTakeaway}"
+                                </p>
+                              </div>
+                              <a
+                                href={msg.prescription.movie.watchUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-2.5 inline-flex items-center justify-center gap-1 rounded-lg bg-amber-400 px-2.5 py-1 text-[10px] font-black text-neutral-950 hover:bg-amber-300 transition-all"
+                              >
+                                <Play className="h-2.5 w-2.5" />
+                                <span>Watch on {msg.prescription.movie.watchPlatform}</span>
+                              </a>
+                            </div>
+                          )}
+
+                          {/* 2. Song Pick */}
+                          {msg.prescription.song && (
+                            <div className="flex flex-col justify-between rounded-xl border border-emerald-400/30 bg-black/40 p-3">
+                              <div>
+                                <div className="flex items-center justify-between text-[10px] text-emerald-400 font-mono mb-1">
+                                  <span className="flex items-center gap-1 font-bold">
+                                    <Music className="h-3 w-3" /> STUDY ANTHEM
+                                  </span>
+                                  <span>{msg.prescription.song.duration}</span>
+                                </div>
+                                <h4 className="font-bold text-xs text-white line-clamp-1">
+                                  {msg.prescription.song.title}
+                                </h4>
+                                <p className="text-[10px] text-white/70 mt-1 line-clamp-2 italic">
+                                  "{msg.prescription.song.recommendationReason || msg.prescription.song.medVibe}"
+                                </p>
+                              </div>
+                              <a
+                                href={`https://www.youtube.com/watch?v=${msg.prescription.song.youtubeId}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-2.5 inline-flex items-center justify-center gap-1 rounded-lg bg-emerald-400 px-2.5 py-1 text-[10px] font-black text-neutral-950 hover:bg-emerald-300 transition-all"
+                              >
+                                <Radio className="h-2.5 w-2.5" />
+                                <span>Play on YouTube</span>
+                              </a>
+                            </div>
+                          )}
+
+                          {/* 3. Book Pick */}
+                          {msg.prescription.book && (
+                            <div className="flex flex-col justify-between rounded-xl border border-sky-400/30 bg-black/40 p-3">
+                              <div>
+                                <div className="flex items-center justify-between text-[10px] text-sky-400 font-mono mb-1">
+                                  <span className="flex items-center gap-1 font-bold">
+                                    <BookOpen className="h-3 w-3" /> CLINICAL BOOK
+                                  </span>
+                                  <span>★ {msg.prescription.book.rating}</span>
+                                </div>
+                                <h4 className="font-bold text-xs text-white line-clamp-1">
+                                  {msg.prescription.book.title}
+                                </h4>
+                                <p className="text-[10px] text-white/70 mt-1 line-clamp-2 italic">
+                                  "{msg.prescription.book.recommendationReason || msg.prescription.book.summary}"
+                                </p>
+                              </div>
+                              <a
+                                href={msg.prescription.book.readUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-2.5 inline-flex items-center justify-center gap-1 rounded-lg bg-sky-400 px-2.5 py-1 text-[10px] font-black text-neutral-950 hover:bg-sky-300 transition-all"
+                              >
+                                <ExternalLink className="h-2.5 w-2.5" />
+                                <span>Read Free</span>
+                              </a>
+                            </div>
+                          )}
+
+                          {/* 4. Game Pick */}
+                          {msg.prescription.game && (
+                            <div className="flex flex-col justify-between rounded-xl border border-indigo-400/30 bg-black/40 p-3">
+                              <div>
+                                <div className="flex items-center justify-between text-[10px] text-indigo-400 font-mono mb-1">
+                                  <span className="flex items-center gap-1 font-bold">
+                                    <Gamepad2 className="h-3 w-3" /> SURGERY GAME
+                                  </span>
+                                  <span>★ {msg.prescription.game.rating}</span>
+                                </div>
+                                <h4 className="font-bold text-xs text-white line-clamp-1">
+                                  {msg.prescription.game.title}
+                                </h4>
+                                <p className="text-[10px] text-white/70 mt-1 line-clamp-2 italic">
+                                  "{msg.prescription.game.recommendationReason || msg.prescription.game.description}"
+                                </p>
+                              </div>
+                              <a
+                                href={msg.prescription.game.downloadUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-2.5 inline-flex items-center justify-center gap-1 rounded-lg bg-indigo-400 px-2.5 py-1 text-[10px] font-black text-neutral-950 hover:bg-indigo-300 transition-all"
+                              >
+                                <Download className="h-2.5 w-2.5" />
+                                <span>Play on {msg.prescription.game.platformBadge}</span>
+                              </a>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Mentor Note */}
+                        {msg.prescription.mentorNote && (
+                          <div className="p-2.5 rounded-xl bg-amber-400/10 border border-amber-400/30 text-[11px] text-amber-200">
+                            <strong>🩺 Mentor Note:</strong> {msg.prescription.mentorNote}
+                          </div>
                         )}
-                      </button>
+                      </div>
                     )}
                   </div>
                 </div>
               ))}
+
+              {isGenerating && (
+                <div className="flex justify-start">
+                  <div className="rounded-2xl bg-neutral-900 border border-amber-400/40 p-3.5 text-xs text-amber-300 shadow-lg flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 animate-spin" />
+                    <span>Gemini AI is analyzing clinical database & generating prescription...</span>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="mt-3 flex items-center gap-2 border-t border-white/10 pt-3">
