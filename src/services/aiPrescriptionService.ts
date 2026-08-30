@@ -399,11 +399,12 @@ Prescribe the best matching clinical entertainment and literature in JSON.`;
 }
 
 /**
- * Client-Side Service Function: Calls the secure server API proxy
+ * Client-Side Service Function: Calls the secure server API proxy or direct Gemini cascade
  */
 export async function getAiPrescription(userQuery: string): Promise<PrescriptionResult> {
   const categoryIntent = detectCategoryIntent(userQuery);
 
+  // 1. Try server proxy endpoint first
   try {
     const res = await fetch("/api/ai-prescription", {
       method: "POST",
@@ -413,15 +414,29 @@ export async function getAiPrescription(userQuery: string): Promise<Prescription
 
     if (res.ok) {
       const data = await res.json();
-      if (data && !data.error) {
+      if (data && !data.error && data.chatMessage) {
         return data as PrescriptionResult;
       }
     }
   } catch (err) {
-    console.warn("[getAiPrescription] Server proxy request failed, falling back to local matcher:", err);
+    console.warn("[getAiPrescription] Server proxy not available:", err);
   }
 
-  // Local fallback if offline or server route is unavailable
+  // 2. Direct Gemini Multi-Model Cascade execution
+  const activeKey =
+    (typeof import.meta !== "undefined" && import.meta.env?.VITE_GEMINI_API_KEY) ||
+    (typeof process !== "undefined" && process.env?.GEMINI_API_KEY) ||
+    "";
+
+  if (activeKey) {
+    try {
+      return await generateServerAiPrescription(userQuery, activeKey);
+    } catch (err) {
+      console.warn("[getAiPrescription] Direct Gemini cascade failed:", err);
+    }
+  }
+
+  // 3. Fallback only if completely offline or without internet
   return getLocalSmartFallback(userQuery, categoryIntent);
 }
 
