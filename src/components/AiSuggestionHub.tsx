@@ -528,6 +528,13 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
                           )}
                         </div>
 
+                        {/* Conversational Chat Message & Honest Elaboration */}
+                        {msg.prescription.chatMessage && (
+                          <div className="rounded-xl bg-white/[0.05] border border-white/10 p-3 text-neutral-200 text-xs sm:text-[13px] leading-relaxed shadow-inner">
+                            <p className="whitespace-pre-wrap">{msg.prescription.chatMessage}</p>
+                          </div>
+                        )}
+
                         {/* Category Prescription Cards Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                           {/* Movies List */}
