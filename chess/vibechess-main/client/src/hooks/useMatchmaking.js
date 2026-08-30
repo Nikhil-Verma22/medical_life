@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import useSocketContext from "../context/useSocketContext";
+import { getOrSetInitialUsername } from "../data/randomName";
 
 export const useMatchmaking = (startSearchSound, stopSearchSound) => {
 	const [isSearching, setIsSearching] = useState(false);
@@ -21,12 +22,11 @@ export const useMatchmaking = (startSearchSound, stopSearchSound) => {
 			return;
 		}
 
-		const username = localStorage.getItem("username");
+		let username = localStorage.getItem("username");
 		const selectedFlag = localStorage.getItem("selectedFlag");
 
 		if (!username) {
-			toast.error("Please set a username first");
-			return;
+			username = getOrSetInitialUsername();
 		}
 
 		setIsSearching(true);

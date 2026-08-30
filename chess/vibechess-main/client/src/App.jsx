@@ -21,18 +21,20 @@ const WelcomeScreen = React.lazy(() =>
 );
 const Menu = React.lazy(() => import("./components/menu/Menu"));
 import LandingAudio from "./components/menu/LandingAudio";
+import { getOrSetInitialUsername } from "./data/randomName";
+
 const App = () => {
 	const theme = useTheme();
-	const storedUsername = window.localStorage.getItem("username");
+	const storedUsername = getOrSetInitialUsername();
 	const storedFlag = window.localStorage.getItem("selectedFlag");
 	const [username, setUsername] = useState(storedUsername);
 	const [flag, setFlag] = useState(storedFlag);
-	const [usernameSubmitted, setUsernameSubmitted] = useState(false);
+	const [usernameSubmitted, setUsernameSubmitted] = useState(true);
 	useEffect(() => {
-		if (username && usernameSubmitted) {
+		if (username) {
 			window.localStorage.setItem("username", username);
 		}
-	}, [username, usernameSubmitted]);
+	}, [username]);
 	useEffect(() => {
 		const applyBackgroundEffect = (effect) => {
 			document.body.classList.remove(

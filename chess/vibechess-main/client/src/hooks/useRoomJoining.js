@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import useSocketContext from "../context/useSocketContext";
+import { getOrSetInitialUsername } from "../data/randomName";
 
 export const useRoomJoining = () => {
 	const [enteredRoomCode, setEnteredRoomCode] = useState("");
@@ -21,7 +22,10 @@ export const useRoomJoining = () => {
 			return;
 		}
 
-		const username = localStorage.getItem("username");
+		let username = localStorage.getItem("username");
+		if (!username) {
+			username = getOrSetInitialUsername();
+		}
 		const selectedFlag = localStorage.getItem("selectedFlag") || "ph";
 
 		toast.info("Joining room...");

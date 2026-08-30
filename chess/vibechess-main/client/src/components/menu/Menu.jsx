@@ -57,7 +57,7 @@ import SlidingMenuOverlay from "./SlidingMenuOverlay";
 import GameIdeaModal from "./GameIdeaModal";
 import { CircleFlag } from "react-circle-flags";
 import FlagSelectorModal from "../common/modal/FlagSelectorModal";
-import { generateRandomUsername } from "../../data/randomName";
+import { generateRandomUsername, getOrSetInitialUsername } from "../../data/randomName";
 import { validateUsername } from "../../utils/usernameValidation";
 import { toast } from "react-toastify";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
@@ -96,14 +96,14 @@ const Menu = () => {
 	const [isGameIdeaOpen, setIsGameIdeaOpen] = useState(false);
 
 	const [currentUsername, setCurrentUsername] = useState(
-		() => window.localStorage.getItem("username") || "Player"
+		() => getOrSetInitialUsername()
 	);
 	const [currentFlag, setCurrentFlag] = useState(
 		() => window.localStorage.getItem("selectedFlag") || "in"
 	);
 	const [isEditingUsername, setIsEditingUsername] = useState(false);
 	const [editUsernameVal, setEditUsernameVal] = useState(
-		() => window.localStorage.getItem("username") || "Player"
+		() => getOrSetInitialUsername()
 	);
 	const [isFlagModalOpen, setIsFlagModalOpen] = useState(false);
 
