@@ -528,96 +528,222 @@ const Menu = () => {
 					isAnimating={isSearching}
 				/>
 
-				{/* Private Room */}
+				{/* Merged Friendly Battle Card (Play with Friend + Room Code) */}
 				<Box
 					sx={{
+						width: isMobile ? "min(92vw, 320px)" : "25vh",
+						minHeight: isMobile ? "auto" : "210px",
+						margin: isMobile ? "3px 0" : "0 6px",
+						backgroundColor: "rgba(0, 0, 0, 0.45)",
+						backdropFilter: "blur(12px)",
+						border: "2px solid rgba(33, 118, 255, 0.55)",
+						borderRadius: isMobile ? "16px" : "18px",
+						boxShadow: "0 4px 22px rgba(33, 118, 255, 0.3)",
+						overflow: "hidden",
 						display: "flex",
 						flexDirection: "column",
-						alignItems: "center",
-						width: isMobile ? "100%" : "auto",
+						transition: "all 0.3s ease",
+						"&:hover": {
+							borderColor: "#2176ff",
+							boxShadow: "0 8px 30px rgba(33, 118, 255, 0.5)",
+						},
 					}}
 				>
-					<MenuButton
+					{/* Top Action: Create Friend Room */}
+					<Button
 						onClick={handlePlayWithFriendWrapper}
-						icon={PlayWithFriendIcon}
-						label="PLAY WITH FRIEND"
-						backgroundColor="primary.main"
-						description="Create a room and invite your friend for a multiplayer match."
-					/>
-
-					<Slide direction="up" in={true} mountOnEnter unmountOnExit>
+						variant="text"
+						sx={{
+							width: "100%",
+							height: isMobile ? "46px" : "140px",
+							minHeight: isMobile ? "46px" : "130px",
+							padding: isMobile ? "8px 14px" : "14px 12px",
+							borderRadius: 0,
+							display: "flex",
+							flexDirection: isMobile ? "row" : "column",
+							alignItems: "center",
+							justifyContent: isMobile ? "flex-start" : "center",
+							gap: isMobile ? "12px" : "0",
+							"&:hover": {
+								backgroundColor: "rgba(33, 118, 255, 0.15)",
+							},
+						}}
+					>
 						<Box
 							sx={{
-								width: isMobile ? "min(92vw, 340px)" : "25vh",
-								marginTop: isMobile ? "6px" : "4px",
-								backgroundColor: "rgba(0, 0, 0, 0.4)",
-								backdropFilter: "blur(12px)",
-								borderRadius: "14px",
-								border: "2px solid rgba(255, 255, 255, 0.2)",
-								padding: "4px",
-								boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
-								transition: "all 0.3s ease",
-								"&:hover": {
-									borderColor: "#2176ff",
-									backgroundColor: "rgba(0, 0, 0, 0.6)",
-								},
+								width: isMobile ? "32px" : "44px",
+								height: isMobile ? "32px" : "44px",
+								borderRadius: "10px",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								backgroundColor: "rgba(33, 118, 255, 0.25)",
+								marginBottom: isMobile ? 0 : "8px",
+								border: "1.5px solid rgba(33, 118, 255, 0.4)",
+								flexShrink: 0,
 							}}
 						>
-							<TextField
-								label="Enter Room Code"
-								variant="outlined"
-								size="small"
-								fullWidth
-								value={enteredRoomCode}
-								onChange={(e) =>
-									setEnteredRoomCode(e.target.value.toUpperCase())
-								}
-								onKeyDown={(e) =>
-									e.key === "Enter" && handleJoinRoomWrapper()
-								}
-								sx={{
-									"& .MuiOutlinedInput-root": {
-										color: "#ffffff",
-										fontSize: "0.95rem",
-										fontFamily: "'Bebas Neue', cursive",
-										letterSpacing: "1px",
-										"& fieldset": { border: "none" },
-									},
-									"& .MuiInputLabel-root": {
-										color: "#ffffff",
-										fontSize: "0.85rem",
-										textShadow: "0 1px 3px rgba(0,0,0,0.8)",
-									},
-								}}
-								InputProps={{
-									endAdornment: (
-										<InputAdornment position="end">
-											<IconButton
-												sx={{
-													color: "#ffffff",
-													backgroundColor: "#000000",
-													borderRadius: "8px",
-													padding: "6px",
-													"&:hover": {
-														backgroundColor: "#222222",
-														color: "#ffffff",
-													},
-												}}
-												disabled={
-													!isConnected ||
-													!enteredRoomCode.trim()
-												}
-												onClick={handleJoinRoomWrapper}
-												edge="end"
-											>
-												<ArrowIcon sx={{ fontSize: "1rem" }} />
-											</IconButton>
-										</InputAdornment>
-									),
+							<img
+								src={PlayWithFriendIcon}
+								alt="Play with Friend"
+								style={{
+									width: isMobile ? "18px" : "26px",
+									height: isMobile ? "18px" : "26px",
+									filter: "brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.8))",
 								}}
 							/>
 						</Box>
-					</Slide>
+						<Typography
+							variant="h6"
+							sx={{
+								fontFamily: "'Bebas Neue', cursive",
+								fontSize: isMobile ? "1.15rem" : "1.35rem",
+								letterSpacing: "1px",
+								color: "#ffffff",
+								marginBottom: isMobile ? 0 : "2px",
+								textAlign: isMobile ? "left" : "center",
+								lineHeight: 1.1,
+								textShadow: "0 2px 4px rgba(0, 0, 0, 0.9)",
+								flexGrow: isMobile ? 1 : 0,
+							}}
+						>
+							PLAY WITH FRIEND
+						</Typography>
+						<Typography
+							variant="caption"
+							sx={{
+								color: "rgba(255, 255, 255, 0.75)",
+								fontSize: "0.72rem",
+								textAlign: "center",
+								lineHeight: 1.2,
+								fontFamily: "'IBM Plex Sans', sans-serif",
+								textTransform: "none",
+								display: isMobile ? "none" : "-webkit-box",
+								WebkitLineClamp: 2,
+								WebkitBoxOrient: "vertical",
+								overflow: "hidden",
+							}}
+						>
+							Create a room and invite a friend
+						</Typography>
+						{isMobile && (
+							<Typography
+								sx={{
+									fontSize: "0.7rem",
+									fontWeight: 700,
+									color: "#60a5fa",
+									backgroundColor: "rgba(33, 118, 255, 0.2)",
+									px: 1,
+									py: 0.3,
+									borderRadius: "6px",
+									letterSpacing: "0.5px",
+								}}
+							>
+								CREATE
+							</Typography>
+						)}
+					</Button>
+
+					{/* Divider: OR JOIN WITH CODE */}
+					<Box
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							px: 1.5,
+							py: isMobile ? 0.3 : 0.5,
+							borderTop: "1px dashed rgba(33, 118, 255, 0.35)",
+							backgroundColor: "rgba(0, 0, 0, 0.25)",
+						}}
+					>
+						<Typography
+							sx={{
+								fontFamily: "'IBM Plex Sans', sans-serif",
+								fontSize: isMobile ? "0.62rem" : "0.7rem",
+								fontWeight: 700,
+								color: "#93c5fd",
+								letterSpacing: "1px",
+								textTransform: "uppercase",
+							}}
+						>
+							— OR JOIN WITH CODE —
+						</Typography>
+					</Box>
+
+					{/* Bottom Action: Join with Room Code */}
+					<Box
+						sx={{
+							padding: isMobile ? "4px 8px 6px" : "6px 10px 10px",
+							backgroundColor: "rgba(0, 0, 0, 0.2)",
+						}}
+					>
+						<TextField
+							placeholder="ENTER ROOM CODE"
+							variant="outlined"
+							size="small"
+							fullWidth
+							value={enteredRoomCode}
+							onChange={(e) =>
+								setEnteredRoomCode(e.target.value.toUpperCase())
+							}
+							onKeyDown={(e) =>
+								e.key === "Enter" && handleJoinRoomWrapper()
+							}
+							sx={{
+								"& .MuiOutlinedInput-root": {
+									color: "#ffffff",
+									fontSize: isMobile ? "0.85rem" : "0.95rem",
+									fontFamily: "'Bebas Neue', cursive",
+									letterSpacing: "1.5px",
+									backgroundColor: "rgba(0, 0, 0, 0.4)",
+									borderRadius: "10px",
+									border: "1px solid rgba(33, 118, 255, 0.3)",
+									paddingRight: "4px",
+									"& fieldset": { border: "none" },
+									"&:hover": {
+										borderColor: "#2176ff",
+									},
+								},
+								"& .MuiInputBase-input": {
+									padding: isMobile ? "6px 10px" : "8px 12px",
+									textAlign: "center",
+									"&::placeholder": {
+										color: "rgba(255, 255, 255, 0.5)",
+										opacity: 1,
+									},
+								},
+							}}
+							InputProps={{
+								endAdornment: (
+									<InputAdornment position="end">
+										<IconButton
+											sx={{
+												color: "#ffffff",
+												backgroundColor: "#2176ff",
+												borderRadius: "8px",
+												padding: isMobile ? "4px" : "6px",
+												"&:hover": {
+													backgroundColor: "#1960d2",
+												},
+												"&.Mui-disabled": {
+													backgroundColor: "rgba(255, 255, 255, 0.1)",
+													color: "rgba(255, 255, 255, 0.3)",
+												},
+											}}
+											disabled={
+												!isConnected ||
+												!enteredRoomCode.trim()
+											}
+											onClick={handleJoinRoomWrapper}
+											edge="end"
+										>
+											<ArrowIcon sx={{ fontSize: isMobile ? "0.85rem" : "1rem" }} />
+										</IconButton>
+									</InputAdornment>
+								),
+							}}
+						/>
+					</Box>
 				</Box>
 
 				<MenuButton

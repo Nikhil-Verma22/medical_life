@@ -38,18 +38,18 @@ const MenuButton = React.memo(
 					onClick={onClick}
 					variant="contained"
 					sx={{
-						width: isMobile ? "min(92vw, 340px)" : "25vh",
-						height: isMobile ? "auto" : "25vh",
-						minHeight: isMobile ? "68px" : "210px",
-						margin: isMobile ? "4px 0" : "0 6px",
+						width: isMobile ? "min(92vw, 320px)" : "25vh",
+						height: isMobile ? "48px" : "25vh",
+						minHeight: isMobile ? "48px" : "210px",
+						margin: isMobile ? "3px 0" : "0 6px",
 						backgroundColor: "rgba(0, 0, 0, 0.4)",
 						backdropFilter: "blur(12px)",
 						border: "2px solid rgba(255, 255, 255, 0.2)",
-						borderRadius: "18px",
+						borderRadius: "16px",
 						position: "relative",
 						overflow: "hidden",
-						boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
-						transition: "all 0.3s ease",
+						boxShadow: "0 4px 18px rgba(0, 0, 0, 0.45)",
+						transition: "all 0.25s ease",
 						animation: isAnimating ? "bounce 0.812s infinite" : "none",
 						...bounceAnimation,
 						"&:hover": {
@@ -59,39 +59,41 @@ const MenuButton = React.memo(
 							boxShadow: "0 8px 30px rgba(33, 118, 255, 0.4)",
 						},
 						"&.MuiButton-root": {
-							padding: isMobile ? "10px 16px" : "16px 12px",
+							padding: isMobile ? "8px 14px" : "16px 12px",
 						},
 					}}
 				>
 					<Box
 						sx={{
 							display: "flex",
-							flexDirection: "column",
+							flexDirection: isMobile ? "row" : "column",
 							alignItems: "center",
-							justifyContent: "center",
+							justifyContent: isMobile ? "flex-start" : "center",
 							width: "100%",
 							height: "100%",
+							gap: isMobile ? "12px" : "0",
 						}}
 					>
 						<Box
 							sx={{
-								width: "44px",
-								height: "44px",
-								borderRadius: "12px",
+								width: isMobile ? "32px" : "44px",
+								height: isMobile ? "32px" : "44px",
+								borderRadius: "10px",
 								display: "flex",
 								alignItems: "center",
 								justifyContent: "center",
-								backgroundColor: "rgba(0, 0, 0, 0.3)",
-								marginBottom: "8px",
-								border: "1.5px solid #000000",
+								backgroundColor: "rgba(0, 0, 0, 0.35)",
+								marginBottom: isMobile ? "0" : "8px",
+								border: "1.5px solid rgba(255, 255, 255, 0.15)",
+								flexShrink: 0,
 							}}
 						>
 							<img
 								src={icon}
 								alt={label}
 								style={{
-									width: "26px",
-									height: "26px",
+									width: isMobile ? "18px" : "26px",
+									height: isMobile ? "18px" : "26px",
 									filter: "brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.8))",
 								}}
 							/>
@@ -100,13 +102,14 @@ const MenuButton = React.memo(
 							variant="h6"
 							sx={{
 								fontFamily: "'Bebas Neue', cursive",
-								fontSize: "1.4rem",
+								fontSize: isMobile ? "1.15rem" : "1.4rem",
 								letterSpacing: "1px",
 								color: "#ffffff",
-								marginBottom: "4px",
-								textAlign: "center",
+								marginBottom: isMobile ? "0" : "4px",
+								textAlign: isMobile ? "left" : "center",
 								lineHeight: 1.1,
 								textShadow: "0 2px 4px rgba(0, 0, 0, 0.9)",
+								flexGrow: isMobile ? 1 : 0,
 							}}
 						>
 							{label}
@@ -131,7 +134,7 @@ const MenuButton = React.memo(
 							{description}
 						</Typography>
 						{extraContent && (
-							<Box sx={{ marginTop: "8px" }}>
+							<Box sx={{ marginTop: isMobile ? 0 : "8px", marginLeft: isMobile ? "auto" : 0, flexShrink: 0 }}>
 								{extraContent}
 							</Box>
 						)}
