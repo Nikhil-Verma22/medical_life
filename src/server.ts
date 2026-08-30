@@ -44,9 +44,36 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+import { generateServerAiPrescription } from "./services/aiPrescriptionService";
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+
+      // Secure Server-Side AI Prescription Endpoint (API key is 100% hidden from client browser)
+      if (url.pathname === "/api/ai-prescription" && request.method === "POST") {
+        try {
+          const body = (await request.json()) as { query?: string };
+          const query = body?.query || "";
+          const envObj = env as Record<string, string> | undefined;
+          const apiKey = envObj?.GEMINI_API_KEY || (typeof process !== "undefined" ? process.env?.GEMINI_API_KEY : "") || "";
+          const result = await generateServerAiPrescription(query, apiKey);
+          return new Response(JSON.stringify(result), {
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          });
+        } catch (err: unknown) {
+          const errorMsg = err instanceof Error ? err.message : "AI generation failed";
+          return new Response(JSON.stringify({ error: errorMsg }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+          });
+        }
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);

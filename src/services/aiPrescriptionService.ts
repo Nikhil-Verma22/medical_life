@@ -29,18 +29,13 @@ const MODEL_CASCADE = [
   "gemini-flash-latest",   // Fallback #3: Latest production flash
 ];
 
-const GEMINI_API_KEY =
-  (typeof import.meta !== "undefined" && import.meta.env?.VITE_GEMINI_API_KEY) ||
-  (typeof process !== "undefined" && process.env?.GEMINI_API_KEY) ||
-  "";
-
 /**
- * Call Gemini API with automatic model cascade fallback
+ * Server-Side Gemini API Caller (API key is 100% private to server)
  */
-async function callGeminiCascade(prompt: string, systemInstruction: string): Promise<{ text: string; model: string }> {
+async function callGeminiCascadeServer(prompt: string, systemInstruction: string, apiKey: string): Promise<{ text: string; model: string }> {
   for (const model of MODEL_CASCADE) {
     try {
-      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
       const payload = {
         contents: [{ parts: [{ text: prompt }] }],
         systemInstruction: { parts: [{ text: systemInstruction }] },
@@ -64,10 +59,10 @@ async function callGeminiCascade(prompt: string, systemInstruction: string): Pro
           return { text, model };
         }
       } else {
-        console.warn(`[Gemini Cascade] Model ${model} returned status ${res.status}. Trying next fallback...`);
+        console.warn(`[Gemini Cascade Server] Model ${model} returned status ${res.status}. Trying next fallback...`);
       }
     } catch (err) {
-      console.warn(`[Gemini Cascade] Error calling model ${model}:`, err);
+      console.warn(`[Gemini Cascade Server] Error calling model ${model}:`, err);
     }
   }
 
@@ -75,12 +70,11 @@ async function callGeminiCascade(prompt: string, systemInstruction: string): Pro
 }
 
 /**
- * Main Service Function: Generates AI Prescription grounded with real Content DB
+ * Server-Only AI Prescription Generator (Called by Cloudflare Worker / Server Route)
  */
-export async function getAiPrescription(userQuery: string): Promise<PrescriptionResult> {
+export async function generateServerAiPrescription(userQuery: string, apiKey: string): Promise<PrescriptionResult> {
   const q = userQuery.trim().toLowerCase();
 
-  // Basic Non-Medical Topic Guardrail Check
   const isNonMedicalTopic =
     q.includes("recipe") ||
     q.includes("food recipe") ||
@@ -97,7 +91,10 @@ export async function getAiPrescription(userQuery: string): Promise<Prescription
     };
   }
 
-  // Curate a compact database index for Gemini ground-truth mapping
+  if (!apiKey) {
+    return getLocalSmartFallback(userQuery);
+  }
+
   const movieSample = MEDICAL_MOVIES.slice(0, 35).map((m) => ({ id: m.id, title: m.title, theme: m.medicalTheme, mood: m.moodTag }));
   const songSample = MEDICAL_SONGS.slice(0, 25).map((s) => ({ id: s.id, title: s.title, artist: s.artist, vibe: s.medVibe }));
   const bookSample = MEDICAL_BOOKS.slice(0, 25).map((b) => ({ id: b.id, title: b.title, author: b.author, category: b.category }));
@@ -137,10 +134,9 @@ ${JSON.stringify(gameSample)}
 Select the most therapeutic combination and provide your clinical mentor prescription in JSON.`;
 
   try {
-    const { text, model } = await callGeminiCascade(prompt, systemInstruction);
+    const { text, model } = await callGeminiCascadeServer(prompt, systemInstruction, apiKey);
     const parsed = JSON.parse(text);
 
-    // Resolve verified items from authentic database
     const movie = (MEDICAL_MOVIES.find((m) => m.id === parsed.selectedMovieId) ||
       MEDICAL_MOVIES.find((m) => m.title.toLowerCase().includes(parsed.selectedMovieTitle?.toLowerCase() || "")) ||
       MEDICAL_MOVIES[0]);
@@ -167,9 +163,34 @@ Select the most therapeutic combination and provide your clinical mentor prescri
       modelUsed: model,
     };
   } catch (error) {
-    console.warn("[getAiPrescription] Gemini cascade failed, activating Local Smart Fallback Engine:", error);
+    console.warn("[generateServerAiPrescription] Gemini cascade failed, activating Local Smart Fallback Engine:", error);
     return getLocalSmartFallback(userQuery);
   }
+}
+
+/**
+ * Client-Side Service Function: Calls the secure server API proxy without exposing any API keys to the browser
+ */
+export async function getAiPrescription(userQuery: string): Promise<PrescriptionResult> {
+  try {
+    const res = await fetch("/api/ai-prescription", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: userQuery }),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (data && !data.error) {
+        return data as PrescriptionResult;
+      }
+    }
+  } catch (err) {
+    console.warn("[getAiPrescription] Server proxy request failed, falling back to local matcher:", err);
+  }
+
+  // Fallback if offline or server route is unavailable
+  return getLocalSmartFallback(userQuery);
 }
 
 /**

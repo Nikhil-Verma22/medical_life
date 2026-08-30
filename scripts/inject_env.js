@@ -27,6 +27,8 @@ loadEnv();
 const supabaseUrl = process.env.VITE_SUPABASE_URL || "https://jvyudlqbzknossfcfrqd.supabase.co";
 const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2eXVkbHFiemtub3NzZmNmcnFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc4NDgxNzgsImV4cCI6MjEwMzQyNDE3OH0.gRktWCMQJlQA2h08kCKj53l2nfXGGRenF7oB-KWdii4";
 
+const geminiKey = process.env.GEMINI_API_KEY || "";
+
 const paths = [
   path.resolve('.output/public/form-filling/index.html'),
   path.resolve('dist/form-filling/index.html'),
@@ -53,6 +55,16 @@ paths.forEach((targetPath) => {
   }
 });
 
-if (!injected) {
-  console.warn(`⚠️ Warning: Built files not found in paths: ${paths.join(', ')}.`);
+// Inject server-side secret vars into .output/server/wrangler.json for Cloudflare Workers
+const serverWranglerPath = path.resolve('.output/server/wrangler.json');
+if (fs.existsSync(serverWranglerPath) && geminiKey) {
+  try {
+    const wranglerConfig = JSON.parse(fs.readFileSync(serverWranglerPath, 'utf8'));
+    wranglerConfig.vars = wranglerConfig.vars || {};
+    wranglerConfig.vars.GEMINI_API_KEY = geminiKey;
+    fs.writeFileSync(serverWranglerPath, JSON.stringify(wranglerConfig, null, 2), 'utf8');
+    console.log(`✅ Injected server-side GEMINI_API_KEY into ${serverWranglerPath}`);
+  } catch (err) {
+    console.error('Error injecting into server wrangler.json:', err);
+  }
 }
