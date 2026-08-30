@@ -45,6 +45,71 @@ interface ChatMessage {
   isGuardrailWarning?: boolean;
 }
 
+function renderMarkdownSpans(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|"[^"]+"|\bhttps?:\/\/[^\s]+)/g);
+
+  return parts.map((part, idx) => {
+    if (!part) return null;
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={idx} className="font-bold text-white tracking-wide">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith("*") && part.endsWith("*")) {
+      return (
+        <em key={idx} className="italic text-neutral-300 font-serif">
+          {part.slice(1, -1)}
+        </em>
+      );
+    }
+    if (part.startsWith('"') && part.endsWith('"')) {
+      return (
+        <span key={idx} className="font-semibold text-amber-300 bg-amber-400/10 px-1 py-0.5 rounded border border-amber-400/20">
+          {part}
+        </span>
+      );
+    }
+    return part;
+  });
+}
+
+function FormattedChatText({ content }: { content: string }) {
+  if (!content) return null;
+
+  const paragraphs = content.split(/\n\s*\n/);
+
+  return (
+    <div className="space-y-2.5 text-neutral-200 text-xs sm:text-[13px] leading-relaxed">
+      {paragraphs.map((p, pIdx) => {
+        const lines = p.split("\n");
+        return (
+          <div key={pIdx} className="space-y-1">
+            {lines.map((line, lIdx) => {
+              const trimmed = line.trim();
+              const isBullet = trimmed.startsWith("• ") || trimmed.startsWith("- ") || trimmed.startsWith("* ");
+              const cleanText = isBullet ? trimmed.replace(/^[•\-*]\s+/, "") : line;
+              const formattedSpans = renderMarkdownSpans(cleanText);
+
+              if (isBullet) {
+                return (
+                  <div key={lIdx} className="flex items-start gap-2 pl-2">
+                    <span className="text-amber-400 font-bold select-none">•</span>
+                    <div className="flex-1">{formattedSpans}</div>
+                  </div>
+                );
+              }
+
+              return <p key={lIdx}>{formattedSpans}</p>;
+            })}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame }: AiSuggestionHubProps) {
   const [activeTab, setActiveTab] = useState<"movies" | "songs" | "books" | "games" | "ai_ask">("movies");
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -511,27 +576,32 @@ export function AiSuggestionHub({ isOpen, onClose, onPlayTrack, onOpenChessGame 
                     }`}
                   >
                     {/* Standard Text or Guardrail */}
-                    {msg.content && <div className="whitespace-pre-wrap">{msg.content}</div>}
+                    {msg.content && (
+                      <FormattedChatText content={msg.content} />
+                    )}
 
                     {/* Structured AI Prescription Result with Real Links */}
                     {msg.prescription && (
-                      <div className="space-y-3">
-                        {/* Analysis & Model Badge */}
-                        <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-2">
-                          <p className="font-semibold text-amber-300 text-xs sm:text-sm">
-                            {msg.prescription.analysis}
-                          </p>
+                      <div className="space-y-3.5">
+                        {/* Crisp Headline & Model Badge */}
+                        <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-2.5">
+                          <div className="flex items-center gap-2">
+                            <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
+                            <h4 className="font-bold text-amber-400 text-xs sm:text-sm tracking-wide">
+                              {msg.prescription.analysis || "Clinical AI Prescription"}
+                            </h4>
+                          </div>
                           {msg.prescription.modelUsed && (
-                            <span className="shrink-0 rounded-full bg-amber-400/20 border border-amber-400/40 px-2 py-0.5 font-mono text-[9px] font-bold text-amber-300">
+                            <span className="shrink-0 rounded-full bg-amber-400/15 border border-amber-400/30 px-2 py-0.5 font-mono text-[9px] font-bold text-amber-300">
                               {msg.prescription.modelUsed.replace("models/", "")}
                             </span>
                           )}
                         </div>
 
-                        {/* Conversational Chat Message & Honest Elaboration */}
+                        {/* Conversational Chat Message & Markdown Elaboration */}
                         {msg.prescription.chatMessage && (
-                          <div className="rounded-xl bg-white/[0.05] border border-white/10 p-3 text-neutral-200 text-xs sm:text-[13px] leading-relaxed shadow-inner">
-                            <p className="whitespace-pre-wrap">{msg.prescription.chatMessage}</p>
+                          <div className="py-0.5">
+                            <FormattedChatText content={msg.prescription.chatMessage} />
                           </div>
                         )}
 

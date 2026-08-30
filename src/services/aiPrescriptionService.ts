@@ -257,15 +257,18 @@ CRITICAL INSTRUCTION:
    - If the user ONLY asked for games/simulators, return 1-3 game recommendations in "selectedGames", and leave others EMPTY.
    - If the user asked a general question or asked for a full prescription, return 1 movie, 1 song, 1 book, and 1 game.
 
-2. Chat Message & Elaboration:
-   - In "chatMessage", write a friendly, conversational message directly to the student explaining the curated recommendations.
-   - Briefly elaborate on why these choices fit their situation.
-   - Honestly reflect on the match: if the query was slightly broad or if they might need something specific (e.g. practical OSCE guides, Hindi dubbed films, NEET mnemonics), let them know in the message and invite them to refine!
+2. Structure & Formatting Guidelines:
+   - "analysis": Must be a SHORT, CRISP title / headline (3 to 6 words max, e.g. "Forensic Medicine Cinema Curation" or "Pharmacology Core Reading Guide"). DO NOT write long paragraphs in analysis.
+   - "chatMessage": Write a beautifully structured, modern conversational response like a senior doctor/mentor.
+     - Use **bolding** for important movie/book titles and clinical concepts.
+     - Use *italics* for vibes or emotional context.
+     - Explain why each recommended item was selected and how it supports their learning or mindset.
+     - Include an honest match assessment: if the search was broad or if they might want something more specific (e.g. Hindi dubbed, flashcards, practical exam OSCEs), invite them to narrow it down!
 
 Always return response in valid JSON matching this schema:
 {
-  "chatMessage": "Friendly conversational message explaining the recommendations, how they help, and an honest reflection inviting follow-ups or adjustments.",
-  "analysis": "1-2 empathetic sentences directly addressing the user's specific request and clinical topic",
+  "analysis": "Short 3-6 word headline title",
+  "chatMessage": "Conversational mentor message using **bold** for key names and clear paragraphs explaining the curated choices and match context.",
   "mentorNote": "A short, motivating clinical insight or shayari for the healer",
   "requestedCategory": "movie" | "song" | "book" | "game" | "all",
   "selectedMovies": [ { "id": "movie-id", "reason": "Why this movie specifically fits their query" } ],
@@ -343,7 +346,7 @@ Provide your tailored clinical mentor prescription in JSON matching the exact ca
 
     return {
       chatMessage: parsed.chatMessage,
-      analysis: parsed.analysis || `Prescription for "${userQuery}":`,
+      analysis: parsed.analysis || `Prescription for "${userQuery}"`,
       mentorNote: parsed.mentorNote,
       requestedCategory: resultCategory,
       movies: resolvedMovies?.length ? resolvedMovies : undefined,
@@ -403,11 +406,11 @@ function getLocalSmartFallback(
       3
     );
 
-    const titleList = topMovies.map((m) => `"${m.title}"`).join(", ");
+    const titleList = topMovies.map((m) => `**"${m.title}"**`).join(", ");
 
     return {
-      chatMessage: `Here are the top medical cinema picks for you (${titleList}). I specifically prioritized titles highlighting clinical dedication and surgeon tenacity. If you prefer light-hearted comedy or intense ER drama instead, feel free to tell me so I can fine-tune your watch list!`,
-      analysis: `🎬 Medical Cinema Prescription for "${userQuery}":`,
+      analysis: "🎬 Medical Cinema Curation",
+      chatMessage: `Hello future clinician! I've curated top medical cinema selections for you: ${titleList}.\n\nThese titles specifically showcase **clinical dedication**, surgical discipline, and the human ethics of medical practice. They provide valuable contextual immersion alongside your academic coursework.\n\n*Note on Match:* If you were looking for light-hearted hospital comedy or high-yield surgical procedure documentaries instead, just let me know and I'll adjust the recommendations!`,
       mentorNote: "Immerse yourself in cinema that captures the human essence and resilience of clinical practice.",
       requestedCategory: "movie",
       movies: topMovies.map((m) => ({
@@ -427,11 +430,11 @@ function getLocalSmartFallback(
       3
     );
 
-    const titleList = topSongs.map((s) => `"${s.title}"`).join(", ");
+    const titleList = topSongs.map((s) => `**"${s.title}"**`).join(", ");
 
     return {
-      chatMessage: `I've queued up these focus tracks (${titleList}) designed to calm cognitive overload and keep your mental stamina high. If this tempo doesn't match your study rhythm, let me know if you want slow ambient lofi or energizing fast beats!`,
-      analysis: `🎵 Study Anthems & Audio for "${userQuery}":`,
+      analysis: "🎵 Study Anthems & Focus Audio",
+      chatMessage: `I've queued up these deep-focus tracks for your study session: ${titleList}.\n\nThese compositions are tuned to lower sympathetic overdrive, promote steady **alpha-wave focus**, and support extended study endurance during intense preparation.\n\n*Refinement:* If you prefer ambient lofi beats or high-energy rhythmic motivation instead, feel free to ask!`,
       mentorNote: "Let the soundscapes calm your nervous system and lock in deep clinical concentration.",
       requestedCategory: "song",
       songs: topSongs.map((s) => ({
@@ -451,11 +454,11 @@ function getLocalSmartFallback(
       3
     );
 
-    const titleList = topBooks.map((b) => `"${b.title}"`).join(", ");
+    const titleList = topBooks.map((b) => `**"${b.title}"**`).join(", ");
 
     return {
-      chatMessage: `Here is your curated reading list (${titleList}). These books offer authoritative clinical understanding and inspiring doctor memoirs. If you were searching for quick revision mnemonics or clinical exam tables instead, just let me know and I'll adjust the literature!`,
-      analysis: `📚 Clinical Books & Literature for "${userQuery}":`,
+      analysis: "📚 Clinical Books & Medical Literature",
+      chatMessage: `Here are the foundational reading recommendations for your query: ${titleList}.\n\nThese selections balance **authoritative medical science** with invaluable clinical perspectives from master physicians, helping you connect textbook pathology to real patient care.\n\n*Refinement:* If you need concise exam revision tables, high-yield flashcard summaries, or clinical OSCE guides, just tell me!`,
       mentorNote: "Words from master clinicians offer clarity and wisdom when medicine feels overwhelming.",
       requestedCategory: "book",
       books: topBooks.map((b) => ({
@@ -475,11 +478,11 @@ function getLocalSmartFallback(
       3
     );
 
-    const titleList = topGames.map((g) => `"${g.title}"`).join(", ");
+    const titleList = topGames.map((g) => `**"${g.title}"**`).join(", ");
 
     return {
-      chatMessage: `Ready for some clinical downtime? I selected (${titleList}) to test your diagnostic speed and surgical reflexes in a fun environment. If you want a more casual browser game or multiplayer mode, just tell me!`,
-      analysis: `🎮 Surgery & Hospital Games for "${userQuery}":`,
+      analysis: "🎮 Surgery & Hospital Simulation",
+      chatMessage: `Ready for a tactical clinical break? I've selected: ${titleList}.\n\nThese titles let you sharpen your **diagnostic intuition**, triage strategy, and surgical timing in an engaging, low-pressure simulation environment.\n\n*Refinement:* Looking for multiplayer friendly duels or pure turn-based medical chess instead? Let me know!`,
       mentorNote: "Unwind while training tactical decision-making and surgical precision.",
       requestedCategory: "game",
       games: topGames.map((g) => ({
@@ -520,8 +523,8 @@ function getLocalSmartFallback(
   )[0] || MEDICAL_GAMES[0];
 
   return {
-    chatMessage: `I've prepared a complete clinical care package for your situation: Movie "${topMovie.title}" for mental reset, "${topSong.title}" for study focus, "${topBook.title}" for clinical inspiration, and "${topGame.title}" to unwind. If you want more recommendations focused specifically on just one of these, let me know!`,
-    analysis: `🩺 Full Clinical Prescription for "${userQuery}":`,
+    analysis: "🩺 Full Clinical Care Package",
+    chatMessage: `I've assembled a balanced clinical care prescription for your current state:\n\n• **Movie:** **"${topMovie.title}"** — for a refreshing mental reset.\n• **Study Anthem:** **"${topSong.title}"** — to sustain deep concentration.\n• **Clinical Literature:** **"${topBook.title}"** — for physician perspective.\n• **Downtime Simulator:** **"${topGame.title}"** — to relax while testing surgical reflexes.\n\n*Refinement:* If you want more recommendations focused specifically on just one of these areas, simply ask!`,
     mentorNote: "Stay steadfast, Doctor. Every great clinician was once a tired student pushing through the night.",
     requestedCategory: "all",
     movies: [{ ...topMovie, recommendationReason: `Inspiring clinical cinema focusing on ${topMovie.medicalTheme}.` }],
